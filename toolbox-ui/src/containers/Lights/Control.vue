@@ -22,12 +22,6 @@
 
 			<list class="LightsControl__list" v-model="lightsInputs"/>
 
-			<save-as-theme-modal
-				:visible="page.isSaveAsThemeModalVisible"
-				:theme="{ lights: lightsInputs }"
-				@submitted="goToThemesList"
-				@hidden="hideSaveAsThemeModal"/>
-
 			<action-bar v-if="!page.submitted" @update="submit"/>
 
 		</template>
@@ -42,14 +36,12 @@ import Pusher from 'pusher-js';
 import config from '../../lib/config';
 import toastService from '../../lib/toastService';
 import DefaultLayout from '../../components/DefaultLayout.vue';
-import SaveAsThemeModal from '../Themes/components/SaveAsThemeModal.vue';
 import List from './components/List.vue';
 import ActionBar from './components/ActionBar.vue';
 
 export default {
 	components: {
 		DefaultLayout,
-		SaveAsThemeModal,
 		List,
 		ActionBar
 	},

@@ -6,7 +6,7 @@
 				<b-navbar-brand
 					class="AppHeader__title"
 					href="#"
-					v-text="'Home Orchestrator'"/>
+					v-text="'Holistic Toolbox'"/>
 
 				<b-nav class="AppHeader__menu">
 					<b-nav-item class="AppHeader__menu__item">
