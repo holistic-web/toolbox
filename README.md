@@ -1,9 +1,12 @@
-# holistic-toolbox
-A collection of useful tools
+# Holistic Toolbox
 
-This toolbox allows you to:
+A collection of useful tools, to service all areas of development.
 
-- Run OCR
-- Do other stuff
-- JSON Formatter
-- Baser 64 Image encoder (renderer)
+## Tools
+To see the list of tools, navigate to the `/tools` folder.
+
+## Contributing
+Contributions are very welcome, just raise an issue / open a pull request!
+
+### Creating a new tool
+See [`.project/processes/creating-new-tool`](.project/processes/creating-new-tool)
