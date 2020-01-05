@@ -9,4 +9,4 @@ To see the list of tools, navigate to the `/tools` folder.
 Contributions are very welcome, just raise an issue / open a pull request!
 
 ### Creating a new tool
-See [`.project/processes/creating-new-tool`](.project/processes/creating-new-tool)
+See [`.project/processes/creating-new-tool`](.project/processes/creating-new-tool). If you're looking for inspiration, check out: [`project/tool-ideas`](/project/tool-ideas)
