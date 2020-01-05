@@ -5,7 +5,7 @@ A collection of useful tools, to service all areas of development.
 ## Tools
 To see the list of tools, navigate to the [`tools`](/tools) folder.
 
-## Landing Page
+## Home
 We will build a landing page that links to all of our tools. Soon...
 
 ## Contributing
