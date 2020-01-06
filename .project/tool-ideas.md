@@ -9,4 +9,9 @@ It formats JSON. Nicely.
 Extracts text from an image
 
 ## Base 64 Image Encoder
-Encodes base 64 images
+Encodes images into base 64 images
+
+## Integer conversions
+Converts integers into different formats
+
+https://cryptii.com/pipes/integer-converter (confusing / overkill example)
