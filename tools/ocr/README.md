@@ -7,7 +7,7 @@ Can we make this profitable? We will have to research the cost of computing and 
 Can we make this secure? Yes but it will probably be difficult. 
 There are many considerations and we can't afford to be charged lots of £, $ or €
 
-If we can make it profitable then the process will be as follows:
+If we can make it profitable and secure then the process will be as follows:
 
 1. Recieve image from UI
 
