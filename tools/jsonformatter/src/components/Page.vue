@@ -9,6 +9,7 @@
                 <b-form-textarea class="page__input" id="input-json" rows="12" max-rows="100"></b-form-textarea>
                 <b-button pill variant="outline-dark" @click="submit">Submit</b-button>
             </b-form-group>
+            <img class="page__arrow" alt="arrow" src="../assets/arrow.svg">
 		</b-jumbotron>
 	</div>
 </template>
@@ -31,6 +32,12 @@ export default {
 }
 
 .page {
+    &__arrow{
+     max-width: 2rem;
+     margin-left: 2rem;
+     transform: translate(0px,-300px);
+    }
+
 	&__input{
         margin-bottom: 1rem;
     }
