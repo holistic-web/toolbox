@@ -1,5 +1,5 @@
 <template>
-  <div class="AppHeader">
+  <div class="app-header">
     <div>
         <b-navbar type="dark" variant="dark">
             <!-- left partition -->
