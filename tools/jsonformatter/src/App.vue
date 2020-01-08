@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <app-header />
-    <page />
-    <ad-banner />
-  </div>
+	<div id="app">
+		<app-header />
+		<page />
+		<ad-banner />
+	</div>
 </template>
 
 <script>
@@ -12,11 +12,11 @@ import Page from './components/Page.vue'
 import AdBanner from './components/AdBanner.vue'
 
 export default {
-  name: 'app',
-  components: {
-    AppHeader,
-    Page,
-    AdBanner
-  }
+	name: 'app',
+	components: {
+		AppHeader,
+		Page,
+		AdBanner
+	}
 }
 </script>

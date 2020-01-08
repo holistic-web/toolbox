@@ -19,7 +19,7 @@ export default {
 	name: 'Page',
 	methods: {
 		submit() {
-            alert("Form Submitted")
+ 			alert("Form Submitted")
 		}
 	}
 }
