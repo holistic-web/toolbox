@@ -2,4 +2,4 @@
 
 This is the list of tools we currently have available in the Holistic Toolbox™®.
 
-- [JSON Formatter](/json-formatter)
+- [JSON Formatter](/tools/json-formatter)
