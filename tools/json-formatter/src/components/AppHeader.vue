@@ -4,7 +4,7 @@
 
 			<!-- left partition -->
 			<b-navbar-nav>
-				<b-nav-item href="#">{{name}}</b-nav-item>
+				<h1 class="AppHeader__name" v-text="name"/>
 
 				<!-- Navbar dropdowns #TODO: implement once we have other services! -->
 				<!-- <b-nav-item-dropdown text="" right>
@@ -30,3 +30,12 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+.AppHeader {
+
+	&__name {
+		color: #fff;
+	}
+}
+</style>
