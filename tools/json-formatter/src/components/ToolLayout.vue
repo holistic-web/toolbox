@@ -1,7 +1,7 @@
 <template>
 	<div class="ToolLayout">
 
-		<app-header/>
+		<app-header :name="name"/>
 
 		<slot/>
 
@@ -11,6 +11,9 @@
 import AppHeader from './AppHeader';
 
 export default {
+	props: {
+		name: { type: String, required: true }
+	},
 	components: {
 		AppHeader
 	}
@@ -21,5 +24,7 @@ export default {
 .ToolLayout {
 	display: flex;
 	flex-direction: column;
+	height: 100vh;
+	width: 100%;
 }
 </style>
