@@ -37,6 +37,7 @@
 			<b-form-textarea
 				class="JsonFormatter__input"
 				v-model="formattedJSON"
+				rows="20"
 				disabled/>
 
 			<app-button
