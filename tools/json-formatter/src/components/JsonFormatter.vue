@@ -27,6 +27,13 @@ export default {
 	methods: {
 		submit() {
 			alert("Form Submitted")
+			/**
+			 * #TODO:
+			 *
+			 * Use JSON.parse to attempt to parse their input and then hide the text input
+			 * Use JSON.stringify to re format their input and show, maybe in a jumbotron?
+			 * Make sure we add a button such as 'Format again' to reset the page to it's orginal state
+			 */
 		}
 	}
 }
