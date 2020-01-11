@@ -7,7 +7,6 @@
 			<slot/>
 		</section>
 
-
 	</div>
 </template>
 <script>
