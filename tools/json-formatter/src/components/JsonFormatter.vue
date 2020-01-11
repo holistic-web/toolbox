@@ -6,6 +6,15 @@
 			label="Add your JSON here:"
 			label-for="JsonFormatter-input">
 
+			<b-form-textarea
+				class="JsonFormatter__input"
+				id="input-json"
+				v-model="jsonString"
+				rows="12"
+				max-rows="100"/>
+			
+			<span class="JsonFormatter__errorMessage" v-text="errorMessage"/>
+
 			<b-form-group>
 				<b-form-radio-group
 					class="JsonFormatter__options"
@@ -15,15 +24,6 @@
 					button-variant="outline-dark"
 					size="md"/>
 			</b-form-group>
-
-			<b-form-textarea
-				class="JsonFormatter__input"
-				id="input-json"
-				v-model="jsonString"
-				rows="12"
-				max-rows="100"/>
-			
-			<span class="JsonFormatter__errorMessage" v-text="errorMessage"/>
 			
 			<app-button
 				class="JsonFormatter__button"
