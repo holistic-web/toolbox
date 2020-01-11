@@ -3,7 +3,10 @@
 
 		<app-header :name="name"/>
 
-		<slot/>
+		<section class="ToolLayout__tool">
+			<slot/>
+		</section>
+
 
 	</div>
 </template>
@@ -26,5 +29,9 @@ export default {
 	flex-direction: column;
 	height: 100vh;
 	width: 100%;
+
+	&__tool {
+		padding: 1rem;
+	}
 }
 </style>
