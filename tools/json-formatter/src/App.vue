@@ -1,22 +1,19 @@
 <template>
 	<div id="app">
-		<app-header />
-		<page />
-		<ad-banner />
+		<tool-layout>
+			<json-formatter/>
+		</tool-layout>
 	</div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
-import Page from './components/Page.vue'
-import AdBanner from './components/AdBanner.vue'
+import ToolLayout from './components/ToolLayout';
+import JsonFormatter from './components/JsonFormatter'
 
 export default {
-	name: 'app',
 	components: {
-		AppHeader,
-		Page,
-		AdBanner
+		ToolLayout,
+		JsonFormatter
 	}
 }
 </script>
