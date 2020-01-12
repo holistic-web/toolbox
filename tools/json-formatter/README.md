@@ -2,6 +2,8 @@
 
 This tool validates and formats JSON entered by a developer. It is written in Vue.js.
 
+Hosted at https://json-formatter.holistic-toolbox.com/
+
 ## Development
 To develop for this project:
 1. Install dependencies
