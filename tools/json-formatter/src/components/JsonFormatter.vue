@@ -9,11 +9,14 @@
 			<b-form-textarea
 				class="JsonFormatter__input"
 				id="input-json"
-				v-model="jsonString"
-				rows="12"
-				max-rows="100"/>
-			
-			<span class="JsonFormatter__errorMessage" v-text="errorMessage"/>
+				rows="20"
+				v-model="jsonString"/>
+
+			<b-jumbotron
+				v-if="errorMessage"
+				:lead="errorMessage"
+				bg-variant="danger"
+				text-variant="light"/>
 
 			<b-form-group>
 				<b-form-radio-group
@@ -24,7 +27,7 @@
 					button-variant="outline-dark"
 					size="md"/>
 			</b-form-group>
-			
+
 			<app-button
 				class="JsonFormatter__button"
 				v-text="'Format'"
@@ -34,19 +37,27 @@
 
 		<div v-else>
 
+			<div class="mb-3">
+				<app-button
+					class="JsonFormatter__button ml-3"
+					v-clipboard="formattedJSON">
+					Copy Ouput
+					<img class="JsonFormatter__icon" src="../assets/icon-copy.svg"/>
+				</app-button>
+
+				<app-button
+					class="JsonFormatter__button"
+					v-text="'Format again'"
+					@click.native="reset"/>
+			</div>
+
 			<b-form-textarea
 				class="JsonFormatter__input"
 				v-model="formattedJSON"
 				rows="20"
 				disabled/>
-
-			<app-button
-				class="JsonFormatter__button"
-				v-text="'Format again'"
-				@click.native="reset"/>
-
 		</div>
-		
+
 	</div>
 </template>
 
@@ -115,6 +126,11 @@ export default {
 
 	&__button {
 		float: right;
+	}
+
+	&__icon {
+		width: 1rem;
+		height: 1rem;
 	}
 }
 </style>

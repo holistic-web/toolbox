@@ -11,7 +11,8 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.4.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-clipboard": "0.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

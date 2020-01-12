@@ -12,3 +12,8 @@ To develop for this project:
 	```
 	npm run serve
 	```
+
+## Road Map
+Some ideas for the future of this tool are:
+- allow custom values for the numbers of spaces used
+- use a nicer editor than bootstrap textarea for entering and displaying text
