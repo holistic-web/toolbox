@@ -16,7 +16,7 @@
 
 			<!-- right partition-->
 			<b-navbar-nav class="ml-auto">
-				<img alt="Vue logo" src="../assets/logo.png">
+				<h2 class="AppHeader__branding">Holistic Toolbox</h2>
 			</b-navbar-nav>
 
 		</b-navbar>
@@ -36,6 +36,10 @@ export default {
 
 	&__name {
 		color: #fff;
+	}
+
+	&__branding {
+		color: #000;
 	}
 }
 </style>
