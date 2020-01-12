@@ -7,12 +7,11 @@
 </template>
 
 <script>
-import ToolLayout from './components/ToolLayout';
+// import { ToolLayout } from 'toolbox-layout';
 import JsonFormatter from './components/JsonFormatter'
 
 export default {
 	components: {
-		ToolLayout,
 		JsonFormatter
 	}
 }

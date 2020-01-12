@@ -62,11 +62,11 @@
 </template>
 
 <script>
-import AppButton from './AppButton';
+// import { AppButton } from 'toolbox-layout';
 
 export default {
 	components: {
-		AppButton
+		// AppButton
 	},
 	data() {
 		return {

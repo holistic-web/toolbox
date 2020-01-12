@@ -1,18 +1,24 @@
 {
-	"name": "json-formatter",
-	"version": "0.1.0",
-	"private": true,
+	"name": "toolbox-layout",
+	"version": "0.1.4",
+	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
+		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
 		"lint": "vue-cli-service lint"
 	},
+	"files": [
+		"dist/*",
+		"src/*",
+		"public/*",
+		"*.json",
+		"*.js"
+	],
 	"dependencies": {
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.1.0",
 		"core-js": "^3.4.4",
-		"toolbox-layout": "^0.1.4",
-		"v-clipboard": "^2.2.2",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
