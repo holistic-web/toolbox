@@ -8,6 +8,7 @@ It is published on npm at: https://www.npmjs.com/package/toolbox-layout
 To use this library in a Vue app, simply include:
 ```
 import 'toolbox-layout';
+import 'toolbox-layout/dist/toolbox-layout.css';
 ```
 in your main.js file to make the components available
 
