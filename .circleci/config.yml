@@ -1,0 +1,101 @@
+version: 2.1
+
+jobs:
+
+  checkout_and_install:
+    docker:
+      - image: circleci/node:8-stretch
+    steps:
+      - checkout
+
+      # If dependencies haven't changed, load them from CircleCI cache
+      - restore_cache:
+          keys:
+            - v3-npm-deps-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+            - v3-npm-deps-{{ .Branch }}-{{ checksum "package.json" }}
+            - v3-npm-deps-{{ .Branch }}
+            - v3-npm-deps-
+
+      - run:
+          name: install NPM dependencies
+          command: |
+            sudo npm install -g npm
+            sudo apt-get update
+            npm install
+
+      - save_cache:
+          key: v3-npm-deps-{{ .Branch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+            - .local
+
+  lint:
+    docker:
+      - image: circleci/node:8-stretch
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: run lint
+          command: |
+            npm run lint
+
+  build:
+    docker:
+      - image: circleci/node:8-stretch
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: run build
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+            - .local
+
+  deploy:
+    docker:
+      - image: circleci/node:8-stretch
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: deploy
+          command: |
+            npm run deploy
+
+workflows:
+  version: 2.1
+
+  CI_pipeline:
+    jobs:
+
+      - checkout_and_install
+
+      - lint:
+          requires:
+            - checkout_and_install
+
+      - build:
+          requires:
+            - checkout_and_install
+            - lint
+
+      - deploy:
+          requires:
+            - checkout_and_install
+            - lint
+            - build
+          filters:
+            branches:
+              only:
+                - master
