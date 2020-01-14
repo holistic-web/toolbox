@@ -58,14 +58,26 @@
 				disabled/>
 		</div>
 
+		<b-form-group
+				label="About"
+				label-for="aboutContent">
+				<markdown-editor
+					id="aboutContent"
+					class="PostEdit__content"
+					:value="editedContent"
+					@update="updateEditedContent"/>
+		</b-form-group>
+
 	</div>
 </template>
 
 <script>
 // import { AppButton } from 'toolbox-layout';
+import MarkdownEditor from './MarkdownEditor';
 
 export default {
 	components: {
+		MarkdownEditor
 		// AppButton
 	},
 	data() {
@@ -133,4 +145,12 @@ export default {
 		height: 1rem;
 	}
 }
+
+.PostEdit {
+	&__content {
+		min-height: 300px;
+		max-height: 800px;
+	}
+}
+
 </style>
