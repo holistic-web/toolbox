@@ -15,3 +15,7 @@ Encodes images into base 64 images
 Converts integers into different formats
 
 https://cryptii.com/pipes/integer-converter (confusing / overkill example)
+
+## geolocation converter + reverse (lat and long)
+
+## Unix timestamp converter
