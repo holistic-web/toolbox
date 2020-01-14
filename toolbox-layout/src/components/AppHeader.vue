@@ -1,6 +1,6 @@
 <template>
 	<header class="AppHeader">
-		<b-navbar type="dark" variant="dark">
+		<b-navbar>
 
 			<!-- left partition -->
 			<b-navbar-nav>
@@ -32,14 +32,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/theme';
+
 .AppHeader {
+	background-color: $dark;
 
 	&__name {
-		color: #fff;
+		color: $primary;
 	}
 
 	&__branding {
-		color: #000;
+		color: $secondary;
 	}
 }
 </style>
