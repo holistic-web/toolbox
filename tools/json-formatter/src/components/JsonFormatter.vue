@@ -24,7 +24,7 @@
 					v-model="whitespace"
 					:options="whitespaceOptions"
 					buttons
-					button-variant="outline-dark"
+					button-variant="outline-primary"
 					size="md"/>
 			</b-form-group>
 
