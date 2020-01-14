@@ -1,0 +1,30 @@
+@import './colours';
+
+/**
+ * Theme Configuration
+ *
+ * This file provides the theming for toolbox-layout. It is imported in each apps main.js.
+ *
+ * !!!
+ * Ensure to keep this file in sync with information in the Readme.
+ * !!!
+ *
+ **/
+
+$primary: $colour-orange-dark;
+$highlight: $colour-blue;
+$secondary: $colour-blue-light;
+$dark: $colour-blue-dark;
+$light: $colour-white;
+$warning: $colour-pink;
+$danger: $colour-red;
+$success: $colour-green;
+$info: $colour-cream;
+
+// These imports MUST go below the above definitions to apply to the bootstrap theme
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+body {
+	color: $secondary;
+}
