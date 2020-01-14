@@ -1,6 +1,6 @@
 <script>
-// Firebase App (the core Firebase SDK) is always required and
-// must be listed before other Firebase SDKs
+
+// I was not able to install separately which needs to be changed
 // import * as firebase from "firebase/app";
 
 // // Add the Firebase services that you want to use
@@ -9,6 +9,7 @@
 var firebase = require("firebase");
 
 // Your web app's Firebase configuration
+// THIS SHOULD PROBABLY BE ITS OWN FOLDER
 var firebaseConfig = {
     apiKey: "AIzaSyCYyxjgL9YGvKnzax2EBxEI_bl6KxB2nK8",
     authDomain: "holistic-toolbox.firebaseapp.com",
