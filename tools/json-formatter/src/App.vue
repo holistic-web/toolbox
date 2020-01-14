@@ -9,8 +9,8 @@
 
 <script>
 // import { ToolLayout } from 'toolbox-layout';
+import { Analytics } from 'toolbox-layout';
 import JsonFormatter from './components/JsonFormatter'
-import Analytics from './components/Analytics'
 
 export default {
 	components: {
