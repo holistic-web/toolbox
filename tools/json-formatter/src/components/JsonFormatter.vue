@@ -1,80 +1,72 @@
 <template>
 	<div class="JsonFormatter">
 
-		<b-form-group
-			v-if="!alreadyFormatted"
-			label="Add your JSON here:"
-			label-for="JsonFormatter-input">
+		<p>
+			JSON Formatter is a tool to provide quick and easy JSON formatting. Enjoy!
+		</p>
 
-			<b-form-textarea
-				class="JsonFormatter__input"
-				id="input-json"
-				rows="20"
-				v-model="jsonString"/>
+		<div class="JsonFormatter__toolbar">
 
-			<b-jumbotron
-				v-if="errorMessage"
-				:lead="errorMessage"
-				bg-variant="danger"
-				text-variant="light"/>
+			<template v-if="!formatted">
 
-			<b-form-group>
-				<b-form-radio-group
-					class="JsonFormatter__options"
-					v-model="whitespace"
-					:options="whitespaceOptions"
-					buttons
-					button-variant="outline-dark"
-					size="md"/>
-			</b-form-group>
+				<div class="JsonFormatter__toolbar--left">
+					<p>Add your JSON data here</p>
+				</div>
 
-			<app-button
-				class="JsonFormatter__button"
-				v-text="'Format'"
-				@click.native="formatJSON"/>
+				<div class="JsonFormatter__toolbar--right">
+					<b-form-group>
+						<b-form-radio-group
+							class="JsonFormatter__toolbar__button"
+							v-model="whitespace"
+							:options="whitespaceOptions"
+							buttons
+							button-variant="outline-primary"
+							size="sm"/>
+					</b-form-group>
 
-		</b-form-group>
+					<app-button
+						class="JsonFormatter__toolbar__button"
+						v-text="'Format'"
+						size="sm"
+						@click.native="formatJSON"/>
+				</div>
+			</template>
 
-		<div v-else>
+			<template v-else>
+				<div class="JsonFormatter__toolbar--left"/>
+				<div class="JsonFormatter__toolbar--right">
+					<app-button
+						size="sm"
+						class="JsonFormatter__toolbar__button"
+						v-text="'Copy Output'"
+						v-clipboard="jsonString"/>
+					<app-button
+						size="sm"
+						class="JsonFormatter__toolbar__button"
+						v-text="'Reset'"
+						@click.native="reset"/>
+				</div>
+			</template>
 
-			<div class="mb-3">
-				<app-button
-					class="JsonFormatter__button ml-3"
-					v-clipboard="formattedJSON">
-					Copy Ouput
-					<img class="JsonFormatter__icon" src="../assets/icon-copy.svg"/>
-				</app-button>
-
-				<app-button
-					class="JsonFormatter__button"
-					v-text="'Format again'"
-					@click.native="reset"/>
-			</div>
-
-			<b-form-textarea
-				class="JsonFormatter__input"
-				v-model="formattedJSON"
-				rows="20"
-				disabled/>
 		</div>
+
+		<b-form-textarea
+			class="JsonFormatter__input"
+			v-model="jsonString"
+			rows="20"
+			:disabled="formatted"/>
 
 	</div>
 </template>
 
 <script>
-// import { AppButton } from 'toolbox-layout';
 
 export default {
-	components: {
-		// AppButton
-	},
 	data() {
 		return {
-			alreadyFormatted: false,
+			formatted: false,
 			errorMessage: null,
-			parsedJSON: null,
 			jsonString: null,
-			formattedJSON: null,
 			whitespace: '\t',
 			whitespaceOptions: [
 				{ text: 'Tabs', value: '\t' },
@@ -87,24 +79,22 @@ export default {
 		formatJSON() {
 			try {
 				this.errorMessage = false;
-				this.parsedJSON = JSON.parse(this.jsonString);
-				this.formattedJSON = JSON.stringify(
-					this.parsedJSON,
+				const jsonData = JSON.parse(this.jsonString);
+				this.jsonString = JSON.stringify(
+					jsonData,
 					null,
 					this.whitespace
 				);
-				this.alreadyFormatted = true;
+				this.formatted = true;
 			} catch (err) {
 				this.errorMessage = err;
 				throw err;
 			}
 		},
 		reset() {
-			this.alreadyFormatted = false;
+			this.formatted = false;
 			this.errorMessage = null;
-			this.parsedJSON = null;
 			this.jsonString = null;
-			this.formattedJSON = null;
 		}
 	}
 }
@@ -116,21 +106,27 @@ export default {
 	display: flex;
 	flex-direction: column;
 
-	&__options {
-		float: right;
-	}
-
-	&__input{
+	&__toolbar {
 		margin-bottom: 1rem;
+		display: flex;
+		flex-direction: row;
+
+		&--left {
+			display: flex;
+			flex-direction: row;
+			flex-grow: 1;
+		}
+
+		&--right {
+			display: flex;
+			flex-direction: row;
+		}
+
+		&__button {
+			justify-self: flex-end;
+			margin-left: 1rem;
+		}
 	}
 
-	&__button {
-		float: right;
-	}
-
-	&__icon {
-		width: 1rem;
-		height: 1rem;
-	}
 }
 </style>
