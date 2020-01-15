@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<tool-layout name="XML Formatter">
-			<json-formatter/>
+			<xml-formatter/>
 		</tool-layout>
 	</div>
 </template>
