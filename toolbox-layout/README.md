@@ -32,6 +32,8 @@ Firebase analytics have been added to index.js of toolbox-layout
 Navigate to the analytics dashboard through the firebase console for the project
 The docs are here:
 https://firebase.google.com/docs/analytics/get-started?platform=web&authuser=0
+For specific events:
+https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
 
 ## Roadmap
 Some things we'd like to look into in the future are:
