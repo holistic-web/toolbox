@@ -10,7 +10,20 @@ To use this library in a Vue app, simply include:
 import 'toolbox-layout';
 import 'toolbox-layout/dist/toolbox-layout.css';
 ```
-in your main.js file to make the components available
+in your main.js file to make the components available.
+
+The following SCSS variables can also be accessed with: `@import 'toolbox-layout/src/theme'`.
+```
+$primary: $colour-orange-dark;
+$highlight: $colour-blue;
+$secondary: $colour-blue-light;
+$dark: $colour-blue-dark;
+$light: $colour-white;
+$warning: $colour-pink;
+$danger: $colour-red;
+$success: $colour-green;
+$info: $colour-cream;
+```
 
 ## Development
 
