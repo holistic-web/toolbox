@@ -57,18 +57,23 @@
 			bg-variant="danger"
 			text-variant="light"/>
 
-		<b-form-textarea
+		<codemirror
 			class="JsonFormatter__input"
 			v-model="jsonString"
-			rows="20"
-			:disabled="formatted"/>
+			:options="codemirrorOptions"/>
+
 
 	</div>
 </template>
 
 <script>
+import { codemirror } from 'vue-codemirror';
+import 'codemirror/lib/codemirror.css';
 
 export default {
+	components: {
+		codemirror
+	},
 	data() {
 		return {
 			formatted: false,
@@ -80,6 +85,16 @@ export default {
 				{ text: 'Spaces', value: 4 },
 				{ text: 'None', value: 0 }
 			]
+		}
+	},
+	computed: {
+		codemirrorOptions() {
+			return {
+				readOnly: !!this.formatted,
+				lineNumbers: true,
+				mode: 'JSON',
+				viewportMargin: Infinity
+			}
 		}
 	},
 	methods: {
@@ -112,6 +127,7 @@ export default {
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 
 	&__toolbar {
 		margin-bottom: 1rem;
@@ -137,6 +153,12 @@ export default {
 
 	&__errorMessage {
 		margin-bottom: 1rem;
+	}
+
+	&__input {
+		.CodeMirror {
+			height: auto;
+		}
 	}
 
 }
