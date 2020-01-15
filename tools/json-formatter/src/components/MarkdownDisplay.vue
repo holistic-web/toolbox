@@ -3,10 +3,10 @@
 	<v-tabs
 		v-model="activeTab"
 		light>
-		<v-tab-item key="preview">
+		<v-tab-item >
 			<v-card flat>
 				<div
-					class="MarkdownEditor__block"
+					class="MarkdownDisplay__block"
 					v-html="compiledMarkdown" />
 			</v-card>
 		</v-tab-item>
@@ -33,7 +33,7 @@ export default {
 
 
 <style lang="scss">
-.MarkdownEditor {
+.MarkdownDisplay {
 	margin: 0;
 	height: 100%;
 	font-family: 'Helvetica Neue', Arial, sans-serif;
