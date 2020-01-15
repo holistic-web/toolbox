@@ -57,6 +57,7 @@
 				rows="20"
 				disabled/>
 		</div>
+		
 	</div>
 </template>
 
@@ -132,5 +133,4 @@ export default {
 		height: 1rem;
 	}
 }
-
 </style>
