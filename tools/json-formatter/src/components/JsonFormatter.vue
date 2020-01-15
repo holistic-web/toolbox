@@ -78,7 +78,7 @@ export default {
 		return {
 			formatted: false,
 			errorMessage: null,
-			jsonString: null,
+			jsonString: '',
 			whitespace: '\t',
 			whitespaceOptions: [
 				{ text: 'Tabs', value: '\t' },
@@ -116,7 +116,7 @@ export default {
 		reset() {
 			this.formatted = false;
 			this.errorMessage = null;
-			this.jsonString = null;
+			this.jsonString = '';
 		}
 	}
 }
