@@ -13,7 +13,8 @@
 		"core-js": "^3.4.4",
 		"toolbox-layout": "^0.1.4",
 		"v-clipboard": "^2.2.2",
-		"vue": "^2.6.11"
+		"vue": "^2.6.11",
+		"xml-formatter": "^1.2.0"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "^4.1.0",
