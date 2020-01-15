@@ -57,7 +57,6 @@
 				rows="20"
 				disabled/>
 		</div>
-		
 	</div>
 </template>
 
