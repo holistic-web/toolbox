@@ -56,12 +56,18 @@
 			rows="20"
 			:disabled="formatted"/>
 
+		<markdown-display />
+
 	</div>
 </template>
 
 <script>
+import MarkdownDisplay from './MarkdownDisplay';
 
 export default {
+	components: {
+		MarkdownDisplay
+	},
 	data() {
 		return {
 			formatted: false,
