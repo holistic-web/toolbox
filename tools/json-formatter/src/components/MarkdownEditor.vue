@@ -3,27 +3,11 @@
 	<v-tabs
 		v-model="activeTab"
 		light>
-		<v-tab ripple key="edit">
-		Edit
-		</v-tab>
-		<v-tab-item key="edit">
-			<v-card flat>
-				<textarea
-					class="MarkdownEditor__block"
-					:value="markDown"
-					@input="update"
-					@blur="activeTab = 1"/>
-			</v-card>
-		</v-tab-item>
-		<v-tab ripple key="preview">
-		Preview
-		</v-tab>
 		<v-tab-item key="preview">
 			<v-card flat>
 				<div
 					class="MarkdownEditor__block"
-					v-html="compiledMarkdown"
-					@click="activeTab = 0"/>
+					v-html="compiledMarkdown" />
 			</v-card>
 		</v-tab-item>
 	</v-tabs>
@@ -41,24 +25,13 @@ export default {
 	},
 	data() {
 		return {
-			markDown: '',
+			markDown: '#  Welcome to the best JSON Formatter on the web \n We format JSON \n ## This is markdown.',
 			activeTab: 1
 		};
 	},
 	computed: {
 		compiledMarkdown() {
 			return marked(this.markDown, { sanitize: true });
-		}
-	},
-	methods: {
-		update(e) {
-			this.markDown = e.target.value;
-			this.$emit('update', this.markDown);
-		}
-	},
-	watch: {
-		value() {
-			this.markDown = this.value;
 		}
 	}
 };
@@ -78,7 +51,6 @@ export default {
 		padding: 8px;
 		height: 100%;
 		height: 400px;
-		border: 1px dashed #ccc;
 		cursor: text;
 	}
 }
