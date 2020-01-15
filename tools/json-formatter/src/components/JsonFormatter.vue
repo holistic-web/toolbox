@@ -50,6 +50,13 @@
 
 		</div>
 
+		<b-jumbotron
+			v-if="errorMessage"
+			class="JsonFormatter__errorMessage"
+			:lead="errorMessage"
+			bg-variant="danger"
+			text-variant="light"/>
+
 		<b-form-textarea
 			class="JsonFormatter__input"
 			v-model="jsonString"
@@ -126,6 +133,10 @@ export default {
 			justify-self: flex-end;
 			margin-left: 1rem;
 		}
+	}
+
+	&__errorMessage {
+		margin-bottom: 1rem;
 	}
 
 }
