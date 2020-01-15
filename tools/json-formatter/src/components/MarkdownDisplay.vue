@@ -17,12 +17,6 @@
 <script>
 import marked from 'marked';
 export default {
-	props: {
-		value: {
-			type: String,
-			default: '# Something Worthwhile...'
-		}
-	},
 	data() {
 		return {
 			markDown: '#  Welcome to the best JSON Formatter on the web \n We format JSON \n ## This is markdown.',
