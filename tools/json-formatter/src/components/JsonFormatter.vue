@@ -136,11 +136,4 @@ export default {
 
 }
 
-.PostEdit {
-	&__content {
-		min-height: 300px;
-		max-height: 800px;
-	}
-}
-
 </style>
