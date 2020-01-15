@@ -11,7 +11,7 @@
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.1.0",
 		"core-js": "^3.4.4",
-		"toolbox-layout": "^0.1.5",
+		"toolbox-layout": "^0.1.6",
 		"v-clipboard": "^2.2.2",
 		"vue": "^2.6.11"
 	},

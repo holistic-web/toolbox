@@ -34,6 +34,7 @@ export default {
 	&__tool {
 		padding: 1rem;
 		background-color: $highlight;
+		height: 100%;
 		overflow: auto;
 	}
 }
