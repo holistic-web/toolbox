@@ -1,5 +1,5 @@
 <template>
-	<b-button variant="outline-dark" pill>
+	<b-button variant="outline-primary" pill>
 		<slot/>
 	</b-button>
 </template>

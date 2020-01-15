@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/theme';
+
 .ToolLayout {
 	display: flex;
 	flex-direction: column;
@@ -31,6 +33,8 @@ export default {
 
 	&__tool {
 		padding: 1rem;
+		background-color: $highlight;
+		overflow: auto;
 	}
 }
 </style>
