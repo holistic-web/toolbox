@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="JSON Formatter">
+		<tool-layout name="XML Formatter">
 			<json-formatter/>
 		</tool-layout>
 	</div>
@@ -8,11 +8,11 @@
 
 <script>
 // import { ToolLayout } from 'toolbox-layout';
-import JsonFormatter from './components/JsonFormatter'
+import XMLFormatter from './components/XMLFormatter'
 
 export default {
 	components: {
-		JsonFormatter
+		XMLFormatter
 	}
 }
 </script>

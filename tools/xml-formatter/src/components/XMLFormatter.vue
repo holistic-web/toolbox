@@ -1,16 +1,16 @@
 <template>
-	<div class="JsonFormatter">
+	<div class="XMLFormatter">
 
 		<b-form-group
 			v-if="!alreadyFormatted"
-			label="Add your JSON here:"
-			label-for="JsonFormatter-input">
+			label="Add your XML here:"
+			label-for="XMLFormatter-input">
 
 			<b-form-textarea
-				class="JsonFormatter__input"
-				id="input-json"
+				class="XMLFormatter__input"
+				id="input-XML"
 				rows="20"
-				v-model="jsonString"/>
+				v-model="XMLString"/>
 
 			<b-jumbotron
 				v-if="errorMessage"
@@ -20,7 +20,7 @@
 
 			<b-form-group>
 				<b-form-radio-group
-					class="JsonFormatter__options"
+					class="XMLFormatter__options"
 					v-model="whitespace"
 					:options="whitespaceOptions"
 					buttons
@@ -29,9 +29,9 @@
 			</b-form-group>
 
 			<app-button
-				class="JsonFormatter__button"
+				class="XMLFormatter__button"
 				v-text="'Format'"
-				@click.native="formatJSON"/>
+				@click.native="formatXML"/>
 
 		</b-form-group>
 
@@ -39,21 +39,21 @@
 
 			<div class="mb-3">
 				<app-button
-					class="JsonFormatter__button ml-3"
-					v-clipboard="formattedJSON">
+					class="XMLFormatter__button ml-3"
+					v-clipboard="formattedXML">
 					Copy Ouput
-					<img class="JsonFormatter__icon" src="../assets/icon-copy.svg"/>
+					<img class="XMLFormatter__icon" src="../assets/icon-copy.svg"/>
 				</app-button>
 
 				<app-button
-					class="JsonFormatter__button"
+					class="XMLFormatter__button"
 					v-text="'Format again'"
 					@click.native="reset"/>
 			</div>
 
 			<b-form-textarea
-				class="JsonFormatter__input"
-				v-model="formattedJSON"
+				class="XMLFormatter__input"
+				v-model="formattedXML"
 				rows="20"
 				disabled/>
 		</div>
@@ -72,9 +72,9 @@ export default {
 		return {
 			alreadyFormatted: false,
 			errorMessage: null,
-			parsedJSON: null,
-			jsonString: null,
-			formattedJSON: null,
+			parsedXML: null,
+			XMLString: null,
+			formattedXML: null,
 			whitespace: '\t',
 			whitespaceOptions: [
 				{ text: 'Tabs', value: '\t' },
@@ -84,12 +84,12 @@ export default {
 		}
 	},
 	methods: {
-		formatJSON() {
+		formatXML() {
 			try {
 				this.errorMessage = false;
-				this.parsedJSON = JSON.parse(this.jsonString);
-				this.formattedJSON = JSON.stringify(
-					this.parsedJSON,
+				this.parsedXML = JSON.parse(this.XMLString);
+				this.formattedXML = JSON.stringify(
+					this.parsedXML,
 					null,
 					this.whitespace
 				);
@@ -102,9 +102,9 @@ export default {
 		reset() {
 			this.alreadyFormatted = false;
 			this.errorMessage = null;
-			this.parsedJSON = null;
-			this.jsonString = null;
-			this.formattedJSON = null;
+			this.parsedXML = null;
+			this.XMLString = null;
+			this.formattedXML = null;
 		}
 	}
 }
@@ -112,7 +112,7 @@ export default {
 
 <style lang="scss">
 
-.JsonFormatter {
+.XMLFormatter {
 	display: flex;
 	flex-direction: column;
 
