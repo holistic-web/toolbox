@@ -27,6 +27,12 @@ This project can be published with the following command if correctly authorised
 npm publish --access public
 ```
 
+### Analytics
+Firebase analytics have been added to index.js of toolbox-layout
+Navigate to the analytics dashboard through the firebase console for the project
+The docs are here:
+https://firebase.google.com/docs/analytics/get-started?platform=web&authuser=0
+
 ## Roadmap
 Some things we'd like to look into in the future are:
 - publishing this library under the @holistics organisation
