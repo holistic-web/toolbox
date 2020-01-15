@@ -1,5 +1,5 @@
 <template>
-	<b-button variant="outline-primary" pill>
+	<b-button variant="outline-primary" v-bind="$attrs" pill>
 		<slot/>
 	</b-button>
 </template>

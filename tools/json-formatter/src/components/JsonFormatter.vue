@@ -27,6 +27,7 @@
 					<app-button
 						class="JsonFormatter__toolbar__button"
 						v-text="'Format'"
+						size="sm"
 						@click.native="formatJSON"/>
 				</div>
 			</template>
@@ -35,10 +36,12 @@
 				<div class="JsonFormatter__toolbar--left"/>
 				<div class="JsonFormatter__toolbar--right">
 					<app-button
+						size="sm"
 						class="JsonFormatter__toolbar__button"
 						v-text="'Copy Output'"
 						v-clipboard="jsonString"/>
 					<app-button
+						size="sm"
 						class="JsonFormatter__toolbar__button"
 						v-text="'Reset'"
 						@click.native="reset"/>
