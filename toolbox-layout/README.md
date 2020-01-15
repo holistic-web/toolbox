@@ -23,6 +23,7 @@ npm run build-bundle
 
 ### Publishing
 This project can be published with the following command if correctly authorised
+Remember to modify the version number in package.json
 ```
 npm publish --access public
 ```
