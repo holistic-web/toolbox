@@ -61,7 +61,6 @@
 			v-model="jsonString"
 			:options="codemirrorOptions"/>
 
-
 	</div>
 </template>
 

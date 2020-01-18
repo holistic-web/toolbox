@@ -1,16 +1,17 @@
 import Vue from 'vue';
-
+import './styles/theme.scss';
 import ToolButton from './components/ToolButton';
 import ToolError from './components/ToolError';
 import ToolHeader from './components/ToolHeader';
 import ToolLayout from './components/ToolLayout';
-import './styles/theme.scss';
+import ToolTaskbar from './components/ToolTaskbar';
 
 const components = {
 	ToolButton,
 	ToolError,
 	ToolHeader,
-	ToolLayout
+	ToolLayout,
+	ToolTaskbar
 };
 
 Object.keys(components).forEach(name => {
