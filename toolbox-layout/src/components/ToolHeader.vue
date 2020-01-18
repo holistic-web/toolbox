@@ -1,10 +1,10 @@
 <template>
-	<header class="AppHeader">
+	<header class="ToolHeader">
 		<b-navbar>
 
 			<!-- left partition -->
 			<b-navbar-nav>
-				<h1 class="AppHeader__name" v-text="name"/>
+				<h1 class="ToolHeader__name" v-text="name"/>
 
 				<!-- Navbar dropdowns #TODO: implement once we have other services! -->
 				<!-- <b-nav-item-dropdown text="" right>
@@ -16,7 +16,7 @@
 
 			<!-- right partition-->
 			<b-navbar-nav class="ml-auto">
-				<h2 class="AppHeader__branding">Holistic Toolbox</h2>
+				<h2 class="ToolHeader__branding">Holistic Toolbox</h2>
 			</b-navbar-nav>
 
 		</b-navbar>
@@ -34,7 +34,7 @@ export default {
 <style lang="scss">
 @import '../styles/theme';
 
-.AppHeader {
+.ToolHeader {
 	background-color: $dark;
 
 	&__name {

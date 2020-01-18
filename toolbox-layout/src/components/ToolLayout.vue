@@ -1,7 +1,7 @@
 <template>
 	<div class="ToolLayout">
 
-		<app-header :name="name"/>
+		<tool-header :name="name"/>
 
 		<section class="ToolLayout__tool">
 			<slot/>
@@ -10,14 +10,14 @@
 	</div>
 </template>
 <script>
-import AppHeader from './AppHeader';
+import ToolHeader from './ToolHeader';
 
 export default {
 	props: {
 		name: { type: String, required: true }
 	},
 	components: {
-		AppHeader
+		ToolHeader
 	}
 }
 </script>
