@@ -5,6 +5,10 @@
 
 		<section class="ToolLayout__tool">
 			<slot/>
+
+			<section class="ToolLayout__taskbar">
+				<slot name="taskbar"/>
+			</section>
 		</section>
 
 	</div>
@@ -36,6 +40,10 @@ export default {
 		background-color: $highlight;
 		height: 100%;
 		overflow: auto;
+	}
+
+	&__taskbar {
+		background: $secondary;
 	}
 }
 </style>
