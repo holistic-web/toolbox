@@ -36,6 +36,7 @@ export default {
 
 .ToolHeader {
 	background-color: $dark;
+	padding: ($tool-padding / 2) $tool-padding;
 
 	&__name {
 		color: $primary;

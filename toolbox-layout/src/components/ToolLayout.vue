@@ -32,7 +32,7 @@ export default {
 	width: 100%;
 
 	&__tool {
-		background-color: $highlight;
+		background-color: $background;
 		height: 100%;
 		overflow: auto;
 	}

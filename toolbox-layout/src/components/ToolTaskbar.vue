@@ -18,5 +18,6 @@
 	padding: $tool-padding;
 	display: flex;
 	flex-direction: row-reverse;
+	align-items: center;
 }
 </style>

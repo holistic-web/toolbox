@@ -11,8 +11,8 @@
  *
  **/
 
-$primary: $colour-orange-dark;
-$highlight: $colour-blue;
+// bootstrap defaults:
+$primary: $colour-orange;
 $secondary: $colour-blue-light;
 $dark: $colour-blue-dark;
 $light: $colour-white;
@@ -20,6 +20,10 @@ $warning: $colour-pink;
 $danger: $colour-red;
 $success: $colour-green;
 $info: $colour-cream;
+// custom colour names:
+$highlight: $colour-orange-dark;
+$background: $colour-blue;
+
 
 // These imports MUST go below the above definitions to apply to the bootstrap theme
 @import '~bootstrap/scss/bootstrap.scss';
@@ -31,7 +35,7 @@ body {
 }
 
 /** Variables **/
-$tool-padding: 1rem;
+$tool-padding: 2rem;
 $tool-border-radius: 10px;
 
 @import './bootstrap-overrides';
