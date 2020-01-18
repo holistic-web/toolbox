@@ -24,7 +24,7 @@
 							size="sm"/>
 					</b-form-group>
 
-					<app-button
+					<tool-button
 						class="JsonFormatter__toolbar__button"
 						v-text="'Format'"
 						size="sm"
@@ -36,12 +36,12 @@
 			<template v-else>
 				<div class="JsonFormatter__toolbar--left"/>
 				<div class="JsonFormatter__toolbar--right">
-					<app-button
+					<tool-button
 						size="sm"
 						class="JsonFormatter__toolbar__button"
 						v-text="'Copy Output'"
 						v-clipboard="jsonString"/>
-					<app-button
+					<tool-button
 						size="sm"
 						class="JsonFormatter__toolbar__button"
 						v-text="'Reset'"
@@ -51,12 +51,10 @@
 
 		</div>
 
-		<b-jumbotron
+		<tool-error
 			v-if="errorMessage"
 			class="JsonFormatter__errorMessage"
-			:lead="errorMessage"
-			bg-variant="danger"
-			text-variant="light"/>
+			:message="errorMessage"/>
 
 		<codemirror
 			class="JsonFormatter__input"

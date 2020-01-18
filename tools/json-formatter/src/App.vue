@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// import { ToolLayout } from 'toolbox-layout';
 import JsonFormatter from './components/JsonFormatter'
 
 export default {
