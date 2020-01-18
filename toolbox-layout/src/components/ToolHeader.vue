@@ -39,11 +39,13 @@ export default {
 	padding: ($tool-padding / 2) $tool-padding;
 
 	&__name {
-		color: $primary;
+		color: $highlight;
+		font-size: $tool-text-large;
 	}
 
 	&__branding {
 		color: $secondary;
+		font-size: $tool-text-large;
 	}
 }
 </style>

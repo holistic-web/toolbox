@@ -8,8 +8,7 @@
 @import '../styles/theme';
 
 .ToolTaskbar {
-	background-color: $light;
-	color: $dark;
+	background-color: $dark;
 	position: fixed;
 	width: 100%;
 	bottom: 0;
@@ -19,5 +18,6 @@
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
+	border-top: 2px solid $primary;
 }
 </style>
