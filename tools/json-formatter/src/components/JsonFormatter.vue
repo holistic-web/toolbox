@@ -28,6 +28,7 @@
 						class="JsonFormatter__toolbar__button"
 						v-text="'Format'"
 						size="sm"
+						:disabled="!jsonString"
 						@click.native="formatJSON"/>
 				</div>
 			</template>
