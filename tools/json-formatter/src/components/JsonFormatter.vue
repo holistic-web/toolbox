@@ -108,8 +108,7 @@ export default {
 				);
 				this.formatted = true;
 			} catch (err) {
-				this.errorMessage = err;
-				throw err;
+				this.errorMessage = err.message;
 			}
 		},
 		reset() {
