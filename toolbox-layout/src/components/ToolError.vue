@@ -19,6 +19,7 @@ export default {
 .ToolError {
 	background-color: $danger;
 	color: $light;
-	$padding: 1rem;
+	padding: 1rem;
+	border-radius: $tool-border-radius;
 }
 </style>

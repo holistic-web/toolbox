@@ -25,8 +25,12 @@ $info: $colour-cream;
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
+/** Defaults **/
 body {
 	color: $secondary;
 }
+
+/** Variables **/
+$tool-border-radius: 10px;
 
 @import './bootstrap-overrides';
