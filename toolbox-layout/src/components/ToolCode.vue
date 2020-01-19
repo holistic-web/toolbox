@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import codemirror from 'codemirror';
+import { codemirror } from 'vue-codemirror';
+import 'codemirror/lib/codemirror.css';
 
 export default {
 	components: {
