@@ -42,7 +42,7 @@
 				<tool-button
 					size="sm"
 					class="JsonFormatter__button"
-					variant="outline-secondary"
+					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
