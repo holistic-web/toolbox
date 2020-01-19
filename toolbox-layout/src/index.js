@@ -5,6 +5,7 @@ import ToolCode from './components/ToolCode';
 import ToolError from './components/ToolError';
 import ToolHeader from './components/ToolHeader';
 import ToolLayout from './components/ToolLayout';
+import ToolMarkdown from './components/ToolMarkdown';
 import ToolTaskbar from './components/ToolTaskbar';
 
 const components = {
@@ -13,6 +14,7 @@ const components = {
 	ToolError,
 	ToolHeader,
 	ToolLayout,
+	ToolMarkdown,
 	ToolTaskbar
 };
 

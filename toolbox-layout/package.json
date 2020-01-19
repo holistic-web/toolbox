@@ -20,6 +20,7 @@
 		"bootstrap-vue": "^2.1.0",
 		"core-js": "^3.4.4",
 		"firebase": "^7.6.2",
+		"marked": "^0.8.0",
 		"vue": "^2.6.11",
 		"vue-codemirror": "^4.0.6"
 	},
