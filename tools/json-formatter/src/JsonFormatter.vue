@@ -13,7 +13,7 @@ Enter your [JSON](https://www.json.org) below to get started:
 		<tool-code
 			class="JsonFormatter__input"
 			v-model="jsonString"
-			:options="codemirrorOptions"/>
+			:options="codeOptions"/>
 
 		<tool-taskbar v-if="jsonString">
 
@@ -67,7 +67,7 @@ export default {
 		}
 	},
 	computed: {
-		codemirrorOptions() {
+		codeOptions() {
 			return {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
