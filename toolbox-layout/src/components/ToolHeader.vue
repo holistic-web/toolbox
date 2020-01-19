@@ -39,7 +39,7 @@ export default {
 	padding: ($tool-padding / 2) $tool-padding;
 
 	&__navbar {
-		padding: 0;
+		padding: 0 !important;
 	}
 
 	&__name {
