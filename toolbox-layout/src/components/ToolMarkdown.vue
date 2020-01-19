@@ -1,7 +1,5 @@
 <template>
-	<section class="ToolMarkdown">
-
-	</section>
+	<section class="ToolMarkdown" v-html="renderedMarkdown"/>
 </template>
 
 <script>
@@ -19,19 +17,13 @@ export default {
 			renderedMarkdown: ''
 		}
 	},
-	watch: {
-		markdown: {
-			immediate: true,
-			handler: () => {
-				this.renderedMarkdown = marked(this.markdown, { sanitize: true });
-			}
+	methods: {
+		renderMarkdown() {
+			this.renderedMarkdown = marked(this.markdown, { sanitize: true });
 		}
+	},
+	watch: {
+		markdown: 'renderMarkdown'
 	}
 }
 </script>
-
-<style lang="scss">
-.ToolMarkdown {
-
-}
-</style>
