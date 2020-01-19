@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import './styles/theme.scss';
 import ToolButton from './components/ToolButton';
+import ToolCode from './components/ToolCode';
 import ToolError from './components/ToolError';
 import ToolHeader from './components/ToolHeader';
 import ToolLayout from './components/ToolLayout';
@@ -8,6 +9,7 @@ import ToolTaskbar from './components/ToolTaskbar';
 
 const components = {
 	ToolButton,
+	ToolCode,
 	ToolError,
 	ToolHeader,
 	ToolLayout,
