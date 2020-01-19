@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<tool-layout name="Home">
-
+			Test
 		</tool-layout>
 	</div>
 </template>

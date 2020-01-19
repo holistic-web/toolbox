@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="JSON Formatter">
-			<json-formatter/>
+		<tool-layout name="New Tool">
+			<new-tool/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import JsonFormatter from './JsonFormatter'
+import NewTool from './NewTool';
 
 export default {
 	components: {
-		JsonFormatter
+		NewTool
 	}
 };
 </script>
