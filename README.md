@@ -12,7 +12,7 @@ We will build a landing page that links to all of our tools. Soon...
 Contributions are very welcome, just raise an issue / open a pull request!
 
 ### Creating a new tool
-See [`.project/processes/creating-new-tool.md`](.project/processes/creating-new-tool.md). If you're looking for inspiration, check out: [`project/tool-ideas`](/project/tool-ideas).
+See [`.project/processes/creating-new-tool.md`](.project/processes/creating-new-tool.md). If you're looking for inspiration, check out: [`.project/tool-ideas`](.project/tool-ideas).
 
 ### Roadmap
 - Build a homepage for the Holistic Toolbox itself

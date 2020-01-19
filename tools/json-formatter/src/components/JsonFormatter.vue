@@ -5,80 +5,81 @@
 			JSON Formatter is a tool to provide quick and easy JSON formatting. Enjoy!
 		</p>
 
-		<div class="JsonFormatter__toolbar">
+
+		<tool-error
+			v-if="errorMessage"
+			class="JsonFormatter__errorMessage"
+			:message="errorMessage"/>
+
+		<codemirror
+			class="JsonFormatter__input"
+			v-model="jsonString"
+			:options="codemirrorOptions"/>
+
+		<tool-taskbar v-if="jsonString">
 
 			<template v-if="!formatted">
-
-				<div class="JsonFormatter__toolbar--left">
-					<p>Add your JSON data here</p>
-				</div>
-
-				<div class="JsonFormatter__toolbar--right">
-					<b-form-group>
-						<b-form-radio-group
-							class="JsonFormatter__toolbar__button"
-							v-model="whitespace"
-							:options="whitespaceOptions"
-							buttons
-							button-variant="outline-primary"
-							size="sm"/>
-					</b-form-group>
-
-					<app-button
-						class="JsonFormatter__toolbar__button"
-						v-text="'Format'"
-						size="sm"
-						@click.native="formatJSON"/>
-				</div>
+				<tool-button
+					class="JsonFormatter__button"
+					v-text="'Format'"
+					size="lg"
+					@click.native="formatJSON"/>
+				<b-form-radio-group
+					class="JsonFormatter__button"
+					v-model="whitespace"
+					:options="whitespaceOptions"
+					buttons
+					button-variant="outline-secondary"
+					size="sm"/>
 			</template>
 
 			<template v-else>
-				<div class="JsonFormatter__toolbar--left"/>
-				<div class="JsonFormatter__toolbar--right">
-					<app-button
-						size="sm"
-						class="JsonFormatter__toolbar__button"
-						v-text="'Copy Output'"
-						v-clipboard="jsonString"/>
-					<app-button
-						size="sm"
-						class="JsonFormatter__toolbar__button"
-						v-text="'Reset'"
-						@click.native="reset"/>
-				</div>
+				<tool-button
+					size="lg"
+					class="JsonFormatter__button"
+					v-text="'Copy Output'"
+					v-clipboard="jsonString"/>
+				<tool-button
+					size="sm"
+					class="JsonFormatter__button"
+					variant="outline-secondary"
+					v-text="'Reset'"
+					@click.native="reset"/>
 			</template>
 
-		</div>
-
-		<b-form-textarea
-			class="JsonFormatter__input"
-			v-model="jsonString"
-			rows="20"
-			:disabled="formatted"/>
-
-		<markdown-display />
+		</tool-taskbar>
 
 	</div>
 </template>
 
 <script>
-import MarkdownDisplay from './MarkdownDisplay';
+import codemirror from 'codemirror';
 
 export default {
 	components: {
-		MarkdownDisplay
+		codemirror
 	},
 	data() {
 		return {
 			formatted: false,
 			errorMessage: null,
-			jsonString: null,
+			jsonString: '',
 			whitespace: '\t',
 			whitespaceOptions: [
 				{ text: 'Tabs', value: '\t' },
 				{ text: 'Spaces', value: 4 },
 				{ text: 'None', value: 0 }
 			]
+		}
+	},
+	computed: {
+		codemirrorOptions() {
+			return {
+				readOnly: !!this.formatted,
+				lineNumbers: true,
+				mode: 'JSON',
+				viewportMargin: Infinity
+			}
 		}
 	},
 	methods: {
@@ -93,45 +94,42 @@ export default {
 				);
 				this.formatted = true;
 			} catch (err) {
-				this.errorMessage = err;
-				throw err;
+				this.errorMessage = err.message;
 			}
 		},
 		reset() {
 			this.formatted = false;
 			this.errorMessage = null;
-			this.jsonString = null;
+			this.jsonString = '';
 		}
 	}
 }
 </script>
 
 <style lang="scss">
+@import 'toolbox-layout/src/styles/theme';
 
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
+	padding: $tool-padding;
 
-	&__toolbar {
+	&__errorMessage {
 		margin-bottom: 1rem;
-		display: flex;
-		flex-direction: row;
+	}
 
-		&--left {
-			display: flex;
-			flex-direction: row;
-			flex-grow: 1;
-		}
+	&__input {
+		margin-bottom: 150px; // to allow for the taskbar
 
-		&--right {
-			display: flex;
-			flex-direction: row;
+		.CodeMirror {
+			height: auto;
 		}
+	}
 
-		&__button {
-			justify-self: flex-end;
-			margin-left: 1rem;
-		}
+	&__button {
+		margin-left: 1rem;
+		height: fit-content;
 	}
 
 }

@@ -1,6 +1,6 @@
 {
 	"name": "toolbox-layout",
-	"version": "0.1.7",
+	"version": "0.1.10",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -19,6 +19,7 @@
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.1.0",
 		"core-js": "^3.4.4",
+		"firebase": "^7.6.2",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
