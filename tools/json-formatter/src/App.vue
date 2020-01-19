@@ -15,3 +15,9 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+#app {
+	font-family: 'Fira Code', monospace;
+}
+</style>

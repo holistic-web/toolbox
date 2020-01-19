@@ -1,10 +1,9 @@
 <template>
 	<div class="JsonFormatter">
 
-		<p>
-			JSON Formatter is a tool to provide quick and easy JSON formatting. Enjoy!
-		</p>
-
+		<tool-markdown :markdown="`
+Enter your [JSON](https://www.json.org) below to get started:
+		`"/>
 
 		<tool-error
 			v-if="errorMessage"
@@ -53,7 +52,6 @@
 </template>
 
 <script>
-
 export default {
 	data() {
 		return {
