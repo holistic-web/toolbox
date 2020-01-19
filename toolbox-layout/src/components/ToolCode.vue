@@ -1,13 +1,14 @@
 <template>
 	<codemirror
 		:value="value"
-		:options="options"
+		:options="optionsWithDefaults"
 		@input="onInput"/>
 </template>
 
 <script>
 import { codemirror } from 'vue-codemirror';
 import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/cobalt.css';
 
 export default {
 	components: {
@@ -21,6 +22,17 @@ export default {
 		options: {
 			type: Object,
 			default: () => {}
+		}
+	},
+	computed: {
+		optionsWithDefaults() {
+			const defaults = {
+				theme: 'cobalt'
+			};
+			return {
+				...defaults,
+				...this.options
+			}
 		}
 	},
 	methods: {
