@@ -44,12 +44,15 @@ export default {
 
 	&__name {
 		color: $highlight;
-		font-size: $tool-text-large;
+		font-size: $tool-text-larger;
 	}
 
 	&__branding {
 		color: $success;
 		font-size: $tool-text-large;
+		font-weight: lighter;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
 	}
 }
 </style>
