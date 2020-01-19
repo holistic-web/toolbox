@@ -64,7 +64,7 @@ export default {
 				{ text: 'Spaces', value: 4 },
 				{ text: 'None', value: 0 }
 			]
-		}
+		};
 	},
 	computed: {
 		codeOptions() {
@@ -73,7 +73,7 @@ export default {
 				lineNumbers: true,
 				mode: 'JSON',
 				viewportMargin: Infinity // to allow the editor to grow with entered text
-			}
+			};
 		}
 	},
 	methods: {
@@ -97,7 +97,7 @@ export default {
 			this.jsonString = '';
 		}
 	}
-}
+};
 </script>
 
 <style lang="scss">

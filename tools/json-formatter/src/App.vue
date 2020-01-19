@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import JsonFormatter from './JsonFormatter'
+import JsonFormatter from './JsonFormatter';
 
 export default {
 	components: {
