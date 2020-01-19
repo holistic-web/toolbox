@@ -11,7 +11,7 @@
 			class="JsonFormatter__errorMessage"
 			:message="errorMessage"/>
 
-		<codemirror
+		<tool-code
 			class="JsonFormatter__input"
 			v-model="jsonString"
 			:options="codemirrorOptions"/>
@@ -53,12 +53,8 @@
 </template>
 
 <script>
-import codemirror from 'codemirror';
 
 export default {
-	components: {
-		codemirror
-	},
 	data() {
 		return {
 			formatted: false,
@@ -78,7 +74,7 @@ export default {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
 				mode: 'JSON',
-				viewportMargin: Infinity
+				viewportMargin: Infinity // to allow the editor to grow with entered text
 			}
 		}
 	},
@@ -122,7 +118,7 @@ export default {
 	&__input {
 		margin-bottom: 150px; // to allow for the taskbar
 
-		.CodeMirror {
+		.CodeMirror { // to allow the editor to grow with entered text
 			height: auto;
 		}
 	}
