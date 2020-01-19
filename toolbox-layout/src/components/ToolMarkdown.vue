@@ -1,5 +1,5 @@
 <template>
-	<section class="ToolMarkdown" v-html="renderedMarkdown"/>
+	<section v-html="renderedMarkdown"/>
 </template>
 
 <script>
@@ -28,5 +28,6 @@ export default {
 	watch: {
 		markdown: 'renderMarkdown'
 	}
+
 }
 </script>
