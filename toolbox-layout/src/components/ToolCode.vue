@@ -6,7 +6,12 @@
 </template>
 
 <script>
+import codemirror from 'codemirror';
+
 export default {
+	components: {
+		codemirror
+	},
 	props: {
 		value: {
 			type: String,
