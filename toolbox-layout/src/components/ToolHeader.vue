@@ -48,7 +48,7 @@ export default {
 	}
 
 	&__branding {
-		color: $secondary;
+		color: $success;
 		font-size: $tool-text-large;
 	}
 }
