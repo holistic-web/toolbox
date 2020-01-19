@@ -1,19 +1,19 @@
 <template>
 	<div class="JsonFormatter">
 
-		<p>
-			JSON Formatter is a tool to provide quick and easy JSON formatting. Enjoy!
-		</p>
+		<tool-markdown :markdown="`
+Enter your [JSON](https://www.json.org) below to get started:
+		`"/>
 
 		<tool-error
 			v-if="errorMessage"
 			class="JsonFormatter__errorMessage"
 			:message="errorMessage"/>
 
-		<codemirror
+		<tool-code
 			class="JsonFormatter__input"
 			v-model="jsonString"
-			:options="codemirrorOptions"/>
+			:options="codeOptions"/>
 
 		<tool-taskbar v-if="jsonString">
 
@@ -41,7 +41,7 @@
 				<tool-button
 					size="sm"
 					class="JsonFormatter__button"
-					variant="outline-secondary"
+					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
@@ -52,13 +52,7 @@
 </template>
 
 <script>
-import { codemirror } from 'vue-codemirror';
-import 'codemirror/lib/codemirror.css';
-
 export default {
-	components: {
-		codemirror
-	},
 	data() {
 		return {
 			formatted: false,
@@ -73,12 +67,12 @@ export default {
 		}
 	},
 	computed: {
-		codemirrorOptions() {
+		codeOptions() {
 			return {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
 				mode: 'JSON',
-				viewportMargin: Infinity
+				viewportMargin: Infinity // to allow the editor to grow with entered text
 			}
 		}
 	},
@@ -122,7 +116,7 @@ export default {
 	&__input {
 		margin-bottom: 150px; // to allow for the taskbar
 
-		.CodeMirror {
+		.CodeMirror { // to allow the editor to grow with entered text
 			height: auto;
 		}
 	}

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import JsonFormatter from './components/JsonFormatter'
+import JsonFormatter from './JsonFormatter'
 
 export default {
 	components: {
@@ -15,3 +15,9 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+#app {
+	font-family: 'Fira Code', monospace;
+}
+</style>

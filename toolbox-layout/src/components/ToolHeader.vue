@@ -1,6 +1,6 @@
 <template>
 	<header class="ToolHeader">
-		<b-navbar>
+		<b-navbar class="ToolHeader__navbar">
 
 			<!-- left partition -->
 			<b-navbar-nav>
@@ -38,14 +38,21 @@ export default {
 	background-color: $dark;
 	padding: ($tool-padding / 2) $tool-padding;
 
+	&__navbar {
+		padding: 0 !important;
+	}
+
 	&__name {
 		color: $highlight;
-		font-size: $tool-text-large;
+		font-size: $tool-text-larger;
 	}
 
 	&__branding {
-		color: $secondary;
+		color: $success;
 		font-size: $tool-text-large;
+		font-weight: lighter;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
 	}
 }
 </style>
