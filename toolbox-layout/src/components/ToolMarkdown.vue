@@ -22,6 +22,9 @@ export default {
 			this.renderedMarkdown = marked(this.markdown, { sanitize: true });
 		}
 	},
+	mounted() {
+		this.renderMarkdown();
+	},
 	watch: {
 		markdown: 'renderMarkdown'
 	}
