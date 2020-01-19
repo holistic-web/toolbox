@@ -32,7 +32,7 @@ export default {
 			return {
 				...defaults,
 				...this.options
-			}
+			};
 		}
 	},
 	methods: {
@@ -40,5 +40,5 @@ export default {
 			this.$emit('input', data);
 		}
 	}
-}
+};
 </script>

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import './styles/theme.scss';
+import * as firebase from 'firebase/app';
 import ToolButton from './components/ToolButton';
 import ToolCode from './components/ToolCode';
 import ToolError from './components/ToolError';
@@ -7,6 +8,8 @@ import ToolHeader from './components/ToolHeader';
 import ToolLayout from './components/ToolLayout';
 import ToolMarkdown from './components/ToolMarkdown';
 import ToolTaskbar from './components/ToolTaskbar';
+
+import 'firebase/analytics';
 
 const components = {
 	ToolButton,
@@ -18,12 +21,9 @@ const components = {
 	ToolTaskbar
 };
 
-Object.keys(components).forEach(name => {
+Object.keys(components).forEach((name) => {
 	Vue.component(name, components[name]);
-})
-
-import * as firebase from 'firebase/app';
-import 'firebase/analytics';
+});
 
 firebase.initializeApp({
 	apiKey: 'AIzaSyCYyxjgL9YGvKnzax2EBxEI_bl6KxB2nK8',
