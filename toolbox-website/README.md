@@ -1,29 +1,27 @@
-# toolbox-website
+# Toolbox Website
 
-## Project setup
-```
-npm install
-```
+This is the home page for all Holistic Toolbox Tools
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Hosted at #TODO: fill this out
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Development
+To develop for this project:
+1. Install dependencies
+	```
+	npm install
+	```
+2. Host the project locally in development mode
+	```
+	npm run serve
+	```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Deployment
+To deploy this tool you must ensure you have the firebase CLI set up on your machine.
+1. Build the project
+	```
+	npm run build
+	```
+2. Deploy the project
+	```
+	firebase deploy
+	```
