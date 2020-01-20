@@ -1,0 +1,18 @@
+{
+	"name": "eslint-config-toolbox",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-plugin-import": "^2.20.0"
+	},
+	"devDependencies": {
+		"eslint": "^6.8.0"
+	}
+}
