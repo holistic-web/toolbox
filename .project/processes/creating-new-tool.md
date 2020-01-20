@@ -10,4 +10,6 @@ This is the process to create a new tool for the Holistic Toolbox
 
 3. If the project involves a UI refer to the [`.project/templates/tool`](/.project/templates/tool-ui) example to set up your project
 
+4. Create a new hosted website in the firebase console and ensure the firebase.json in your new folder points to your new site.
+
 4. Add the completed tool as a subdomain. To do this, first login to the Firebase console and navigate to the "Hosting" section of holistic-toolbox. Click "Add a custom domain" and enter the name of your tool, e.g. [`name`].holistic-toolbox.com. You will then be shown IP addresses and the name of your domain to copy into Google Domain's DNS settings. Login into Google Domains under holistic-toolbox.com, navigate to DNS, scroll to the bottom to "custom resource records" and enter the appropriate information.

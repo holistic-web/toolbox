@@ -1,5 +1,6 @@
 {
 	"hosting": {
+		"site": "json-formatter-1ae13",
 		"public": "dist",
 		"ignore": [
 			"firebase.json",
