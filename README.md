@@ -1,6 +1,6 @@
 # Holistic Toolbox
 
-A collection of useful tools, to service all areas of development.
+A collection of useful tools, to service all areas of development. Hosted at holistic-toolbox.com
 
 ## Contents
 Information not listed below may be found in the [`.project`](/.project) folder.
