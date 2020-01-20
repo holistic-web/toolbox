@@ -1,21 +1,23 @@
 <template>
 	<div id="app">
 		<tool-layout name="Home">
-			<section class="Website">
-				Test
-			</section>
+			<website/>
 		</tool-layout>
 	</div>
 </template>
 
-<style lang="scss">
-@import 'toolbox-layout/src/styles/theme';
+<script>
+import Website from './Website';
 
+export default {
+	components: {
+		Website
+	}
+};
+</script>
+
+<style lang="scss">
 #app {
 	font-family: 'Fira Code', monospace;
-}
-
-.Website {
-	padding: $tool-padding;
 }
 </style>

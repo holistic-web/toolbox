@@ -13,7 +13,8 @@ module.exports = {
 		'no-tabs': 0,
 		'indent': ['error', 'tab'],
 		'comma-dangle': ['error', 'never'],
-		'import/extensions': ['error', 'always', { vue: 'never', js: 'never'}]
+		'import/extensions': ['error', 'always', { vue: 'never', js: 'never'}],
+		'global-require': 0
 	},
 	parserOptions: {
 		parser: 'babel-eslint'
