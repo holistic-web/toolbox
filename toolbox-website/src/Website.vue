@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ToolPreview from './components/ToolPreview';
+import ToolPreview from './components/ToolPreview.vue';
 
 export default {
 	components: {

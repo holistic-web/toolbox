@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Website from './Website';
+import Website from './Website.vue';
 
 export default {
 	components: {

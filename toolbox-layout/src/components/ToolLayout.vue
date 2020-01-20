@@ -10,7 +10,7 @@
 	</div>
 </template>
 <script>
-import ToolHeader from './ToolHeader';
+import ToolHeader from './ToolHeader.vue';
 
 export default {
 	props: {

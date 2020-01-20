@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import NewTool from './NewTool';
+import NewTool from './NewTool.vue';
 
 export default {
 	components: {
