@@ -14,9 +14,6 @@ module.exports = {
 		// allow require in all sorts of places
 		'global-require': 0,
 
-		// require file extensions for all files but Vue and JS
-		'import/extensions': ['error', 'always', { vue: 'never', js: 'never'}],
-
 		// always indent with one tab, including switch statements
 		'indent': [1, 'tab', { SwitchCase: 1 }],
 

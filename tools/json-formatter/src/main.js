@@ -3,7 +3,7 @@ import 'toolbox-layout';
 import 'toolbox-layout/dist/toolbox-layout.css';
 import BootstrapVue from 'bootstrap-vue';
 import Clipboard from 'v-clipboard';
-import App from './App';
+import App from './App.vue';
 
 Vue.use(BootstrapVue);
 Vue.use(Clipboard);
