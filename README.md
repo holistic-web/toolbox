@@ -3,7 +3,7 @@
 A collection of useful tools, to service all areas of development. Hosted at https://holistic-toolbox.com
 
 ## Contents
-Information not listed below may be found in the [`.project`](/.project) folder.
+Information not listed below, such as our very exciting [linting settings](/.project/toolbox-linting) may be found in the [`.project`](/.project) folder.
 
 ### Tools
 To see the list of tools, navigate to the [`tools`](/tools) folder.
