@@ -7,16 +7,20 @@
 				<h1 class="ToolHeader__name" v-text="name"/>
 
 				<!-- Navbar dropdowns #TODO: implement once we have other services! -->
-				<!-- <b-nav-item-dropdown text="" right>
+				<!-- <b-nav-itesm-dropdown text="" right>
 					<b-dropdown-item href="#">Other Service</b-dropdown-item>
 					<b-dropdown-item href="#">Other Service</b-dropdown-item>
-				</b-nav-item-dropdown> -->
+				</b-nav-itesm-dropdown> -->
 
 			</b-navbar-nav>
 
 			<!-- right partition-->
 			<b-navbar-nav class="ml-auto">
-				<h2 class="ToolHeader__branding">Holistic Toolbox</h2>
+				<b-link class="ToolHeader__branding" href="https://holistic-toolbox.com">
+					<h2
+						class="ToolHeader__branding__text"
+						v-text="'Holistic Toolbox'"/>
+				</b-link>
 			</b-navbar-nav>
 
 		</b-navbar>
@@ -28,7 +32,7 @@ export default {
 	props: {
 		name: { type: String, required: true }
 	}
-}
+};
 </script>
 
 <style lang="scss">
@@ -49,10 +53,31 @@ export default {
 
 	&__branding {
 		color: $success;
-		font-size: $tool-text-large;
-		font-weight: lighter;
-		letter-spacing: 1.5px;
-		text-transform: uppercase;
+
+		&:hover {
+			color: $success;
+			text-decoration: none;
+			animation-name: wiggle;
+			animation-duration: 500ms;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: 1;
+		}
+
+		&__text {
+			font-size: $tool-text-large;
+			font-weight: lighter;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+		}
 	}
+}
+
+// wiggle animation: https://codepen.io/theDeanH/pen/zBZXLN
+@keyframes wiggle {
+	0% {transform: rotate(5deg);}
+	25% {transform: rotate(-5deg);}
+	50% {transform: rotate(10deg);}
+	75% {transform: rotate(-3deg);}
+	100% {transform: rotate(0deg);}
 }
 </style>

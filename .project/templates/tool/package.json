@@ -1,35 +1,24 @@
 {
-	"name": "toolbox-layout",
-	"version": "0.1.12",
-	"main": "./dist/toolbox-layout.common.js",
+	"name": "#TODO: replace me",
+	"version": "0.1.0",
+	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
 		"lint": "vue-cli-service lint"
 	},
-	"files": [
-		"dist/*",
-		"src/*",
-		"public/*",
-		"*.json",
-		"*.js"
-	],
 	"dependencies": {
-		"@vue/eslint-config-airbnb": "^5.0.2",
 		"bootstrap": "^4.4.1",
-		"bootstrap-vue": "^2.1.0",
-		"codemirror": "^5.50.2",
+		"bootstrap-vue": "^2.2.1",
 		"core-js": "^3.4.4",
-		"firebase": "^7.6.2",
-		"marked": "^0.8.0",
-		"vue": "^2.6.11",
-		"vue-codemirror": "^4.0.6"
+		"toolbox-layout": "^0.1.11",
+		"vue": "^2.6.11"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "^4.1.0",
 		"@vue/cli-plugin-eslint": "^4.1.0",
 		"@vue/cli-service": "^4.1.0",
+		"@vue/eslint-config-airbnb": "^4.0.0",
 		"babel-eslint": "^10.0.3",
 		"eslint": "^5.16.0",
 		"eslint-plugin-vue": "^5.0.0",

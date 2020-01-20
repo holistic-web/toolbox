@@ -2,11 +2,17 @@
 
 A collection of useful tools, to service all areas of development.
 
-## Tools
+## Contents
+Information not listed below may be found in the [`.project`](/.project) folder.
+
+### Tools
 To see the list of tools, navigate to the [`tools`](/tools) folder.
 
-## Home
-We will build a landing page that links to all of our tools. Soon...
+### Home
+Our landing page can be found in the [`toolbox-website`](/toolbox-website) folder.
+
+### Layout
+The Vue component library behind these UIs can be found at [`toolbox-layout`](/toolbox-layout).
 
 ## Contributing
 Contributions are very welcome, just raise an issue / open a pull request!

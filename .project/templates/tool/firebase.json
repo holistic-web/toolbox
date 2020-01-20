@@ -1,7 +1,7 @@
 {
 	"hosting": {
-		"site": "json-formatter-1ae13",
 		"public": "dist",
+		"site": "#TODO: change me",
 		"ignore": [
 			"firebase.json",
 			"**/.*",

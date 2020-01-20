@@ -19,7 +19,7 @@ export default {
 	components: {
 		ToolHeader
 	}
-}
+};
 </script>
 
 <style lang="scss">

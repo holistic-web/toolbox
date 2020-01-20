@@ -1,8 +1,8 @@
-# JSON Formatter
+# Toolbox Website
 
-This tool validates and formats JSON entered by a developer. It is written in Vue.js.
+This is the home page for all Holistic Toolbox Tools
 
-Hosted at https://json-formatter.holistic-toolbox.com
+Hosted at #TODO: fill this out
 
 ## Development
 To develop for this project:
@@ -25,8 +25,3 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 	firebase deploy
 	```
-
-## Road Map
-Some ideas for the future of this tool are:
-- allow custom values for the numbers of spaces used
-- use a nicer editor than bootstrap textarea for entering and displaying text

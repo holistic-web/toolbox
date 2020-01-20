@@ -4,7 +4,7 @@
 
 <script>
 export default {
-	props:{
+	props: {
 		message: {
 			type: String,
 			required: true

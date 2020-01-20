@@ -15,7 +15,7 @@ export default {
 	data() {
 		return {
 			renderedMarkdown: ''
-		}
+		};
 	},
 	methods: {
 		renderMarkdown() {
@@ -29,5 +29,5 @@ export default {
 		markdown: 'renderMarkdown'
 	}
 
-}
+};
 </script>
