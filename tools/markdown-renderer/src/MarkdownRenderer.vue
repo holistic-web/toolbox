@@ -5,7 +5,7 @@
 			<p>Enter your markdown below:</p>
 			<tool-button
 				v-text="'Copy to Clipboard'"
-				v-clipboard="markdown"/>
+				@click.native="onCopyClick"/>
 		</section>
 
 		<section class="MarkdownRenderer__content">
@@ -32,6 +32,11 @@ export default {
 				viewportMargin: Infinity
 			}
 		};
+	},
+	methods: {
+		onCopyClick() {
+			this.$clipboard(this.markdown);
+		}
 	}
 };
 </script>
