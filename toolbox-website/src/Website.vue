@@ -41,7 +41,7 @@ export default {
 					image: require('../assets/tools/json-formatter.png')
 				},
 				{
-					name: 'Markdown Render',
+					name: 'Markdown Renderer',
 					description: 'A simple, client side Markdown renderer.',
 					link: 'http://markdown-renderer.holistic-toolbox.com',
 					image: require('../assets/tools/json-formatter.png')
