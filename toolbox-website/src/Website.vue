@@ -42,9 +42,9 @@ export default {
 				},
 				{
 					name: 'Markdown Renderer',
-					description: 'A simple, client side Markdown renderer.',
+					description: 'A browser based markdown renderer.',
 					link: 'http://markdown-renderer.holistic-toolbox.com',
-					image: require('../assets/tools/json-formatter.png')
+					image: require('../assets/tools/markdown-renderer.png')
 				}
 			]
 		};
@@ -74,6 +74,7 @@ export default {
 	&__tools {
 		display: flex;
 		flex-direction: row;
+		margin: 0 -1rem;
 
 		&__tool {
 			width: 300px;
