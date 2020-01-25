@@ -39,6 +39,12 @@ export default {
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
 					image: require('../assets/tools/json-formatter.png')
+				},
+				{
+					name: 'Markdown Render',
+					description: 'A simple, client side Markdown renderer.',
+					link: 'http://markdown-renderer.holistic-toolbox.com',
+					image: require('../assets/tools/json-formatter.png')
 				}
 			]
 		};
@@ -71,6 +77,7 @@ export default {
 
 		&__tool {
 			width: 300px;
+			margin: 1rem;
 		}
 	}
 }
