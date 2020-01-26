@@ -3,16 +3,30 @@
 
 		<section class="MarkdownRenderer__header">
 			<p>Enter your markdown below:</p>
-			<tool-button
-				v-text="'Copy to Clipboard'"
-				@click.native="onCopyClick"/>
+
+			<div class="MarkdownRenderer__header__buttons">
+				<tool-button
+					v-if="!autoCopy"
+					class="MarkdownRenderer__header__button"
+					v-text="'Copy to Clipboard'"
+					@click.native="onCopyClick"/>
+
+				<b-form-checkbox
+					name="MarkdownRenderer__autoCopy"
+					v-model="autoCopy"
+					switch>
+					Auto Copy to Clipboard
+				</b-form-checkbox>
+			</div>
 		</section>
 
 		<section class="MarkdownRenderer__content">
 			<tool-code
-				class="MarkdownRenderer__editor MarkdownRenderer__content__item MarkdownRenderer__content__item--left"
+				ref="MarkdownRenderer__input"
+				class="MarkdownRenderer__content__item MarkdownRenderer__content__item--left"
 				v-model="markdown"
-				:options="codeOptions"/>
+				:options="codeOptions"
+				:autoSize="true"/>
 
 			<tool-markdown
 				class="MarkdownRenderer__content__item MarkdownRenderer__content__item--right"
@@ -29,14 +43,24 @@ export default {
 			markdown: '',
 			codeOptions: {
 				mode: 'Markdown',
-				viewportMargin: Infinity
-			}
+				autoFocus: true
+			},
+			autoCopy: false
 		};
 	},
 	methods: {
 		onCopyClick() {
 			this.$clipboard(this.markdown);
 		}
+	},
+	watch: {
+		markdown() {
+			this.$clipboard(this.markdown);
+			this.$refs.MarkdownRenderer__input.focus();
+		}
+	},
+	mounted() {
+		this.$refs.MarkdownRenderer__input.focus();
 	}
 };
 </script>
@@ -54,6 +78,15 @@ export default {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+
+		&__buttons {
+			display: flex;
+			flex-direction: row;
+		}
+
+		&__button {
+			margin-right: 1rem;
+		}
 	}
 
 	&__content {
@@ -70,12 +103,6 @@ export default {
 			&--right {
 				margin-left: 1rem;
 			}
-		}
-	}
-
-	&__editor {
-		.CodeMirror { // to allow the editor to grow with entered text
-			height: auto;
 		}
 	}
 }
