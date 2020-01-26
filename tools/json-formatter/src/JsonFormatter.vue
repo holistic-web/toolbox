@@ -71,8 +71,7 @@ export default {
 			return {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
-				mode: 'JSON',
-				viewportMargin: Infinity // to allow the editor to grow with entered text
+				mode: 'JSON'
 			};
 		}
 	},
@@ -115,10 +114,6 @@ export default {
 
 	&__input {
 		margin-bottom: 150px; // to allow for the taskbar
-
-		.CodeMirror { // to allow the editor to grow with entered text
-			height: auto;
-		}
 	}
 
 	&__button {
