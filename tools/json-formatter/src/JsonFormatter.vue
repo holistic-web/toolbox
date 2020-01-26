@@ -100,7 +100,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.$refs.MarkdownRenderer__input.focus();
+		this.$refs.JsonFormatter__input.focus();
 	}
 };
 </script>
