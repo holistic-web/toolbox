@@ -12,7 +12,6 @@ Enter your [JSON](https://www.json.org) below to get started:
 
 		<tool-code
 			ref="JsonFormatter__input"
-			class="JsonFormatter__input"
 			v-model="jsonString"
 			:options="codeOptions"
 			:autoSize="true"/>
@@ -111,15 +110,11 @@ export default {
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	padding: $tool-padding;
+	margin-bottom: 104px; // to account for the taskbar
 
 	&__errorMessage {
 		margin-bottom: 1rem;
-	}
-
-	&__input {
-		margin-bottom: 150px; // to allow for the taskbar
 	}
 
 	&__button {
