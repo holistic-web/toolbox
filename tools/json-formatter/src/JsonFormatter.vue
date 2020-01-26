@@ -14,7 +14,8 @@ Enter your [JSON](https://www.json.org) below to get started:
 			ref="JsonFormatter__input"
 			class="JsonFormatter__input"
 			v-model="jsonString"
-			:options="codeOptions"/>
+			:options="codeOptions"
+			:autoSize="true"/>
 
 		<tool-taskbar v-if="jsonString">
 
