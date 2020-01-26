@@ -11,6 +11,7 @@ Enter your [JSON](https://www.json.org) below to get started:
 			:message="errorMessage"/>
 
 		<tool-code
+			ref="JsonFormatter__input"
 			class="JsonFormatter__input"
 			v-model="jsonString"
 			:options="codeOptions"/>
@@ -95,6 +96,7 @@ export default {
 			this.formatted = false;
 			this.errorMessage = null;
 			this.jsonString = '';
+			this.$refs.JsonFormatter__input.focus();
 		}
 	}
 };
