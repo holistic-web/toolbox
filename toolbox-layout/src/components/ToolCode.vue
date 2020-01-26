@@ -35,6 +35,7 @@ export default {
 			const defaults = {
 				theme: 'cobalt'
 			};
+			if (this.autoSize) defaults.viewportMargin = Infinity;
 			return {
 				...defaults,
 				...this.options
