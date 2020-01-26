@@ -42,8 +42,7 @@ export default {
 		return {
 			markdown: '',
 			codeOptions: {
-				mode: 'Markdown',
-				autoFocus: true
+				mode: 'Markdown'
 			},
 			autoCopy: false
 		};

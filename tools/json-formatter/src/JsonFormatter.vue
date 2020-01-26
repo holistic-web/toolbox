@@ -73,7 +73,6 @@ export default {
 			return {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
-				autoFocus: true,
 				mode: 'JSON'
 			};
 		}
@@ -99,6 +98,9 @@ export default {
 			this.jsonString = '';
 			this.$refs.JsonFormatter__input.focus();
 		}
+	},
+	mounted() {
+		this.$refs.MarkdownRenderer__input.focus();
 	}
 };
 </script>
