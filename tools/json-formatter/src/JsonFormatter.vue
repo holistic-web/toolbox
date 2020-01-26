@@ -71,6 +71,7 @@ export default {
 			return {
 				readOnly: !!this.formatted,
 				lineNumbers: true,
+				autoFocus: true,
 				mode: 'JSON'
 			};
 		}
