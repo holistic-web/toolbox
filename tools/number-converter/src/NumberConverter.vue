@@ -1,5 +1,5 @@
 <template>
-	<div class="NewTool">
+	<div class="NumberConverter">
 
 		<tool-markdown :markdown="`
 Documentation for your new tool goes here...
@@ -17,7 +17,7 @@ Documentation for your new tool goes here...
 <style lang="scss">
 @import 'toolbox-layout/src/styles/theme';
 
-.NewTool {
+.NumberConverter {
 	display: flex;
 	flex-direction: column;
 	height: 100%;

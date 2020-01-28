@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
 		<tool-layout name="New Tool">
-			<new-tool/>
+			<number-converter />
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import NewTool from './NewTool.vue';
+import NumberConverter from './NumberConverter.vue';
 
 export default {
 	components: {
-		NewTool
+		NumberConverter
 	}
 };
 </script>
