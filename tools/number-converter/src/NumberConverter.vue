@@ -7,7 +7,11 @@ Documentation for your new tool goes here...
 
 
 		<tool-taskbar>
-			It can be a good idea to add buttons to the taskbar...
+			<tool-button
+				size="lg"
+				class="JsonFormatter__button"
+				v-text="'Copy Output'"
+				v-clipboard="jsonString"/>
 		</tool-taskbar>
 
 	</div>
