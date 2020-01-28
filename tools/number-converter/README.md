@@ -1,29 +1,32 @@
-# number-converter
+# Number converter
 
-## Project setup
-```
-npm install
-```
+This tool converts numbers to binary and hexadecimal as well as dealing with signed and unsigned integers.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Hosted at #TODO: replace with link to new project
 
-### Run your tests
-```
-npm run test
-```
+## Development
+To develop for this project:
+1. Install dependencies
+	```
+	npm install
+	```
+2. Host the project locally in development mode
+	```
+	npm run serve
+	```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Deployment
+To deploy this tool you must ensure you have the firebase CLI set up on your machine.
+1. Build the project
+	```
+	npm run build
+	```
+2. Deploy the project
+	```
+	firebase deploy
+	```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Road Map
+#TODO: list future ideas here or delete this section
