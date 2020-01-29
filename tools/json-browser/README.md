@@ -27,4 +27,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-#TODO: list future ideas here or delete this section
+- load JSON data from http source
