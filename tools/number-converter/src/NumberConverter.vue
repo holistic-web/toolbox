@@ -79,8 +79,12 @@ export default {
 			try {
 				this.errorMessage = false;
 				const int = parseInt(this.num)
+				const hex = '0x'
 				const ans = int.toString(this.base)
 				this.num = ans
+				if(this.base == 16){
+					this.num = hex.concat(this.num.toUpperCase())
+				}
 				this.converted = true
 			} catch (err) {
 				this.errorMessage = err.message;
