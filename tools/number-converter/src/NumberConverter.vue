@@ -106,6 +106,10 @@ export default {
 	height: 100%;
 	padding: $tool-padding;
 
+	&__errorMessage {
+		margin-bottom: 1rem;
+	}
+
 	&__button {
 		margin-left: 1rem;
 		height: fit-content;
