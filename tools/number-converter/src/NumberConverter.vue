@@ -12,22 +12,20 @@ Enter a number:
 			:autoSize="true"/>
 
 		<tool-taskbar v-if="num">
+
 			<template v-if="!converted">
 				<tool-button
 					size="lg"
 					class="NumberConverter__button"
-					v-text="'To Hexadecimal'"
-					v-clipboard="num"/>
-				<tool-button
-					size="lg"
-					class="NumberConverter__button"
-					v-text="'To Octal'"
-					v-clipboard="num"/>
-				<tool-button
-					size="lg"
-					class="NumberConverter__button"
-					v-text="'To Binary'"
-					v-clipboard="num"/>
+					v-text="'Convert'"
+					@click.native="convert"/>
+				<b-form-radio-group
+				class="NumberConverter__button"
+				v-model="base"
+				:options="baseOptions"
+				buttons
+				button-variant="outline-secondary"
+				size="sm"/>
 			</template>
 
 			<template v-else>
@@ -35,7 +33,7 @@ Enter a number:
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
-					v-clipboard="jsonString"/>
+					v-clipboard="num"/>
 				<tool-button
 					size="sm"
 					class="NumberConverter__button"
@@ -53,7 +51,42 @@ export default {
 	data() {
 		return {
 			converted: false,
-			num: 0
+			errorMessage: null,
+			num: '',
+			base: 10,
+			baseOptions: [
+				{ text: 'Binary', value: 2 },
+				{ text: 'Octal', value: 8 },
+				{ text: 'Hexadecimal', value: 16 }
+			]
+		}
+	},
+	computed: {
+		codeOptions() {
+			return {
+				readOnly: !!this.formatted,
+				lineNumbers: false,
+			};
+		}
+	},
+	methods: {
+		convert() {
+			try {
+				this.errorMessage = false;
+				const int = parseInt(this.num)
+				const ans = int.toString(this.base)
+				// eslint-disable-next-line
+				console.log(ans);
+				this.num = ans
+				this.converted = true
+			} catch (err) {
+				this.errorMessage = err.message;
+			}
+		},
+		reset() {
+			this.converted = false;
+			this.num = '';
+			this.base = 10;
 		}
 	}
 }
