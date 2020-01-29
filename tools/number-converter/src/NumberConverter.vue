@@ -2,8 +2,13 @@
 	<div class="NumberConverter">
 
 		<tool-markdown :markdown="`
-Enter a number:
+Enter a number to convert:
 		`"/>
+
+		<tool-error
+			v-if="errorMessage"
+			class="NumberConverter__errorMessage"
+			:message="errorMessage"/>
 
 		<tool-code
 			class="NumberConverter__input"
@@ -75,8 +80,6 @@ export default {
 				this.errorMessage = false;
 				const int = parseInt(this.num)
 				const ans = int.toString(this.base)
-				// eslint-disable-next-line
-				console.log(ans);
 				this.num = ans
 				this.converted = true
 			} catch (err) {
@@ -85,6 +88,7 @@ export default {
 		},
 		reset() {
 			this.converted = false;
+			this.errorMessage = null;
 			this.num = '';
 			this.base = 10;
 		}
