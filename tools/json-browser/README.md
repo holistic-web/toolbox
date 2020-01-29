@@ -1,6 +1,6 @@
-# #TODO: replace me
+# JSON Browser
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+This is a tool to view and browse json in a clear way. Useful for those who need to analyse a lot of data stored in a JSON format.
 
 Hosted at #TODO: replace with link to project
 
