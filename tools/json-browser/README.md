@@ -1,6 +1,6 @@
 # JSON Browser
 
-This is a tool to view and browse json in a clear way. Useful for those who need to analyse a lot of data stored in a JSON format.
+This is a tool to view and browse json in a useful way. Good for those who need to analyse a lot of data stored in a JSON format.
 
 Hosted at #TODO: replace with link to project
 

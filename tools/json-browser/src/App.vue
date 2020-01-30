@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="New Tool">
-			<new-tool/>
+		<tool-layout name="JSON Browser">
+			<json-browser/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import NewTool from './NewTool.vue';
+import JsonBrowser from './JsonBrowser.vue';
 
 export default {
 	components: {
-		NewTool
+		JsonBrowser
 	}
 };
 </script>
