@@ -28,3 +28,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 
 ## Road Map
 - load JSON data from http source
+- allow a URL query to provide the JSON string so you can be linked here from another app
