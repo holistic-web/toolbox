@@ -2,8 +2,7 @@
 
 This is a tool to view and browse json in a useful way. Good for those who need to analyse a lot of data stored in a JSON format.
 
-Hosted at #TODO: replace with link to project
-
+Hosted at http://json-browser.holistic-toolbox.com
 ## Development
 To develop for this project:
 1. Install dependencies
