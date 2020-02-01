@@ -1,6 +1,6 @@
-# #TODO: replace me
+# Image Comparator
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+A tool to provide a visual comparison of two image files.
 
 Hosted at #TODO: replace with link to project
 
