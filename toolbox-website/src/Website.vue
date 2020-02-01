@@ -35,6 +35,12 @@ export default {
 		return {
 			tools: [
 				{
+					name: 'JSON Browser',
+					description: 'Helps analyse JSON data',
+					link: 'http://json-browser.holistic-toolbox.com',
+					image: require('../assets/tools/json-browser.png')
+				},
+				{
 					name: 'JSON Formatter',
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
