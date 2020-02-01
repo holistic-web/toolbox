@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="New Tool">
-			<new-tool/>
+		<tool-layout name="Image Comparator">
+			<image-comparator/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import NewTool from './NewTool.vue';
+import ImageComparator from './ImageComparator.vue';
 
 export default {
 	components: {
-		NewTool
+		ImageComparator
 	}
 };
 </script>
