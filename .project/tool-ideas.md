@@ -18,7 +18,7 @@ What services do we want to make available in the initial tool?
 Could we potentially have multiple front end tools using the same back end service (i.e. face detector)? If so, which?
 
 ## Base 64 Image Encoder
-Encodes images into base 64 images
+Encodes images into base 64 images and vice versa!
 
 ## Integer conversions
 Converts integers into different formats
