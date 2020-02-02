@@ -11,7 +11,7 @@ import Website from './Website.vue';
 
 export default {
 	components: {
-		Websites
+		Website
 	}
 };
 </script>
