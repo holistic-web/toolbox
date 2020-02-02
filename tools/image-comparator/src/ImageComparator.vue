@@ -5,22 +5,26 @@
 
 			<p>Please select two images:</p>
 
-				<section class="ImageComparator__input">
-					<b-form-file
-						class="ImageComparator__input"
-						v-model="file1"
-						placeholder="Choose a file or drop it here..."
-						drop-placeholder="Drop file here..."/>
-					<canvas ref="ImageComparator__canvas1"/>
-				</section>
+				<section class="ImageComparator__inputs">
 
-				<section class="ImageComparator__input">
-					<b-form-file
-						class="ImageComparator__input"
-						v-model="file2"
-						placeholder="Choose a file or drop it here..."
-						drop-placeholder="Drop file here..."/>
-					<canvas ref="ImageComparator__canvas2"/>
+					<section class="ImageComparator__input">
+						<b-form-file
+							class="ImageComparator__input__file"
+							v-model="file1"
+							placeholder="Choose a file or drop it here..."
+							drop-placeholder="Drop file here..."/>
+						<canvas ref="ImageComparator__canvas1"/>
+					</section>
+
+					<section class="ImageComparator__input">
+						<b-form-file
+							class="ImageComparator__input__file"
+							v-model="file2"
+							placeholder="Choose a file or drop it here..."
+							drop-placeholder="Drop file here..."/>
+						<canvas ref="ImageComparator__canvas2"/>
+					</section>
+
 				</section>
 
 		</template>
@@ -142,9 +146,23 @@ export default {
 	height: 100%;
 	padding: $tool-padding;
 	margin-bottom: calc(114px + 1rem); // to account for the taskbar
+	overflow: auto;
+
+	&__inputs {
+		display: flex;
+		flex-direction: row;
+		margin: 0 -1rem;
+	}
 
 	&__input {
-		margin-bottom: 1rem;
+		margin: 0 1rem;
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+
+		&__file {
+			margin-bottom: 1rem;
+		}
 	}
 }
 </style>
