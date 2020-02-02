@@ -13,7 +13,10 @@
 							v-model="file1"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
-						<canvas ref="ImageComparator__canvas1"/>
+
+						<!-- Only include ref on first image as we will need both image sizes to match for the comparison -->
+						<img ref="ImageComparator__image1" class="ImageComparator__image" :src="imageSrc1"/>
+
 					</section>
 
 					<section class="ImageComparator__half">
@@ -22,7 +25,7 @@
 							v-model="file2"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
-						<canvas ref="ImageComparator__canvas2"/>
+						<img ref="ImageComparator__image2" class="ImageComparator__image" :src="imageSrc2"/>
 					</section>
 
 				</section>
@@ -35,7 +38,7 @@
 
 				<p class="ImageComparator__half">Difference: {{pixelmatchResult}}</p>
 
-				<canvas ref="ImageComparator__resultCanvas" class="ImageComparator__half"/>
+				<canvas ref="ImageComparator__resultCanvas"/>
 
 			</section>
 
@@ -70,6 +73,8 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
+			imageSrc1: null,
+			imageSrc2: null,
 			pixelmatchResult: null
 		};
 	},
@@ -79,65 +84,61 @@ export default {
 		}
 	},
 	methods: {
-		renderImageFromFile(file, canvas) {
-			const context = canvas.getContext('2d');
-			const fileReader = new FileReader();
-			const image = new Image();
-			const containerWidth = canvas.clientWidth;
-			image.onload = () => {
-				const height = (containerWidth / image.width) * image.height;
-				context.canvas.width = containerWidth;
-				context.canvas.height = height;
-				context.drawImage(
-					image,
-					0,
-					0,
-					containerWidth,
-					height
-				);
-			};
-			fileReader.onloadend = () => {
-				image.src = fileReader.result;
-			};
-			fileReader.readAsDataURL(file);
-			return image;
-		},
 		async compareImages() {
-			const { clientWidth: width, clientHeight: height } = this.$refs.ImageComparator__canvas1;
-			const image1 = this.$refs.ImageComparator__canvas1.getContext('2d').getImageData(0, 0, width, height);
-			const image2 = this.$refs.ImageComparator__canvas2.getContext('2d').getImageData(0, 0, width, height);
+			const image1 = this.$refs.ImageComparator__image1;
+			const image2 = this.$refs.ImageComparator__image2;
+			const context1 = document.createElement('canvas').getContext('2d');
+			const context2 = document.createElement('canvas').getContext('2d');
+			context1.drawImage(image1, 0, 0);
+			context2.drawImage(image2, 0, 0);
+			// get width and height from first image provided,
+			// remember pixelmatch requires images to be the same size!
+			const { width, height } = this.$refs.ImageComparator__image1;
+			const { data: image1Data } = context1.getImageData(0, 0, width, height);
+			const { data: image2Data } = context2.getImageData(0, 0, width, height);
+			// set compared to true so we have access to the result canvas to draw the difference on
 			this.compared = true;
 			await this.$nextTick();
-			const canvas = this.$refs.ImageComparator__resultCanvas;
-			const context = canvas.getContext('2d');
-			const diff = context.createImageData(width, height);
+			const resultContext = this.$refs.ImageComparator__resultCanvas.getContext('2d');
+			const diff = resultContext.createImageData(width, height);
 			this.pixelmatchResult = pixelmatch(
-				image1.data,
-				image2.data,
+				image1Data,
+				image2Data,
 				diff.data,
 				width,
 				height,
-				{ threshold: 0.35 }
+				{ threshold: 0.1 }
 			);
-			context.canvas.width = width;
-			context.canvas.height = height;
-			context.putImageData(diff, 0, 0);
+			console.log('this.pixelmatchResult: ', this.pixelmatchResult);
+			// fix displaying the diff
+			resultContext.canvas.width = width;
+			resultContext.canvas.height = height;
+			resultContext.putImageData(diff, 0, 0);
 		},
 		reset() {
 			this.file1 = null;
 			this.file2 = null;
-			this.image1 = null;
+			this.imageSrc1 = null;
+			this.imageSrc2 = null;
 			this.compared = false;
 		}
 	},
 	watch: {
 		file1() {
 			if (!this.file1) return;
-			this.image1 = this.renderImageFromFile(this.file1, this.$refs.ImageComparator__canvas1);
+			const fileReader = new FileReader();
+			fileReader.onload = () => {
+				this.imageSrc1 = fileReader.result;
+			};
+			fileReader.readAsDataURL(this.file1);
 		},
 		file2() {
 			if (!this.file2) return;
-			this.renderImageFromFile(this.file2, this.$refs.ImageComparator__canvas2);
+			const fileReader = new FileReader();
+			fileReader.onload = () => {
+				this.imageSrc2 = fileReader.result;
+			};
+			fileReader.readAsDataURL(this.file2);
 		}
 	}
 };
@@ -169,6 +170,11 @@ export default {
 		&__item {
 			margin-bottom: 1rem;
 		}
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
 	}
 }
 </style>
