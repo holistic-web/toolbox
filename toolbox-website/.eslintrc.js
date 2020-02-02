@@ -5,7 +5,7 @@ module.exports = {
 	},
 	extends: [
 		'plugin:vue/essential',
-		'toolbox'
+		'@holistic-web/stoolbox'
 	],
 	parserOptions: {
 		parser: 'babel-eslint'
