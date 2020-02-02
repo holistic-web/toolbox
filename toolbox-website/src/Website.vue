@@ -35,6 +35,12 @@ export default {
 		return {
 			tools: [
 				{
+					name: 'Image Comparator',
+					description: 'Finds the differences between images',
+					link: 'http://image-comparator.holistic-toolbox.com',
+					image: require('../assets/tools/image-comparator.png')
+				},
+				{
 					name: 'JSON Browser',
 					description: 'Helps analyse JSON data',
 					link: 'http://json-browser.holistic-toolbox.com',
