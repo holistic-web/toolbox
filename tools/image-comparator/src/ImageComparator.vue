@@ -8,24 +8,31 @@
 				<section class="ImageComparator__content">
 
 					<section class="ImageComparator__half">
+
 						<b-form-file
 							class="ImageComparator__half__item"
 							v-model="file1"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
 
-						<!-- Only include ref on first image as we will need both image sizes to match for the comparison -->
-						<img ref="ImageComparator__image1" class="ImageComparator__image" :src="imageSrc1"/>
+						<div class="ImageComparator__overflowBox">
+							<img ref="ImageComparator__image1" class="ImageComparator__image"/>
+						</div>
 
 					</section>
 
 					<section class="ImageComparator__half">
+
 						<b-form-file
 							class="ImageComparator__half__item"
 							v-model="file2"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
-						<img ref="ImageComparator__image2" class="ImageComparator__image" :src="imageSrc2"/>
+
+						<div class="ImageComparator__overflowBox">
+							<img ref="ImageComparator__image2" class="ImageComparator__image"/>
+						</div>
+
 					</section>
 
 				</section>
@@ -34,13 +41,16 @@
 
 		<template v-else>
 
-			<section class="ImageComparator__content">
+			<section
+				v-if="!error"
+				class="ImageComparator__content ImageComparator__content--column">
 
-				<p class="ImageComparator__half">Difference: {{pixelmatchResult}}</p>
+				<p>Difference: {{pixelmatchResult}}</p>
 
 				<canvas ref="ImageComparator__resultCanvas"/>
-
 			</section>
+
+			<tool-error v-else :message="error"/>
 
 		</template>
 
@@ -73,9 +83,8 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
-			imageSrc1: null,
-			imageSrc2: null,
-			pixelmatchResult: null
+			pixelmatchResult: null,
+			error: null
 		};
 	},
 	computed: {
@@ -84,42 +93,57 @@ export default {
 		}
 	},
 	methods: {
+		convertImageToCanvas(imageElement) {
+			const canvas = document.createElement('canvas');
+			canvas.width = imageElement.width;
+			canvas.height = imageElement.height;
+			canvas.getContext('2d').drawImage(imageElement, 0, 0);
+			return canvas;
+		},
 		async compareImages() {
-			const image1 = this.$refs.ImageComparator__image1;
-			const image2 = this.$refs.ImageComparator__image2;
-			const context1 = document.createElement('canvas').getContext('2d');
-			const context2 = document.createElement('canvas').getContext('2d');
-			context1.drawImage(image1, 0, 0);
-			context2.drawImage(image2, 0, 0);
-			// get width and height from first image provided,
-			// remember pixelmatch requires images to be the same size!
-			const { width, height } = this.$refs.ImageComparator__image1;
-			const { data: image1Data } = context1.getImageData(0, 0, width, height);
-			const { data: image2Data } = context2.getImageData(0, 0, width, height);
-			// set compared to true so we have access to the result canvas to draw the difference on
+			const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparator__image1);
+			const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparator__image2);
+
+			const context1 = canvas1.getContext('2d');
+			const context2 = canvas2.getContext('2d');
+
+			const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+			const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+
+			// use the first image's size for the comparison
+			const { width, height } = imageData1;
+
+			const resultImageData = new ImageData(width, height);
+
+			// set compared to true so we have access to the result canvas
 			this.compared = true;
 			await this.$nextTick();
-			const resultContext = this.$refs.ImageComparator__resultCanvas.getContext('2d');
-			const diff = resultContext.createImageData(width, height);
-			this.pixelmatchResult = pixelmatch(
-				image1Data,
-				image2Data,
-				diff.data,
-				width,
-				height,
-				{ threshold: 0.1 }
-			);
-			console.log('this.pixelmatchResult: ', this.pixelmatchResult);
-			// fix displaying the diff
-			resultContext.canvas.width = width;
-			resultContext.canvas.height = height;
-			resultContext.putImageData(diff, 0, 0);
+
+			const resultCanvas = this.$refs.ImageComparator__resultCanvas;
+			resultCanvas.width = width;
+			resultCanvas.height = height;
+
+			// get the difference
+			try {
+				this.pixelmatchResult = pixelmatch(
+					imageData1.data,
+					imageData2.data,
+					resultImageData.data,
+					width,
+					height,
+					{ threshold: 0.1 }
+				);
+
+				// draw the output
+				const resultContext = resultCanvas.getContext('2d');
+				resultContext.putImageData(resultImageData, 0, 0);
+			} catch (err) {
+				this.error = err.message;
+			}
 		},
 		reset() {
 			this.file1 = null;
 			this.file2 = null;
-			this.imageSrc1 = null;
-			this.imageSrc2 = null;
 			this.compared = false;
 		}
 	},
@@ -128,7 +152,7 @@ export default {
 			if (!this.file1) return;
 			const fileReader = new FileReader();
 			fileReader.onload = () => {
-				this.imageSrc1 = fileReader.result;
+				this.$refs.ImageComparator__image1.src = fileReader.result;
 			};
 			fileReader.readAsDataURL(this.file1);
 		},
@@ -136,7 +160,7 @@ export default {
 			if (!this.file2) return;
 			const fileReader = new FileReader();
 			fileReader.onload = () => {
-				this.imageSrc2 = fileReader.result;
+				this.$refs.ImageComparator__image2.src = fileReader.result;
 			};
 			fileReader.readAsDataURL(this.file2);
 		}
@@ -150,15 +174,18 @@ export default {
 .ImageComparator {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: fit-content;
 	padding: $tool-padding;
 	margin-bottom: calc(114px + 1rem); // to account for the taskbar
-	overflow: auto;
 
 	&__content {
 		display: flex;
 		flex-direction: row;
 		margin: 0 -1rem;
+
+		&--column {
+			flex-direction: column;
+		}
 	}
 
 	&__half {
@@ -172,9 +199,13 @@ export default {
 		}
 	}
 
+	&__overflowBox {
+		overflow-y: auto;
+	}
+
 	&__image {
-		width: 100%;
-		height: auto;
+		width: fit-content;
+		height: fit-content;
 	}
 }
 </style>
