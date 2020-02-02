@@ -5,20 +5,20 @@
 
 			<p>Please select two images:</p>
 
-				<section class="ImageComparator__inputs">
+				<section class="ImageComparator__content">
 
-					<section class="ImageComparator__input">
+					<section class="ImageComparator__half">
 						<b-form-file
-							class="ImageComparator__input__file"
+							class="ImageComparator__half__item"
 							v-model="file1"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
 						<canvas ref="ImageComparator__canvas1"/>
 					</section>
 
-					<section class="ImageComparator__input">
+					<section class="ImageComparator__half">
 						<b-form-file
-							class="ImageComparator__input__file"
+							class="ImageComparator__half__item"
 							v-model="file2"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
@@ -31,9 +31,13 @@
 
 		<template v-else>
 
-			<p>Results:</p>
+			<section class="ImageComparator__content">
 
-			<canvas ref="ImageComparator__resultCanvas"/>
+				<p class="ImageComparator__half">Difference: {{pixelmatchResult}}</p>
+
+				<canvas ref="ImageComparator__resultCanvas" class="ImageComparator__half"/>
+
+			</section>
 
 		</template>
 
@@ -66,7 +70,7 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
-			image1: null // we only store image1 to get the size of image to compare
+			pixelmatchResult: null
 		};
 	},
 	computed: {
@@ -99,7 +103,7 @@ export default {
 			return image;
 		},
 		async compareImages() {
-			const { clientHeight: height, clientWidth: width } = this.$refs.ImageComparator__canvas1;
+			const { clientWidth: width, clientHeight: height } = this.$refs.ImageComparator__canvas1;
 			const image1 = this.$refs.ImageComparator__canvas1.getContext('2d').getImageData(0, 0, width, height);
 			const image2 = this.$refs.ImageComparator__canvas2.getContext('2d').getImageData(0, 0, width, height);
 			this.compared = true;
@@ -107,15 +111,17 @@ export default {
 			const canvas = this.$refs.ImageComparator__resultCanvas;
 			const context = canvas.getContext('2d');
 			const diff = context.createImageData(width, height);
-			pixelmatch(
+			this.pixelmatchResult = pixelmatch(
 				image1.data,
 				image2.data,
 				diff.data,
 				width,
 				height,
-				{ threshold: 0.3 }
+				{ threshold: 0.35 }
 			);
-			context.putImageData(diff, 0, 0, 0, 0, width, height);
+			context.canvas.width = width;
+			context.canvas.height = height;
+			context.putImageData(diff, 0, 0);
 		},
 		reset() {
 			this.file1 = null;
@@ -148,19 +154,19 @@ export default {
 	margin-bottom: calc(114px + 1rem); // to account for the taskbar
 	overflow: auto;
 
-	&__inputs {
+	&__content {
 		display: flex;
 		flex-direction: row;
 		margin: 0 -1rem;
 	}
 
-	&__input {
+	&__half {
 		margin: 0 1rem;
 		width: 50%;
 		display: flex;
 		flex-direction: column;
 
-		&__file {
+		&__item {
 			margin-bottom: 1rem;
 		}
 	}
