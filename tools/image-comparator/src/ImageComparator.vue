@@ -3,7 +3,7 @@
 
 		<template v-if="!compared">
 
-			<p>Please select two images:</p>
+			<p>Select two images with the same dimensions to continue:</p>
 
 				<section class="ImageComparator__content">
 
