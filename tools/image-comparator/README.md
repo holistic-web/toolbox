@@ -27,4 +27,5 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-#TODO: list future ideas here or delete this section
+- allow comparing images from URL
+- allow customisation of comparison with settings in https://www.npmjs.com/package/pixelmatch
