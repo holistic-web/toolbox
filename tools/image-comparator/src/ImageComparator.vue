@@ -50,7 +50,7 @@ Any differring pixels will be flagged in red.
 				v-if="!error"
 				class="ImageComparator__content ImageComparator__content--column">
 
-				<p>Number of Different Pixels: {{pixelmatchResult}}</p>
+				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
 				<canvas ref="ImageComparator__resultCanvas"/>
 			</section>
@@ -88,7 +88,7 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
-			pixelmatchResult: null,
+			numberOfDifferentPixels: null,
 			error: null
 		};
 	},
@@ -130,7 +130,7 @@ export default {
 
 			// get the difference
 			try {
-				this.pixelmatchResult = pixelmatch(
+				this.numberOfDifferentPixels = pixelmatch(
 					imageData1.data,
 					imageData2.data,
 					resultImageData.data,
