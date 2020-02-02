@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'toolbox-layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .Website {
 
