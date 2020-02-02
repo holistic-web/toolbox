@@ -1,5 +1,5 @@
 {
-	"name": "toolbox-layout",
+	"name": "@holistic-web/toolbox-layout",
 	"version": "0.1.14",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
