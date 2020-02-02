@@ -1,8 +1,8 @@
-# Image Comparator
+# Image Comparer
 
 A tool to provide a visual comparison of two image files.
 
-Hosted at http://image-comparator.holistic-toolbox.com
+Hosted at http://image-comparer.holistic-toolbox.com
 
 ## Development
 To develop for this project:
