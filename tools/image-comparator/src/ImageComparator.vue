@@ -1,6 +1,11 @@
 <template>
 	<div ref="ImageComparator" class="ImageComparator">
 
+		<tool-markdown :markdown="`
+This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
+Any differring pixels will be flagged in red.
+			`"/>
+
 		<template v-if="!compared">
 
 			<p>Select two images with the same dimensions to continue:</p>
@@ -45,7 +50,7 @@
 				v-if="!error"
 				class="ImageComparator__content ImageComparator__content--column">
 
-				<p>Difference: {{pixelmatchResult}}</p>
+				<p>Number of Different Pixels: {{pixelmatchResult}}</p>
 
 				<canvas ref="ImageComparator__resultCanvas"/>
 			</section>
