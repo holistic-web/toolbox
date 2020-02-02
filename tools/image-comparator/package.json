@@ -12,7 +12,7 @@
 		"bootstrap-vue": "^2.2.1",
 		"core-js": "^3.4.4",
 		"pixelmatch": "^5.1.0",
-		"toolbox-layout": "^0.1.11",
+		"@holistic-web/toolbox-layout": "^0.1.14",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
@@ -21,7 +21,7 @@
 		"@vue/cli-service": "^4.1.0",
 		"babel-eslint": "^10.0.3",
 		"eslint": "^5.16.0",
-		"eslint-config-toolbox": "^1.0.0",
+		"@holistic-web/eslint-config-toolbox": "^1.0.1",
 		"eslint-plugin-vue": "^5.0.0",
 		"node-sass": "^4.13.0",
 		"sass-loader": "^8.0.0",
