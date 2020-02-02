@@ -2,7 +2,7 @@
 
 A tool to provide a visual comparison of two image files.
 
-Hosted at #TODO: replace with link to project
+Hosted at http://image-comparator.holistic-toolbox.com
 
 ## Development
 To develop for this project:

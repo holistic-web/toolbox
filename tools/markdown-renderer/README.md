@@ -2,7 +2,7 @@
 
 Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
 
-Hosted at #TODO: replace with link to new project
+Hosted at http://markdown-renderer.holistic-toolbox.com
 
 ## Development
 To develop for this project:
