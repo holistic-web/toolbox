@@ -1,6 +1,6 @@
 {
 	"name": "@holistic-web/toolbox-layout",
-	"version": "0.1.14",
+	"version": "0.1.15",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -24,8 +24,7 @@
 		"firebase": "^7.6.2",
 		"marked": "^0.8.0",
 		"vue": "^2.6.11",
-		"vue-codemirror": "^4.0.6",
-		"vue-visible": "^1.0.2"
+		"vue-codemirror": "^4.0.6"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "^4.1.0",
