@@ -1,9 +1,9 @@
 <template>
 	<div class="JsonBrowser">
 
-		<p>
-			A tool to aid with JSON analysis:
-		</p>
+		<tool-markdown :markdown="`
+A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
+		`"/>
 
 		<tool-error
 			v-if="errorMessage"

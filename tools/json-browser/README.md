@@ -2,7 +2,10 @@
 
 This is a tool to view and browse json in a useful way. Good for those who need to analyse a lot of data stored in a JSON format.
 
+It is powered by [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty).
+
 Hosted at http://json-browser.holistic-toolbox.com
+
 ## Development
 To develop for this project:
 1. Install dependencies
