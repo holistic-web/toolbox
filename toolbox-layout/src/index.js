@@ -2,7 +2,6 @@ import Vue from 'vue';
 import './styles/theme.scss';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
-import VueVisible from 'vue-visible';
 import ToolButton from './components/ToolButton.vue';
 import ToolCode from './components/ToolCode.vue';
 import ToolError from './components/ToolError.vue';
@@ -10,8 +9,6 @@ import ToolHeader from './components/ToolHeader.vue';
 import ToolLayout from './components/ToolLayout.vue';
 import ToolMarkdown from './components/ToolMarkdown.vue';
 import ToolTaskbar from './components/ToolTaskbar.vue';
-
-Vue.use(VueVisible);
 
 const components = {
 	ToolButton,
