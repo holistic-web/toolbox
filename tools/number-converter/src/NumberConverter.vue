@@ -125,7 +125,7 @@ export default {
 			this.converted = false;
 			this.errorMessage = null;
 			this.inputNumber = null;
-			this.base = null;
+			this.base = 0;
 		}
 	}
 };
