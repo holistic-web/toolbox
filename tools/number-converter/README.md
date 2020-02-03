@@ -2,9 +2,7 @@
 
 This tool converts numbers to binary and hexadecimal as well as dealing with signed and unsigned integers.
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
-
-Hosted at #TODO: replace with link to new project
+Hosted at: https://number-converter.web.app/
 
 ## Development
 To develop for this project:
@@ -29,4 +27,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-#TODO: list future ideas here or delete this section
+Add more conversion features
