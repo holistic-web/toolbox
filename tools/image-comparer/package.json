@@ -12,7 +12,7 @@
 		"bootstrap-vue": "^2.2.1",
 		"core-js": "^3.4.4",
 		"pixelmatch": "^5.1.0",
-		"@holistic-web/toolbox-layout": "^0.1.14",
+		"@holistic-web/toolbox-layout": "^0.1.15",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
