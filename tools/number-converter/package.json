@@ -12,7 +12,7 @@
     "core-js": "^3.4.4",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
-    "toolbox-layout": "^0.1.14",
+    "@holistic-web/toolbox-layout": "^0.1.14",
     "v-clipboard": "^2.2.2",
     "vue": "^2.6.10"
   },
@@ -21,7 +21,8 @@
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^5.16.0",
+	"eslint": "^5.16.0",
+	"@holistic-web/eslint-config-toolbox": "1.0.1",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.10"
   },
