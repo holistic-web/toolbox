@@ -152,7 +152,6 @@ export default {
 
 	&__result {
 		margin-top: 1rem;
-		font-size: 48;
 	}
 }
 </style>
