@@ -88,7 +88,7 @@ export default {
 						this.convertToHex(this.num);
 						break;
 					default:
-						throw new Error('Please choose an option:');
+						throw new Error('Base not supported');
 				}
 			} catch (err) {
 				this.errorMessage = err.message;
