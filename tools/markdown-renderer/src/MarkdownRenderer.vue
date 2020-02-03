@@ -20,17 +20,24 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 
 		<tool-taskbar>
 			<b-form-checkbox
+				class="MarkdownRenderer__button"
 				name="MarkdownRenderer__autoCopy"
 				v-model="autoCopy"
 				switch>
 				Auto Copy
 			</b-form-checkbox>
 			<tool-button
-				v-visible="!autoCopy"
-				class="MarkdownRenderer__copyButton"
+				v-if="!autoCopy"
+				class="MarkdownRenderer__button"
 				size="sm"
 				v-text="'Copy to Clipboard'"
 				@click.native="onCopyClick"/>
+			<tool-button
+					size="sm"
+					class="JsonFormatter__button"
+					variant="secondary"
+					v-text="'Reset'"
+					@click.native="reset"/>
 		</tool-taskbar>
 
 	</div>
@@ -50,6 +57,10 @@ export default {
 	methods: {
 		onCopyClick() {
 			this.$clipboard(this.markdown);
+		},
+		reset() {
+			this.markdown = '';
+			this.autoCopy = false;
 		}
 	},
 	watch: {
@@ -72,8 +83,8 @@ export default {
 	flex-direction: column;
 	padding: $tool-padding;
 
-	&__copyButton {
-		margin-right: 1rem;
+	&__button {
+		margin-left: 1rem;
 	}
 
 	&__content {
