@@ -21,7 +21,6 @@ Enter a number to convert:
 			disabled
 			v-if="converted"
 			v-model="result"
-			type="number"
 			size="lg" />
 
 		<tool-taskbar v-if="inputNumber">
@@ -65,7 +64,7 @@ export default {
 		return {
 			converted: false,
 			errorMessage: null,
-			inputNumber: null,
+			inputNumber: 0,
 			result: null,
 			base: 0,
 			baseOptions: [
@@ -109,21 +108,24 @@ export default {
 			}
 		},
 		convertToBin(number) {
-			return number.toString(2);
+			const result = number.toString(2);
+			return result;
 		},
 		convertToOct(number) {
-			return number.toString(8);
+			const result = number.toString(8);
+			return result;
 		},
 		convertToHex(number) {
 			const hex = '0x';
-			const ans = number.toString(16);
-			return hex.concat(ans.toUpperCase());
+			const answer = (number).toString(16);
+			const hexAnswer = hex.concat(answer.toUpperCase());
+			return hexAnswer;
 		},
 		reset() {
 			this.converted = false;
 			this.errorMessage = null;
 			this.inputNumber = 0;
-			this.base = 10;
+			this.base = null;
 		}
 	}
 };
