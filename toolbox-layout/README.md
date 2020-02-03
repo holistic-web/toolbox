@@ -1,6 +1,8 @@
 # Toolbox Layout
 
-This is a shared Vue.js component library for use in the Holistic Toolbox. It was made following the steps outlined in [this article](https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3).
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Holistic Toolbox. It was made following the steps outlined in [this article](https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3).
+
+[Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality.
 
 It is published on npm at: https://www.npmjs.com/package/toolbox-layout
 

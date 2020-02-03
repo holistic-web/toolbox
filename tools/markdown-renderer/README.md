@@ -1,6 +1,6 @@
 # Markdown Renderer
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with a little custom styling.
 
 Hosted at http://markdown-renderer.holistic-toolbox.com
 
