@@ -76,63 +76,37 @@ export default {
 	},
 	methods: {
 		convert() {
-			switch (this.base) {
-				case 2:
-					this.convertToBin();
-					break;
-				case 8:
-					this.convertToOct();
-					break;
-				case 10:
-					this.convertToDec();
-					break;
-				case 16:
-					this.convertToHex();
-					break;
-				default:
-					throw new Error('Please choose an option:');
-			}
-		},
-		convertToBin() {
 			try {
-				this.errorMessage = false;
-				const ans = (this.num).toString(2);
-				this.num = ans;
-				this.converted = true;
+				switch (this.base) {
+					case 2:
+						this.convertToBin(this.num);
+						break;
+					case 8:
+						this.convertToOct(this.num);
+						break;
+					case 10:
+						this.convertToDec(this.num);
+						break;
+					case 16:
+						this.convertToHex(this.num);
+						break;
+					default:
+						throw new Error('Please choose an option:');
+				}
 			} catch (err) {
 				this.errorMessage = err.message;
 			}
 		},
-		convertToOct() {
-			try {
-				this.errorMessage = false;
-				const ans = (this.num).toString(8);
-				this.num = ans;
-				this.converted = true;
-			} catch (err) {
-				this.errorMessage = err.message;
-			}
+		convertToBin(number) {
+			return number.toString(2);
 		},
-		convertToDec() {
-			try {
-				this.errorMessage = false;
-				const ans = (this.num).toString(10);
-				this.num = ans;
-				this.converted = true;
-			} catch (err) {
-				this.errorMessage = err.message;
-			}
+		convertToOct(number) {
+			return number.toString(8);
 		},
 		convertToHex() {
-			try {
-				this.errorMessage = false;
-				const hex = '0x';
-				const ans = (this.num).toString(16);
-				this.num = hex.concat(ans.toUpperCase());
-				this.converted = true;
-			} catch (err) {
-				this.errorMessage = err.message;
-			}
+			const hex = '0x';
+			const ans = (this.num).toString(16);
+			return hex.concat(ans.toUpperCase());
 		},
 		reset() {
 			this.converted = false;
