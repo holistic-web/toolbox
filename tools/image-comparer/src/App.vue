@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="Image Comparator">
-			<image-comparator/>
+		<tool-layout name="Image Comparer">
+			<image-comparer/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import ImageComparator from './ImageComparator.vue';
+import ImageComparer from './ImageComparer.vue';
 
 export default {
 	components: {
-		ImageComparator
+		ImageComparer
 	}
 };
 </script>
