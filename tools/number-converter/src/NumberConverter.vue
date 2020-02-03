@@ -25,12 +25,12 @@ Enter a number to convert:
 					v-text="'Convert'"
 					@click.native="convert"/>
 				<b-form-radio-group
-				class="NumberConverter__button"
-				v-model="base"
-				:options="baseOptions"
-				buttons
-				button-variant="outline-secondary"
-				size="sm"/>
+					class="NumberConverter__button"
+					v-model="base"
+					:options="baseOptions"
+					buttons
+					button-variant="outline-secondary"
+					size="sm"/>
 			</template>
 
 			<template v-else>
