@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<tool-layout name="Number Converter">
-			<number-converter />
+			<number-converter/>
 		</tool-layout>
 	</div>
 </template>
