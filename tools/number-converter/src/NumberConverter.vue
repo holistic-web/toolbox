@@ -10,7 +10,11 @@ Enter a number to convert:
 			class="NumberConverter__errorMessage"
 			:message="errorMessage"/>
 
-		<b-form-input v-model="num" type="number" placeholder="E.g. 100"></b-form-input>
+		<b-form-input 
+			v-model="num" 
+			type="number" 
+			size="lg"
+			placeholder="E.g. 100" />
 
 		<tool-taskbar v-if="num">
 
