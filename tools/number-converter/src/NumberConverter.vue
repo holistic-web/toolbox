@@ -3,7 +3,8 @@
 
 		<tool-markdown :markdown="`
 Converting is done with
-[int.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+[Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+
 Enter a number to convert:
 		`"/>
 
@@ -24,7 +25,8 @@ Enter a number to convert:
 			disabled
 			v-if="converted"
 			v-model="result"
-			size="lg" />
+			size="lg"
+			class="NumberConverter__result" />
 
 		<tool-taskbar v-if="inputNumber">
 
@@ -90,7 +92,6 @@ export default {
 			try {
 				switch (this.base) {
 					case 2:
-						console.log('input:', this.inputNumber);
 						this.result = this.convertToBin(this.inputNumber);
 						this.converted = true;
 						break;
@@ -147,6 +148,11 @@ export default {
 	&__button {
 		margin-left: 1rem;
 		height: fit-content;
+	}
+
+	&__result {
+		margin-top: 1rem;
+		font-size: 48;
 	}
 }
 </style>
