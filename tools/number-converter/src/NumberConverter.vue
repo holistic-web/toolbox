@@ -16,6 +16,13 @@ Enter a number to convert:
 			size="lg"
 			placeholder="E.g. 100" />
 
+		<b-form-input
+			disabled
+			v-if="converted"
+			v-model="result"
+			type="number"
+			size="lg" />
+
 		<tool-taskbar v-if="inputNumber">
 
 			<template v-if="!converted">
@@ -58,6 +65,7 @@ export default {
 			converted: false,
 			errorMessage: null,
 			inputNumber: null,
+			result: null,
 			base: 0,
 			baseOptions: [
 				{ text: 'Binary', value: 2 },
@@ -79,13 +87,16 @@ export default {
 			try {
 				switch (this.base) {
 					case 2:
-						this.inputNumber = this.convertToBin(this.inputNumber);
+						this.result = this.convertToBin(this.inputNumber);
+						this.converted = true;
 						break;
 					case 8:
-						this.inputNumber = this.convertToOct(this.inputNumber);
+						this.result = this.convertToOct(this.inputNumber);
+						this.converted = true;
 						break;
 					case 16:
-						this.inputNumber = this.convertToHex(this.inputNumber);
+						this.result = this.convertToHex(this.inputNumber);
+						this.converted = true;
 						break;
 					default:
 						throw new Error('Base not supported');
