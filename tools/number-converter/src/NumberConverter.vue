@@ -6,6 +6,7 @@ Enter a number to convert:
 		`"/>
 
 		<tool-error
+			:disabled="!!converted"
 			v-if="errorMessage"
 			class="NumberConverter__errorMessage"
 			:message="errorMessage"/>
@@ -87,7 +88,9 @@ export default {
 			try {
 				switch (this.base) {
 					case 2:
+						console.log('input:', this.inputNumber);
 						this.result = this.convertToBin(this.inputNumber);
+						console.log('result:', this.result);
 						this.converted = true;
 						break;
 					case 8:
