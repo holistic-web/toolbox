@@ -2,6 +2,8 @@
 	<div class="NumberConverter">
 
 		<tool-markdown :markdown="`
+Converting is done with
+[int.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
 Enter a number to convert:
 		`"/>
 
