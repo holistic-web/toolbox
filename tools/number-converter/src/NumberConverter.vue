@@ -50,7 +50,7 @@ Enter a number to convert:
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
-					v-clipboard="inputNumber"/>
+					v-clipboard="result"/>
 				<tool-button
 					size="sm"
 					class="NumberConverter__button"
