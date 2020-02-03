@@ -10,11 +10,7 @@ Enter a number to convert:
 			class="NumberConverter__errorMessage"
 			:message="errorMessage"/>
 
-		<tool-code
-			class="NumberConverter__input"
-			v-model="num"
-			:options="codeOptions"
-			:autoSize="true"/>
+		<b-form-input v-model="num" type="number" placeholder="E.g. 100"></b-form-input>
 
 		<tool-taskbar v-if="num">
 
@@ -57,7 +53,7 @@ export default {
 		return {
 			converted: false,
 			errorMessage: null,
-			num: '',
+			num: null,
 			base: 10,
 			baseOptions: [
 				{ text: 'Binary', value: 2 },
