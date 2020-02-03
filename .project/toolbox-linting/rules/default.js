@@ -17,8 +17,8 @@ module.exports = {
 		// always indent with one tab, including switch statements
 		'indent': [1, 'tab', { SwitchCase: 1 }],
 
-		// use unix linebreak style
-		'linebreak-style': ['error', 'unix'],
+		// don't worry about line endings
+		'linebreak-style': 0,
 
 		// warn for any line over 140 chars
 		'max-len': [1, 140],
