@@ -11,12 +11,12 @@ Enter a number to convert:
 			:message="errorMessage"/>
 
 		<b-form-input
-			v-model="num"
+			v-model="inputNumber"
 			type="number"
 			size="lg"
 			placeholder="E.g. 100" />
 
-		<tool-taskbar v-if="num">
+		<tool-taskbar v-if="inputNumber">
 
 			<template v-if="!converted">
 				<tool-button
@@ -38,7 +38,7 @@ Enter a number to convert:
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
-					v-clipboard="num"/>
+					v-clipboard="inputNumber"/>
 				<tool-button
 					size="sm"
 					class="NumberConverter__button"
@@ -57,7 +57,7 @@ export default {
 		return {
 			converted: false,
 			errorMessage: null,
-			num: null,
+			inputNumber: null,
 			base: 0,
 			baseOptions: [
 				{ text: 'Binary', value: 2 },
@@ -79,13 +79,13 @@ export default {
 			try {
 				switch (this.base) {
 					case 2:
-						this.convertToBin(this.num);
+						this.inputNumber = this.convertToBin(this.inputNumber);
 						break;
 					case 8:
-						this.convertToOct(this.num);
+						this.inputNumber = this.convertToOct(this.inputNumber);
 						break;
 					case 16:
-						this.convertToHex(this.num);
+						this.inputNumber = this.convertToHex(this.inputNumber);
 						break;
 					default:
 						throw new Error('Base not supported');
@@ -100,15 +100,15 @@ export default {
 		convertToOct(number) {
 			return number.toString(8);
 		},
-		convertToHex() {
+		convertToHex(number) {
 			const hex = '0x';
-			const ans = (this.num).toString(16);
+			const ans = number.toString(16);
 			return hex.concat(ans.toUpperCase());
 		},
 		reset() {
 			this.converted = false;
 			this.errorMessage = null;
-			this.num = '';
+			this.inputNumber = 0;
 			this.base = 10;
 		}
 	}
