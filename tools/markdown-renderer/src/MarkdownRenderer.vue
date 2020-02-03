@@ -1,7 +1,9 @@
 <template>
 	<div class="MarkdownRenderer">
 
-		<p>Enter your markdown below:</p>
+		<tool-markdown :markdown="`
+Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
+		`"/>
 
 		<section class="MarkdownRenderer__content">
 			<tool-code
