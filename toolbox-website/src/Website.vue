@@ -57,6 +57,12 @@ export default {
 					description: 'A browser based markdown renderer.',
 					link: 'http://markdown-renderer.holistic-toolbox.com',
 					image: require('../assets/tools/markdown-renderer.png')
+				},
+				{
+					name: 'Number Converter',
+					description: 'A simple number converter from decimal to binary, octal and hexadecimal.',
+					link: 'http://number-converter.holistic-toolbox.com',
+					image: require('../assets/tools/number-converter.png')
 				}
 			]
 		};
