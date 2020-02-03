@@ -1,5 +1,5 @@
 <template>
-	<div ref="ImageComparator" class="ImageComparator">
+	<div ref="ImageComparer" class="ImageComparer">
 
 		<tool-markdown :markdown="`
 This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
@@ -10,32 +10,32 @@ Any differring pixels will be flagged in red.
 
 			<p>Select two images with the same dimensions to continue:</p>
 
-				<section class="ImageComparator__content">
+				<section class="ImageComparer__content">
 
-					<section class="ImageComparator__half">
+					<section class="ImageComparer__half">
 
 						<b-form-file
-							class="ImageComparator__half__item"
+							class="ImageComparer__half__item"
 							v-model="file1"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
 
-						<div class="ImageComparator__overflowBox">
-							<img ref="ImageComparator__image1" class="ImageComparator__image"/>
+						<div class="ImageComparer__overflowBox">
+							<img ref="ImageComparer__image1" class="ImageComparer__image"/>
 						</div>
 
 					</section>
 
-					<section class="ImageComparator__half">
+					<section class="ImageComparer__half">
 
 						<b-form-file
-							class="ImageComparator__half__item"
+							class="ImageComparer__half__item"
 							v-model="file2"
 							placeholder="Choose a file or drop it here..."
 							drop-placeholder="Drop file here..."/>
 
-						<div class="ImageComparator__overflowBox">
-							<img ref="ImageComparator__image2" class="ImageComparator__image"/>
+						<div class="ImageComparer__overflowBox">
+							<img ref="ImageComparer__image2" class="ImageComparer__image"/>
 						</div>
 
 					</section>
@@ -48,11 +48,11 @@ Any differring pixels will be flagged in red.
 
 			<section
 				v-if="!error"
-				class="ImageComparator__content ImageComparator__content--column">
+				class="ImageComparer__content ImageComparer__content--column">
 
 				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
-				<canvas ref="ImageComparator__resultCanvas"/>
+				<canvas ref="ImageComparer__resultCanvas"/>
 			</section>
 
 			<tool-error v-else :message="error"/>
@@ -61,11 +61,62 @@ Any differring pixels will be flagged in red.
 
 		<tool-taskbar v-if="showTaskbar">
 
-			<tool-button
-				v-if="!compared"
-				size="lg"
-				v-text="'Compare'"
-				@click.native="compareImages"/>
+			<div v-if="!compared" class="ImageComparer__taskbar">
+
+				<tool-button
+					v-if="!compared"
+					size="lg"
+					v-text="'Compare'"
+					@click.native="compareImages"/>
+
+				<b-form-group
+					class="ImageComparer__taskbar__setting"
+					description="A number between 0-1"
+					label="Threshold"
+					label-for="ImageComparer__threshold"
+					label-size="sm">
+					<b-form-input
+						id="ImageComparer__threshold"
+						v-model="pixelmatchOptions.threshold"
+						size="sm"
+						type="number"
+						min="0"
+						max="1"
+						step="0.1"
+						number/>
+				</b-form-group>
+
+				<b-form-group
+					class="ImageComparer__taskbar__setting"
+					description="Blending factor of unchanged pixels in the diff output. 0 - 1"
+					label="Alpha"
+					label-for="ImageComparer__alpha"
+					label-size="sm">
+					<b-form-input
+						id="ImageComparer__alpha"
+						v-model="pixelmatchOptions.alpha"
+						size="sm"
+						type="number"
+						min="0"
+						max="1"
+						step="0.1"
+						number/>
+				</b-form-group>
+
+				<b-form-group
+					class="ImageComparer__taskbar__setting"
+					description="Ignore anti-aliased pixels"
+					label="Include AA"
+					label-for="ImageComparer__includeAA"
+					label-size="sm">
+					<b-form-checkbox
+						id="ImageComparer__includeAA"
+						v-model="pixelmatchOptions.includeAA"
+						size="sm"
+						switch/>
+				</b-form-group>
+
+			</div>
 
 			<tool-button
 				v-else
@@ -88,6 +139,11 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
+			pixelmatchOptions: {
+				threshold: 0.1,
+				alpha: 0.1,
+				includeAA: false
+			},
 			numberOfDifferentPixels: null,
 			error: null
 		};
@@ -106,8 +162,8 @@ export default {
 			return canvas;
 		},
 		async compareImages() {
-			const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparator__image1);
-			const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparator__image2);
+			const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparer__image1);
+			const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparer__image2);
 
 			const context1 = canvas1.getContext('2d');
 			const context2 = canvas2.getContext('2d');
@@ -124,7 +180,7 @@ export default {
 			this.compared = true;
 			await this.$nextTick();
 
-			const resultCanvas = this.$refs.ImageComparator__resultCanvas;
+			const resultCanvas = this.$refs.ImageComparer__resultCanvas;
 			resultCanvas.width = width;
 			resultCanvas.height = height;
 
@@ -136,7 +192,7 @@ export default {
 					resultImageData.data,
 					width,
 					height,
-					{ threshold: 0.1 }
+					{ ...this.pixelmatchOptions }
 				);
 
 				// draw the output
@@ -157,7 +213,7 @@ export default {
 			if (!this.file1) return;
 			const fileReader = new FileReader();
 			fileReader.onload = () => {
-				this.$refs.ImageComparator__image1.src = fileReader.result;
+				this.$refs.ImageComparer__image1.src = fileReader.result;
 			};
 			fileReader.readAsDataURL(this.file1);
 		},
@@ -165,7 +221,7 @@ export default {
 			if (!this.file2) return;
 			const fileReader = new FileReader();
 			fileReader.onload = () => {
-				this.$refs.ImageComparator__image2.src = fileReader.result;
+				this.$refs.ImageComparer__image2.src = fileReader.result;
 			};
 			fileReader.readAsDataURL(this.file2);
 		}
@@ -176,12 +232,12 @@ export default {
 <style lang="scss">
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
-.ImageComparator {
+.ImageComparer {
 	display: flex;
 	flex-direction: column;
 	height: fit-content;
 	padding: $tool-padding;
-	margin-bottom: calc(114px + 1rem); // to account for the taskbar
+	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
 	&__content {
 		display: flex;
@@ -211,6 +267,19 @@ export default {
 	&__image {
 		width: fit-content;
 		height: fit-content;
+	}
+
+	&__taskbar {
+		display: flex;
+		flex-direction: row-reverse;
+
+		> * {
+			margin-left: 1rem;
+		}
+
+		&__setting {
+			max-width: 250px;
+		}
 	}
 }
 </style>
