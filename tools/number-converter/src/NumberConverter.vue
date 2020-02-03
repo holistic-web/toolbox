@@ -10,9 +10,9 @@ Enter a number to convert:
 			class="NumberConverter__errorMessage"
 			:message="errorMessage"/>
 
-		<b-form-input 
-			v-model="num" 
-			type="number" 
+		<b-form-input
+			v-model="num"
+			type="number"
 			size="lg"
 			placeholder="E.g. 100" />
 
@@ -58,34 +58,78 @@ export default {
 			converted: false,
 			errorMessage: null,
 			num: null,
-			base: 10,
+			base: 0,
 			baseOptions: [
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
 				{ text: 'Hexadecimal', value: 16 }
 			]
-		}
+		};
 	},
 	computed: {
 		codeOptions() {
 			return {
 				readOnly: !!this.formatted,
-				lineNumbers: false,
+				lineNumbers: false
 			};
 		}
 	},
 	methods: {
 		convert() {
+			switch (this.base) {
+				case 2:
+					this.convertToBin();
+					break;
+				case 8:
+					this.convertToOct();
+					break;
+				case 10:
+					this.convertToDec();
+					break;
+				case 16:
+					this.convertToHex();
+					break;
+				default:
+					throw new Error('Please choose an option:');
+			}
+		},
+		convertToBin() {
 			try {
 				this.errorMessage = false;
-				const int = parseInt(this.num)
-				const hex = '0x'
-				const ans = int.toString(this.base)
-				this.num = ans
-				if(this.base == 16){
-					this.num = hex.concat(this.num.toUpperCase())
-				}
-				this.converted = true
+				const ans = (this.num).toString(2);
+				this.num = ans;
+				this.converted = true;
+			} catch (err) {
+				this.errorMessage = err.message;
+			}
+		},
+		convertToOct() {
+			try {
+				this.errorMessage = false;
+				const ans = (this.num).toString(8);
+				this.num = ans;
+				this.converted = true;
+			} catch (err) {
+				this.errorMessage = err.message;
+			}
+		},
+		convertToDec() {
+			try {
+				this.errorMessage = false;
+				const ans = (this.num).toString(10);
+				this.num = ans;
+				this.converted = true;
+			} catch (err) {
+				this.errorMessage = err.message;
+			}
+		},
+		convertToHex() {
+			try {
+				this.errorMessage = false;
+				const hex = '0x';
+				const ans = (this.num).toString(16);
+				this.num = hex.concat(ans.toUpperCase());
+				this.converted = true;
 			} catch (err) {
 				this.errorMessage = err.message;
 			}
@@ -97,7 +141,7 @@ export default {
 			this.base = 10;
 		}
 	}
-}
+};
 </script>
 
 
