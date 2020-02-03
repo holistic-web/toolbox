@@ -84,9 +84,6 @@ export default {
 					case 8:
 						this.convertToOct(this.num);
 						break;
-					case 10:
-						this.convertToDec(this.num);
-						break;
 					case 16:
 						this.convertToHex(this.num);
 						break;
