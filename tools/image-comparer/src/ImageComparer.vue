@@ -237,7 +237,7 @@ export default {
 	flex-direction: column;
 	height: fit-content;
 	padding: $tool-padding;
-	margin-bottom: calc(158px + 1rem); // to account for the taskbar
+	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
 	&__content {
 		display: flex;
