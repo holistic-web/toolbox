@@ -1,24 +1,9 @@
 <template>
 	<div class="MarkdownRenderer">
 
-		<section class="MarkdownRenderer__header">
-			<p>Enter your markdown below:</p>
-
-			<div class="MarkdownRenderer__header__buttons">
-				<tool-button
-					v-if="!autoCopy"
-					class="MarkdownRenderer__header__button"
-					v-text="'Copy to Clipboard'"
-					@click.native="onCopyClick"/>
-
-				<b-form-checkbox
-					name="MarkdownRenderer__autoCopy"
-					v-model="autoCopy"
-					switch>
-					Auto Copy to Clipboard
-				</b-form-checkbox>
-			</div>
-		</section>
+		<tool-markdown :markdown="`
+Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
+		`"/>
 
 		<section class="MarkdownRenderer__content">
 			<tool-code
@@ -32,6 +17,21 @@
 				class="MarkdownRenderer__content__item MarkdownRenderer__content__item--right"
 				:markdown="markdown"/>
 		</section>
+
+		<tool-taskbar>
+			<b-form-checkbox
+				name="MarkdownRenderer__autoCopy"
+				v-model="autoCopy"
+				switch>
+				Auto Copy
+			</b-form-checkbox>
+			<tool-button
+				v-visible="!autoCopy"
+				class="MarkdownRenderer__copyButton"
+				size="sm"
+				v-text="'Copy to Clipboard'"
+				@click.native="onCopyClick"/>
+		</tool-taskbar>
 
 	</div>
 </template>
@@ -65,32 +65,21 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'toolbox-layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .MarkdownRenderer {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	padding: $tool-padding;
 
-	&__header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-
-		&__buttons {
-			display: flex;
-			flex-direction: row;
-		}
-
-		&__button {
-			margin-right: 1rem;
-		}
+	&__copyButton {
+		margin-right: 1rem;
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: row;
+		margin-bottom: 97px; // to account for the taskbar
 
 		&__item {
 			width: 50%;
@@ -104,5 +93,6 @@ export default {
 			}
 		}
 	}
+
 }
 </style>

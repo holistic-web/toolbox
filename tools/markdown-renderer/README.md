@@ -1,8 +1,8 @@
 # Markdown Renderer
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with a little custom styling.
 
-Hosted at #TODO: replace with link to new project
+Hosted at http://markdown-renderer.holistic-toolbox.com
 
 ## Development
 To develop for this project:
@@ -25,6 +25,3 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 	firebase deploy
 	```
-
-## Road Map
-#TODO: list future ideas here or delete this section

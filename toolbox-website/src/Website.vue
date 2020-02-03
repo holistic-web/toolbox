@@ -35,6 +35,18 @@ export default {
 		return {
 			tools: [
 				{
+					name: 'Image Comparer',
+					description: 'Finds the differences between images',
+					link: 'http://image-comparer.holistic-toolbox.com',
+					image: require('../assets/tools/image-comparer.png')
+				},
+				{
+					name: 'JSON Browser',
+					description: 'Helps analyse JSON data',
+					link: 'http://json-browser.holistic-toolbox.com',
+					image: require('../assets/tools/json-browser.png')
+				},
+				{
 					name: 'JSON Formatter',
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
@@ -59,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'toolbox-layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .Website {
 

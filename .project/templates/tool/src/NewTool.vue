@@ -15,7 +15,7 @@ Documentation for your new tool goes here...
 
 
 <style lang="scss">
-@import 'toolbox-layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .NewTool {
 	display: flex;

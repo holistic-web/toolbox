@@ -2,8 +2,9 @@
 
 A list of concepts we have for potential future tools. We should flesh these ideas out wherever possible
 
-## JSON Formatter
-It formats JSON. Nicely.
+## JSON Diff Checker
+
+A quick way to get the diff between two JSON files, useful if the properties aren't in order and to compare values.
 
 ## OCR Text Extractor
 Extracts text from an image

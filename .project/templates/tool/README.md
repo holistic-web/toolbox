@@ -2,7 +2,7 @@
 
 Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
 
-Hosted at #TODO: replace with link to new project
+Hosted at #TODO: replace with link to project
 
 ## Development
 To develop for this project:

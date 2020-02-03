@@ -2,6 +2,8 @@
 
 This tool validates and formats JSON entered by a developer. It is written in Vue.js.
 
+The JSON rendering is done with the built in [`JSON.stringify(...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) method.
+
 Hosted at https://json-formatter.holistic-toolbox.com
 
 ## Development
