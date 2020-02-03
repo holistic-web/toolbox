@@ -30,3 +30,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 - allow comparing images from URL
 - show image previews in a size that fits on the screen, and use in memory images for the comparison
 - show the original image previews alongside the final difference
+- allow customising the diff colours with a colourwheel
