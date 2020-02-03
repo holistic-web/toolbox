@@ -1,6 +1,6 @@
 {
   "hosting": {
-	"site": "number-converter",
+	"site": "Number Converter",
     "public": "dist",
     "ignore": [
       "firebase.json",

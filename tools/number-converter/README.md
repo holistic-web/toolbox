@@ -29,4 +29,6 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-Add more conversion features
+- add more conversion features
+- allow converting to decimal from other formats
+- make better ui
