@@ -1,8 +1,8 @@
-# Markdown Renderer
+# Image Comparer
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+A tool to provide a visual comparison of two image files.
 
-Hosted at http://markdown-renderer.holistic-toolbox.com
+Hosted at http://image-comparer.holistic-toolbox.com
 
 ## Development
 To develop for this project:
@@ -25,3 +25,7 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 	firebase deploy
 	```
+
+## Road Map
+- allow comparing images from URL
+- allow customisation of comparison with settings in https://www.npmjs.com/package/pixelmatch
