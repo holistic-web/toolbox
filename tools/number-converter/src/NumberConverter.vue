@@ -14,6 +14,7 @@ Enter a number to convert:
 			:message="errorMessage"/>
 
 		<b-form-input
+			number
 			v-model="inputNumber"
 			type="number"
 			size="lg"
@@ -66,7 +67,7 @@ export default {
 		return {
 			converted: false,
 			errorMessage: null,
-			inputNumber: 0,
+			inputNumber: null,
 			result: null,
 			base: 0,
 			baseOptions: [
@@ -91,7 +92,6 @@ export default {
 					case 2:
 						console.log('input:', this.inputNumber);
 						this.result = this.convertToBin(this.inputNumber);
-						console.log('result:', this.result);
 						this.converted = true;
 						break;
 					case 8:
@@ -110,23 +110,20 @@ export default {
 			}
 		},
 		convertToBin(number) {
-			const result = number.toString(2);
-			return result;
+			return number.toString(2);
 		},
 		convertToOct(number) {
-			const result = number.toString(8);
-			return result;
+			return number.toString(8);
 		},
 		convertToHex(number) {
 			const hex = '0x';
-			const answer = (number).toString(16);
-			const hexAnswer = hex.concat(answer.toUpperCase());
-			return hexAnswer;
+			const answer = hex.concat((number).toString(16).toUpperCase());
+			return answer;
 		},
 		reset() {
 			this.converted = false;
 			this.errorMessage = null;
-			this.inputNumber = 0;
+			this.inputNumber = null;
 			this.base = null;
 		}
 	}
