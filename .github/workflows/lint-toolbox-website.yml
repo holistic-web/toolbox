@@ -29,7 +29,7 @@ jobs:
 
     - run: git config --local user.email "action@github.com"
     - run: git config --local user.name "GitHub Action"
-    - run: git commit -m "chore: automated linting fix-ups" -a
+    - run: git commit -m "automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
