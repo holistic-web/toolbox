@@ -1,5 +1,7 @@
 # Stale Issue / PR Action
 # This actions marks issues / PRs stale when they have been inactive for a while.
+#
+# For configuration options see https://github.com/actions/stale
 
 name: Mark stale issues and pull requests
 
@@ -20,3 +22,5 @@ jobs:
         stale-pr-message: 'This PR seems to be stale'
         stale-issue-label: 'no-issue-activity'
         stale-pr-label: 'no-pr-activity'
+        days-before-stale: 7
+        days-before-close: 5
