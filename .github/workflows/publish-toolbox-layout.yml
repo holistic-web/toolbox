@@ -12,8 +12,8 @@ name: publish-toolbox-layout
 
 on:
   push:
-    # branches:
-    # - master
+    branches:
+    - master
     paths:
     - 'toolbox-layout/**'
 
