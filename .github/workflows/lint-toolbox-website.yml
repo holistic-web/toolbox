@@ -26,12 +26,12 @@ jobs:
     - run: |
         cd toolbox-website
         npm ci
+        npm run lint
 
-    - run: npm run lint
-
-    - run: git config --local user.email "action@github.com"
-    - run: git config --local user.name "GitHub Action"
-    - run: git commit -m "automated linting fix-ups" -a
+    - run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
