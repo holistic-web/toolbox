@@ -3,8 +3,8 @@ name: Lint toolbox-website when changes are made and commits any fixes made.
 on:
   push:
 
-    paths:
-    - 'toolbox-website/**'
+    # paths:
+    # - 'toolbox-website/**'
 
 jobs:
   lint-and-commit:
