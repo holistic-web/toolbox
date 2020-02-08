@@ -51,7 +51,7 @@ export default {
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
 					image: require('../assets/tools/json-formatter.png')
-				} ,
+				},
 				{
 					name: 'Markdown Renderer',
 					description: 'A browser based markdown renderer.',
