@@ -39,7 +39,7 @@ export default {
 					description: 'Finds the differences between images',
 					link: 'http://image-comparer.holistic-toolbox.com',
 					image: require('../assets/tools/image-comparer.png')
-				} ,
+				},
 				{
 					name: 'JSON Browser',
 					description: 'Helps analyse JSON data',
