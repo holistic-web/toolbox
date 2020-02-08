@@ -45,7 +45,7 @@ export default {
 					description: 'Helps analyse JSON data',
 					link: 'http://json-browser.holistic-toolbox.com',
 					image: require('../assets/tools/json-browser.png')
-				} ,
+				},
 				{
 					name: 'JSON Formatter',
 					description: 'A simple, client side JSON formatter.',
