@@ -1,11 +1,19 @@
-name: Publish toolbox-layout on push to master branch
+# Publish packages
+# This workflow affects all our npm packages, so `toolbox-layout` and `toolbox-linting`.
+#
+#	1. increment the version in package.json
+#	2. push the new version to the master branch
+#	3. build the project (if applicable)
+#	4. publish the project
+
+# It relies on the `NPM_TOKEN` secret being available in this repo.
+
+name: publish-toolbox-layout
 
 on:
   push:
-
     branches:
     - master
-
     paths:
     - 'toolbox-layout/**'
 
@@ -16,7 +24,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -33,7 +41,9 @@ jobs:
         npm run build-bundle --if-present
 
     - name: Increment project version
-      run: npm version patch
+      run: |
+        cd toolbox-layout
+        npm version patch
 
     - name: Push changes
       uses: ad-m/github-push-action@master
@@ -41,9 +51,8 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish project
-      with:
-        npm-token: ${{ secrets.NPM_TOKEN }}
       run: |
-        echo "//registry.npmjs.org/:_authToken=$npm-token" > .npmrc
+        cd toolbox-layout
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
         npm publish --access public
         rm .npmrc

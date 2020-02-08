@@ -1,8 +1,16 @@
-name: Lint image-comparer when changes are made and commits any fixes made.
+# Lint branches
+# This workflow affects all our javascript projects, so currently every project with a build step. The logic for this is:
+#
+#	1. lint the project
+#	2. commit any changes
+#	3. push the changes
+#
+# It relies on the `GITHUB_TOKEN` secret being available in this repo.
+
+name: lint-tool-image-comparer
 
 on:
   push:
-
     paths:
     - 'tools/image-comparer/**'
 
@@ -13,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +31,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Lint project
+    - name: Install and Lint
       run: |
         cd tools/image-comparer
         npm ci
@@ -33,10 +41,15 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "chore: automated linting fix-ups" -a
+        git commit -m "automated linting fix-ups" -a
+
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${GITHUB_HEAD_REF}
+        branch: ${{ steps.extract_branch.outputs.branch }}
