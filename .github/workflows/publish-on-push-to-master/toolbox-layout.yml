@@ -47,5 +47,3 @@ jobs:
         echo "//registry.npmjs.org/:_authToken=$npm-token" > .npmrc
         npm publish --access public
         rm .npmrc
-
-

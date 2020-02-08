@@ -44,5 +44,3 @@ jobs:
       with:
         firebase-token: ${{ secrets.FIREBASE_TOKEN }}
       run: firebase deploy --token ${firebase-token}
-
-
