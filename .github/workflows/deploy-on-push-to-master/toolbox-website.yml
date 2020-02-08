@@ -1,0 +1,35 @@
+name: Deploy toolbox-website on push to master branch
+
+on:
+  push:
+
+    branches:
+    - master
+
+    paths:
+    - 'toolbox-website/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      with:
+        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+
+    - run: cd toolbox-website
+    - run: npm install
+    - run: npm run build
+    - run: firebase deploy --token ${firebase-token}
+      env:
+        CI: true
