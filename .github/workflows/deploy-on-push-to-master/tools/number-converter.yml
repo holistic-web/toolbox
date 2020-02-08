@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'number-converter/**'
+    - 'tools/number-converter/**'
 
 jobs:
   build-and-deploy:

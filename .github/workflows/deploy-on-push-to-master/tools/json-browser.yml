@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'json-browser/**'
+    - 'tools/json-browser/**'
 
 jobs:
   build-and-deploy:

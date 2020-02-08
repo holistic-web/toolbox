@@ -4,7 +4,7 @@ on:
   push:
 
     paths:
-    - 'number-converter/**'
+    - 'tools/number-converter/**'
 
 jobs:
   lint-and-commit:

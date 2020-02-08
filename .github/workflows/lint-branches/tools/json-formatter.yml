@@ -4,7 +4,7 @@ on:
   push:
 
     paths:
-    - 'json-formatter/**'
+    - 'tools/json-formatter/**'
 
 jobs:
   lint-and-commit:

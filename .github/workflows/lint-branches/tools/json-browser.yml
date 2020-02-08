@@ -4,7 +4,7 @@ on:
   push:
 
     paths:
-    - 'json-browser/**'
+    - 'tools/json-browser/**'
 
 jobs:
   lint-and-commit:

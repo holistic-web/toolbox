@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'image-comparer/**'
+    - 'tools/image-comparer/**'
 
 jobs:
   build-and-deploy:

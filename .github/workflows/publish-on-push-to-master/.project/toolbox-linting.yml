@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - './project/toolbox-linting/**'
+    - '.project/toolbox-linting/**'
 
 jobs:
   build-and-deploy:
@@ -36,7 +36,7 @@ jobs:
 
     - name: Build project
     run: |
-        cd toolbox-layout
+        cd .project/toolbox-linting
         npm ci
         npm run build-bundle --if-present
 

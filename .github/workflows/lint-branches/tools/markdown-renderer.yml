@@ -4,7 +4,7 @@ on:
   push:
 
     paths:
-    - 'markdown-renderer/**'
+    - 'tools/markdown-renderer/**'
 
 jobs:
   lint-and-commit:
