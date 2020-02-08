@@ -1,4 +1,4 @@
-name: Publish toolbox-layout on push to master branch
+name: Publish ./project/toolbox-linting on push to master branch
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'toolbox-layout/**'
+    - './project/toolbox-linting/**'
 
 jobs:
   build-and-deploy:
@@ -25,12 +25,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Build project
-      run: |
-        cd toolbox-layout
-        npm install
-        npm run build-bundle
 
     - name: Increment project version
       run: npm version patch
