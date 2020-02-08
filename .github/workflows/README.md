@@ -1,12 +1,8 @@
-# Github Workflows
+# Workflows
 
-This folder contains our automated workflows for this project. We have 4 main workflows at the moment.
+This is the list of automated workflows we currently have enabled in the Holistic Toolbox™®.
 
-## Workflows:
-
-### Deploy on push to master
-This workflow affects all our Vue apps, so `toolbox-website` and all tools. The logic for this automation is:
-1. increment the version in package.json
-2. push the new version to the master branch
-3. build the project
-4. deploy the project
+- [deploy-on-push-to-master](/deploy-on-push-to-master)
+- [lint-branches](/lint-branches)
+- [publish-on-push-to-master](/publish-on-push-to-master)
+- [detect-stale-activity](/detect-stale-activity.md)
