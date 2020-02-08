@@ -23,10 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: |
-      cd toolbox-website
-      npm ci
-      npm run lint
+    - run: cd toolbox-website
+    - run: npm ci
+    - run: npm run lint
 
     - run: |
       git config --local user.email "action@github.com"
