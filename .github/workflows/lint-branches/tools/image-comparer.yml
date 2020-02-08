@@ -1,0 +1,42 @@
+name: Lint image-comparer when changes are made and commits any fixes made.
+
+on:
+  push:
+
+    paths:
+    - 'tools/image-comparer/**'
+
+jobs:
+  lint-and-commit:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Lint project
+      run: |
+        cd tools/image-comparer
+        npm ci
+        npm run lint
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "chore: automated linting fix-ups" -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${GITHUB_HEAD_REF}

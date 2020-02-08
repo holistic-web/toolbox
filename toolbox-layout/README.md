@@ -37,11 +37,13 @@ npm run build-bundle
 ```
 
 ### Publishing
-This project can be published with the following command if correctly authorised
-Remember to modify the version number in package.json
+Publishing for this project is handled by our [Github workflow](/.gitub/workflows/publish-on-push-to-master) on merge into the master branch.
+
+Manual publishing is not recommended but if we need to try the following (provided you are logged into npm and authorized):
 ```
 npm publish --access public
 ```
+_Remember to increment the version number in package.json_
 
 ### Analytics
 Firebase analytics have been added to index.js of toolbox-layout

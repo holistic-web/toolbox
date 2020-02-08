@@ -1,0 +1,46 @@
+name: Deploy markdown-render on push to master branch
+
+on:
+  push:
+
+    branches:
+    - master
+
+    paths:
+    - 'tools/markdown-render/**'
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Increment project version
+      run: npm version patch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build project
+      run: |
+        cd tools/markdown-render
+        npm ci
+        npm run build
+
+    - name: Deploy project
+      with:
+        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+      run: firebase deploy --token ${firebase-token}

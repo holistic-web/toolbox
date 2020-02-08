@@ -1,0 +1,49 @@
+name: Publish toolbox-layout on push to master branch
+
+on:
+  push:
+
+    branches:
+    - master
+
+    paths:
+    - 'toolbox-layout/**'
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build project
+      run: |
+        cd toolbox-layout
+        npm ci
+        npm run build-bundle --if-present
+
+    - name: Increment project version
+      run: npm version patch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish project
+      with:
+        npm-token: ${{ secrets.NPM_TOKEN }}
+      run: |
+        echo "//registry.npmjs.org/:_authToken=$npm-token" > .npmrc
+        npm publish --access public
+        rm .npmrc
