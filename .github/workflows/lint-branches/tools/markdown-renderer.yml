@@ -22,8 +22,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
     - name: Lint project
     run: |

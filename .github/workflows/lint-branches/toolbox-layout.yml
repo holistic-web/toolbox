@@ -1,10 +1,10 @@
-name: Lint toolbox-website when changes are made and commits any fixes made.
+name: Lint toolbox-layout when changes are made and commits any fixes made.
 
 on:
   push:
 
     paths:
-    - 'toolbox-website/**'
+    - 'toolbox-layout/**'
 
 jobs:
   lint-and-commit:
@@ -25,7 +25,7 @@ jobs:
 
     - name: Lint project
     run: |
-      cd toolbox-website
+      cd toolbox-layout
       npm install
       npm run lint
 
