@@ -4,6 +4,9 @@
 # To use this workflow, you will need to set up a .github/labeler.yml
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler/blob/master/README.md
+#
+# Add paths in here to automatically label pull requests based on the contents of
+# the files changed.
 
 name: Labeler
 on: [pull_request]
@@ -17,3 +20,22 @@ jobs:
     - uses: actions/labeler@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      .github:
+            - .github/*
+      .project:
+            - .project/*
+      toolbox-layout:
+            - toolbox-layout/*
+      toolbox-website:
+            - toolbox-website/*
+      ## Tools:
+      tool/image-comparer:
+            - tools/image-comparer/*
+      tool/json-browser:
+            - tools/json-browser/*
+      tool/json-formatter:
+            - tools/json-formatter/*
+      tool/markdown-renderer:
+            - tools/markdown-renderer/*
+      tool/number-converter:
+            - tools/number-converter/*
