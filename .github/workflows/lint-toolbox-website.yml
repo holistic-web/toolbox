@@ -27,10 +27,9 @@ jobs:
     - run: npm ci
     - run: npm run lint
 
-    - run: |
-      git config --local user.email "action@github.com"
-      git config --local user.name "GitHub Action"
-      git commit -m "chore: automated linting fix-ups" -a
+    - run: git config --local user.email "action@github.com"
+    - run: git config --local user.name "GitHub Action"
+    - run: git commit -m "chore: automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
