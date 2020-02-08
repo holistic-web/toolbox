@@ -20,22 +20,22 @@ jobs:
     - uses: actions/labeler@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      .github:
-            - .github/*
-      .project:
-            - .project/*
-      toolbox-layout:
-            - toolbox-layout/*
-      toolbox-website:
-            - toolbox-website/*
-      ## Tools:
-      tool/image-comparer:
-            - tools/image-comparer/*
-      tool/json-browser:
-            - tools/json-browser/*
-      tool/json-formatter:
-            - tools/json-formatter/*
-      tool/markdown-renderer:
-            - tools/markdown-renderer/*
-      tool/number-converter:
-            - tools/number-converter/*
+        .github:
+                - .github/*
+        .project:
+                - .project/*
+        toolbox-layout:
+                - toolbox-layout/*
+        toolbox-website:
+                - toolbox-website/*
+        ## Tools:
+        tool/image-comparer:
+                - tools/image-comparer/*
+        tool/json-browser:
+                - tools/json-browser/*
+        tool/json-formatter:
+                - tools/json-formatter/*
+        tool/markdown-renderer:
+                - tools/markdown-renderer/*
+        tool/number-converter:
+                - tools/number-converter/*
