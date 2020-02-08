@@ -24,16 +24,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Lint project
-    run: |
-      cd tools/markdown-renderer
-      npm install
-      npm run lint
+      run: |
+        cd tools/markdown-renderer
+        npm ci
+        npm run lint
 
     - name: Commit changes
-    run: |
-      git config --local user.email "action@github.com"
-      git config --local user.name "GitHub Action"
-      git commit -m "chore: automated linting fix-ups" -a
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "chore: automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master

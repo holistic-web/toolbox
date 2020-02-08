@@ -22,20 +22,18 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
     - name: Lint project
-    run: |
-      cd tools/number-converter
-      npm install
-      npm run lint
+      run: |
+        cd tools/number-converter
+        npm ci
+        npm run lint
 
     - name: Commit changes
-    run: |
-      git config --local user.email "action@github.com"
-      git config --local user.name "GitHub Action"
-      git commit -m "chore: automated linting fix-ups" -a
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "chore: automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master

@@ -29,7 +29,7 @@ jobs:
     - name: Build project
       run: |
         cd toolbox-layout
-        npm install
+        npm ci
         npm run build-bundle --if-present
 
     - name: Increment project version

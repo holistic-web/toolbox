@@ -37,7 +37,7 @@ jobs:
     - name: Build project
       run: |
         cd toolbox-website
-        npm install
+        npm ci
         npm run build
 
     - name: Deploy project
