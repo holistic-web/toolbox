@@ -35,7 +35,7 @@ export default {
 		return {
 			tools: [
 				{
-					name: 'Image Comparer'
+					name: 'Image Comparer',
 					description: 'Finds the differences between images',
 					link: 'http://image-comparer.holistic-toolbox.com',
 					image: require('../assets/tools/image-comparer.png')
@@ -51,14 +51,12 @@ export default {
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
 					image: require('../assets/tools/json-formatter.png')
-				},
+				} ,
 				{
 					name: 'Markdown Renderer',
 					description: 'A browser based markdown renderer.',
 					link: 'http://markdown-renderer.holistic-toolbox.com',
 					image: require('../assets/tools/markdown-renderer.png')
-
-
 				},
 				{
 					name: 'Number Converter',
