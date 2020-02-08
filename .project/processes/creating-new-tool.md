@@ -18,6 +18,8 @@ This is the process to create a new tool for the Holistic Toolbox.
 
 1. Add an item for your tool in the tools array here: [`/toolbox-website/src/Website.vue#L36`](/toolbox-website/src/Website.vue#L36).
 
+1. Add a linting workflow to the [`/.github/lint-branches/tools`](/.github/lint-branches/tools) folder. This can be done by copying an existing one and replacing the tool name where it occurs in the file.
+
 1. Add a deployment workflow to the [`/.github/deploy-on-push-to-master/tools`](/.github/deploy-on-push-to-master/tools) folder. This can be done by copying an existing one and replacing the tool name where it occurs in the file.
 
 1. Add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
