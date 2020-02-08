@@ -3,8 +3,8 @@ name: lint-toolbox-website
 on:
   push:
 
-    # paths:
-    # - 'toolbox-website/**'
+    paths:
+    - 'toolbox-website/**'
 
 jobs:
   lint-and-commit:
