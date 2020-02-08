@@ -6,15 +6,18 @@ The JSON rendering is done with the built in [`JSON.stringify(...)`](https://dev
 
 Hosted at https://json-formatter.holistic-toolbox.com
 
-## Development
-To develop for this project:
-1. Install dependencies
+## Deployment
+Deployment for this project is handled by our [Github workflow](/.gitub/workflows/deploy-on-push-to-master) on merge into the master branch.
+
+Manual deployment is not recommended but in case we ever need to do the following on a machine with the firebase cli installed.
+
+1. Build the project
 	```
-	npm install
+	npm run build
 	```
-2. Host the project locally in development mode
+2. Deploy the project
 	```
-	npm run serve
+	firebase deploy
 	```
 
 ## Deployment
