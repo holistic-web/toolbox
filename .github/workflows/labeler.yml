@@ -5,30 +5,30 @@
 # the files changed.
 
 .github:
-	- .github/*
+  - .github/*
 
 .project:
-	- .project/*
+  - .project/*
 
 toolbox-layout:
-	- toolbox-layout/*
+  - toolbox-layout/*
 
 toolbox-website:
-	- toolbox-website/*
+  - toolbox-website/*
 
 ## Tools:
 
 tool/image-comparer:
-	- tools/image-comparer/*
+  - tools/image-comparer/*
 
 tool/json-browser:
-	- tools/json-browser/*
+  - tools/json-browser/*
 
 tool/json-formatter:
-	- tools/json-formatter/*
+  - tools/json-formatter/*
 
 tool/markdown-renderer:
-	- tools/markdown-renderer/*
+  - tools/markdown-renderer/*
 
 tool/number-converter:
-	- tools/number-converter/*
+  - tools/number-converter/*
