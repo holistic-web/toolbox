@@ -1,4 +1,4 @@
-name: Lint toolbox-website when changes are made and commits any fixes made.
+name: lint-toolbox-website
 
 on:
   push:
@@ -18,22 +18,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Lint toolbox-website on push
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Lint project
-      run: |
-        cd toolbox-website
-        npm ci
-        npm run lint
+    - run: |
+      cd toolbox-website
+      npm ci
+      npm run lint
 
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "chore: automated linting fix-ups" -a
+    - run: |
+      git config --local user.email "action@github.com"
+      git config --local user.name "GitHub Action"
+      git commit -m "chore: automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
