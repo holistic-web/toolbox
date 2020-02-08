@@ -41,7 +41,7 @@ export default {
 					image: require('../assets/tools/image-comparer.png')
 				},
 				{
-					name: 'JSON Browser',
+					name: 'JSON Browser'
 					description: 'Helps analyse JSON data',
 					link: 'http://json-browser.holistic-toolbox.com',
 					image: require('../assets/tools/json-browser.png')
