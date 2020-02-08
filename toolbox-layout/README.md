@@ -56,4 +56,4 @@ https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
 ## Roadmap
 Some things we'd like to look into in the future are:
 - publishing this library under the @holistics organisation
-- allowing individual components to be imported rather then all or nothing
+- allowing individual components to be imported rather then all or none

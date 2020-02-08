@@ -5,8 +5,7 @@
 #	2. commit any changes
 #	3. push the changes
 #
-#	It relies on the `GITHUB_TOKEN` secret being available in this repo.
-
+# It relies on the `GITHUB_TOKEN` secret being available in this repo.
 
 name: lint-toolbox-website
 
