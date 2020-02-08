@@ -1,4 +1,4 @@
-name: Deploy markdown-renderer on push to master branch
+name: Deploy markdown-render on push to master branch
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'tools/markdown-renderer/**'
+    - 'markdown-render/**'
 
 jobs:
   build-and-deploy:
@@ -26,17 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build project
-      run: |
-        cd tools/markdown-renderer
-        npm install
-        npm run build
-
-    - name: Deploy project
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
-      run: firebase deploy --token ${firebase-token}
-
     - name: Increment project version
       run: npm version patch
 
@@ -44,5 +33,16 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build project
+      run: |
+        cd tools/markdown-render
+        npm install
+        npm run build
+
+    - name: Deploy project
+      with:
+        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+      run: firebase deploy --token ${firebase-token}
 
 

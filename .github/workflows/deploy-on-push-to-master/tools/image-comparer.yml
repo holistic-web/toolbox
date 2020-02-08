@@ -7,7 +7,7 @@ on:
     - master
 
     paths:
-    - 'tools/image-comparer/**'
+    - 'image-comparer/**'
 
 jobs:
   build-and-deploy:
@@ -26,6 +26,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Increment project version
+      run: npm version patch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build project
       run: |
         cd tools/image-comparer
@@ -36,13 +44,5 @@ jobs:
       with:
         firebase-token: ${{ secrets.FIREBASE_TOKEN }}
       run: firebase deploy --token ${firebase-token}
-
-    - name: Increment project version
-      run: npm version patch
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 
 
