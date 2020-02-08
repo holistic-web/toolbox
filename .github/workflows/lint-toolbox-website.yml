@@ -35,8 +35,13 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit -m "automated linting fix-ups" -a
 
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${GITHUB_REF##*/}
+        branch: ${{ steps.extract_branch.outputs.branch }}
