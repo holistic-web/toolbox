@@ -10,7 +10,7 @@ on:
     - 'tools/markdown-renderer/**'
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
@@ -20,6 +20,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -27,9 +28,23 @@ jobs:
       with:
         firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
-    - run: cd tools/markdown-renderer
-    - run: npm install
-    - run: npm run build
-    - run: firebase deploy --token ${firebase-token}
-      env:
-        CI: true
+    - name: Build project
+      run: |
+        cd tools/markdown-renderer
+        npm install
+        npm run build
+
+    - name: Deploy project
+      with:
+        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
+      run: firebase deploy --token ${firebase-token}
+
+    - name: Increment project version
+      run: npm version patch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+

@@ -1,16 +1,13 @@
-name: Deploy json-formatter on push to master branch
+name: Lint number-converter when changes are made and commits any fixes made.
 
 on:
   push:
 
-    branches:
-    - master
-
     paths:
-    - 'tools/json-formatter/**'
+    - 'number-converter/**'
 
 jobs:
-  build-and-deploy:
+  lint-and-commit:
 
     runs-on: ubuntu-latest
 
@@ -28,23 +25,21 @@ jobs:
       with:
         firebase-token: ${{ secrets.FIREBASE_TOKEN }}
 
-    - name: Build project
-      run: |
-        cd tools/json-formatter
-        npm install
-        npm run build
+    - name: Lint project
+    run: |
+      cd tools/number-converter
+      npm install
+      npm run lint
 
-    - name: Deploy project
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
-      run: firebase deploy --token ${firebase-token}
-
-    - name: Increment project version
-      run: npm version patch
+    - name: Commit changes
+    run: |
+      git config --local user.email "action@github.com"
+      git config --local user.name "GitHub Action"
+      git commit -m "chore: automated linting fix-ups" -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-
+        branch: ${GITHUB_HEAD_REF}
 
