@@ -24,10 +24,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: |
-        cd toolbox-website &&
+        cd toolbox-website
         npm ci
 
-      - run: npm run lint
+    - run: npm run lint
 
     - run: git config --local user.email "action@github.com"
     - run: git config --local user.name "GitHub Action"
