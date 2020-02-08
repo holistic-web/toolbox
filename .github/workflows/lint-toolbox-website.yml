@@ -18,17 +18,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Lint toolbox-website on push
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: |
+    - name: Install and Lint
+      run: |
         cd toolbox-website
         npm ci
         npm run lint
 
-    - run: |
+    - name: Commit changes
+      run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "automated linting fix-ups" -a
