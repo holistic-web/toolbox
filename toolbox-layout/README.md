@@ -54,4 +54,4 @@ For specific events:
 https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
 
 ## Roadmap
-- allowing individual components to be imported rather then all or none
+- allowing individual components to be imported rather then all or nothing
