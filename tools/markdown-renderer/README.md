@@ -2,7 +2,7 @@
 
 This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with some custom styling.
 
-Hosted at https://markdown-renderer.holistic-toolbox.coms
+Hosted at: https://markdown-renderer.holistic-toolbox.com
 
 ## Development
 To develop for this project:
