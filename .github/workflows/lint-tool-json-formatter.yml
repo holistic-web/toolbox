@@ -50,6 +50,7 @@ jobs:
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
+    - run: git pull
 
     - name: Push changes
       uses: ad-m/github-push-action@master

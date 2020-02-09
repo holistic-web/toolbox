@@ -28,6 +28,7 @@ jobs:
 
     - name: Increment project version
       run: npm version patch
+    - run: git pull
 
     - name: Push changes
       uses: ad-m/github-push-action@master
