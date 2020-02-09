@@ -6,6 +6,10 @@ The JSON rendering is done with the built in [`JSON.stringify(...)`](https://dev
 
 Hosted at https://json-formatter.holistic-toolbox.com
 
+## Functionality
+Along with JSON formatting, this tool supports:
+- browsing the formatted JSON with a link to json-formatter
+
 ## Development
 To develop for this project:
 1. Install dependencies
