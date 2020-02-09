@@ -1,8 +1,19 @@
-# #TODO: replace me
+# {{tool-name-human}}
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+#TODO: add a brief description of this tool
 
-Hosted at #TODO: replace with link to project
+#TODO: provide a link to the live url of this tool
+
+## Setup Guide
+- [ ] run `npm install` on this folder to generate package-lock.json and node_modules
+- [ ] build your tool =D
+- [ ] set up a new website for the tool here: https://console.firebase.google.com/u/0/project/holistic-toolbox/hosting/main
+- [ ] update firebase.json to point towards the ID of this newly created site
+- [ ] ensure any remaining #TODOs in this folder / file have been completed
+- [ ] submit PR for review!
+- [ ] add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
+- [ ] in the firebase console, configure the new site to use these new domains
+- finally, delete this block from the readme when the above is all complete
 
 ## Development
 To develop for this project:
@@ -27,4 +38,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-#TODO: list future ideas here or delete this section
+#TODO: list ideas for the future here, or delete this section
