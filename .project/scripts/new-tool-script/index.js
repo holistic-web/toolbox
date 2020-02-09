@@ -37,6 +37,7 @@ console.log(`> Writing files...`)
 files.forEach(file => {
 	const content = fs.readFileSync(`${TEMPLATE_PATH}\\${file}`, 'utf8');
 	const newFile = `${NEW_TOOL_PATH}\\${file}`;
+	// #TODO: implement handlebars here to generate updated tool
 	fs.writeFileSync(newFile, content);
 });
 
