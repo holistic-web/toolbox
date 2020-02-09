@@ -44,6 +44,7 @@ jobs:
         git commit -m "automated linting fix-ups" -a
 
     - name: Extract branch name
+      if: succeeded() || failed() # in case commit failed due to no changes
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch

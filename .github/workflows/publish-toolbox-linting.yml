@@ -52,7 +52,6 @@ jobs:
         git commit -m "automated linting fix-ups" -a
 
     - name: Push changes
-      if: succeeded() || failed()
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
