@@ -2,7 +2,7 @@
 	<div class="{{tool-name-uppercase}}">
 
 		<tool-markdown :markdown="`
-Documentation for your new tool goes here...
+Documentation for your new tool and any relevant links go here...
 		`"/>
 
 

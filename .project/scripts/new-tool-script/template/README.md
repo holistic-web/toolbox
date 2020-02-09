@@ -1,6 +1,6 @@
 # {{tool-name-human}}
 
-#TODO: add a brief description of this tool
+#TODO: add a brief description of this tool and any key packages it uses
 
 #TODO: provide a link to the live url of this tool
 
