@@ -35,4 +35,7 @@ firebase.initializeApp({
 });
 firebase.analytics();
 
+// alias
+Vue.prototype.$analytics = firebase.analytics();
+
 export default components;
