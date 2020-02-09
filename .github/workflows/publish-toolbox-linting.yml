@@ -49,7 +49,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "increment package version" -a
+		git commit -m "increment package version" -a
+
     - run: git pull
 
     - name: Push changes
