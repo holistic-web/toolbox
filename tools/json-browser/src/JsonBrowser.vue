@@ -85,16 +85,16 @@ export default {
 		}
 	},
 	mounted() {
-		this.$refs.JsonBrowser__input.focus();
+		if (this.$refs.JsonBrowser__input) this.$refs.JsonBrowser__input.focus();
 	},
 	watch: {
 		$route: {
 			immediate: true,
 			async handler() {
-				console.log(this.$route);
-				await this.$nextTick();
 				if (this.$route.query.JSON) {
-					console.log('this.$route.query.JSON: ', this.$route.query.JSON);
+					this.jsonString = this.$route.query.JSON;
+					this.$router.replace({ query: undefined });
+					this.enterBrowseMode();
 				}
 			}
 		}
