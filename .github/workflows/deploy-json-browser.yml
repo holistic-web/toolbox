@@ -62,6 +62,6 @@ jobs:
       uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
-        env:
+      env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_PATH: 'tools/json-browser'
