@@ -31,12 +31,19 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
-				class="JsonBrowser__browseButton"
+				class="JsonBrowser__taskbarButton"
 				v-if="!browsing"
 				size="lg"
 				v-text="'Browse'"
 				@click.native="enterBrowseMode"/>
 			<tool-button
+				class="JsonBrowser__taskbarButton"
+				v-if="browsing"
+				size="lg"
+				v-text="'Get shareable link'"
+				v-clipboard="`https://json-browser.holistic-toolbox.com?JSON=${this.jsonString}`"/>
+			<tool-button
+				class="JsonBrowser__taskbarButton"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
@@ -127,7 +134,7 @@ export default {
 		}
 	}
 
-	&__browseButton {
+	&__taskbarButton {
 		margin-left: 1rem;
 	}
 }
