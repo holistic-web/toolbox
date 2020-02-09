@@ -10,9 +10,9 @@
 name: lint-toolbox-website
 
 on:
-  branches-ignore:
-  - master
   push:
+    branches-ignore:
+    - master
     paths:
     - 'toolbox-website/**'
 
