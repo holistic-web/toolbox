@@ -1,10 +1,12 @@
 const fs = require('fs');
+const handlebars = require('handlebars');
 const config = require('./config');
 const getAllFilePaths = require('./helpers/getAllFilePaths');
 
 const TEMPLATE_PATH = 'template';
 const NEW_TOOL_PATH = `..\\..\\..\\tools\\${config.toolName}`;
 const PATHS_IGNORE = [`${TEMPLATE_PATH}\\node_modules`, `${TEMPLATE_PATH}\\package-lock.json`];
+const FILE_TYPE_PRESERVE = ['.ico'];
 
 console.log(`> Generating tool: ${config.toolName}...`)
 
@@ -32,11 +34,28 @@ files.forEach(file => {
 });
 
 console.log(`> Writing files...`)
+const handlebarsData = {
+	'tool-name': config.toolName,
+	'tool-name-human': config.toolNameHuman,
+	'tool-name-uppercase': config.toolNameUppercase
+};
 files.forEach(file => {
 	const content = fs.readFileSync(`${TEMPLATE_PATH}\\${file}`, 'utf8');
-	const newFile = `${NEW_TOOL_PATH}\\${file}`;
-	// #TODO: implement handlebars here to generate updated tool
-	fs.writeFileSync(newFile, content);
+	const newFile = `${NEW_TOOL_PATH}\\${file.replace('{{tool-name-uppercase}}', config.toolNameUppercase)}`;
+
+	// don't try and template image files as handlebars will error
+	let doTemplating = true;
+	FILE_TYPE_PRESERVE.forEach(type => {
+		if (file.endsWith(type)) doTemplating = false;
+	});
+
+	if (doTemplating) {
+		const template = handlebars.compile(content);
+		const newContent = template(handlebarsData);
+		fs.writeFileSync(newFile, newContent);
+	} else {
+		fs.writeFileSync(newFile, content);
+	}
 });
 
 console.log(`> Done.`)
