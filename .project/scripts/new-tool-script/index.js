@@ -1,14 +1,12 @@
 const fs = require('fs');
+const config = require('./config');
 const getAllFilePaths = require('./helpers/getAllFilePaths');
 
-const TOOL_NAME = process.argv[2];
-if (!TOOL_NAME) throw new Error('please provide a tool-name');
-
 const TEMPLATE_PATH = 'template';
-const NEW_TOOL_PATH = `..\\..\\..\\tools\\${TOOL_NAME}`;
+const NEW_TOOL_PATH = `..\\..\\..\\tools\\${config.toolName}`;
 const PATHS_IGNORE = [`${TEMPLATE_PATH}\\node_modules`, `${TEMPLATE_PATH}\\package-lock.json`];
 
-console.log(`> Generating tool: ${TOOL_NAME}...`)
+console.log(`> Generating tool: ${config.toolName}...`)
 
 console.log(`> Getting template file paths...`)
 const templateFiles = getAllFilePaths(TEMPLATE_PATH, PATHS_IGNORE);
