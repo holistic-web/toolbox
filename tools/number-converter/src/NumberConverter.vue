@@ -111,6 +111,7 @@ export default {
 				}
 			} catch (err) {
 				this.errorMessage = err.message;
+				this.$analytics.logEvent('error_message', { error: err });
 			}
 		},
 		convertToBin(number) {
