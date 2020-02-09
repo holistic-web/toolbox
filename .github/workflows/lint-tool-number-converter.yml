@@ -10,9 +10,9 @@
 name: lint-tool-number-converter
 
 on:
-  branches-ignore:
-  - master
   push:
+    branches-ignore:
+    - master
     paths:
     - 'tools/number-converter/**'
 

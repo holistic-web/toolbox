@@ -10,9 +10,9 @@
 name: lint-tool-json-browser
 
 on:
-  branches-ignore:
-  - master
   push:
+    branches-ignore:
+    - master
     paths:
     - 'tools/json-browser/**'
 
