@@ -58,4 +58,6 @@ files.forEach(file => {
 	}
 });
 
+// #TODO: automate writing github linting and deployment actions
+
 console.log(`> Done.`)
