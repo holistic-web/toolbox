@@ -42,6 +42,12 @@ Enter your [JSON](https://www.json.org) below to get started:
 					v-text="'Copy Output'"
 					v-clipboard="jsonString"/>
 				<tool-button
+					size="lg"
+					class="JsonFormatter__button"
+					v-text="'Browse JSON'"
+					:href="`https://json-formatter.holistic-toolbox.com?JSON=${jsonString}`"
+					target="_blank"/>
+				<tool-button
 					size="sm"
 					class="JsonFormatter__button"
 					variant="secondary"
