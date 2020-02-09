@@ -75,8 +75,10 @@ export default {
 	},
 	methods: {
 		async reset() {
-			this.errorMessage = null;
 			this.jsonObject = null;
+			this.jsonString = '';
+			this.selectedNodes = [];
+			this.errorMessage = null;
 			this.browsing = false;
 			await this.$nextTick();
 			this.$refs.JsonBrowser__input.focus();
