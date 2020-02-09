@@ -8,14 +8,14 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-toolbox-website
+name: deploy-json-formatter
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'toolbox-website/**'
+    - 'tools/json-formatter/**'
 
 jobs:
   build-and-deploy:
@@ -35,7 +35,17 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Increment project version
-	  run: npm version patch
+      run: |
+        cd tools/json-formatter
+        npm version patch
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "increment package version" -a
+
+    - run: git pull
 
     - run: git pull
 
@@ -46,11 +56,13 @@ jobs:
 
     - name: Build project
       run: |
-        cd toolbox-website
+        cd tools/json-formatter
         npm ci
         npm run build
 
     - name: Deploy project
       with:
         firebase-token: ${{ secrets.FIREBASE_TOKEN }}
-      run: firebase deploy --token ${firebase-token}
+      run: |
+        cd tools/json-formatter
+        firebase deploy --token ${firebase-token}
