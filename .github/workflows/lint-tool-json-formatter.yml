@@ -11,6 +11,8 @@
 name: lint-tool-json-formatter
 
 on:
+  branches-ignore:
+  - master
   push:
     paths:
     - 'tools/json-formatter/**'

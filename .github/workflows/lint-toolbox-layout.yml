@@ -10,6 +10,8 @@
 name: lint-toolbox-layout
 
 on:
+  branches-ignore:
+  - master
   push:
     paths:
     - 'toolbox-layout/**'

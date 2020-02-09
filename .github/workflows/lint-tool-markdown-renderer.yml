@@ -10,6 +10,8 @@
 name: lint-tool-markdown-renderer
 
 on:
+  branches-ignore:
+  - master
   push:
     paths:
     - 'tools/markdown-renderer/**'
