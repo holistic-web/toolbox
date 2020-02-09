@@ -1,5 +1,5 @@
 <template>
-	<div class="NewTool">
+	<div class="{{tool-name-uppercase}}">
 
 		<tool-markdown :markdown="`
 Documentation for your new tool goes here...
@@ -17,7 +17,7 @@ Documentation for your new tool goes here...
 <style lang="scss">
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
-.NewTool {
+.{{tool-name-uppercase}} {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
