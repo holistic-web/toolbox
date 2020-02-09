@@ -46,7 +46,7 @@ jobs:
         git commit -m "increment package version" -a
 
     - run: git rebase origin/master
-
+    - run: git pull
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
