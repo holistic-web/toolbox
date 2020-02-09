@@ -94,14 +94,17 @@ export default {
 					case 2:
 						this.result = this.convertToBin(this.inputNumber);
 						this.converted = true;
+						this.$analytics.logEvent('number_converted', { name: 'binary' });
 						break;
 					case 8:
 						this.result = this.convertToOct(this.inputNumber);
 						this.converted = true;
+						this.$analytics.logEvent('number_converted', { name: 'octal' });
 						break;
 					case 16:
 						this.result = this.convertToHex(this.inputNumber);
 						this.converted = true;
+						this.$analytics.logEvent('number_converted', { name: 'hexadecimal' });
 						break;
 					default:
 						throw new Error('Base not supported');
