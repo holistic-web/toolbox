@@ -41,10 +41,9 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "automated linting fix-ups" -a
+        git diff-index --quiet HEAD || git commit -m "automated linting fix-ups" -a
 
     - name: Extract branch name
-      if: succeeded() || failed() # in case commit failed due to no changes
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
