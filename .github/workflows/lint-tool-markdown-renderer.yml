@@ -41,7 +41,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "automated linting fix-ups" -a
+        git diff-index --quiet HEAD || git commit -m "automated linting fix-ups" -a
 
     - name: Extract branch name
       shell: bash
