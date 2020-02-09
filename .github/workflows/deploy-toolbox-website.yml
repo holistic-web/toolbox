@@ -61,8 +61,6 @@ jobs:
         npm run build
 
     - name: Deploy project
-      with:
-        firebase-token: ${{ secrets.FIREBASE_TOKEN }}
       run: |
         cd toolbox-website
-        firebase deploy --token ${firebase-token}
+        firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}

@@ -1,6 +1,6 @@
 # Toolbox Website
 
-This is the home page for all Holistic Toolbox tools
+This is the homepage for all Holistic Toolbox tools.
 
 Hosted at #TODO: fill this out
 
