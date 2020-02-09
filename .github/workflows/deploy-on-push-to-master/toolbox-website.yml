@@ -1,11 +1,19 @@
-name: Deploy toolbox-website on push to master branch
+# Deploy on push to master
+# This workflow affects all our Vue apps, so `toolbox-website` and all tools. The logic for this automation is:
+#
+#	1. increment the version in package.json
+#	2. push the new version to the master branch
+#	3. build the project
+#	4. deploy the project
+
+# It relies on the `FIREBASE_TOKEN` secret being available in this repo.
+
+name: deploy-toolbox-website
 
 on:
   push:
-
     branches:
     - master
-
     paths:
     - 'toolbox-website/**'
 
@@ -16,7 +24,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,7 +35,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Increment project version
-      run: npm version patch
+	  run: npm version patch
+
     - run: git pull
 
     - name: Push changes
