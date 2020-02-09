@@ -3,11 +3,11 @@ const handlebars = require('handlebars');
 const config = require('./config');
 const getAllFilePaths = require('./helpers/getAllFilePaths');
 
-const TEMPLATE_PATH = 'template/tool';
+const TEMPLATE_PATH = 'template\\tool';
 const NEW_TOOL_PATH = `..\\..\\..\\tools\\${config.toolName}`;
 const PATHS_IGNORE = [`${TEMPLATE_PATH}\\node_modules`, `${TEMPLATE_PATH}\\package-lock.json`];
 const FILE_TYPE_PRESERVE = ['.ico'];
-const WORKFLOWS_TEMPLATE_PATH = 'template/workflows';
+const WORKFLOWS_TEMPLATE_PATH = 'template\\workflows';
 const WORKFLOWS_PATH = '..\\..\\..\\.github\\workflows';
 const HANDLEBARS_DATA = {
 	'tool-name': config.toolName,
