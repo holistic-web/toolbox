@@ -13,3 +13,6 @@ This script generates a new tool for the toolbox. To generate a tool:
 3. reset `config.js` to how it was - your tool will be in the `/tools` top level folder =D
 
 4. Follow the steps in the newly generated readme to finish setting up your tool!
+
+## Changing the Template
+This script should be fairly resilient to changes in the template structure. This should allow us to update the template as we improve our tools.
