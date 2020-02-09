@@ -8,14 +8,14 @@
 
 # It relies on the `NPM_TOKEN` secret being available in this repo.
 
-name: publish-toolbox-layout
+name: publish-toolbox-linting
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'toolbox-layout/**'
+    - '.project/toolbox-linting/**'
 
 jobs:
   build-and-deploy:
@@ -36,13 +36,13 @@ jobs:
 
     - name: Build project
       run: |
-        cd toolbox-layout
+        cd .project/toolbox-linting
         npm ci
         npm run build-bundle --if-present
 
     - name: Increment project version
       run: |
-        cd toolbox-layout
+        cd .project/toolbox-linting
         npm version patch
 
     - name: Commit changes
@@ -58,7 +58,7 @@ jobs:
 
     - name: Publish project
       run: |
-        cd toolbox-layout
+        cd .project/toolbox-linting
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
         npm publish --access public
         rm .npmrc

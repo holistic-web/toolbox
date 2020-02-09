@@ -1,6 +1,6 @@
 # Toolbox Linting
 
-This folder provides standard eslint configurations for our projects.
+This folder provides eslint configuration for all our projects.
 
 ### Publishing
 Publishing for this project is handled by our [Github workflow](/.gitub/workflows/publish-on-push-to-master) on merge into the master branch.
