@@ -8,14 +8,14 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-json-browser
+name: deploy-{{tool-name}}
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'tools/json-browser/**'
+    - 'tools/{{tool-name}}/**'
 
 jobs:
   build-and-deploy:
@@ -36,7 +36,7 @@ jobs:
 
     - name: Increment project version
       run: |
-        cd tools/json-browser
+        cd tools/{{tool-name}}
         npm version patch
 
     - name: Commit changes
@@ -54,7 +54,7 @@ jobs:
 
     - name: Build project
       run: |
-        cd tools/json-browser
+        cd tools/{{tool-name}}
         npm ci
         npm run build
 
@@ -64,4 +64,4 @@ jobs:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        PROJECT_PATH: 'tools/json-browser'
+        PROJECT_PATH: 'tools/{{tool-name}}'

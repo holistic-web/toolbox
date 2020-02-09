@@ -7,8 +7,8 @@ const TEMPLATE_PATH = 'template/tool';
 const NEW_TOOL_PATH = `..\\..\\..\\tools\\${config.toolName}`;
 const PATHS_IGNORE = [`${TEMPLATE_PATH}\\node_modules`, `${TEMPLATE_PATH}\\package-lock.json`];
 const FILE_TYPE_PRESERVE = ['.ico'];
-const WORKFLOWS_PATH = 'template/workflows';
-const NEW_WORKFLOWS_PATH = '..\\..\\..\\.github\\workflows';
+const WORKFLOWS_TEMPLATE_PATH = 'template/workflows';
+const WORKFLOWS_PATH = '..\\..\\..\\.github\\workflows';
 const HANDLEBARS_DATA = {
 	'tool-name': config.toolName,
 	'tool-name-human': config.toolNameHuman,
@@ -61,29 +61,16 @@ files.forEach(file => {
 });
 
 console.log(`> Generating workflows...`)
-const templateFiles = getAllFilePaths(WORKFLOWS_PATH);
-const files = templateFiles.map(file => {
-	return file.replace(WORKFLOWS_PATH, '');
+const workflowTemplateFiles = getAllFilePaths(WORKFLOWS_TEMPLATE_PATH);
+const workflowFiles = workflowTemplateFiles.map(file => {
+	return file.replace(WORKFLOWS_TEMPLATE_PATH, '');
 });
-files.forEach(file => {
-	const content = fs.readFileSync(`${WORKFLOWS_PATH}\\${file}`, 'utf8');
-	const newFile = `${NEW_TOOL_PATH}\\${file.replace('{{tool-name}}', config.toolName)}`;
-
-	// don't try and template image files as handlebars will error
-	let doTemplating = true;
-	FILE_TYPE_PRESERVE.forEach(type => {
-		if (file.endsWith(type)) doTemplating = false;
-	});
-
-	if (doTemplating) {
-		const template = handlebars.compile(content);
-		const newContent = template(HANDLEBARS_DATA);
-		fs.writeFileSync(newFile, newContent);
-	} else {
-		fs.writeFileSync(newFile, content);
-	}
+workflowFiles.forEach(file => {
+	const content = fs.readFileSync(`${WORKFLOWS_TEMPLATE_PATH}\\${file}`, 'utf8');
+	const newFile = `${WORKFLOWS_PATH}\\${file.replace('{{tool-name}}', config.toolName)}`;
+	const template = handlebars.compile(content);
+	const newContent = template(HANDLEBARS_DATA);
+	fs.writeFileSync(newFile, newContent);
 });
-
-// #TODO: automate writing github linting and deployment actions
 
 console.log(`> Done.`)

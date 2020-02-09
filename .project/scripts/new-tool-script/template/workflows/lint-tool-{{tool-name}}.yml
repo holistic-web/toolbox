@@ -7,14 +7,14 @@
 #
 # It relies on the `GITHUB_TOKEN` secret being available in this repo.
 
-name: lint-tool-json-browser
+name: lint-tool-{{tool-name}}
 
 on:
   push:
     branches-ignore:
     - master
     paths:
-    - 'tools/json-browser/**'
+    - 'tools/{{tool-name}}/**'
 
 jobs:
   lint-and-commit:
@@ -35,7 +35,7 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd tools/json-browser
+        cd tools/{{tool-name}}
         npm ci
         npm run lint
 
