@@ -1,6 +1,6 @@
 # Markdown Renderer
 
-This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with some custom styling.
+This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with some custom styling on top.
 
 Hosted at: https://markdown-renderer.holistic-toolbox.com
 
