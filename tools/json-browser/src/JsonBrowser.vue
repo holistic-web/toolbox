@@ -86,6 +86,18 @@ export default {
 	},
 	mounted() {
 		this.$refs.JsonBrowser__input.focus();
+	},
+	watch: {
+		$route: {
+			immediate: true,
+			async handler() {
+				console.log(this.$route);
+				await this.$nextTick();
+				if (this.$route.query.JSON) {
+					console.log('this.$route.query.JSON: ', this.$route.query.JSON);
+				}
+			}
+		}
 	}
 };
 </script>
