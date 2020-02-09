@@ -18,7 +18,10 @@ To develop for this project:
 	```
 
 ## Deployment
-To deploy this tool you must ensure you have the firebase CLI set up on your machine.
+Deployment for this project is handled by our [Github workflow](/.gitub/workflows/deploy-on-push-to-master) on merge into the master branch.
+
+Manual deployment is not recommended but in case we ever need to do the following on a machine with the firebase cli installed.
+
 1. Build the project
 	```
 	npm run build

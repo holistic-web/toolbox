@@ -14,6 +14,9 @@ Our landing page can be found in the [`toolbox-website`](/toolbox-website) folde
 ### Layout
 The Vue component library behind these UIs can be found at [`toolbox-layout`](/toolbox-layout).
 
+### Automation
+We have some automated workflows that run in this repo. They can be found in [`.github/workflows`](/.github/workflows).
+
 ## Contributing
 Contributions are very welcome, just raise an issue / open a pull request!
 
