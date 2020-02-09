@@ -4,7 +4,6 @@ module.exports = {
 		node: true
 	},
 	extends: [
-		'plugin:vue/essential',
 		'@holistic-web/eslint-config-toolbox'
 	],
 	parserOptions: {
