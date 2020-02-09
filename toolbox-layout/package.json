@@ -1,6 +1,6 @@
 {
 	"name": "@holistic-web/toolbox-layout",
-	"version": "0.1.17",
+	"version": "0.1.18",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
