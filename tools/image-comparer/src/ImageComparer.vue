@@ -10,46 +10,26 @@ Any differring pixels will be flagged in red.
 
 			<p>Select two images with the same dimensions to continue:</p>
 
-			<section class="ImageComparer__content">
+			<!-- invisible images used in "compareImages" method -->
+			<img
+				ref="ImageComparer__image1"
+				class="ImageComparer__hidden"
+				:src="imageSrc1"/>
+			<img
+				ref="ImageComparer__image2"
+				class="ImageComparer__hidden"
+				:src="imageSrc2"/>
 
-				<section class="ImageComparer__half">
-					<b-form-file
-						class="ImageComparer__half__item"
-						v-model="file1"
-						placeholder="Choose a file or drop it here..."
-						drop-placeholder="Drop file here..."/>
-					<img
-						ref="ImageComparer__image1"
-						class="ImageComparer__hidden"
-						:src="imageSrc1"/>
-					<img
-						class="ImageComparer__image"
-						:style="{ 'background-image': `url('${imageSrc1}')` }"/>
-				</section>
+			<inputs
+				ref="ImageComparer__inputs"
+				@imageSrc1Update="handleImage1Update"
+				@imageSrc2Update="handleImage2Update"/>
 
-				<section class="ImageComparer__half">
-					<b-form-file
-						class="ImageComparer__half__item"
-						v-model="file2"
-						placeholder="Choose a file or drop it here..."
-						drop-placeholder="Drop file here..."/>
-					<img
-						ref="ImageComparer__image2"
-						class="ImageComparer__hidden"
-						:src="imageSrc2"/>
-					<img
-						class="ImageComparer__image"
-						:style="{ 'background-image': `url('${imageSrc2}')` }"/>
-				</section>
-
-			</section>
 		</template>
 
 		<template v-else>
 
-			<section
-				v-if="!error"
-				class="ImageComparer__content ImageComparer__content--column">
+			<section v-if="!error" class="ImageComparer__result">
 
 				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
@@ -91,6 +71,7 @@ Any differring pixels will be flagged in red.
 
 <script>
 import pixelmatch from 'pixelmatch';
+import Inputs from './components/Inputs.vue';
 import Settings from './components/Settings.vue';
 
 const pixelmatchDefaults = {
@@ -101,13 +82,12 @@ const pixelmatchDefaults = {
 
 export default {
 	components: {
+		Inputs,
 		Settings
 	},
 	data() {
 		return {
 			compared: false,
-			file1: null,
-			file2: null,
 			imageSrc1: null,
 			imageSrc2: null,
 			pixelmatchOptions: { ...pixelmatchDefaults },
@@ -117,10 +97,23 @@ export default {
 	},
 	computed: {
 		showTaskbar() {
-			return !!this.file1 && !!this.file2;
+			return !!this.imageSrc1 && !!this.imageSrc2;
 		}
 	},
 	methods: {
+		reset() {
+			this.compared = false;
+			this.$refs.ImageComparer__inputs.reset();
+			this.imageSrc1 = null;
+			this.imageSrc2 = null;
+			this.pixelmatchOptions = { ...pixelmatchDefaults };
+		},
+		handleImage1Update(imageSrc1) {
+			this.imageSrc1 = imageSrc1;
+		},
+		handleImage2Update(imageSrc2) {
+			this.imageSrc2 = imageSrc2;
+		},
 		convertImageToCanvas(imageElement) {
 			const canvas = document.createElement('canvas');
 			canvas.width = imageElement.width;
@@ -165,33 +158,10 @@ export default {
 				// draw the output
 				const resultContext = resultCanvas.getContext('2d');
 				resultContext.putImageData(resultImageData, 0, 0);
+				resultCanvas.style.width = '100%';
 			} catch (err) {
 				this.error = err.message;
 			}
-		},
-		reset() {
-			this.file1 = null;
-			this.file2 = null;
-			this.imageData1 = null;
-			this.imageData2 = null;
-			this.compared = false;
-			this.pixelmatchOptions = { ...pixelmatchDefaults };
-		},
-		handleImageInput(imageFile, imageDataKey) {
-			if (!imageFile) return;
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				this[imageDataKey] = fileReader.result;
-			};
-			fileReader.readAsDataURL(imageFile);
-		}
-	},
-	watch: {
-		file1() {
-			this.handleImageInput(this.file1, 'imageSrc1');
-		},
-		file2() {
-			this.handleImageInput(this.file2, 'imageSrc2');
 		}
 	}
 };
@@ -211,33 +181,9 @@ export default {
 		display: none;
 	}
 
-	&__content {
-		display: flex;
-		flex-direction: row;
-		margin: 0 -1rem;
-
-		&--column {
-			flex-direction: column;
-		}
-	}
-
-	&__half {
-		margin: 0 1rem;
-		width: 50%;
+	&__result {
 		display: flex;
 		flex-direction: column;
-
-		&__item {
-			margin-bottom: 1rem;
-		}
-	}
-
-	&__image {
-		width: 100%;
-		height: 400px;
-		background-size: contain;
-		background-position: center;
-		background-repeat: no-repeat;
 	}
 
 	&__taskbarItem {
