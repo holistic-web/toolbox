@@ -50,6 +50,7 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
 
+	- run: git rebase origin/${{ steps.extract_branch.outputs.branch }}
     - run: git pull
 
     - name: Push changes
