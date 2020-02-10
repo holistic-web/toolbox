@@ -10,38 +10,39 @@ Any differring pixels will be flagged in red.
 
 			<p>Select two images with the same dimensions to continue:</p>
 
-				<section class="ImageComparer__content">
+			<section class="ImageComparer__content">
 
-					<section class="ImageComparer__half">
-
-						<b-form-file
-							class="ImageComparer__half__item"
-							v-model="file1"
-							placeholder="Choose a file or drop it here..."
-							drop-placeholder="Drop file here..."/>
-
-						<div class="ImageComparer__overflowBox">
-							<img ref="ImageComparer__image1" class="ImageComparer__image"/>
-						</div>
-
-					</section>
-
-					<section class="ImageComparer__half">
-
-						<b-form-file
-							class="ImageComparer__half__item"
-							v-model="file2"
-							placeholder="Choose a file or drop it here..."
-							drop-placeholder="Drop file here..."/>
-
-						<div class="ImageComparer__overflowBox">
-							<img ref="ImageComparer__image2" class="ImageComparer__image"/>
-						</div>
-
-					</section>
-
+				<section class="ImageComparer__half">
+					<b-form-file
+						class="ImageComparer__half__item"
+						v-model="file1"
+						placeholder="Choose a file or drop it here..."
+						drop-placeholder="Drop file here..."/>
+					<img
+						ref="ImageComparer__image1"
+						class="ImageComparer__hidden"
+						:src="imageData1"/>
+					<img
+						class="ImageComparer__image"
+						:style="{ 'background-image': `url('${imageData1}')` }"/>
 				</section>
 
+				<section class="ImageComparer__half">
+					<b-form-file
+						class="ImageComparer__half__item"
+						v-model="file2"
+						placeholder="Choose a file or drop it here..."
+						drop-placeholder="Drop file here..."/>
+					<img
+						ref="ImageComparer__image2"
+						class="ImageComparer__hidden"
+						:src="imageData2"/>
+					<img
+						class="ImageComparer__image"
+						:style="{ 'background-image': `url('${imageData2}')` }"/>
+				</section>
+
+			</section>
 		</template>
 
 		<template v-else>
@@ -107,6 +108,8 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
+			imageData1: null,
+			imageData2: null,
 			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
 			error: null
@@ -169,26 +172,26 @@ export default {
 		reset() {
 			this.file1 = null;
 			this.file2 = null;
+			this.imageData1 = null;
+			this.imageData2 = null;
 			this.compared = false;
 			this.pixelmatchOptions = { ...pixelmatchDefaults };
+		},
+		handleImageInput(imageFile, imageDataKey) {
+			if (!imageFile) return;
+			const fileReader = new FileReader();
+			fileReader.onload = () => {
+				this[imageDataKey] = fileReader.result;
+			};
+			fileReader.readAsDataURL(imageFile);
 		}
 	},
 	watch: {
 		file1() {
-			if (!this.file1) return;
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				this.$refs.ImageComparer__image1.src = fileReader.result;
-			};
-			fileReader.readAsDataURL(this.file1);
+			this.handleImageInput(this.file1, 'imageData1');
 		},
 		file2() {
-			if (!this.file2) return;
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				this.$refs.ImageComparer__image2.src = fileReader.result;
-			};
-			fileReader.readAsDataURL(this.file2);
+			this.handleImageInput(this.file2, 'imageData2');
 		}
 	}
 };
@@ -203,6 +206,10 @@ export default {
 	height: fit-content;
 	padding: $tool-padding;
 	margin-bottom: calc(177px + 1rem); // to account for the taskbar
+
+	&__hidden {
+		display: none;
+	}
 
 	&__content {
 		display: flex;
@@ -225,13 +232,12 @@ export default {
 		}
 	}
 
-	&__overflowBox {
-		overflow-y: auto;
-	}
-
 	&__image {
-		width: fit-content;
-		height: fit-content;
+		width: 100%;
+		height: 400px;
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	&__taskbarItem {
