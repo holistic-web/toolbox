@@ -61,65 +61,23 @@ Any differring pixels will be flagged in red.
 
 		<tool-taskbar v-if="showTaskbar">
 
-			<div v-if="!compared" class="ImageComparer__taskbar">
+			<template v-if="!compared">
 
 				<tool-button
-					v-if="!compared"
+					class="ImageComparer__taskbarItem"
 					size="lg"
 					v-text="'Compare'"
 					@click.native="compareImages"/>
 
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="A number between 0-1"
-					label="Threshold"
-					label-for="ImageComparer__threshold"
-					label-size="sm">
-					<b-form-input
-						id="ImageComparer__threshold"
-						v-model="pixelmatchOptions.threshold"
-						size="sm"
-						type="number"
-						min="0"
-						max="1"
-						step="0.1"
-						number/>
-				</b-form-group>
+				<settings
+					class="ImageComparer__taskbarItem"
+					v-model="pixelmatchOptions"/>
 
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="Blending factor of unchanged pixels in the diff output. 0 - 1"
-					label="Alpha"
-					label-for="ImageComparer__alpha"
-					label-size="sm">
-					<b-form-input
-						id="ImageComparer__alpha"
-						v-model="pixelmatchOptions.alpha"
-						size="sm"
-						type="number"
-						min="0"
-						max="1"
-						step="0.1"
-						number/>
-				</b-form-group>
-
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="Ignore anti-aliased pixels"
-					label="Include AA"
-					label-for="ImageComparer__includeAA"
-					label-size="sm">
-					<b-form-checkbox
-						id="ImageComparer__includeAA"
-						v-model="pixelmatchOptions.includeAA"
-						size="sm"
-						switch/>
-				</b-form-group>
-
-			</div>
+			</template>
 
 			<tool-button
 				v-else
+				class="ImageComparer__taskbarItem"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
@@ -131,19 +89,25 @@ Any differring pixels will be flagged in red.
 </template>
 
 <script>
-const pixelmatch = require('pixelmatch');
+import pixelmatch from 'pixelmatch';
+import Settings from './components/Settings.vue';
+
+const pixelmatchDefaults = {
+	threshold: 0.1,
+	alpha: 0.1,
+	includeAA: false
+};
 
 export default {
+	components: {
+		Settings
+	},
 	data() {
 		return {
 			compared: false,
 			file1: null,
 			file2: null,
-			pixelmatchOptions: {
-				threshold: 0.1,
-				alpha: 0.1,
-				includeAA: false
-			},
+			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
 			error: null
 		};
@@ -206,6 +170,7 @@ export default {
 			this.file1 = null;
 			this.file2 = null;
 			this.compared = false;
+			this.pixelmatchOptions = { ...pixelmatchDefaults };
 		}
 	},
 	watch: {
@@ -269,17 +234,8 @@ export default {
 		height: fit-content;
 	}
 
-	&__taskbar {
-		display: flex;
-		flex-direction: row-reverse;
-
-		> * {
-			margin-left: 1rem;
-		}
-
-		&__setting {
-			max-width: 250px;
-		}
+	&__taskbarItem {
+		margin-left: 1rem;
 	}
 }
 </style>
