@@ -1,0 +1,63 @@
+# Lint branches
+# This workflow affects all our javascript projects, so currently every project with a build step. The logic for this is:
+#
+#	1. lint the project
+#	2. commit any changes
+#	3. push the changes
+#
+# It relies on the `GITHUB_TOKEN` secret being available in this repo.
+
+name: lint-tool-{{tool-name}}
+
+on:
+  push:
+    branches-ignore:
+    - master
+    paths:
+    - 'tools/{{tool-name}}/**'
+
+jobs:
+  lint-and-commit:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install and Lint
+      run: |
+        cd tools/{{tool-name}}
+        npm ci
+        npm run lint
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git diff-index --quiet HEAD || git commit -m "automated linting fix-ups" -a
+
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: Ensure we have latest changes
+      run: |
+        git rebase origin/master
+        git pull
+        git fetch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ steps.extract_branch.outputs.branch }}

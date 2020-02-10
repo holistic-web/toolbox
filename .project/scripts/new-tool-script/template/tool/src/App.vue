@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="New Tool">
-			<new-tool/>
+		<tool-layout name="{{tool-name-human}}">
+			<{{tool-name}}/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import NewTool from './NewTool.vue';
+import {{tool-name-uppercase}} from './{{tool-name-uppercase}}.vue';
 
 export default {
 	components: {
-		NewTool
+		{{tool-name-uppercase}}
 	}
 };
 </script>
