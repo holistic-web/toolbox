@@ -45,8 +45,12 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit -m "increment package version" -a
 
-    - run: git rebase origin/master
-    - run: git pull
+    - name: Ensure we have latest changes
+      run: |
+        git rebase origin/master
+        git pull
+        git fetch
+
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
