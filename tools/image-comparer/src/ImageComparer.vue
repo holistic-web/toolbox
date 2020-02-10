@@ -21,10 +21,10 @@ Any differring pixels will be flagged in red.
 					<img
 						ref="ImageComparer__image1"
 						class="ImageComparer__hidden"
-						:src="imageData1"/>
+						:src="imageSrc1"/>
 					<img
 						class="ImageComparer__image"
-						:style="{ 'background-image': `url('${imageData1}')` }"/>
+						:style="{ 'background-image': `url('${imageSrc1}')` }"/>
 				</section>
 
 				<section class="ImageComparer__half">
@@ -36,10 +36,10 @@ Any differring pixels will be flagged in red.
 					<img
 						ref="ImageComparer__image2"
 						class="ImageComparer__hidden"
-						:src="imageData2"/>
+						:src="imageSrc2"/>
 					<img
 						class="ImageComparer__image"
-						:style="{ 'background-image': `url('${imageData2}')` }"/>
+						:style="{ 'background-image': `url('${imageSrc2}')` }"/>
 				</section>
 
 			</section>
@@ -108,8 +108,8 @@ export default {
 			compared: false,
 			file1: null,
 			file2: null,
-			imageData1: null,
-			imageData2: null,
+			imageSrc1: null,
+			imageSrc2: null,
 			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
 			error: null
@@ -188,10 +188,10 @@ export default {
 	},
 	watch: {
 		file1() {
-			this.handleImageInput(this.file1, 'imageData1');
+			this.handleImageInput(this.file1, 'imageSrc1');
 		},
 		file2() {
-			this.handleImageInput(this.file2, 'imageData2');
+			this.handleImageInput(this.file2, 'imageSrc2');
 		}
 	}
 };
