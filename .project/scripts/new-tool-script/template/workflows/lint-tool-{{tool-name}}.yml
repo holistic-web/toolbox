@@ -50,7 +50,11 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
 
-    - run: git pull
+    - name: Ensure we have latest changes
+      run: |
+        git rebase origin/master
+        git pull
+        git fetch
 
     - name: Push changes
       uses: ad-m/github-push-action@master
