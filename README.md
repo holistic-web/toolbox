@@ -21,7 +21,7 @@ We have some automated workflows that run in this repo. They can be found in [`.
 Contributions are very welcome, just raise an issue / open a pull request!
 
 ### Creating a new tool
-See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to generate a new tool for the toolbox.
+See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to generate a new tool for the toolbox. If you're looking for inspiration, check out: .project/tool-ideas.
 
 ### Roadmap
 - Add a menu to the tools layout linking to other tools (when we have them)
