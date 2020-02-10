@@ -31,6 +31,6 @@ Manual deployment is not recommended but in case we ever need to do the followin
 
 ## Road Map
 - allow comparing images from URL
-- show image previews in a size that fits on the screen, and use in memory images for the comparison
 - show the original image previews alongside the final difference
 - allow customising the diff colours with a colourwheel
+- prompt user about image size issue before allowing them to compare the images
