@@ -2,7 +2,7 @@
 	<div class="JsonDiff">
 
 		<tool-markdown :markdown="`
-This is tool compares two JSON objects using the library [json-diff](https://www.npmjs.com/package/json-diff).
+This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
 Enter two JSON files below:
 		`"/>
 
@@ -11,24 +11,23 @@ Enter two JSON files below:
 			class="JsonDiff__errorMessage"
 			:message="errorMessage"/>
 
-		<code
-			v-if="result"
-			class="JsonDiff__result"
-			v-html="result"/>
+		<section
+				class="JsonDiff__result"
+				v-html="diff"/>
 
-		<section class="JsonDiff__inputs">
+		<section class="JsonDiff__container">
 
-			<div class="JsonDiff__inputs__half">
+			<div class="JsonDiff__container__half">
 				<tool-code
 					v-model="json1"
-					:options="codeOptions"
+					:options="inputCodeOptions"
 					:autoSize="true"/>
 			</div>
 
-			<div class="JsonDiff__inputs__half">
+			<div class="JsonDiff__container__half">
 				<tool-code
 					v-model="json2"
-					:options="codeOptions"
+					:options="inputCodeOptions"
 					:autoSize="true"/>
 			</div>
 
@@ -55,22 +54,30 @@ Enter two JSON files below:
 </template>
 
 <script>
+// disable eslint to allow some weird imports required by jsondiffpatch
+/* eslint-disable */
+import 'jsondiffpatch/dist/formatters-styles/html.css';
+const jsondiffpatch = require('jsondiffpatch');
+const diffInstance = jsondiffpatch.create();
+/* eslint-enable */
+
+const defaultCodeOptions = {
+	lineNumbers: true,
+	mode: 'JSON'
+};
+
 export default {
 	data() {
 		return {
 			json1: '',
 			json2: '',
-			result: null,
+			diff: null,
 			errorMessage: null
 		};
 	},
 	computed: {
-		codeOptions() {
-			return {
-				readOnly: !!this.result,
-				lineNumbers: true,
-				mode: 'JSON'
-			};
+		inputCodeOptions() {
+			return { ...defaultCodeOptions, readOnly: !!this.diff };
 		},
 		showTaskbar() {
 			return this.json1 && this.json2;
@@ -80,11 +87,20 @@ export default {
 		reset() {
 			this.json1 = '';
 			this.json2 = '';
-			this.result = null;
+			this.diff = null;
+			this.errorMessage = null;
 		},
 		doComparison() {
-
-			this.result = 'wut';
+			this.errorMessage = null;
+			try {
+				const jsonObject1 = JSON.parse(this.json1);
+				const jsonObject2 = JSON.parse(this.json2);
+				const delta = diffInstance.diff(jsonObject1, jsonObject2);
+				this.diff = jsondiffpatch.formatters.html.format(delta, jsonObject1);
+				if (!this.diff) throw new Error('the objects match');
+			} catch (err) {
+				this.errorMessage = err.message;
+			}
 		}
 	}
 };
@@ -96,20 +112,25 @@ export default {
 .JsonDiff {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	padding: $tool-padding;
+	margin-bottom: calc(114px + 1rem); // to account for the taskbar
 
 	&__errorMessage {
 		margin-bottom: 1rem;
 	}
 
 	&__result {
-		width: auto;
-		align-self: center;
+		width: 100%;
 		margin-bottom: 1rem;
+		background-color: $info;
+		border-radius: $tool-border-radius;
+
+		* {
+			color: $dark;
+		}
 	}
 
-	&__inputs {
+	&__container {
 		display: flex;
 		flex-direction: row;
 		margin: 0 -1rem;

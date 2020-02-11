@@ -1,5 +1,5 @@
 {
-	"name": "tool-json-diff",
+	"name": "json-diff",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -12,7 +12,7 @@
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.2.1",
 		"core-js": "^3.4.4",
-		"json-diff": "^0.5.4",
+		"jsondiffpatch": "^0.4.1",
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
