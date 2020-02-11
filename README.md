@@ -17,12 +17,15 @@ The Vue component library behind these UIs can be found at [`toolbox-layout`](/t
 ### Automation
 We have some automated workflows that run in this repo. They can be found in [`.github/workflows`](/.github/workflows).
 
+## Analytics and SEO
+- SEO performance can be seen here: https://search.google.com/search-console?resource_id=sc-domain%3Aholistic-toolbox.com
+
 ## Contributing
 Contributions are very welcome, just raise an issue / open a pull request!
 
 ### Creating a new tool
-See [`.project/processes/creating-new-tool.md`](.project/processes/creating-new-tool.md). If you're looking for inspiration, check out: [`.project/tool-ideas`](.project/tool-ideas).
+See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to generate a new tool for the toolbox. If you're looking for inspiration, check out: .project/tool-ideas.
 
 ### Roadmap
 - Add a menu to the tools layout linking to other tools (when we have them)
-- add CI tooling to automate the deployment of sections on merge into master
+- Improve mobile usability of each of our tools and our main website
