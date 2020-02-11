@@ -1,6 +1,6 @@
 # NLP Toolkit
 
-#TODO: add a brief description of this tool and any key packages it uses
+This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
 
 #TODO: provide a link to the live url of this tool
 

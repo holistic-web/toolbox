@@ -68,4 +68,4 @@ jobs:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        PROJECT_PATH: 'tools/topic-tagger'
+        PROJECT_PATH: 'tools/nlp-toolkit'
