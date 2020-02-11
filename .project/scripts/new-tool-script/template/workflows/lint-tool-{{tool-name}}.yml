@@ -52,7 +52,7 @@ jobs:
 
     - name: Ensure we have latest changes
       run: |
-        git rebase origin/master
+        git rebase origin/${{ steps.extract_branch.outputs.branch }}
         git pull
         git fetch
 
