@@ -2,7 +2,7 @@
 	<div class="JsonDiff">
 
 		<tool-markdown :markdown="`
-Documentation for your new tool and any relevant links go here...
+This is tool compares two JSON objects using the library [json-diff](https://www.npmjs.com/package/json-diff).
 		`"/>
 
 
