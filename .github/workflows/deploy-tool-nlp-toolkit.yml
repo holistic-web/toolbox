@@ -29,10 +29,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Node.js $
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: $
+        node-version: ${{ matrix.node-version }}
 
     - name: Increment project version
       run: |
@@ -54,7 +54,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: $
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build project
       run: |
@@ -67,5 +67,5 @@ jobs:
       with:
         args: deploy --only hosting
       env:
-        FIREBASE_TOKEN: $
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_PATH: 'tools/topic-tagger'
