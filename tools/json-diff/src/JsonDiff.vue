@@ -6,7 +6,15 @@ This is tool compares two JSON objects using the library [json-diff](https://www
 Enter two JSON files below:
 		`"/>
 
-		<code v-if="result" v-html="result"/>
+		<tool-error
+			v-if="errorMessage"
+			class="JsonDiff__errorMessage"
+			:message="errorMessage"/>
+
+		<code
+			v-if="result"
+			class="JsonDiff__result"
+			v-html="result"/>
 
 		<section class="JsonDiff__inputs">
 
@@ -19,13 +27,12 @@ Enter two JSON files below:
 
 			<div class="JsonDiff__inputs__half">
 				<tool-code
-					v-model="json1"
+					v-model="json2"
 					:options="codeOptions"
 					:autoSize="true"/>
 			</div>
 
 		</section>
-
 
 		<tool-taskbar v-if="showTaskbar">
 
@@ -53,7 +60,8 @@ export default {
 		return {
 			json1: '',
 			json2: '',
-			result: null
+			result: null,
+			errorMessage: null
 		};
 	},
 	computed: {
@@ -75,6 +83,7 @@ export default {
 			this.result = null;
 		},
 		doComparison() {
+
 			this.result = 'wut';
 		}
 	}
@@ -89,6 +98,16 @@ export default {
 	flex-direction: column;
 	height: 100%;
 	padding: $tool-padding;
+
+	&__errorMessage {
+		margin-bottom: 1rem;
+	}
+
+	&__result {
+		width: auto;
+		align-self: center;
+		margin-bottom: 1rem;
+	}
 
 	&__inputs {
 		display: flex;
