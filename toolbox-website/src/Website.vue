@@ -58,7 +58,7 @@ export default {
 					link: 'http://markdown-renderer.holistic-toolbox.com',
 					image: require('../assets/tools/markdown-renderer.png')
 				},
-								{
+				{
 					name: 'NLP Toolkit',
 					description: 'This is a tool to to perform NLP operations using the library compromise.',
 					link: 'http://nlp-toolkit.holistic-toolbox.com',
