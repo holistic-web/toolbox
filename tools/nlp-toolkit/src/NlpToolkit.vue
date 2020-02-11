@@ -53,6 +53,12 @@ const nlpMethods = {
 		const doc = nlp(text);
 		doc.verbs().toPastTense();
 		return doc.text();
+	},
+
+	toFutureTense: text => {
+		const doc = nlp(text);
+		doc.verbs().toFutureTense();
+		return doc.text();
 	}
 
 };
@@ -64,7 +70,8 @@ export default {
 			resultText: '',
 			selectedOperation: 'toPastTense',
 			nlpOptions: [
-				{ value: 'toPastTense', text: 'To past tense' }
+				{ value: 'toPastTense', text: 'To past tense' },
+				{ value: 'toFutureTense', text: 'To future tense' }
 			]
 		};
 	},
