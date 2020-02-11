@@ -38,6 +38,3 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 	firebase deploy
 	```
-
-## Road Map
-#TODO: list ideas for the future here, or delete this section
