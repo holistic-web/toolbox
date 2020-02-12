@@ -4,15 +4,16 @@
 		<tool-markdown :markdown="`
 This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
 Enter text below: 		`"/>
+		<section class="NlpToolkit__content">
+			<tool-code
+				ref="NlpToolkit__input"
+				class="NlpToolkit__content__item NlpToolkit__content__item--left"
+				v-model="inputText"
+				:autoSize="true"
+				:options="codeOptions"/>
 
-		<tool-code
-			ref="NlpToolkit__input"
-			class="NlpToolkit__item"
-			v-model="inputText"
-			:autoSize="true"
-			:options="codeOptions"/>
-
-		<p v-text="resultText"/>
+			<p v-text="resultText"/>
+		</section>
 
 		<tool-taskbar v-if="!!inputText">
 
@@ -59,8 +60,13 @@ const nlpMethods = {
 		const doc = nlp(text);
 		doc.verbs().toFutureTense();
 		return doc.text();
-	}
+	},
 
+	negate: text => {
+		const doc = nlp(text);
+		doc.verbs().toNegative();
+		return doc.text();
+	}
 };
 
 export default {
@@ -71,7 +77,8 @@ export default {
 			selectedOperation: 'toPastTense',
 			nlpOptions: [
 				{ value: 'toPastTense', text: 'To past tense' },
-				{ value: 'toFutureTense', text: 'To future tense' }
+				{ value: 'toFutureTense', text: 'To future tense' },
+				{ value: 'negate', text: 'Negate' }
 			]
 		};
 	},
@@ -108,8 +115,22 @@ export default {
 	height: 100%;
 	padding: $tool-padding;
 
-	&__item {
-		margin-bottom: 1rem;
+	&__content {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 97px; // to account for the taskbar
+
+		&__item {
+			width: 50%;
+
+			&--left {
+				margin-right: 1rem;
+			}
+
+			&--right {
+				margin-left: 1rem;
+			}
+		}
 	}
 
 	&__button {
