@@ -1,17 +1,18 @@
 # JSON Diff
 
-#TODO: add a brief description of this tool and any key packages it uses
+This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
 
-#TODO: provide a link to the live url of this tool
+Hosted at https://json-diff.holistic-toolbox.com
+
 
 ## Setup Guide
-- [ ] run `npm install` on this folder to generate package-lock.json and node_modules
-- [ ] build your tool =D
-- [ ] set up a new website for the tool here: https://console.firebase.google.com/u/0/project/holistic-toolbox/hosting/main
-- [ ] update firebase.json to point towards the ID of this newly created site
-- [ ] ensure any remaining #TODOs in this folder / file have been completed
-- [ ] update toolbox-website to include your tool in the list of tools
-- [ ] update /tools README.md to include your tool in the list of tools
+- [x] run `npm install` on this folder to generate package-lock.json and node_modules
+- [x] build your tool =D
+- [x] set up a new website for the tool here: https://console.firebase.google.com/u/0/project/holistic-toolbox/hosting/main
+- [x] update firebase.json to point towards the ID of this newly created site
+- [x] ensure any remaining #TODOs in this folder / file have been completed
+- [x] update toolbox-website to include your tool in the list of tools
+- [x] update /tools README.md to include your tool in the list of tools
 - [ ] submit as a PR for review =D
 - [ ] add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
 - [ ] in the firebase console, configure the new site to use these new domains
@@ -38,6 +39,3 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 	firebase deploy
 	```
-
-## Road Map
-#TODO: list ideas for the future here, or delete this section
