@@ -36,6 +36,7 @@ Enter two JSON files below:
 		<tool-taskbar v-if="showTaskbar">
 
 			<tool-button
+				v-if="!diff"
 				size="lg"
 				class="JsonDiff__button"
 				v-text="'Diff JSONs'"
