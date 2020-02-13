@@ -8,14 +8,14 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-tool-{{tool-name}}
+name: deploy-tool-json-diff
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'tools/{{tool-name}}/**'
+    - 'tools/json-diff/**'
 
 jobs:
   build-and-deploy:
@@ -29,14 +29,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Node.js $\{{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: $\{{ matrix.node-version }}
+        node-version: ${{ matrix.node-version }}
 
     - name: Increment project version
       run: |
-        cd tools/{{tool-name}}
+        cd tools/json-diff
         npm version patch
 
     - name: Commit changes
@@ -54,11 +54,11 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: $\{{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build project
       run: |
-        cd tools/{{tool-name}}
+        cd tools/json-diff
         npm ci
         npm run build
 
@@ -67,5 +67,5 @@ jobs:
       with:
         args: deploy --only hosting
       env:
-        FIREBASE_TOKEN: $\{{ secrets.FIREBASE_TOKEN }}
-        PROJECT_PATH: 'tools/{{tool-name}}'
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        PROJECT_PATH: 'tools/json-diff'
