@@ -112,23 +112,21 @@ export default {
 .NlpToolkit {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	height: auto;
+	min-height: 100%;
 	padding: $tool-padding;
+	margin-bottom: 97px; // to account for the taskbar
 
 	&__content {
 		display: flex;
 		flex-direction: row;
-		margin-bottom: 97px; // to account for the taskbar
+		margin: 0 -1rem;
 
 		&__item {
 			width: 50%;
 
-			&--left {
-				margin-right: 1rem;
-			}
-
-			&--right {
-				margin-left: 1rem;
+			&__half {
+				margin: 0 1rem;
 			}
 		}
 	}
