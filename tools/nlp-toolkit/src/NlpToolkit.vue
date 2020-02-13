@@ -3,7 +3,8 @@
 
 		<tool-markdown :markdown="`
 This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
-Enter text below:`"/>
+Enter text below:
+		`"/>
 		<section class="NlpToolkit__content">
 			<tool-code
 				ref="NlpToolkit__input"

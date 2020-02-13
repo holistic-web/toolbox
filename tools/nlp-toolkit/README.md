@@ -1,6 +1,6 @@
 # NLP Toolkit
 
-This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
+This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise). Currently supports past and future tense conversion plus a simple function to negate statements.
 
 #TODO: provide a link to the live url of this tool
 
