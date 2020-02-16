@@ -65,6 +65,12 @@ export default {
 					image: require('../assets/tools/markdown-renderer.png')
 				},
 				{
+					name: 'NLP Toolkit',
+					description: 'This is a tool to to perform NLP operations using the library compromise.',
+					link: 'http://nlp-toolkit.holistic-toolbox.com',
+					image: require('../assets/tools/number-converter.png')
+				},
+				{
 					name: 'Number Converter',
 					description: 'A simple number converter from decimal to binary, octal and hexadecimal.',
 					link: 'http://number-converter.holistic-toolbox.com',
