@@ -1,17 +1,17 @@
 <template>
 	<div id="app">
-		<tool-layout name="New Tool">
-			<new-tool/>
+		<tool-layout name="JSON Diff">
+			<json-diff/>
 		</tool-layout>
 	</div>
 </template>
 
 <script>
-import NewTool from './NewTool.vue';
+import JsonDiff from './JsonDiff.vue';
 
 export default {
 	components: {
-		NewTool
+		JsonDiff
 	}
 };
 </script>

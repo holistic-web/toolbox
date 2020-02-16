@@ -1,8 +1,8 @@
-# #TODO: replace me
+# JSON Diff
 
-Search this folder for the string `#TODO:` and replace where told to. #TODO: replace this with brief summary
+This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
 
-Hosted at #TODO: replace with link to project
+Hosted at https://json-diff.holistic-toolbox.com
 
 ## Development
 To develop for this project:
@@ -26,5 +26,5 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	firebase deploy
 	```
 
-## Road Map
-#TODO: list future ideas here or delete this section
+## Roadmap
+- show the diff for both the left and right half, rather than just the left

@@ -10,45 +10,26 @@ Any differring pixels will be flagged in red.
 
 			<p>Select two images with the same dimensions to continue:</p>
 
-				<section class="ImageComparer__content">
+			<!-- invisible images used in "compareImages" method -->
+			<img
+				ref="ImageComparer__image1"
+				class="ImageComparer__hidden"
+				:src="imageSrc1"/>
+			<img
+				ref="ImageComparer__image2"
+				class="ImageComparer__hidden"
+				:src="imageSrc2"/>
 
-					<section class="ImageComparer__half">
-
-						<b-form-file
-							class="ImageComparer__half__item"
-							v-model="file1"
-							placeholder="Choose a file or drop it here..."
-							drop-placeholder="Drop file here..."/>
-
-						<div class="ImageComparer__overflowBox">
-							<img ref="ImageComparer__image1" class="ImageComparer__image"/>
-						</div>
-
-					</section>
-
-					<section class="ImageComparer__half">
-
-						<b-form-file
-							class="ImageComparer__half__item"
-							v-model="file2"
-							placeholder="Choose a file or drop it here..."
-							drop-placeholder="Drop file here..."/>
-
-						<div class="ImageComparer__overflowBox">
-							<img ref="ImageComparer__image2" class="ImageComparer__image"/>
-						</div>
-
-					</section>
-
-				</section>
+			<inputs
+				ref="ImageComparer__inputs"
+				@imageSrc1Update="handleImage1Update"
+				@imageSrc2Update="handleImage2Update"/>
 
 		</template>
 
 		<template v-else>
 
-			<section
-				v-if="!error"
-				class="ImageComparer__content ImageComparer__content--column">
+			<section v-if="!error" class="ImageComparer__result">
 
 				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
@@ -61,65 +42,23 @@ Any differring pixels will be flagged in red.
 
 		<tool-taskbar v-if="showTaskbar">
 
-			<div v-if="!compared" class="ImageComparer__taskbar">
+			<template v-if="!compared">
 
 				<tool-button
-					v-if="!compared"
+					class="ImageComparer__taskbarItem"
 					size="lg"
 					v-text="'Compare'"
 					@click.native="compareImages"/>
 
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="A number between 0-1"
-					label="Threshold"
-					label-for="ImageComparer__threshold"
-					label-size="sm">
-					<b-form-input
-						id="ImageComparer__threshold"
-						v-model="pixelmatchOptions.threshold"
-						size="sm"
-						type="number"
-						min="0"
-						max="1"
-						step="0.1"
-						number/>
-				</b-form-group>
+				<settings
+					class="ImageComparer__taskbarItem"
+					v-model="pixelmatchOptions"/>
 
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="Blending factor of unchanged pixels in the diff output. 0 - 1"
-					label="Alpha"
-					label-for="ImageComparer__alpha"
-					label-size="sm">
-					<b-form-input
-						id="ImageComparer__alpha"
-						v-model="pixelmatchOptions.alpha"
-						size="sm"
-						type="number"
-						min="0"
-						max="1"
-						step="0.1"
-						number/>
-				</b-form-group>
-
-				<b-form-group
-					class="ImageComparer__taskbar__setting"
-					description="Ignore anti-aliased pixels"
-					label="Include AA"
-					label-for="ImageComparer__includeAA"
-					label-size="sm">
-					<b-form-checkbox
-						id="ImageComparer__includeAA"
-						v-model="pixelmatchOptions.includeAA"
-						size="sm"
-						switch/>
-				</b-form-group>
-
-			</div>
+			</template>
 
 			<tool-button
 				v-else
+				class="ImageComparer__taskbarItem"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
@@ -131,29 +70,50 @@ Any differring pixels will be flagged in red.
 </template>
 
 <script>
-const pixelmatch = require('pixelmatch');
+import pixelmatch from 'pixelmatch';
+import Inputs from './components/Inputs.vue';
+import Settings from './components/Settings.vue';
+
+const pixelmatchDefaults = {
+	threshold: 0.1,
+	alpha: 0.1,
+	includeAA: false
+};
 
 export default {
+	components: {
+		Inputs,
+		Settings
+	},
 	data() {
 		return {
 			compared: false,
-			file1: null,
-			file2: null,
-			pixelmatchOptions: {
-				threshold: 0.1,
-				alpha: 0.1,
-				includeAA: false
-			},
+			imageSrc1: null,
+			imageSrc2: null,
+			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
 			error: null
 		};
 	},
 	computed: {
 		showTaskbar() {
-			return !!this.file1 && !!this.file2;
+			return !!this.imageSrc1 && !!this.imageSrc2;
 		}
 	},
 	methods: {
+		reset() {
+			this.compared = false;
+			this.$refs.ImageComparer__inputs.reset();
+			this.imageSrc1 = null;
+			this.imageSrc2 = null;
+			this.pixelmatchOptions = { ...pixelmatchDefaults };
+		},
+		handleImage1Update(imageSrc1) {
+			this.imageSrc1 = imageSrc1;
+		},
+		handleImage2Update(imageSrc2) {
+			this.imageSrc2 = imageSrc2;
+		},
 		convertImageToCanvas(imageElement) {
 			const canvas = document.createElement('canvas');
 			canvas.width = imageElement.width;
@@ -198,32 +158,10 @@ export default {
 				// draw the output
 				const resultContext = resultCanvas.getContext('2d');
 				resultContext.putImageData(resultImageData, 0, 0);
+				resultCanvas.style.width = '100%';
 			} catch (err) {
 				this.error = err.message;
 			}
-		},
-		reset() {
-			this.file1 = null;
-			this.file2 = null;
-			this.compared = false;
-		}
-	},
-	watch: {
-		file1() {
-			if (!this.file1) return;
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				this.$refs.ImageComparer__image1.src = fileReader.result;
-			};
-			fileReader.readAsDataURL(this.file1);
-		},
-		file2() {
-			if (!this.file2) return;
-			const fileReader = new FileReader();
-			fileReader.onload = () => {
-				this.$refs.ImageComparer__image2.src = fileReader.result;
-			};
-			fileReader.readAsDataURL(this.file2);
 		}
 	}
 };
@@ -239,47 +177,17 @@ export default {
 	padding: $tool-padding;
 	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
-	&__content {
-		display: flex;
-		flex-direction: row;
-		margin: 0 -1rem;
-
-		&--column {
-			flex-direction: column;
-		}
+	&__hidden {
+		display: none;
 	}
 
-	&__half {
-		margin: 0 1rem;
-		width: 50%;
+	&__result {
 		display: flex;
 		flex-direction: column;
-
-		&__item {
-			margin-bottom: 1rem;
-		}
 	}
 
-	&__overflowBox {
-		overflow-y: auto;
-	}
-
-	&__image {
-		width: fit-content;
-		height: fit-content;
-	}
-
-	&__taskbar {
-		display: flex;
-		flex-direction: row-reverse;
-
-		> * {
-			margin-left: 1rem;
-		}
-
-		&__setting {
-			max-width: 250px;
-		}
+	&__taskbarItem {
+		margin-left: 1rem;
 	}
 }
 </style>

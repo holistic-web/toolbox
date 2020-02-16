@@ -6,6 +6,11 @@ It is powered by [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty
 
 Hosted at http://json-browser.holistic-toolbox.com
 
+## Functionality
+Along with JSON browsing, this tool supports:
+- loading JSON in from the url query `JSON`
+- routing, although still one page this tool using routing to access the url query
+
 ## Development
 To develop for this project:
 1. Install dependencies

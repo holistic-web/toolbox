@@ -47,6 +47,12 @@ export default {
 					image: require('../assets/tools/json-browser.png')
 				},
 				{
+					name: 'JSON Diff',
+					description: 'Identifies difference between JSON objects',
+					link: 'http://json-diff.holistic-toolbox.com',
+					image: require('../assets/tools/json-diff.png')
+				},
+				{
 					name: 'JSON Formatter',
 					description: 'A simple, client side JSON formatter.',
 					link: 'http://json-formatter.holistic-toolbox.com',
