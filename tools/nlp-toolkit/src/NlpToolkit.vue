@@ -8,7 +8,7 @@ Enter text below:
 		<section class="NlpToolkit__content">
 			<tool-code
 				ref="NlpToolkit__input"
-				class="NlpToolkit__content__item NlpToolkit__content__item--left"
+				class="NlpToolkit__content__half"
 				v-model="inputText"
 				:autoSize="true"
 				:options="codeOptions"/>
@@ -123,13 +123,12 @@ export default {
 		flex-direction: row;
 		margin: 0 -1rem;
 
-		&__item {
-			width: 50%;
 
-			&__half {
-				margin: 0 1rem;
-			}
+		&__half {
+			margin: 0 1rem;
+			width: 50%;
 		}
+
 	}
 
 	&__button {
