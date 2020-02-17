@@ -24,7 +24,7 @@ Documentation for your new tool and any relevant links go here...
 					class="JsFormatter__button"
 					v-text="'Format'"
 					size="lg"
-					@click.native="minified()"/>
+					@click.native="formatJS"/>
 				<b-form-radio-group
 					class="JsFormatter__button"
 					v-model="whitespace"
@@ -91,16 +91,15 @@ export default {
 
 	},
 	methods: {
-		minified(){
+		formatJS() {
 			//TODO: need to test
-			let vm = this;
-			let tab = vm.minifiedTab;
+			let tab = this.whitespace;
 			let space = '';
 			let code;
 
 			try {
 				tab = (/^\d+$/.test(tab) ? parseInt(tab) : 4);
-				code = vm.minifiedOrig
+				code = this.jsString
 				.split('{').join(' {\n    ')
 				.split(';').join(';\n    ')
 				.split(',').join(', ')
@@ -112,7 +111,7 @@ export default {
 					for (;tab != 0;tab--) { space += ' '; }
 					code = code.replace(/\n    /g, '\n'+space);
 				}
-				vm.minifiedNew = code;
+				this.minifiedNew = code;
 				formatted = true;
 			} catch (err) {
 				this.errorMessage = err.message;
