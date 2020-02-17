@@ -17,8 +17,43 @@ Documentation for your new tool and any relevant links go here...
 			:autoSize="true"/>
 
 
-		<tool-taskbar>
-			It can be a good idea to add buttons to the taskbar...
+		<tool-taskbar v-if="jsString">
+
+			<template v-if="!formatted">
+				<tool-button
+					class="JsFormatter__button"
+					v-text="'Format'"
+					size="lg"
+					@click.native="minified()"/>
+				<b-form-radio-group
+					class="JsFormatter__button"
+					v-model="whitespace"
+					:options="whitespaceOptions"
+					buttons
+					button-variant="outline-secondary"
+					size="sm"/>
+			</template>
+
+			<template v-else>
+				<tool-button
+					size="lg"
+					class="JsFormatter__button"
+					v-text="'Copy Output'"
+					v-clipboard="jsString"/>
+				<!-- Possible future tool/upgrade existing JSON browser to include all file types? -->
+				<!-- <tool-button
+					size="lg"
+					class="JsFormatter__button"
+					v-text="'Browse JavaScript'"
+					:href="`https://js-formatter.holistic-toolbox.com?JS=${jsString}`"
+					target="_blank"/> -->
+				<tool-button
+					size="sm"
+					class="JsFormatter__button"
+					variant="secondary"
+					v-text="'Reset'"
+					@click.native="reset"/>
+			</template>
 		</tool-taskbar>
 
 	</div>
@@ -73,10 +108,11 @@ export default {
 			.replace(/\n    ([^:]+):/g, '\n    $1: ')
 			.replace(/([A-z0-9\)])}/g, '$1;\n}');
 			if (tab != 4) {
-			for (;tab != 0;tab--) { space += ' '; }
-			code = code.replace(/\n    /g, '\n'+space);
+				for (;tab != 0;tab--) { space += ' '; }
+				code = code.replace(/\n    /g, '\n'+space);
 			}
 			vm.minifiedNew = code;
+			formatted = true;
 		}
 	},
 }
