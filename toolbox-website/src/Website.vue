@@ -98,7 +98,7 @@ export default {
 	}
 
 	&__content {
-		padding: $tool-padding;
+		padding: $tool-padding-desktop;
 	}
 
 	&__tools {
