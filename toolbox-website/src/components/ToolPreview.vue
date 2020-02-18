@@ -1,21 +1,16 @@
 <template>
-	<b-card
-		:title="tool.name"
-		:img-src="tool.image"
-		:img-alt="tool.name"
-		img-top
-		text-variant="dark"
-		bg-variant="info">
-
-		<b-card-text v-text="tool.description"/>
-
-		<tool-button
-			class="ToolPreview__button"
-			:href="tool.link"
-			v-text="'Go'"
-			variant="outline-secondary"/>
-
-	</b-card>
+	<b-link class="ToolPreview" :href="tool.link">
+		<b-card
+			class="ToolPreview__card"
+			:title="tool.name"
+			:img-src="tool.image"
+			:img-alt="tool.name"
+			img-top
+			text-variant="dark"
+			bg-variant="info">
+			<b-card-text v-text="tool.description"/>
+		</b-card>
+	</b-link>
 </template>
 
 <script>
@@ -30,9 +25,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@holistic-web/toolbox-layout/src/styles/theme';
+
 .ToolPreview {
-	&__button {
-		width: 100%;
+	border-radius: $tool-border-radius;
+
+	&:hover {
+		text-decoration: none;
+		border: 1px solid $highlight;
+	}
+
+	&__card {
+		border-radius: $tool-border-radius !important;
+		height: 350px;
 	}
 }
 </style>

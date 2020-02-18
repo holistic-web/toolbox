@@ -104,10 +104,11 @@ export default {
 	&__tools {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		margin: 0 -1rem;
 
 		&__tool {
-			width: 300px;
+			width: calc(25% - 2rem);
 			margin: 1rem;
 		}
 	}
