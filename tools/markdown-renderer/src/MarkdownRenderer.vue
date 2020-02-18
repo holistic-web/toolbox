@@ -34,7 +34,7 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 				@click.native="onCopyClick"/>
 			<tool-button
 					size="sm"
-					class="JsonFormatter__button"
+					class="MarkdownRenderer__button"
 					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>

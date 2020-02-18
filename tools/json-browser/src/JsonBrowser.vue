@@ -31,12 +31,19 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
-				class="JsonBrowser__browseButton"
+				class="JsonBrowser__taskbarButton"
 				v-if="!browsing"
 				size="lg"
 				v-text="'Browse'"
 				@click.native="enterBrowseMode"/>
 			<tool-button
+				class="JsonBrowser__taskbarButton"
+				v-if="browsing"
+				size="lg"
+				v-text="'Get shareable link'"
+				v-clipboard="`https://json-browser.holistic-toolbox.com?JSON=${this.jsonString}`"/>
+			<tool-button
+				class="JsonBrowser__taskbarButton"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
@@ -68,8 +75,10 @@ export default {
 	},
 	methods: {
 		async reset() {
-			this.errorMessage = null;
 			this.jsonObject = null;
+			this.jsonString = '';
+			this.selectedNodes = [];
+			this.errorMessage = null;
 			this.browsing = false;
 			await this.$nextTick();
 			this.$refs.JsonBrowser__input.focus();
@@ -85,7 +94,19 @@ export default {
 		}
 	},
 	mounted() {
-		this.$refs.JsonBrowser__input.focus();
+		if (this.$refs.JsonBrowser__input) this.$refs.JsonBrowser__input.focus();
+	},
+	watch: {
+		$route: {
+			immediate: true,
+			async handler() {
+				if (this.$route.query.JSON) {
+					this.jsonString = this.$route.query.JSON;
+					this.$router.replace({ query: undefined });
+					this.enterBrowseMode();
+				}
+			}
+		}
 	}
 };
 </script>
@@ -115,7 +136,7 @@ export default {
 		}
 	}
 
-	&__browseButton {
+	&__taskbarButton {
 		margin-left: 1rem;
 	}
 }

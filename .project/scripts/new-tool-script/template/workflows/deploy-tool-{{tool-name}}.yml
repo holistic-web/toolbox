@@ -1,0 +1,71 @@
+# Deploy on push to master
+# This workflow affects all our Vue apps, so `toolbox-website` and all tools. The logic for this automation is:
+#
+#	1. increment the version in package.json
+#	2. push the new version to the master branch
+#	3. build the project
+#	4. deploy the project
+
+# It relies on the `FIREBASE_TOKEN` secret being available in this repo.
+
+name: deploy-tool-{{tool-name}}
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'tools/{{tool-name}}/**'
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js $\{{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: $\{{ matrix.node-version }}
+
+    - name: Increment project version
+      run: |
+        cd tools/{{tool-name}}
+        npm version patch
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "increment package version" -a
+
+    - name: Ensure we have latest changes
+      run: |
+        git rebase origin/master
+        git pull
+        git fetch
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: $\{{ secrets.GITHUB_TOKEN }}
+
+    - name: Build project
+      run: |
+        cd tools/{{tool-name}}
+        npm ci
+        npm run build
+
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: $\{{ secrets.FIREBASE_TOKEN }}
+        PROJECT_PATH: 'tools/{{tool-name}}'
