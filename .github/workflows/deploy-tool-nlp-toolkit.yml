@@ -34,28 +34,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Increment project version
-      run: |
-        cd tools/nlp-toolkit
-        npm version patch
-
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "increment package version" -a
-
-    - name: Ensure we have latest changes
-      run: |
-        git rebase origin/master
-        git pull
-        git fetch
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Build project
       run: |
         cd tools/nlp-toolkit
