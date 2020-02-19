@@ -32,7 +32,7 @@ export default {
 
 	&:hover {
 		text-decoration: none;
-		border: 1px solid $highlight;
+		outline: 1px solid $highlight;
 	}
 
 	&__card {
