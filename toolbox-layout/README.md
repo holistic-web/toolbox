@@ -4,7 +4,7 @@ This is a shared [Vue.js](https://vuejs.org) component library for use in the To
 
 It is published on npm at: https://www.npmjs.com/package/toolbox-layout
 
-A demo can be found here: #TODO
+A demo can be found here: https://toolbox-layout-stories.firebaseapp.com
 
 ## Usage
 To use this library in a Vue app, simply include:
