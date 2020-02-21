@@ -98,16 +98,17 @@ export default {
 	}
 
 	&__content {
-		padding: $tool-padding;
+		padding: $tool-padding-desktop;
 	}
 
 	&__tools {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		margin: 0 -1rem;
 
 		&__tool {
-			width: 300px;
+			width: calc(25% - 2rem);
 			margin: 1rem;
 		}
 	}
