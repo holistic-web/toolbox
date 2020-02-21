@@ -38,9 +38,15 @@ h1, h2, h3, h4, h5 {
 }
 
 /** Variables **/
-$tool-padding: 2rem;
+$tool-padding-mobile: 1rem;
+$tool-padding-tablet: 1.5rem;
+$tool-padding-desktop: 2rem;
+
 $tool-border-radius: 10px;
 $tool-text-large: 20px;
 $tool-text-larger: 24px;
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
 
 @import './bootstrap-overrides';
