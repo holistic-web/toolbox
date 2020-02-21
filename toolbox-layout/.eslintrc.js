@@ -9,5 +9,9 @@ module.exports = {
 	],
 	parserOptions: {
 		parser: 'babel-eslint'
+	},
+	rules: {
+		// allow storyboard imports to go in the devdependencies section
+		'import/no-extraneous-dependencies': 0
 	}
 };

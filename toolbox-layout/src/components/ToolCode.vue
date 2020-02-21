@@ -1,6 +1,7 @@
 <template>
 	<codemirror
 		ref="ToolCode"
+		class="ToolCode"
 		:class="{ 'ToolCode--autoSize': autoSize }"
 		:value="value"
 		:options="optionsWithDefaults"
@@ -58,6 +59,7 @@ export default {
 
 <style lang="scss">
 .ToolCode {
+	width: 100%;
 
 	&--autoSize {
 		.CodeMirror { // to allow the editor to grow with entered text

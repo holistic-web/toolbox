@@ -53,9 +53,14 @@ https://firebase.google.com/docs/analytics/get-started?platform=web&authuser=0
 For specific events:
 https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
 
+### Notes and Caveats
+- This project uses [storybook](https://storybook.js.org/) to provide visual documentation. We use the following addons
+
 ## Roadmap
 - allowing individual components to be imported rather then all or nothing
 - use storyboard to create a demo / documentation resource for this component library
 - allow including a reset / main action button with configuration rather than slots
 - swap the tool name and toolbox branding positions in the header
 - see about resolving the scroll issue, if at all possible
+- add breakpoints to the storybook examples
+- rename to just be called toolbox
