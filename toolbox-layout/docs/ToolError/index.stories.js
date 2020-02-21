@@ -12,17 +12,15 @@ export default {
 	parameters: { notes: { markdown: Doc } }
 };
 
-export const simple = () => ({
+export const Default = () => ({
 	components: { ToolError, ToolLayout },
-	data() {
-		return { value: 'Check out this ToolError component!' };
+	props: {
+		message: { default: text('message', 'Failed to add user.') }
 	},
 	methods: { onChange: action('updated') },
 	template: `
 		<tool-layout name="Demo">
-			<tool-error
-				v-model="value"
-				@change="onChange"/>
+			<tool-error :message="message"/>
 		</tool-layout>
 	`
 });

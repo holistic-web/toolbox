@@ -12,7 +12,7 @@ export default {
 	parameters: { notes: { markdown: Doc } }
 };
 
-export const simple = () => ({
+export const Default = () => ({
 	components: { ToolButton, ToolLayout },
 	props: {
 		text: {
@@ -29,17 +29,17 @@ export const simple = () => ({
 	`
 });
 
-export const advanced = () => ({
+export const Secondary = () => ({
 	components: { ToolButton, ToolLayout },
 	props: {
 		text: {
 			default: text('text', 'Demo Button')
 		},
 		size: {
-			default: text('size', 'lg')
+			default: text('size', 'sm')
 		},
 		variant: {
-			default: text('variant', 'outline-primary')
+			default: text('variant', 'secondary')
 		}
 	},
 	methods: { action: action('clicked') },
@@ -54,7 +54,7 @@ export const advanced = () => ({
 	`
 });
 
-export const linkToNewTab = () => ({
+export const LinkToNewTab = () => ({
 	components: { ToolButton, ToolLayout },
 	props: {
 		text: { default: text('text', 'Demo Button') },

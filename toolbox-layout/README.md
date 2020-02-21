@@ -1,10 +1,10 @@
 # Toolbox Layout
 
-This is a shared [Vue.js](https://vuejs.org) component library for use in the Holistic Toolbox. It was made following the steps outlined in [this article](https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3).
-
-[Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality.
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality.
 
 It is published on npm at: https://www.npmjs.com/package/toolbox-layout
+
+A demo can be found here: #TODO
 
 ## Usage
 To use this library in a Vue app, simply include:
@@ -28,6 +28,13 @@ $info: $colour-cream;
 ```
 
 ## Development
+
+## Testing
+Run the following command to open up a demo of the components:
+```
+npm run storybook
+```
+_Be sure to update this demo in the `/docs` folder as we improve the library._
 
 ### Building
 This project can be built as a library with the following commands
@@ -54,7 +61,7 @@ For specific events:
 https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
 
 ### Notes and Caveats
-- This project uses [storybook](https://storybook.js.org/) to provide visual documentation. We use the following addons
+- This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the  `/.github/workflows/deploy-toolbox-layout-stories` action.
 
 ## Roadmap
 - allowing individual components to be imported rather then all or nothing

@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import { withNotes } from '@storybook/addon-notes';
-import ToolLayout from '../../src/components/ToolLayout.vue';
 import ToolHeader from '../../src/components/ToolHeader.vue';
 import Doc from './doc.md';
 
@@ -12,17 +11,13 @@ export default {
 	parameters: { notes: { markdown: Doc } }
 };
 
-export const simple = () => ({
-	components: { ToolHeader, ToolLayout },
-	data() {
-		return { value: 'Check out this ToolHeader component!' };
+export const Default = () => ({
+	components: { ToolHeader },
+	props: {
+		name: { default: text('name', 'Example App') }
 	},
 	methods: { onChange: action('updated') },
 	template: `
-		<tool-layout name="Demo">
-			<tool-header
-				v-model="value"
-				@change="onChange"/>
-		</tool-layout>
+		<tool-header :name="name"/>
 	`
 });
