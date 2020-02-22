@@ -1,5 +1,5 @@
 # Publish packages
-# This workflow affects all our npm packages, so `toolbox-layout` and `toolbox-linting`.
+# This workflow affects all our npm packages, so just `toolbox-layout` for now.
 #
 #	1. increment the version in package.json
 #	2. push the new version to the master branch
