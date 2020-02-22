@@ -15,7 +15,7 @@
 		"vue": "^2.6.11"
 	},
 	"devDependencies": {
-		"@holistic-web/eslint-config-toolbox": "^1.0.5",
+		"@holistic-web/eslint-config": "^1.0.2",
 		"@vue/cli-plugin-babel": "^4.1.0",
 		"@vue/cli-plugin-eslint": "^4.1.0",
 		"@vue/cli-service": "^4.1.0",
