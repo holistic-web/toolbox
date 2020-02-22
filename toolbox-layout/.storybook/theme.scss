@@ -1,0 +1,8 @@
+@import '../src/styles/theme.scss';
+
+.ToolLayout__tool {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Fira Code', monospace;
+}
