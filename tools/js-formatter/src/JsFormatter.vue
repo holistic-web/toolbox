@@ -16,7 +16,6 @@ Documentation for your new tool and any relevant links go here...
 			:options="codeOptions"
 			:autoSize="true"/>
 
-
 		<tool-taskbar v-if="jsString">
 
 			<template v-if="!formatted">
@@ -77,7 +76,6 @@ export default {
 		return {
 			formatted: false,
 			errorMessage: null,
-			minifiedOrig: 'p{font:normal 14px/20px helvetica,arial,sans-serif;color:#333;}.woot{font-weight:bold}',
 			jsString: '',
 			whitespace: '\t',
 			whitespaceOptions: [
@@ -88,35 +86,49 @@ export default {
 		};
 	},
 	computed: {
-
+		codeOptions() {
+			return {
+				readOnly: !!this.formatted,
+				lineNumbers: true,
+				mode: 'JS'
+			};
+		}
 	},
 	methods: {
 		formatJS() {
-			//TODO: need to test
-			let tab = this.whitespace;
+			// TODO: need to test
+			let tab = 4;
 			let space = '';
 			let code;
 
 			try {
-				tab = (/^\d+$/.test(tab) ? parseInt(tab) : 4);
+				tab = (/^\d+$/.test(tab) ? parseInt(tab, 10) : 4);
 				code = this.jsString
-				.split('{').join(' {\n    ')
-				.split(';').join(';\n    ')
-				.split(',').join(', ')
-				.split('    }').join('}\n')
-				.replace(/\}(.+)/g, '}\n$1')
-				.replace(/\n    ([^:]+):/g, '\n    $1: ')
-				.replace(/([A-z0-9\)])}/g, '$1;\n}');
-				if (tab != 4) {
-					for (;tab != 0;tab--) { space += ' '; }
-					code = code.replace(/\n    /g, '\n'+space);
+					.split('{').join(' {\n    ')
+					.split(';').join(';\n    ')
+					.split(',')
+					.join(', ')
+					.split('    }')
+					.join('}\n')
+					.replace(/\}(.+)/g, '}\n$1')
+					.replace(/\n {4}([^:]+):/g, '\n    $1: ')
+					.replace(/([A-z0-9)])}/g, '$1;\n}');
+				if (tab !== 4) {
+					for (;tab !== 0; tab--) { space += ' '; }
+					code = code.replace(/\n {4}/g, `\n${space}`);
 				}
-				this.minifiedNew = code;
-				formatted = true;
+				this.jsString = code;
+				this.formatted = true;
 			} catch (err) {
 				this.errorMessage = err.message;
 			}
+		},
+		reset() {
+			this.formatted = false;
+			this.errorMessage = null;
+			this.jsString = '';
+			this.$refs.JsFormatter__input.focus();
 		}
-	},
-}
+	}
+};
 </script>
