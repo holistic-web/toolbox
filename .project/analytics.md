@@ -9,3 +9,5 @@ We are using Google Tag Manager to implement Google Analytics
 - You can set up tags for Analytics / Ads and more
 - To set up custom events for analytics follow the following documentation:
 	- [Event Docs](https://support.google.com/tagmanager/answer/6106716?hl=en&ref_topic=6333310)
+
+SEO performance can be seen here: https://search.google.com/search-console?resource_id=sc-domain%3Aholistic-toolbox.com
