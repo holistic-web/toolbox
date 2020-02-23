@@ -22,7 +22,7 @@ To develop for this project:
 	```
 
 ## Deployment
-Deployment for this project is handled by our [Github workflow](/.gitub/workflows/deploy-on-push-to-master) on merge into the master branch.
+Deployment for this project is handled by our [Github workflow](/.github/workflows/deploy-on-push-to-master) on merge into the master branch.
 
 Manual deployment is not recommended but in case we ever need to do the following on a machine with the firebase cli installed.
 
