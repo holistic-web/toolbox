@@ -45,6 +45,7 @@ Any differring pixels will be flagged in red.
 			<template v-if="!compared">
 
 				<tool-button
+					id="Action"
 					class="ImageComparer__taskbarItem"
 					size="lg"
 					v-text="'Compare'"
@@ -58,7 +59,6 @@ Any differring pixels will be flagged in red.
 
 			<tool-button
 				v-else
-				id="Action"
 				class="ImageComparer__taskbarItem"
 				size="sm"
 				variant="secondary"
