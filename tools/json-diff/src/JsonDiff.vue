@@ -37,9 +37,10 @@ Enter two JSON files below:
 
 			<tool-button
 				v-if="!diff"
-				size="lg"
+				id="Action"
 				class="JsonDiff__button"
 				v-text="'Diff JSONs'"
+				size="lg"
 				@click.native="doComparison"/>
 
 			<tool-button
