@@ -1,6 +1,6 @@
 {
 	"name": "markdown-renderer",
-	"version": "0.1.6",
+	"version": "0.0.0",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -21,7 +21,7 @@
 		"@vue/cli-service": "^4.1.0",
 		"babel-eslint": "^10.0.3",
 		"eslint": "^5.16.0",
-		"@holistic-web/eslint-config-toolbox": "^1.0.2",
+		"@holistic-web/eslint-config": "^0.1.2",
 		"eslint-plugin-vue": "^5.0.0",
 		"firebase-tools": "^7.12.1",
 		"node-sass": "^4.13.0",

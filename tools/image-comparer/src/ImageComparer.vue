@@ -58,6 +58,7 @@ Any differring pixels will be flagged in red.
 
 			<tool-button
 				v-else
+				id="Action"
 				class="ImageComparer__taskbarItem"
 				size="sm"
 				variant="secondary"

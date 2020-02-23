@@ -40,7 +40,14 @@ export default {
 
 .ToolHeader {
 	background-color: $dark;
-	padding: ($tool-padding / 2) $tool-padding;
+	padding: ($tool-padding-mobile / 2) $tool-padding-mobile;
+
+	@media all and (min-width: $breakpoint-tablet) {
+		padding: ($tool-padding-tablet / 2) $tool-padding-tablet;
+	}
+	@media all and (min-width: $breakpoint-desktop) {
+		padding: ($tool-padding-desktop / 2) $tool-padding-desktop;
+	}
 
 	&__navbar {
 		padding: 0 !important;
@@ -68,16 +75,17 @@ export default {
 			font-weight: lighter;
 			letter-spacing: 1.5px;
 			text-transform: uppercase;
+			text-align: right;
 		}
 	}
 }
 
 // wiggle animation: https://codepen.io/theDeanH/pen/zBZXLN
 @keyframes wiggle {
-	0% {transform: rotate(5deg);}
-	25% {transform: rotate(-5deg);}
-	50% {transform: rotate(10deg);}
-	75% {transform: rotate(-3deg);}
+	0% {transform: rotate(1deg);}
+	25% {transform: rotate(-2deg);}
+	50% {transform: rotate(5deg);}
+	75% {transform: rotate(-1deg);}
 	100% {transform: rotate(0deg);}
 }
 </style>

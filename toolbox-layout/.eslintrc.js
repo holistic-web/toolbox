@@ -5,9 +5,13 @@ module.exports = {
 	},
 	extends: [
 		'plugin:vue/essential',
-		'@holistic-web/eslint-config-toolbox'
+		'@holistic-web/eslint-config'
 	],
 	parserOptions: {
 		parser: 'babel-eslint'
+	},
+	rules: {
+		// allow storyboard imports to go in the devdependencies section
+		'import/no-extraneous-dependencies': 0
 	}
 };
