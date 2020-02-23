@@ -47,10 +47,11 @@ Enter a number to convert:
 
 			<template v-else>
 				<tool-button
-					size="lg"
+					id="Action"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
-					v-clipboard="result"/>
+					v-clipboard="result"
+					size="lg"/>
 				<tool-button
 					size="sm"
 					class="NumberConverter__button"

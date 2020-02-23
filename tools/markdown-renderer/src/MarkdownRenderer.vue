@@ -20,6 +20,7 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 
 		<tool-taskbar>
 			<b-form-checkbox
+				id="Action"
 				class="MarkdownRenderer__button"
 				name="MarkdownRenderer__autoCopy"
 				v-model="autoCopy"
@@ -28,6 +29,7 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 			</b-form-checkbox>
 			<tool-button
 				v-if="!autoCopy"
+				id="Action"
 				class="MarkdownRenderer__button"
 				size="sm"
 				v-text="'Copy to Clipboard'"
