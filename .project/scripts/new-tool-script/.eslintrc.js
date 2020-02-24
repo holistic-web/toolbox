@@ -4,7 +4,7 @@ module.exports = {
 		node: true
 	},
 	extends: [
-		'@holistic-web/eslint-config-toolbox'
+		'@holistic-web/eslint-config'
 	],
 	parserOptions: {
 		parser: 'babel-eslint'

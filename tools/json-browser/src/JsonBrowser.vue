@@ -31,6 +31,7 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
+				id="Action"
 				class="JsonBrowser__taskbarButton"
 				v-if="!browsing"
 				size="lg"

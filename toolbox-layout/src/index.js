@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import './styles/theme.scss';
+import BootstrapVue from 'bootstrap-vue';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import ToolButton from './components/ToolButton.vue';
@@ -9,6 +10,8 @@ import ToolHeader from './components/ToolHeader.vue';
 import ToolLayout from './components/ToolLayout.vue';
 import ToolMarkdown from './components/ToolMarkdown.vue';
 import ToolTaskbar from './components/ToolTaskbar.vue';
+
+Vue.use(BootstrapVue);
 
 const components = {
 	ToolButton,

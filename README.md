@@ -2,8 +2,9 @@
 
 A collection of useful tools, to service all areas of development. Hosted at https://holistic-toolbox.com
 
+Check [.project/analytics.md](/.project/analytics.md) for analytics information
+
 ## Contents
-Information not listed below, such as our very exciting [linting settings](/.project/toolbox-linting) may be found in the [`.project`](/.project) folder.
 
 ### Tools
 To see the list of tools, navigate to the [`tools`](/tools) folder.
@@ -17,11 +18,9 @@ The Vue component library behind these UIs can be found at [`toolbox-layout`](/t
 ### Automation
 We have some automated workflows that run in this repo. They can be found in [`.github/workflows`](/.github/workflows).
 
-## Analytics and SEO
-- SEO performance can be seen here: https://search.google.com/search-console?resource_id=sc-domain%3Aholistic-toolbox.com
-
 ## Contributing
-Contributions are very welcome, just raise an issue / open a pull request!
+Contributions are very welcome, just raise an issue / open a pull request! Ideas and implementations on [.project/tool-ideas.md](/.project/tool-ideas.md) are very welcome.
+
 
 ### Creating a new tool
 See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to generate a new tool for the toolbox. If you're looking for inspiration, check out: .project/tool-ideas.
