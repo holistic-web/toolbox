@@ -2,7 +2,8 @@
 	<div class="JsFormatter">
 
 		<tool-markdown :markdown="`
-Documentation for your new tool and any relevant links go here...
+Formatting is done with a method found [here](https://edwardize.blogspot.com/2018/06/online-css-unminifier-vuejs.html)
+Enter your minified/un-minified JavaScript below:
 		`"/>
 
 		<tool-error
