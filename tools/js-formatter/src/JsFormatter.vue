@@ -73,7 +73,7 @@ Enter your JavaScript below:
 </style>
 
 <script>
-import UglifyJS from 'uglify-js';
+const uglifyJS = require('uglify-js');
 
 export default {
 	data() {
@@ -115,13 +115,13 @@ export default {
 				// code = UglifyJS.minify(this.jsString);
 
 				if (this.whitespace === 2) {
-					code = UglifyJS.minify(code, options);
+					code = uglifyJS.minify(code, options);
 				} else if (this.whitespace === 1) {
-					code = UglifyJS.minify(code, options);
+					code = uglifyJS.minify(code, options);
 				} else {
 					// Do minify stuff
 					options.output.beautify = true;
-					code = UglifyJS.minify(code, options);
+					code = uglifyJS.minify(code, options);
 				}
 				this.jsString = code;
 				this.formatted = true;
