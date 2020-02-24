@@ -2,8 +2,9 @@
 	<div class="JsFormatter">
 
 		<tool-markdown :markdown="`
-Formatting is done with a method found [here](https://edwardize.blogspot.com/2018/06/online-css-unminifier-vuejs.html)
-Enter your minified/un-minified JavaScript below:
+Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglify-js)
+use the options to select your prefered spacing or Select none to minify
+Enter your JavaScript below:
 		`"/>
 
 		<tool-error
