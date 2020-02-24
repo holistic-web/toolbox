@@ -72,16 +72,18 @@ Enter your minified/un-minified JavaScript below:
 </style>
 
 <script>
+import UglifyJS from 'uglify-js';
+
 export default {
 	data() {
 		return {
 			formatted: false,
 			errorMessage: null,
 			jsString: '',
-			whitespace: '\t',
+			whitespace: '1',
 			whitespaceOptions: [
-				{ text: 'Tabs', value: '\t' },
-				{ text: 'Spaces', value: 4 },
+				{ text: 'Tabs', value: 1 },
+				{ text: 'Spaces', value: 2 },
 				{ text: 'None', value: 0 }
 			]
 		};
@@ -98,25 +100,27 @@ export default {
 	methods: {
 		formatJS() {
 			// TODO: need to test
-			let tab = 4;
-			let space = '';
+			// let tab = 4;
+			// const space = '';
 			let code;
 
 			try {
-				tab = (/^\d+$/.test(tab) ? parseInt(tab, 10) : 4);
-				code = this.jsString
-					.split('{').join(' {\n    ')
-					.split(';').join(';\n    ')
-					.split(',')
-					.join(', ')
-					.split('    }')
-					.join('}\n')
-					.replace(/\}(.+)/g, '}\n$1')
-					.replace(/\n {4}([^:]+):/g, '\n    $1: ')
-					.replace(/([A-z0-9)])}/g, '$1;\n}');
-				if (tab !== 4) {
-					for (;tab !== 0; tab--) { space += ' '; }
-					code = code.replace(/\n {4}/g, `\n${space}`);
+				code = this.jsString;
+				const options = {
+					output: {
+						beautify: false
+					}
+				};
+				// code = UglifyJS.minify(this.jsString);
+
+				if (this.whitespace === 2) {
+					code = UglifyJS.minify(code, options);
+				} else if (this.whitespace === 1) {
+					code = UglifyJS.minify(code, options);
+				} else {
+					// Do minify stuff
+					options.output.beautify = true;
+					code = UglifyJS.minify(code, options);
 				}
 				this.jsString = code;
 				this.formatted = true;
