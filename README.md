@@ -13,7 +13,7 @@ To see the list of tools, navigate to the [`tools`](/tools) folder.
 Our landing page can be found in the [`toolbox-website`](/toolbox-website) folder.
 
 ### Layout
-The Vue component library behind these UIs can be found at [`toolbox-layout`](/toolbox-layout).
+The Vue component library behind these UIs can be found at [`layout`](/layout).
 
 ### Automation
 We have some automated workflows that run in this repo. They can be found in [`.github/workflows`](/.github/workflows).

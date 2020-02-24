@@ -7,14 +7,14 @@
 #
 # It relies on the `GITHUB_TOKEN` secret being available in this repo.
 
-name: lint-toolbox-layout
+name: lint-layout
 
 on:
   push:
     branches-ignore:
     - master
     paths:
-    - 'toolbox-layout/**'
+    - 'layout/**'
 
 jobs:
   lint-and-commit:
@@ -35,7 +35,7 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd toolbox-layout
+        cd layout
         npm ci
         npm run lint
 
