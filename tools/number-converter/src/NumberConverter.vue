@@ -15,9 +15,7 @@ Enter a number to convert:
 			:message="errorMessage"/>
 
 		<b-form-input
-			number
 			v-model="inputNumber"
-			type="number"
 			size="lg"
 			placeholder="E.g. 100" />
 
@@ -137,7 +135,7 @@ export default {
 		convertToBin(number, fromBase) {
 			switch (fromBase) {
 				case 1:
-					return number.toString(2);
+					return parseInt(number, 10).toString(2);
 				case 2:
 					return number;
 				case 8:
@@ -151,7 +149,7 @@ export default {
 		convertToOct(number, fromBase) {
 			switch (fromBase) {
 				case 1:
-					return number.toString(8);
+					return parseInt(number, 10).toString(8);
 				case 2:
 					return parseInt(number, 2).toString(8);
 				case 8:
