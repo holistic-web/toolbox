@@ -137,11 +137,11 @@ export default {
 				case 10:
 					return number;
 				case 2:
-					return number;
+					return parseInt(number, 2).toString(10);
 				case 8:
-					return parseInt(number, 8).toString(2);
+					return parseInt(number, 8).toString(10);
 				case 16:
-					return parseInt(number, 16).toString(2);
+					return parseInt(number, 16).toString(10);
 				default:
 					throw new Error('Base not supported');
 			}
@@ -184,7 +184,7 @@ export default {
 				case 8:
 					return hex.concat((parseInt(number, 8)).toString(16).toUpperCase());
 				case 16:
-					return hex.concat(number);
+					return hex.concat(number.toUpperCase());
 				default:
 					throw new Error('Base not supported');
 			}
