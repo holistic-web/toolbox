@@ -160,10 +160,20 @@ export default {
 					throw new Error('Base not supported');
 			}
 		},
-		convertToHex(number) {
+		convertToHex(number, fromBase) {
 			const hex = '0x';
-			const answer = hex.concat((number).toString(16).toUpperCase());
-			return answer;
+			switch (fromBase) {
+				case 1:
+					return hex.concat((parseInt(number, 10)).toString(16).toUpperCase());
+				case 2:
+					return hex.concat((parseInt(number, 2)).toString(16).toUpperCase());
+				case 8:
+					return hex.concat((parseInt(number, 8)).toString(16).toUpperCase());
+				case 16:
+					return hex.concat(number);
+				default:
+					throw new Error('Base not supported');
+			}
 		},
 		reset() {
 			this.converted = false;
