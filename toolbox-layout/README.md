@@ -53,12 +53,15 @@ npm publish --access public
 _Remember to increment the version number in package.json_
 
 ### Analytics
-Firebase analytics have been added to index.js of toolbox-layout
-Navigate to the analytics dashboard through the firebase console for the project
-The docs are here:
-https://firebase.google.com/docs/analytics/get-started?platform=web&authuser=0
-For specific events:
-https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
+Analytics are being implemented through [Google Tag Manager](https://tagmanager.google.com/#/home) (GTM)
+
+The main benefit of GTM is that we can implement analytics through a console rather than programatically
+
+Using a simple GTM Tag on the index.html of each site, we can implement analytics events (and much more) across the project 
+
+Here are some useful links:
+- [GTM Quick Start](https://developers.google.com/tag-manager/quickstart)
+- [Analytics Events through GTM](https://support.google.com/tagmanager/answer/6106716?hl=en)
 
 ### Notes and Caveats
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the  `/.github/workflows/deploy-toolbox-layout-stories` action.
