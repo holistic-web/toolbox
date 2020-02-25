@@ -148,8 +148,19 @@ export default {
 					throw new Error('Base not supported');
 			}
 		},
-		convertToOct(number) {
-			return number.toString(8);
+		convertToOct(number, fromBase) {
+			switch (fromBase) {
+				case 1:
+					return number.toString(8);
+				case 2:
+					return parseInt(number, 2).toString(8);
+				case 8:
+					return number;
+				case 16:
+					return parseInt(number, 16).toString(8);
+				default:
+					throw new Error('Base not supported');
+			}
 		},
 		convertToHex(number) {
 			const hex = '0x';
