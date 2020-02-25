@@ -36,13 +36,25 @@ Enter a number to convert:
 					class="NumberConverter__button"
 					v-text="'Convert'"
 					@click.native="convert"/>
-				<b-form-radio-group
-					class="NumberConverter__button"
-					v-model="base"
-					:options="baseOptions"
-					buttons
-					button-variant="outline-secondary"
-					size="sm"/>
+				<b-form-group label="To:">
+					<b-form-radio-group
+						class="NumberConverter__button"
+						v-model="toBase"
+						:options="toBaseOptions"
+						buttons
+						button-variant="outline-secondary"
+						size="sm"/>
+				</b-form-group>
+				<b-form-group label="From:">
+					<b-form-radio-group
+						class="NumberConverter__button"
+						label="From:"
+						v-model="fromBase"
+						:options="fromBaseOptions"
+						buttons
+						button-variant="outline-secondary"
+						size="sm"/>
+				</b-form-group>
 			</template>
 
 			<template v-else>
@@ -71,8 +83,16 @@ export default {
 			errorMessage: null,
 			inputNumber: null,
 			result: null,
-			base: 0,
-			baseOptions: [
+			fromBase: 0,
+			toBase: 0,
+			fromBaseOptions: [
+				{ text: 'Decimal', value: 1 },
+				{ text: 'Binary', value: 2 },
+				{ text: 'Octal', value: 8 },
+				{ text: 'Hexadecimal', value: 16 }
+			],
+			toBaseOptions: [
+				{ text: 'Decimal', value: 1 },
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
 				{ text: 'Hexadecimal', value: 16 }
@@ -90,17 +110,21 @@ export default {
 	methods: {
 		convert() {
 			try {
-				switch (this.base) {
+				switch (this.toBase) {
+					case 1:
+						this.result = this.convertToDec(this.inputNumber, this.fromBase);
+						this.converted = true;
+						break;
 					case 2:
-						this.result = this.convertToBin(this.inputNumber);
+						this.result = this.convertToBin(this.inputNumber, this.fromBase);
 						this.converted = true;
 						break;
 					case 8:
-						this.result = this.convertToOct(this.inputNumber);
+						this.result = this.convertToOct(this.inputNumber, this.fromBase);
 						this.converted = true;
 						break;
 					case 16:
-						this.result = this.convertToHex(this.inputNumber);
+						this.result = this.convertToHex(this.inputNumber, this.fromBase);
 						this.converted = true;
 						break;
 					default:
@@ -110,8 +134,19 @@ export default {
 				this.errorMessage = err.message;
 			}
 		},
-		convertToBin(number) {
-			return number.toString(2);
+		convertToBin(number, fromBase) {
+			switch (fromBase) {
+				case 1:
+					return number.toString(2);
+				case 2:
+					return number;
+				case 8:
+					return parseInt(number, 8).toString(2);
+				case 16:
+					return parseInt(number, 16).toString(2);
+				default:
+					throw new Error('Base not supported');
+			}
 		},
 		convertToOct(number) {
 			return number.toString(8);
