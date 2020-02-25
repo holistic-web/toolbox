@@ -84,13 +84,13 @@ export default {
 			fromBase: 0,
 			toBase: 0,
 			fromBaseOptions: [
-				{ text: 'Decimal', value: 1 },
+				{ text: 'Decimal', value: 10 },
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
 				{ text: 'Hexadecimal', value: 16 }
 			],
 			toBaseOptions: [
-				{ text: 'Decimal', value: 1 },
+				{ text: 'Decimal', value: 10 },
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
 				{ text: 'Hexadecimal', value: 16 }
@@ -109,7 +109,7 @@ export default {
 		convert() {
 			try {
 				switch (this.toBase) {
-					case 1:
+					case 10:
 						this.result = this.convertToDec(this.inputNumber, this.fromBase);
 						this.converted = true;
 						break;
@@ -132,9 +132,23 @@ export default {
 				this.errorMessage = err.message;
 			}
 		},
+		convertToDec(number, fromBase) {
+			switch (fromBase) {
+				case 10:
+					return number;
+				case 2:
+					return number;
+				case 8:
+					return parseInt(number, 8).toString(2);
+				case 16:
+					return parseInt(number, 16).toString(2);
+				default:
+					throw new Error('Base not supported');
+			}
+		},
 		convertToBin(number, fromBase) {
 			switch (fromBase) {
-				case 1:
+				case 10:
 					return parseInt(number, 10).toString(2);
 				case 2:
 					return number;
@@ -148,7 +162,7 @@ export default {
 		},
 		convertToOct(number, fromBase) {
 			switch (fromBase) {
-				case 1:
+				case 10:
 					return parseInt(number, 10).toString(8);
 				case 2:
 					return parseInt(number, 2).toString(8);
@@ -163,7 +177,7 @@ export default {
 		convertToHex(number, fromBase) {
 			const hex = '0x';
 			switch (fromBase) {
-				case 1:
+				case 10:
 					return hex.concat((parseInt(number, 10)).toString(16).toUpperCase());
 				case 2:
 					return hex.concat((parseInt(number, 2)).toString(16).toUpperCase());
