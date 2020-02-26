@@ -1,10 +1,7 @@
 import Vue from 'vue';
-import '@holistic-web/layout';
-import '@holistic-web/layout/dist/layout.css';
-import BootstrapVue from 'bootstrap-vue';
+import '@holistic-web/toolbox-layout/dist/toolbox-layout.css';
 import App from './App.vue';
 
-Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
 new Vue({

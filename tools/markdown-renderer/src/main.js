@@ -1,11 +1,8 @@
 import Vue from 'vue';
-import '@holistic-web/layout';
-import '@holistic-web/layout/dist/layout.css';
-import BootstrapVue from 'bootstrap-vue';
+import '@holistic-web/toolbox-layout/dist/toolbox-layout.css';
 import Clipboard from 'v-clipboard';
 import App from './App.vue';
 
-Vue.use(BootstrapVue);
 Vue.use(Clipboard);
 Vue.config.productionTip = false;
 

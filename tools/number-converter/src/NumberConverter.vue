@@ -65,7 +65,14 @@ Enter a number to convert:
 </template>
 
 <script>
+import { ToolButton, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
+
 export default {
+	components: {
+		ToolButton,
+		ToolError,
+		ToolMarkdown
+	},
 	data() {
 		return {
 			converted: false,
@@ -134,7 +141,7 @@ export default {
 
 
 <style lang="scss">
-@import '@holistic-web/layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .NumberConverter {
 	display: flex;

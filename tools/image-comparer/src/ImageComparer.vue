@@ -71,6 +71,7 @@ Any differring pixels will be flagged in red.
 </template>
 
 <script>
+import { ToolButton, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
 import pixelmatch from 'pixelmatch';
 import Inputs from './components/Inputs.vue';
 import Settings from './components/Settings.vue';
@@ -83,6 +84,9 @@ const pixelmatchDefaults = {
 
 export default {
 	components: {
+		ToolButton,
+		ToolError,
+		ToolMarkdown,
 		Inputs,
 		Settings
 	},
@@ -169,7 +173,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .ImageComparer {
 	display: flex;

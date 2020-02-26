@@ -56,6 +56,7 @@ Enter two JSON files below:
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
 // disable eslint to allow some weird imports required by jsondiffpatch
 /* eslint-disable */
 import 'jsondiffpatch/dist/formatters-styles/html.css';
@@ -69,6 +70,12 @@ const defaultCodeOptions = {
 };
 
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown
+	},
 	data() {
 		return {
 			json1: '',
@@ -109,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .JsonDiff {
 	display: flex;

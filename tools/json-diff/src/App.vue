@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import JsonDiff from './JsonDiff.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		JsonDiff
 	}
 };

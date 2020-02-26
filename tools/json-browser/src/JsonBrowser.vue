@@ -55,10 +55,15 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
 import VueJsonPretty from 'vue-json-pretty';
 
 export default {
 	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown,
 		VueJsonPretty
 	},
 	data() {
@@ -113,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/layout/src/styles/theme';
+@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .JsonBrowser {
 	display: flex;
