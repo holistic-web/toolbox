@@ -55,7 +55,6 @@ _Remember to increment the version number in package.json_
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
-- allowing individual components to be imported rather then all or nothing
 - allow including a reset / main action button with configuration rather than slots
 - swap the tool name and toolbox branding positions in the header
 - see about resolving the scroll issue, if at all possible
