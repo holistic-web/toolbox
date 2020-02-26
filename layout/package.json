@@ -18,7 +18,6 @@
 		"*.js"
 	],
 	"dependencies": {
-		"@vue/eslint-config-airbnb": "^5.0.2",
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.1.0",
 		"codemirror": "^5.50.2",

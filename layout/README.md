@@ -52,7 +52,7 @@ npm publish --access public
 _Remember to increment the version number in package.json_
 
 ### Notes and Caveats
-- This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the  `/.github/workflows/deploy-layout-stories` action.
+- This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
 - allowing individual components to be imported rather then all or nothing
