@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import '@holistic-web/toolbox-layout';
+import '@holistic-web/toolbox-layout';
 import '@holistic-web/toolbox-layout/dist/toolbox-layout.css';
 import BootstrapVue from 'bootstrap-vue';
 import App from './App.vue';
