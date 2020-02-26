@@ -55,7 +55,7 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import VueJsonPretty from 'vue-json-pretty';
 
 export default {
@@ -64,6 +64,7 @@ export default {
 		ToolCode,
 		ToolError,
 		ToolMarkdown,
+		ToolTaskbar,
 		VueJsonPretty
 	},
 	data() {

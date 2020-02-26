@@ -47,7 +47,7 @@ Enter text below:
 	</div>
 </template>
 <script>
-import { ToolButton, ToolCode, ToolMarkdown } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import nlp from 'compromise';
 
 const nlpMethods = {
@@ -75,7 +75,8 @@ export default {
 	components: {
 		ToolButton,
 		ToolCode,
-		ToolMarkdown
+		ToolMarkdown,
+		ToolTaskbar
 	},
 	data() {
 		return {

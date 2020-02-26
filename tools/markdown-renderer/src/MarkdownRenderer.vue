@@ -46,13 +46,14 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolMarkdown } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
 		ToolButton,
 		ToolCode,
-		ToolMarkdown
+		ToolMarkdown,
+		ToolTaskbar
 	},
 	data() {
 		return {

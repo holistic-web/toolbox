@@ -62,14 +62,15 @@ Enter your [JSON](https://www.json.org) below to get started:
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
 		ToolButton,
 		ToolCode,
 		ToolError,
-		ToolMarkdown
+		ToolMarkdown,
+		ToolTaskbar
 	},
 	data() {
 		return {

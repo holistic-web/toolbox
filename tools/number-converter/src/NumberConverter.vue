@@ -65,13 +65,14 @@ Enter a number to convert:
 </template>
 
 <script>
-import { ToolButton, ToolError, ToolMarkdown } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
 		ToolButton,
 		ToolError,
-		ToolMarkdown
+		ToolMarkdown,
+		ToolTaskbar
 	},
 	data() {
 		return {
