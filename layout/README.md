@@ -1,6 +1,5 @@
 # Toolbox Layout
-
-This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality.
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics configurations](/.project/analytics.md).
 
 It is published on npm at: https://www.npmjs.com/package/@holistic-web/toolbox-layout
 
@@ -52,22 +51,12 @@ npm publish --access public
 ```
 _Remember to increment the version number in package.json_
 
-### Analytics
-Firebase analytics have been added to index.js of layout
-Navigate to the analytics dashboard through the firebase console for the project
-The docs are here:
-https://firebase.google.com/docs/analytics/get-started?platform=web&authuser=0
-For specific events:
-https://firebase.google.com/docs/analytics/events?authuser=0&platform=web
-
 ### Notes and Caveats
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the  `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
 - allowing individual components to be imported rather then all or nothing
-- use storyboard to create a demo / documentation resource for this component library
 - allow including a reset / main action button with configuration rather than slots
 - swap the tool name and toolbox branding positions in the header
 - see about resolving the scroll issue, if at all possible
 - add breakpoints to the storybook examples
-- rename to just be called toolbox
