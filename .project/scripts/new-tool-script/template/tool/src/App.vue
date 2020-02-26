@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ToolLayout from '@holistic-web/toolbox-layout';
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import {{tool-name-uppercase}} from './{{tool-name-uppercase}}.vue';
 
 export default {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ToolLayout from '@holistic-web/toolbox-layout';
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
