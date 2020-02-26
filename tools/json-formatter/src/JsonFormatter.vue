@@ -127,7 +127,7 @@ export default {
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: 104px; // to account for the taskbar
 
 	&__errorMessage {

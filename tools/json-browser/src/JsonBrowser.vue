@@ -124,7 +124,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

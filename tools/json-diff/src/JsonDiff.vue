@@ -121,7 +121,7 @@ export default {
 .JsonDiff {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: calc(114px + 1rem); // to account for the taskbar
 
 	&__errorMessage {

@@ -90,7 +90,7 @@ export default {
 .MarkdownRenderer {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 
 	&__button {
 		margin-left: 1rem;

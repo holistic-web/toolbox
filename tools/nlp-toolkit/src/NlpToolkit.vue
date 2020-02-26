@@ -121,7 +121,7 @@ export default {
 	flex-direction: column;
 	height: auto;
 	min-height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: 97px; // to account for the taskbar
 
 	&__content {
