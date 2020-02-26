@@ -8,12 +8,12 @@ A demo can be found here: https://toolbox-layout-stories.firebaseapp.com
 ## Usage
 To use this library in a Vue app, simply include:
 ```
-import 'layout';
-import 'layout/dist/layout.css';
+import 'toolbox-layout';
+import 'toolbox-layout/dist/toolbox-layout.css';
 ```
 in your main.js file to make the components available.
 
-The following SCSS variables can also be accessed with: `@import 'layout/src/theme'`.
+The following SCSS variables can also be accessed with: `@import 'toolbox-layout/src/theme'`.
 ```
 $primary: $colour-orange-dark;
 $highlight: $colour-blue;

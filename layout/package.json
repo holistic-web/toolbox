@@ -1,11 +1,11 @@
 {
 	"name": "@holistic-web/toolbox-layout",
-	"version": "0.1.25",
+	"version": "0.1.27",
 	"main": "./dist/layout.common.js",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"build-bundle": "vue-cli-service build --target lib --name layout ./src/index.js",
+		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
 		"lint": "vue-cli-service lint",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
