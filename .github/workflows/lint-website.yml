@@ -7,14 +7,14 @@
 #
 # It relies on the `GITHUB_TOKEN` secret being available in this repo.
 
-name: lint-toolbox-website
+name: lint-website
 
 on:
   push:
     branches-ignore:
     - master
     paths:
-    - 'toolbox-website/**'
+    - 'website/**'
 
 jobs:
   lint-and-commit:
@@ -35,7 +35,7 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd toolbox-website
+        cd website
         npm ci
         npm run lint
 

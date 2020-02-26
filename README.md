@@ -10,7 +10,7 @@ Check [.project/analytics.md](/.project/analytics.md) for analytics information
 To see the list of tools, navigate to the [`tools`](/tools) folder.
 
 ### Home
-Our landing page can be found in the [`toolbox-website`](/toolbox-website) folder.
+Our landing page can be found in the [`website`](/website) folder.
 
 ### Layout
 The Vue component library behind these UIs can be found at [`layout`](/layout).
