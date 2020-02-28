@@ -36,9 +36,9 @@ jobs:
 
     - name: Build project
       run: |
-        cd layout
-        npm install
-        npm run build-bundle --if-present
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope layout build-bundle
 
     - name: Increment project version
       run: |

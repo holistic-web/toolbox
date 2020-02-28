@@ -36,9 +36,9 @@ jobs:
 
     - name: Build project
       run: |
-        cd tools/json-formatter
-        npm install
-        npm run build
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope tools/json-formatter build
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

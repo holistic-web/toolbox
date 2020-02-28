@@ -33,11 +33,11 @@ jobs:
       with:
         node-version: $\{{ matrix.node-version }}
 
-    - name: Install and Lint
+    - name: Build project
       run: |
-        cd tools/{{tool-name}}
-        npm install
-        npm run lint
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope tools/{{tool-name}} lint
 
     - name: Commit changes
       run: |

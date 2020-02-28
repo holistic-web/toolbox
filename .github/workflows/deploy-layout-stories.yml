@@ -36,7 +36,7 @@ jobs:
     - name: Build project
       run: |
         npm ci
-        npx boostrap
+        npm run bootstrap
         npx lerna run --scope layout build-storybook
 
     - name: Deploy to Firebase

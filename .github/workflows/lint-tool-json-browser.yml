@@ -35,9 +35,9 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd tools/json-browser
-        npm install
-        npm run lint
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope tool/json-browser lint
 
     - name: Commit changes
       run: |

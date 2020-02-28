@@ -36,9 +36,9 @@ jobs:
 
     - name: Build project
       run: |
-        cd website
-        npm install
-        npm run build
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope website build
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master

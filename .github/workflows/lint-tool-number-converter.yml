@@ -35,9 +35,9 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd tools/number-converter
-        npm install
-        npm run lint
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope tool/number-converter lint
 
     - name: Commit changes
       run: |

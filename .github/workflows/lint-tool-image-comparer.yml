@@ -33,9 +33,9 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd tools/image-comparer
-        npm install
-        npm run lint
+        npm ci
+        npm run bootstrap
+        npx lerna run --scope tool/image-comparer lint
 
     - name: Commit changes
       run: |
