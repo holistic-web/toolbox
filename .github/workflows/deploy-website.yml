@@ -1,5 +1,5 @@
 # Deploy on push to master
-# This workflow affects all our Vue apps, so `toolbox-website` and all tools. The logic for this automation is:
+# This workflow affects all our Vue apps, so `website` and all tools. The logic for this automation is:
 #
 #	1. increment the version in package.json
 #	2. push the new version to the master branch
@@ -8,14 +8,14 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-toolbox-layout-stories
+name: deploy-website
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'toolbox-layout/**'
+    - 'website/**'
 
 jobs:
   build-and-deploy:
@@ -36,9 +36,9 @@ jobs:
 
     - name: Build project
       run: |
-        cd toolbox-layout
+        cd website
         npm ci
-        npm run build-storybook
+        npm run build
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
@@ -46,4 +46,4 @@ jobs:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        PROJECT_PATH: 'toolbox-layout'
+        PROJECT_PATH: 'website'

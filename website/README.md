@@ -1,4 +1,4 @@
-# Toolbox Website
+# Website
 
 This is the homepage for all Holistic Toolbox tools
 

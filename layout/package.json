@@ -1,10 +1,8 @@
 {
 	"name": "@holistic-web/toolbox-layout",
-	"version": "0.1.25",
+	"version": "0.1.28",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
 		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
 		"lint": "vue-cli-service lint",
 		"storybook": "start-storybook -p 6006",
@@ -18,7 +16,6 @@
 		"*.js"
 	],
 	"dependencies": {
-		"@vue/eslint-config-airbnb": "^5.0.2",
 		"bootstrap": "^4.4.1",
 		"bootstrap-vue": "^2.1.0",
 		"codemirror": "^5.50.2",

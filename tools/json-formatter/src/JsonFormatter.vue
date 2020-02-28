@@ -62,7 +62,16 @@ Enter your [JSON](https://www.json.org) below to get started:
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			formatted: false,
@@ -119,7 +128,7 @@ export default {
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: 104px; // to account for the taskbar
 
 	&__errorMessage {

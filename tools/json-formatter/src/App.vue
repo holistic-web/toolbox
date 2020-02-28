@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import JsonFormatter from './JsonFormatter.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		JsonFormatter
 	}
 };

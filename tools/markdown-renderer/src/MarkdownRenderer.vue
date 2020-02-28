@@ -46,7 +46,15 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			markdown: '',
@@ -83,7 +91,7 @@ export default {
 .MarkdownRenderer {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 
 	&__button {
 		margin-left: 1rem;

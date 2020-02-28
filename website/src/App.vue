@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import Website from './Website.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		Website
 	}
 };

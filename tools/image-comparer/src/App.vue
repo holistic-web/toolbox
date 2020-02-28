@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import ImageComparer from './ImageComparer.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		ImageComparer
 	}
 };

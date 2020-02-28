@@ -47,6 +47,7 @@ Enter text below:
 	</div>
 </template>
 <script>
+import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import nlp from 'compromise';
 
 const nlpMethods = {
@@ -71,6 +72,12 @@ const nlpMethods = {
 };
 
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			inputText: '',
@@ -115,7 +122,7 @@ export default {
 	flex-direction: column;
 	height: auto;
 	min-height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: 97px; // to account for the taskbar
 
 	&__content {

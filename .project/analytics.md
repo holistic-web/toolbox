@@ -1,6 +1,6 @@
 # Welcome to Analytics
 
-We are using Google Tag Manager to implement Google Analytics
+We are using Google Tag Manager to implement Google Analytics. Our analytics scripts are included in the `index.html` files of our web apps and also in our layout project's `index.js.
 
 ## This is a tutorial on Analytics for GTM:
 

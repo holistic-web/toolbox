@@ -10,7 +10,7 @@
 - [ ] set up a new website for the tool here: https://console.firebase.google.com/u/0/project/holistic-toolbox/hosting/main
 - [ ] update firebase.json to point towards the ID of this newly created site
 - [ ] ensure any remaining #TODOs in this folder / file have been completed
-- [ ] update toolbox-website to include your tool in the list of tools
+- [ ] update the website to include your tool in the list of tools
 - [ ] update /tools README.md to include your tool in the list of tools
 - [ ] submit as a PR for review =D
 - [ ] add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
