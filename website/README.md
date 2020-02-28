@@ -1,8 +1,6 @@
 # Website
 
-This is the homepage for all Holistic Toolbox tools
-
-Hosted at: https://holistic-toolbox.com
+This is the homepage for all Holistic Toolbox tools, hosted at: https://holistic-toolbox.com
 
 ## Running Locally
 To run this project locally follow the guide in the [main readme](https://github.com/holistic-web/toolbox#running-tools-locally) and then run `npm run website`
