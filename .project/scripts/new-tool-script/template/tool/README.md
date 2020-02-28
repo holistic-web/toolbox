@@ -12,6 +12,7 @@
 - [ ] ensure any remaining #TODOs in this folder / file have been completed
 - [ ] update the website to include your tool in the list of tools
 - [ ] update /tools README.md to include your tool in the list of tools
+- [ ] update the main readme to include a status badge for your tool
 - [ ] submit as a PR for review =D
 - [ ] add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
 - [ ] in the firebase console, configure the new site to use these new domains
