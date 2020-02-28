@@ -34,7 +34,7 @@ jobs:
     - name: Install and Lint
       run: |
         cd tools/image-comparer
-        npm ci
+        npm install
         npm run lint
 
     - name: Commit changes

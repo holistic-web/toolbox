@@ -37,7 +37,7 @@ jobs:
     - name: Build project
       run: |
         cd tools/number-converter
-        npm ci
+        npm install
         npm run build
 
     - name: Deploy to Firebase

@@ -37,7 +37,7 @@ jobs:
     - name: Install and Lint
       run: |
         cd tools/json-formatter
-        npm ci
+        npm install
         npm run lint
 
     - name: Commit changes

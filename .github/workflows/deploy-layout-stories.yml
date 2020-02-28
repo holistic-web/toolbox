@@ -36,7 +36,7 @@ jobs:
     - name: Build project
       run: |
         cd layout
-        npm ci
+        npm install
         npm run build-storybook
 
     - name: Deploy to Firebase

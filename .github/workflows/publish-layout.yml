@@ -37,7 +37,7 @@ jobs:
     - name: Build project
       run: |
         cd layout
-        npm ci
+        npm install
         npm run build-bundle --if-present
 
     - name: Increment project version

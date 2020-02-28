@@ -37,7 +37,7 @@ jobs:
     - name: Build project
       run: |
         cd website
-        npm ci
+        npm install
         npm run build
 
     - name: Deploy to Firebase
