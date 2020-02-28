@@ -1,6 +1,3 @@
 # dependencies
 node_modules
 
-# top level package-lock
-/package-lock.json
-
