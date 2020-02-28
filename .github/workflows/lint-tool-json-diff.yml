@@ -34,7 +34,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install and Lint
-    run: |
+      run: |
         npm ci
         npm run bootstrap
         npx lerna run --scope tool/json-diff lint
