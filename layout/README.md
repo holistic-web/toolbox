@@ -26,23 +26,18 @@ $success: $colour-green;
 $info: $colour-cream;
 ```
 
-## Development
+## Running Locally
+To run a demo of this project locally follow the guide in the [main readme](https://github.com/holistic-web/toolbox#running-tools-locally) and then run `npm run layout`
 
-## Testing
-Run the following command to open up a demo of the components:
-```
-npm run storybook
-```
-_Be sure to update this demo in the `/docs` folder as we improve the library._
-
-### Building
+## Building
 This project can be built as a library with the following commands
 ```
+cd layout
 npm install
 npm run build-bundle
 ```
 
-### Publishing
+## Publishing
 Publishing for this project is handled by our [Github workflow](/.github/workflows/publish-on-push-to-master) on merge into the master branch.
 
 Manual publishing is not recommended but if we need to try the following (provided you are logged into npm and authorized):

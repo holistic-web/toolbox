@@ -16,3 +16,13 @@ This script generates a new tool for the toolbox. To generate a tool:
 
 ## Changing the Template
 This script should be fairly resilient to changes in the template structure. This should allow us to update the template as we improve our tools.
+
+## Roadmap
+- better CLI flashiness
+- take inputs from yargs instead of config
+- generate default inputs for ToolName and ToolNameHuman if not provided
+- automatically add the new tool to the:
+	- package.json as a run script
+	- README as a badge, and tools list
+- include the installation of packages as part of this tool
+- automatically hoist any dependencies from the new tool

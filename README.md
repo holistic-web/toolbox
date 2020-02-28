@@ -1,5 +1,4 @@
 # Holistic Toolbox
-
 A collection of useful tools, to service all areas of development. Hosted at https://holistic-toolbox.com
 
 Check [.project/analytics.md](/.project/analytics.md) for analytics information
@@ -21,6 +20,26 @@ We have some automated workflows that run in this repo. They can be found in [`.
 ## Contributing
 Contributions are very welcome, just raise an issue / open a pull request! Ideas and implementations on [.project/tool-ideas.md](/.project/tool-ideas.md) are very welcome.
 
+### Running Tools Locally
+All tools can be run from this folder, thanks to [Lerna](https://github.com/lerna/lerna). To get set up:
+
+Install Lerna and shared dependencies
+```bash
+npm install
+```
+
+Ensure all tools have unique dependencies available
+```bash
+npm run bootstrap
+```
+
+Run the tool with one of the following
+```
+npm run website
+npm run layout
+npm run tool-{{tool-name}}
+```
+Where `{{tool-name}}` is the tool to run, i.e. `npm run tool-json-formatter`.
 
 ### Creating a new tool
 See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to generate a new tool for the toolbox. If you're looking for inspiration, check out: .project/tool-ideas.

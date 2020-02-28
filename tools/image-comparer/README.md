@@ -4,28 +4,26 @@ This tool provides a visual comparison of two image files. The comparison is pow
 
 Hosted at http://image-comparer.holistic-toolbox.com
 
-## Development
-To develop for this project:
-1. Install dependencies
-	```
-	npm install
-	```
-2. Host the project locally in development mode
-	```
-	npm run serve
-	```
+## Running Locally
+To run this project locally follow the guide in the [main readme](https://github.com/holistic-web/toolbox#running-tools-locally) and then run `npm run image-comparer`
 
 ## Deployment
-Deployment for this project is handled by our [Github workflow](/.github/workflows/deploy-on-push-to-master) on merge into the master branch.
+Deployment of this project is automated on merge into the master branch thanks to our [workflows](/.github/workflows/)To deploy this tool you must ensure you have the [firebase CLI](https://firebase.google.com/docs/cli) set up on your machine.
 
-Manual deployment is not recommended but in case we ever need to do the following on a machine with the firebase cli installed.
-
-1. Build the project
+1. Navigate to this directory in your terminal
+	```bash
+	cd tools/image-comparer
 	```
+2. Install dependencies directly into this project
+	```bash
+	npm ci
+	```
+3. Generate a build
+	```bash
 	npm run build
 	```
-2. Deploy the project
-	```
+4. Deploy the project
+	```bash
 	firebase deploy
 	```
 

@@ -1,0 +1,70 @@
+{
+	"name": "holistic-toolbox",
+	"version": "0.0.1",
+	"description": "A collection of useful tools",
+	"scripts": {
+		"bootstrap": "lerna bootstrap --hoist",
+		"clean": "lerna clean",
+		"hoist": "lerna link convert",
+		"website": "lerna run --scope website serve --stream",
+		"layout": "lerna run --scope layout storybook --stream",
+		"tool-image-comparer": "lerna run --scope tools/image-comparer --stream",
+		"tool-json-browser": "lerna run --scope tools/json-browser --stream",
+		"tool-json-diff": "lerna run --scope tools/json-diff --stream",
+		"tool-markdown-renderer": "lerna run --scope tools/markdown-renderer --stream",
+		"tool-nlp-toolkit": "lerna run --scope tools/nlp-toolkit --stream",
+		"tool-number-converter": "lerna run --scope tools/number-converter --stream"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/holistic-web/toolbox.git"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/holistic-web/toolbox/issues"
+	},
+	"homepage": "https://github.com/holistic-web/toolbox#readme",
+	"devDependencies": {
+		"@babel/core": "^7.8.4",
+		"@holistic-web/eslint-config": "^0.1.2",
+		"@storybook/addon-actions": "^5.3.13",
+		"@storybook/addon-docs": "^5.3.13",
+		"@storybook/addon-info": "^5.3.13",
+		"@storybook/addon-knobs": "^5.3.13",
+		"@storybook/addon-notes": "^5.3.13",
+		"@storybook/addon-storysource": "^5.3.13",
+		"@storybook/addons": "^5.3.13",
+		"@storybook/vue": "^5.3.13",
+		"@vue/cli-plugin-babel": "^4.1.0",
+		"@vue/cli-plugin-eslint": "^4.1.0",
+		"@vue/cli-service": "^4.1.0",
+		"@vue/eslint-config-airbnb": "^4.0.0",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
+		"babel-preset-vue": "^2.0.2",
+		"eslint": "^5.16.0",
+		"eslint-plugin-vue": "^6.1.2",
+		"firebase-tools": "^7.12.1",
+		"i": "^0.3.6",
+		"lerna": "^3.20.2",
+		"node-sass": "^4.12.0",
+		"npm": "^6.13.7",
+		"sass-loader": "^8.0.0",
+		"storybook-addon-vue-info": "^1.4.1",
+		"vue-docgen-api": "^4.9.0",
+		"vue-docgen-loader": "^1.4.0",
+		"vue-template-compiler": "^2.6.10"
+	},
+	"dependencies": {
+		"@holistic-web/toolbox-layout": "file:layout",
+		"holistic-toolbox": "file:",
+		"image-comparer": "file:tools\\image-comparer",
+		"json-browser": "file:tools\\json-browser",
+		"json-diff": "file:tools\\json-diff",
+		"json-formatter": "file:tools\\json-formatter",
+		"markdown-renderer": "file:tools\\markdown-renderer",
+		"nlp-toolkit": "file:tools\\nlp-toolkit",
+		"number-converter": "file:tools\\number-converter",
+		"website": "file:website"
+	}
+}
