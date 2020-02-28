@@ -8,7 +8,7 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-number-converter
+name: deploy-tool-number-converter
 
 on:
   push:
