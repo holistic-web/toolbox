@@ -1,5 +1,4 @@
 # Number converter
-
 This tool converts numbers to binary and hexadecimal as well as dealing with signed and unsigned integers.
 
 Number converting done via: [int.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
