@@ -1,5 +1,4 @@
 # Image Comparer
-
 This tool provides a visual comparison of two image files. The comparison is powered by the [pixelmatch](https://www.npmjs.com/package/pixelmatch) package.
 
 Hosted at http://image-comparer.holistic-toolbox.com
