@@ -38,7 +38,7 @@ Enter a number to convert:
 					<b-form-radio-group
 						class="NumberConverter__button"
 						v-model="toBase"
-						:options="toBaseOptions"
+						:options="baseOptions"
 						buttons
 						button-variant="outline-secondary"
 						size="sm"/>
@@ -48,7 +48,7 @@ Enter a number to convert:
 						class="NumberConverter__button"
 						label="From:"
 						v-model="fromBase"
-						:options="fromBaseOptions"
+						:options="baseOptions"
 						buttons
 						button-variant="outline-secondary"
 						size="sm"/>
@@ -83,13 +83,7 @@ export default {
 			result: null,
 			fromBase: 0,
 			toBase: 0,
-			fromBaseOptions: [
-				{ text: 'Decimal', value: 10 },
-				{ text: 'Binary', value: 2 },
-				{ text: 'Octal', value: 8 },
-				{ text: 'Hexadecimal', value: 16 }
-			],
-			toBaseOptions: [
+			baseOptions: [
 				{ text: 'Decimal', value: 10 },
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
