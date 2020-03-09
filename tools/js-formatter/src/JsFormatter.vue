@@ -2,7 +2,7 @@
 	<div class="JsFormatter">
 
 		<tool-markdown :markdown="`
-Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglify-js)
+Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser)
 use the options to select your prefered spacing or Select none to minify
 Enter your JavaScript below:
 		`"/>
@@ -41,13 +41,6 @@ Enter your JavaScript below:
 					class="JsFormatter__button"
 					v-text="'Copy Output'"
 					v-clipboard="jsString"/>
-				<!-- Possible future tool/upgrade existing JSON browser to include all file types? -->
-				<!-- <tool-button
-					size="lg"
-					class="JsFormatter__button"
-					v-text="'Browse JavaScript'"
-					:href="`https://js-formatter.holistic-toolbox.com?JS=${jsString}`"
-					target="_blank"/> -->
 				<tool-button
 					size="sm"
 					class="JsFormatter__button"
@@ -60,22 +53,10 @@ Enter your JavaScript below:
 	</div>
 </template>
 
-
-<style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
-.JsFormatter {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: $tool-padding-desktop;
-}
-</style>
-
 <script>
 import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
-const uglifyJS = require('uglify-js');
+const uglify = require('uglifyjs-browser');
 
 export default {
 	components: {
@@ -90,11 +71,10 @@ export default {
 			formatted: false,
 			errorMessage: null,
 			jsString: '',
-			whitespace: '1',
+			whitespace: 'spaces',
 			whitespaceOptions: [
-				{ text: 'Tabs', value: 1 },
-				{ text: 'Spaces', value: 2 },
-				{ text: 'None', value: 0 }
+				'spaces',
+				'none'
 			]
 		};
 	},
@@ -109,29 +89,15 @@ export default {
 	},
 	methods: {
 		formatJS() {
-			// TODO: need to test
-			// let tab = 4;
-			// const space = '';
-			let code;
-
-			try {
-				code = this.jsString;
-				const options = {
-					output: {
-						beautify: false
-					}
-				};
-				// code = UglifyJS.minify(this.jsString);
-
-				if (this.whitespace === 2) {
-					code = uglifyJS.minify(code, options);
-				} else if (this.whitespace === 1) {
-					code = uglifyJS.minify(code, options);
-				} else {
-					// Do minify stuff
-					options.output.beautify = true;
-					code = uglifyJS.minify(code, options);
+			const options = {
+				output: {
+					beautify: this.whitespace === 'spaces',
+					comments: true,
+					quote_style: 1
 				}
+			};
+			try {
+				const { code } = uglify.minify(this.jsString, options);
 				this.jsString = code;
 				this.formatted = true;
 			} catch (err) {
@@ -147,3 +113,20 @@ export default {
 	}
 };
 </script>
+
+
+<style lang="scss">
+@import '@holistic-web/toolbox-layout/src/styles/theme';
+
+.JsFormatter {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: $tool-padding-desktop;
+
+	&__button {
+		margin-left: 1rem;
+		height: fit-content;
+	}
+}
+</style>
