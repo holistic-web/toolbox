@@ -7,14 +7,14 @@
 #
 # It relies on the `GITHUB_TOKEN` secret being available in this repo.
 
-name: lint-toolbox-layout
+name: lint-website
 
 on:
   push:
     branches-ignore:
     - master
     paths:
-    - 'toolbox-layout/**'
+    - 'website/**'
 
 jobs:
   lint-and-commit:
@@ -35,7 +35,7 @@ jobs:
 
     - name: Install and Lint
       run: |
-        cd toolbox-layout
+        cd website
         npm ci
         npm run lint
 
@@ -44,6 +44,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git diff-index --quiet HEAD || git commit -m "automated linting fix-ups" -a
+
 
     - name: Extract branch name
       shell: bash

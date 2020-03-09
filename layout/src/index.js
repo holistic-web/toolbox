@@ -11,6 +11,18 @@ import ToolLayout from './components/ToolLayout.vue';
 import ToolMarkdown from './components/ToolMarkdown.vue';
 import ToolTaskbar from './components/ToolTaskbar.vue';
 
+firebase.initializeApp({
+	apiKey: 'AIzaSyCYyxjgL9YGvKnzax2EBxEI_bl6KxB2nK8',
+	authDomain: 'holistic-toolbox.firebaseapp.com',
+	databaseURL: 'https://holistic-toolbox.firebaseio.com',
+	projectId: 'holistic-toolbox',
+	storageBucket: 'holistic-toolbox.appspot.com',
+	messagingSenderId: '94330098957',
+	appId: '1:94330098957:web:c87c654651186a555e0c44',
+	measurementId: 'G-J32Q7R91JH'
+});
+
+firebase.analytics();
 Vue.use(BootstrapVue);
 
 const components = {
@@ -22,20 +34,19 @@ const components = {
 	ToolMarkdown,
 	ToolTaskbar
 };
-Object.keys(components).forEach(name => {
-	Vue.component(name, components[name]);
-});
 
-firebase.initializeApp({
-	apiKey: 'AIzaSyCYyxjgL9YGvKnzax2EBxEI_bl6KxB2nK8',
-	authDomain: 'holistic-toolbox.firebaseapp.com',
-	databaseURL: 'https://holistic-toolbox.firebaseio.com',
-	projectId: 'holistic-toolbox',
-	storageBucket: 'holistic-toolbox.appspot.com',
-	messagingSenderId: '94330098957',
-	appId: '1:94330098957:web:c87c654651186a555e0c44',
-	measurementId: 'G-J32Q7R91JH'
-});
-firebase.analytics();
+export default function install($Vue) {
+	Object.keys(components).forEach(name => {
+		$Vue.component(name, components[name]);
+	});
+}
 
-export default components;
+export {
+	ToolButton,
+	ToolCode,
+	ToolError,
+	ToolHeader,
+	ToolLayout,
+	ToolMarkdown,
+	ToolTaskbar
+};

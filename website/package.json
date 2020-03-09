@@ -1,5 +1,5 @@
 {
-	"name": "toolbox-website",
+	"name": "website",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -8,9 +8,7 @@
 		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
-		"@holistic-web/toolbox-layout": "^0.1.21",
-		"bootstrap": "^4.4.1",
-		"bootstrap-vue": "^2.2.2",
+		"@holistic-web/toolbox-layout": "^0.1.28",
 		"core-js": "^3.4.4",
 		"vue": "^2.6.11",
 		"vue-router": "^3.1.3"

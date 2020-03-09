@@ -1,5 +1,5 @@
 # Publish packages
-# This workflow affects all our npm packages, so just `toolbox-layout` for now.
+# This workflow affects all our npm packages, so just `layout` for now.
 #
 #	1. increment the version in package.json
 #	2. push the new version to the master branch
@@ -8,14 +8,14 @@
 
 # It relies on the `NPM_TOKEN` secret being available in this repo.
 
-name: publish-toolbox-layout
+name: publish-layout
 
 on:
   push:
     branches:
     - master
     paths:
-    - 'toolbox-layout/**'
+    - 'layout/**'
 
 jobs:
   build-and-deploy:
@@ -36,13 +36,13 @@ jobs:
 
     - name: Build project
       run: |
-        cd toolbox-layout
+        cd layout
         npm ci
         npm run build-bundle --if-present
 
     - name: Increment project version
       run: |
-        cd toolbox-layout
+        cd layout
         npm version patch
 
     - name: Commit changes
@@ -64,7 +64,7 @@ jobs:
 
     - name: Publish project
       run: |
-        cd toolbox-layout
+        cd layout
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
         npm publish --access public
         rm .npmrc

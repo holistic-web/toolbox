@@ -45,6 +45,7 @@ Any differring pixels will be flagged in red.
 			<template v-if="!compared">
 
 				<tool-button
+					id="Action"
 					class="ImageComparer__taskbarItem"
 					size="lg"
 					v-text="'Compare'"
@@ -58,7 +59,6 @@ Any differring pixels will be flagged in red.
 
 			<tool-button
 				v-else
-				id="Action"
 				class="ImageComparer__taskbarItem"
 				size="sm"
 				variant="secondary"
@@ -71,6 +71,7 @@ Any differring pixels will be flagged in red.
 </template>
 
 <script>
+import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import pixelmatch from 'pixelmatch';
 import Inputs from './components/Inputs.vue';
 import Settings from './components/Settings.vue';
@@ -83,8 +84,12 @@ const pixelmatchDefaults = {
 
 export default {
 	components: {
+		ToolButton,
+		ToolError,
+		ToolMarkdown,
 		Inputs,
-		Settings
+		Settings,
+		ToolTaskbar
 	},
 	data() {
 		return {
@@ -175,7 +180,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	height: fit-content;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
 	&__hidden {

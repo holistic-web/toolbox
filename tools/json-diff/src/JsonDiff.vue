@@ -56,6 +56,7 @@ Enter two JSON files below:
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 // disable eslint to allow some weird imports required by jsondiffpatch
 /* eslint-disable */
 import 'jsondiffpatch/dist/formatters-styles/html.css';
@@ -69,6 +70,13 @@ const defaultCodeOptions = {
 };
 
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			json1: '',
@@ -114,7 +122,7 @@ export default {
 .JsonDiff {
 	display: flex;
 	flex-direction: column;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 	margin-bottom: calc(114px + 1rem); // to account for the taskbar
 
 	&__errorMessage {
