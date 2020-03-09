@@ -1,6 +1,6 @@
 {
 	"name": "js-formatter",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -8,9 +8,7 @@
 		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
-		"@holistic-web/toolbox-layout": "^0.1.18",
-		"bootstrap": "^4.4.1",
-		"bootstrap-vue": "^2.2.1",
+		"@holistic-web/toolbox-layout": "^0.1.28",
 		"core-js": "^3.4.4",
 		"uglify-js": "^3.8.0",
 		"v-clipboard": "^2.2.2",
@@ -24,6 +22,7 @@
 		"babel-eslint": "^10.0.3",
 		"eslint": "^5.16.0",
 		"eslint-plugin-vue": "^6.1.2",
+		"firebase-tools": "^7.12.1",
 		"node-sass": "^4.13.0",
 		"sass-loader": "^8.0.0",
 		"vue-template-compiler": "^2.6.10"
