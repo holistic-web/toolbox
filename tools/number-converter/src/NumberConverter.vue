@@ -57,10 +57,11 @@ Enter a number to convert:
 
 			<template v-else>
 				<tool-button
-					size="lg"
+					id="Action"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
-					v-clipboard="result"/>
+					v-clipboard="result"
+					size="lg"/>
 				<tool-button
 					size="sm"
 					class="NumberConverter__button"
@@ -74,7 +75,15 @@ Enter a number to convert:
 </template>
 
 <script>
+import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+
 export default {
+	components: {
+		ToolButton,
+		ToolError,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			converted: false,
@@ -201,7 +210,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

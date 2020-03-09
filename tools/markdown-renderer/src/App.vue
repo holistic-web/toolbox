@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import MarkdownRenderer from './MarkdownRenderer.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		MarkdownRenderer
 	}
 };

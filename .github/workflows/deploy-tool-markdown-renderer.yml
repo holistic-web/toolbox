@@ -1,5 +1,5 @@
 # Deploy on push to master
-# This workflow affects all our Vue apps, so `toolbox-website` and all tools. The logic for this automation is:
+# This workflow affects all our Vue apps, so `website` and all tools. The logic for this automation is:
 #
 #	1. increment the version in package.json
 #	2. push the new version to the master branch
@@ -8,7 +8,7 @@
 
 # It relies on the `FIREBASE_TOKEN` secret being available in this repo.
 
-name: deploy-markdown-renderer
+name: deploy-tool-markdown-renderer
 
 on:
   push:
@@ -33,28 +33,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Increment project version
-      run: |
-        cd tools/markdown-renderer
-        npm version patch
-
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "increment package version" -a
-
-    - name: Ensure we have latest changes
-      run: |
-        git rebase origin/master
-        git pull
-        git fetch
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build project
       run: |

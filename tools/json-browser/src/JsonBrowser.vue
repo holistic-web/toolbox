@@ -31,6 +31,7 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
+				id="Action"
 				class="JsonBrowser__taskbarButton"
 				v-if="!browsing"
 				size="lg"
@@ -54,10 +55,16 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 </template>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import VueJsonPretty from 'vue-json-pretty';
 
 export default {
 	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown,
+		ToolTaskbar,
 		VueJsonPretty
 	},
 	data() {
@@ -118,7 +125,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

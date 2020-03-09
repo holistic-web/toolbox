@@ -21,6 +21,6 @@ Documentation for your new tool and any relevant links go here...
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 }
 </style>

@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import NlpToolkit from './NlpToolkit.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		NlpToolkit
 	}
 };

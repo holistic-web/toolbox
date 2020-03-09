@@ -1,0 +1,60 @@
+{
+	"name": "@holistic-web/toolbox-layout",
+	"version": "0.1.29",
+	"main": "./dist/toolbox-layout.common.js",
+	"scripts": {
+		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
+		"lint": "vue-cli-service lint",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"files": [
+		"dist/*",
+		"src/*",
+		"public/*",
+		"*.json",
+		"*.js"
+	],
+	"dependencies": {
+		"bootstrap": "^4.4.1",
+		"bootstrap-vue": "^2.1.0",
+		"codemirror": "^5.50.2",
+		"core-js": "^3.4.4",
+		"firebase": "^7.6.2",
+		"marked": "^0.8.0",
+		"vue": "^2.6.11",
+		"vue-codemirror": "^4.0.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.8.4",
+		"@holistic-web/eslint-config": "^0.1.2",
+		"@storybook/addon-actions": "^5.3.13",
+		"@storybook/addon-docs": "^5.3.13",
+		"@storybook/addon-info": "^5.3.13",
+		"@storybook/addon-knobs": "^5.3.13",
+		"@storybook/addon-notes": "^5.3.13",
+		"@storybook/addon-storysource": "^5.3.13",
+		"@storybook/addons": "^5.3.13",
+		"@storybook/vue": "^5.3.13",
+		"@vue/cli-plugin-babel": "^4.1.0",
+		"@vue/cli-plugin-eslint": "^4.1.0",
+		"@vue/cli-service": "^4.1.0",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
+		"babel-preset-vue": "^2.0.2",
+		"eslint": "^5.16.0",
+		"eslint-plugin-vue": "^5.0.0",
+		"i": "^0.3.6",
+		"node-sass": "^4.13.0",
+		"npm": "^6.13.7",
+		"sass-loader": "^8.0.0",
+		"storybook-addon-vue-info": "^1.4.1",
+		"vue-docgen-api": "^4.9.0",
+		"vue-docgen-loader": "^1.4.0",
+		"vue-template-compiler": "^2.6.10"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions"
+	]
+}
