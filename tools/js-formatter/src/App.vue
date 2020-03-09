@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="JS Formatter">
+		<tool-layout name="JavaScript Formatter">
 			<js-formatter/>
 		</tool-layout>
 	</div>

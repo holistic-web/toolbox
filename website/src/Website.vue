@@ -41,6 +41,12 @@ export default {
 					image: require('../assets/tools/image-comparer.png')
 				},
 				{
+					name: 'JavaScript Formatter',
+					description: 'A simple, client side JavaScript formatter.',
+					link: 'https://js-formatter.holistic-toolbox.com',
+					image: require('../assets/tools/js-formatter.png')
+				},
+				{
 					name: 'JSON Browser',
 					description: 'Helps analyse JSON data',
 					link: 'https://json-browser.holistic-toolbox.com',
