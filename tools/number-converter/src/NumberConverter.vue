@@ -110,22 +110,24 @@ export default {
 	},
 	methods: {
 		convert() {
+			const hex = '0x';
+			const oct = '0o';
 			try {
 				switch (this.toBase) {
 					case 10:
-						this.result = this.convertToDec(this.inputNumber, this.fromBase);
+						this.result = this.toBaseFromBase(this.inputNumber, this.fromBase, 10);
 						this.converted = true;
 						break;
 					case 2:
-						this.result = this.convertToBin(this.inputNumber, this.fromBase);
+						this.result = this.toBaseFromBase(this.inputNumber, this.fromBase, 2);
 						this.converted = true;
 						break;
 					case 8:
-						this.result = this.convertToOct(this.inputNumber, this.fromBase);
+						this.result = oct.concat(this.toBaseFromBase(this.inputNumber, this.fromBase, 8));
 						this.converted = true;
 						break;
 					case 16:
-						this.result = this.convertToHex(this.inputNumber, this.fromBase);
+						this.result = hex.concat(this.toBaseFromBase(this.inputNumber, this.fromBase, 16).toUpperCase());
 						this.converted = true;
 						break;
 					default:
@@ -135,62 +137,8 @@ export default {
 				this.errorMessage = err.message;
 			}
 		},
-		convertToDec(number, fromBase) {
-			switch (fromBase) {
-				case 10:
-					return number;
-				case 2:
-					return parseInt(number, 2).toString(10);
-				case 8:
-					return parseInt(number, 8).toString(10);
-				case 16:
-					return parseInt(number, 16).toString(10);
-				default:
-					throw new Error('Base not supported');
-			}
-		},
-		convertToBin(number, fromBase) {
-			switch (fromBase) {
-				case 10:
-					return parseInt(number, 10).toString(2);
-				case 2:
-					return number;
-				case 8:
-					return parseInt(number, 8).toString(2);
-				case 16:
-					return parseInt(number, 16).toString(2);
-				default:
-					throw new Error('Base not supported');
-			}
-		},
-		convertToOct(number, fromBase) {
-			switch (fromBase) {
-				case 10:
-					return parseInt(number, 10).toString(8);
-				case 2:
-					return parseInt(number, 2).toString(8);
-				case 8:
-					return number;
-				case 16:
-					return parseInt(number, 16).toString(8);
-				default:
-					throw new Error('Base not supported');
-			}
-		},
-		convertToHex(number, fromBase) {
-			const hex = '0x';
-			switch (fromBase) {
-				case 10:
-					return hex.concat((parseInt(number, 10)).toString(16).toUpperCase());
-				case 2:
-					return hex.concat((parseInt(number, 2)).toString(16).toUpperCase());
-				case 8:
-					return hex.concat((parseInt(number, 8)).toString(16).toUpperCase());
-				case 16:
-					return hex.concat(number.toUpperCase());
-				default:
-					throw new Error('Base not supported');
-			}
+		toBaseFromBase(number, fromBase, toBase) {
+			return parseInt(number, fromBase).toString(toBase);
 		},
 		reset() {
 			this.converted = false;
