@@ -10,7 +10,7 @@
 	"dependencies": {
 		"@holistic-web/toolbox-layout": "^0.1.28",
 		"core-js": "^3.4.4",
-		"uglify-js": "^3.8.0",
+		"uglifyjs-browser": "^3.0.0",
 		"v-clipboard": "^2.2.2",
 		"vue": "^2.6.11"
 	},
