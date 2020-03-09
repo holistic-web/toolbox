@@ -7,10 +7,12 @@
 </template>
 
 <script>
+import { ToolLayout } from '@holistic-web/toolbox-layout';
 import JsFormatter from './JsFormatter.vue';
 
 export default {
 	components: {
+		ToolLayout,
 		JsFormatter
 	}
 };

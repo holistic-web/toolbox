@@ -68,14 +68,23 @@ Enter your JavaScript below:
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: $tool-padding;
+	padding: $tool-padding-desktop;
 }
 </style>
 
 <script>
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+
 const uglifyJS = require('uglify-js');
 
 export default {
+	components: {
+		ToolButton,
+		ToolCode,
+		ToolError,
+		ToolMarkdown,
+		ToolTaskbar
+	},
 	data() {
 		return {
 			formatted: false,
