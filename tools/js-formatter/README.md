@@ -2,20 +2,7 @@
 
 This tool validates and formats JavaScript using [`UglifyJS`](https://www.npmjs.com/package/uglifyjs-browser)
 
-Site is hosted at https://js-formatter.web.app
-
-## Setup Guide
-- [ ] run `npm install` on this folder to generate package-lock.json and node_modules
-- [ ] build your tool =D
-- [ ] set up a new website for the tool here: https://console.firebase.google.com/u/0/project/holistic-toolbox/hosting/main
-- [ ] update firebase.json to point towards the ID of this newly created site
-- [ ] ensure any remaining #TODOs in this folder / file have been completed
-- [ ] update toolbox-website to include your tool in the list of tools
-- [ ] update /tools README.md to include your tool in the list of tools
-- [ ] submit as a PR for review =D
-- [ ] add the completed tool as a subdomain in Google hosting panel. We want to configure entries for both `tool-name.holistic-toolbox.com` and `www.tool-name.holistic-toolbox.com`.
-- [ ] in the firebase console, configure the new site to use these new domains
-- finally, delete this section from the readme when the above is all complete
+Site is hosted at https://js-formatter.holistic-toolbox.com
 
 ## Development
 To develop for this project:
