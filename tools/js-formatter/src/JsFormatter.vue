@@ -97,7 +97,8 @@ export default {
 				}
 			};
 			try {
-				const { code } = uglify.minify(this.jsString, options);
+				const { code, error } = uglify.minify(this.jsString, options);
+				if (error) throw new Error(error);
 				this.jsString = code;
 				this.formatted = true;
 			} catch (err) {
@@ -123,6 +124,10 @@ export default {
 	flex-direction: column;
 	height: 100%;
 	padding: $tool-padding-desktop;
+
+	&__errorMessage {
+		margin-bottom: 1rem;
+	}
 
 	&__button {
 		margin-left: 1rem;
