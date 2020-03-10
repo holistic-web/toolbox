@@ -1,8 +1,8 @@
 # JS Formatter
 
-This tool validates and formats JavaScript entered by a developer. It is written in Vue.js.
+This tool validates and formats JavaScript using [`UglifyJS`](https://www.npmjs.com/package/uglifyjs-browser)
 
-#TODO: provide a link to the live url of this tool
+Site is hosted at https://js-formatter.web.app
 
 ## Setup Guide
 - [ ] run `npm install` on this folder to generate package-lock.json and node_modules
@@ -40,4 +40,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 	```
 
 ## Road Map
-#TODO: list ideas for the future here, or delete this section
+- Allow the user to set more formatting options, possibly provide a small description against each option
