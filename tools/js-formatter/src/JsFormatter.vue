@@ -22,6 +22,7 @@ Enter your JavaScript below:
 
 			<template v-if="!formatted">
 				<tool-button
+					id="Action"
 					class="JsFormatter__button"
 					v-text="'Format'"
 					size="lg"
