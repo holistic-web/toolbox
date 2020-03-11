@@ -77,6 +77,20 @@ Enter a number to convert:
 <script>
 import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
+const fromBaseToBase = (number, fromBase, toBase) => {
+	let result = null;
+	if (toBase === 8) {
+		const oct = '0o';
+		result = oct.concat(parseInt(number, fromBase).toString(toBase));
+	} else if (toBase === 16) {
+		const hex = '0x';
+		result = hex.concat(parseInt(number, fromBase).toString(toBase).toUpperCase());
+	} else {
+		result = parseInt(number, fromBase).toString(toBase);
+	}
+	return result;
+};
+
 export default {
 	components: {
 		ToolButton,
@@ -110,35 +124,9 @@ export default {
 	},
 	methods: {
 		convert() {
-			const hex = '0x';
-			const oct = '0o';
-			try {
-				switch (this.toBase) {
-					case 10:
-						this.result = this.toBaseFromBase(this.inputNumber, this.fromBase, 10);
-						this.converted = true;
-						break;
-					case 2:
-						this.result = this.toBaseFromBase(this.inputNumber, this.fromBase, 2);
-						this.converted = true;
-						break;
-					case 8:
-						this.result = oct.concat(this.toBaseFromBase(this.inputNumber, this.fromBase, 8));
-						this.converted = true;
-						break;
-					case 16:
-						this.result = hex.concat(this.toBaseFromBase(this.inputNumber, this.fromBase, 16).toUpperCase());
-						this.converted = true;
-						break;
-					default:
-						throw new Error('Base not supported');
-				}
-			} catch (err) {
-				this.errorMessage = err.message;
-			}
-		},
-		toBaseFromBase(number, fromBase, toBase) {
-			return parseInt(number, fromBase).toString(toBase);
+			this.result = fromBaseToBase(this.inputNumber, this.fromBase, this.toBase);
+			this.converted = true;
+			this.errorMessage = null;
 		},
 		reset() {
 			this.converted = false;
@@ -148,6 +136,7 @@ export default {
 		}
 	}
 };
+
 </script>
 
 
