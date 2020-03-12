@@ -15,9 +15,7 @@ Enter a number to convert:
 			:message="errorMessage"/>
 
 		<b-form-input
-			number
 			v-model="inputNumber"
-			type="number"
 			size="lg"
 			placeholder="E.g. 100" />
 
@@ -35,14 +33,27 @@ Enter a number to convert:
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Convert'"
+					id="Action"
 					@click.native="convert"/>
-				<b-form-radio-group
-					class="NumberConverter__button"
-					v-model="base"
-					:options="baseOptions"
-					buttons
-					button-variant="outline-secondary"
-					size="sm"/>
+				<b-form-group label="To:">
+					<b-form-radio-group
+						class="NumberConverter__button"
+						v-model="toBase"
+						:options="baseOptions"
+						buttons
+						button-variant="outline-secondary"
+						size="sm"/>
+				</b-form-group>
+				<b-form-group label="From:">
+					<b-form-radio-group
+						class="NumberConverter__button"
+						label="From:"
+						v-model="fromBase"
+						:options="baseOptions"
+						buttons
+						button-variant="outline-secondary"
+						size="sm"/>
+				</b-form-group>
 			</template>
 
 			<template v-else>
@@ -67,6 +78,20 @@ Enter a number to convert:
 <script>
 import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 
+const fromBaseToBase = (number, fromBase, toBase) => {
+	let result = null;
+	if (toBase === 8) {
+		const oct = '0o';
+		result = oct.concat(parseInt(number, fromBase).toString(toBase));
+	} else if (toBase === 16) {
+		const hex = '0x';
+		result = hex.concat(parseInt(number, fromBase).toString(toBase).toUpperCase());
+	} else {
+		result = parseInt(number, fromBase).toString(toBase);
+	}
+	return result;
+};
+
 export default {
 	components: {
 		ToolButton,
@@ -80,8 +105,10 @@ export default {
 			errorMessage: null,
 			inputNumber: null,
 			result: null,
-			base: 0,
+			fromBase: 0,
+			toBase: 0,
 			baseOptions: [
+				{ text: 'Decimal', value: 10 },
 				{ text: 'Binary', value: 2 },
 				{ text: 'Octal', value: 8 },
 				{ text: 'Hexadecimal', value: 16 }
@@ -98,37 +125,9 @@ export default {
 	},
 	methods: {
 		convert() {
-			try {
-				switch (this.base) {
-					case 2:
-						this.result = this.convertToBin(this.inputNumber);
-						this.converted = true;
-						break;
-					case 8:
-						this.result = this.convertToOct(this.inputNumber);
-						this.converted = true;
-						break;
-					case 16:
-						this.result = this.convertToHex(this.inputNumber);
-						this.converted = true;
-						break;
-					default:
-						throw new Error('Base not supported');
-				}
-			} catch (err) {
-				this.errorMessage = err.message;
-			}
-		},
-		convertToBin(number) {
-			return number.toString(2);
-		},
-		convertToOct(number) {
-			return number.toString(8);
-		},
-		convertToHex(number) {
-			const hex = '0x';
-			const answer = hex.concat((number).toString(16).toUpperCase());
-			return answer;
+			this.result = fromBaseToBase(this.inputNumber, this.fromBase, this.toBase);
+			this.converted = true;
+			this.errorMessage = null;
 		},
 		reset() {
 			this.converted = false;
