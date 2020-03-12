@@ -102,6 +102,7 @@ export default {
 				if (error) throw new Error(error);
 				this.jsString = code;
 				this.formatted = true;
+				this.errorMessage = null;
 			} catch (err) {
 				this.errorMessage = err.message;
 			}
