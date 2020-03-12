@@ -11,6 +11,8 @@ name: lint-tool-image-comparer
 
 on:
   push:
+    branches-ignore:
+    - master
     paths:
     - 'tools/image-comparer/**'
 

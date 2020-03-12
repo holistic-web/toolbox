@@ -1,8 +1,13 @@
 # {{tool-name-human}}
+#TODO: add a brief description of this tool here
 
-#TODO: add a brief description of this tool and any key packages it uses
-
-#TODO: provide a link to the live url of this tool
+## Factsheet
+| **Category**            | **Value**     |
+|-------------------------|---------------|
+| **Project Type**        | Tool: Web App |
+| **Live URL**            | #TODO         |
+| **Firebase Site Name**  | #TODO         |
+| **Unique Dependencies** | #TODO         |
 
 ## Setup Guide
 - [ ] run `npm install` on this folder to generate package-lock.json and node_modules

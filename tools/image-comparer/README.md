@@ -1,8 +1,13 @@
 # Image Comparer
+This tool provides a visual comparison of two image files.
 
-This tool provides a visual comparison of two image files. The comparison is powered by the [pixelmatch](https://www.npmjs.com/package/pixelmatch) package.
-
-Hosted at http://image-comparer.holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                                   |
+|-------------------------|---------------------------------------------|
+| **Project Type**        | Tool: Web App                               |
+| **Live URL**            | https://image-comparer.holistic-toolbox.com |
+| **Firebase Site Name**  | image-comparer                              |
+| **Unique Dependencies** | pixelmatch                                  |
 
 ## Development
 To develop for this project:

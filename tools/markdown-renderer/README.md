@@ -1,8 +1,14 @@
 # Markdown Renderer
 
-This tool renders markdown using the [marked](https://www.npmjs.com/package/marked) package with some custom styling.
+This tool instantly renders any markdown entered on the page.
 
-Hosted at: https://markdown-renderer.holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                                      |
+|-------------------------|------------------------------------------------|
+| **Project Type**        | Tool: Web App                                  |
+| **Live URL**            | https://markdown-renderer.holistic-toolbox.com |
+| **Firebase Site Name**  | markdown-renderer-4e49f                        |
+| **Unique Dependencies** | marked                                         |
 
 ## Development
 To develop for this project:
