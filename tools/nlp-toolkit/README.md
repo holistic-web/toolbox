@@ -1,8 +1,14 @@
 # NLP Toolkit
 
-This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise). Currently supports past and future tense conversion plus a simple function to negate statements.
+This is a tool to to perform simple NLP operations. It currently supports past and future tense conversion plus a simple function to negate statements.
 
-Hosted at https://nlp-toolkit.holistic-toolbox.com/
+## Factsheet
+| **Category**            | **Value**                                |
+|-------------------------|------------------------------------------|
+| **Project Type**        | Tool: Web App                            |
+| **Live URL**            | https://nlp-toolkit.holistic-toolbox.com |
+| **Firebase Site Name**  | nlp-toolkit                              |
+| **Unique Dependencies** | compromise                               |
 
 ## Development
 To develop for this project:

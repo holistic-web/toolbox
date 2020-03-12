@@ -5,6 +5,15 @@ Number converting done via: [int.toString(Base)](https://developer.mozilla.org/e
 
 Hosted at: https://number-converter.web.app/
 
+## Factsheet
+| **Category**            | **Value**                                     |
+|-------------------------|-----------------------------------------------|
+| **Project Type**        | Tool: Web App                                 |
+| **Live URL**            | https://number-converter.holistic-toolbox.com |
+| **Firebase Site Name**  | number-converter                              |
+| **Unique Dependencies** | _none_                                        |
+
+
 ## Development
 To develop for this project:
 1. Install dependencies

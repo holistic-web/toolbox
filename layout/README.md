@@ -1,9 +1,12 @@
 # Toolbox Layout
 This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics configurations](/.project/analytics.md).
 
-It is published on npm at: https://www.npmjs.com/package/@holistic-web/toolbox-layout
-
-A demo can be found here: https://toolbox-layout-stories.firebaseapp.com
+## Factsheet
+| **Category**     | **Value**                              |
+|------------------|----------------------------------------|
+| **Project Type** | Component Library                      |
+| **Package Name** | @holistic-web/toolbox-layout           |
+| **Demo URL**     | https://toolbox-layout-stories.web.app |
 
 ## Usage
 To use this library in a Vue app, simply include:

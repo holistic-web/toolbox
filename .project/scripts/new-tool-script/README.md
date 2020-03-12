@@ -1,7 +1,12 @@
 # New Tool Script
+This script generates a new tool for the toolbox.
 
-This script generates a new tool for the toolbox. To generate a tool:
+## Factsheet
+| **Category**     | **Value**     |
+|------------------|---------------|
+| **Project Type** | Helper Script |
 
+## Generating a Tool
 1. open `config.js` from within this folder and set the values you'd like to use
 
 2. run the following from within this folder

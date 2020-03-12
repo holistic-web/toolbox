@@ -1,10 +1,13 @@
 # JSON Browser
-
 This is a tool to view and browse json in a useful way. Good for those who need to analyse a lot of data stored in a JSON format.
 
-It is powered by [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty).
-
-Hosted at http://json-browser.holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                                  |
+|-------------------------|--------------------------------------------|
+| **Project Type**        | Tool: Web App                              |
+| **Live URL**            | https://json-browser.holistic-toolbox.com  |
+| **Firebase Site Name**  | json-browser                               |
+| **Unique Dependencies** | vue-json-pretty, vue-router, vue-clipboard |
 
 ## Functionality
 Along with JSON browsing, this tool supports:
