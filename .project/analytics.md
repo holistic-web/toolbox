@@ -4,6 +4,12 @@ We are using Google Tag Manager to implement Google Analytics. Our analytics scr
 
 To view analytics please go to the Google Analytics [console](https://analytics.google.com/analytics/web/#/report-home/a158697610w223179031p211788342)
 
+### Roadmap:
+
+- Check it is working on .web.app urls
+- Check back to make sure published changes to Tag Manager workspace were succesful
+- Improve event naming
+
 ### SEO
 SEO performance can be seen here: https://search.google.com/search-console?resource_id=sc-domain%3Aholistic-toolbox.com
 
