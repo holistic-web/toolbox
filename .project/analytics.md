@@ -19,5 +19,5 @@ SEO performance can be seen here: https://search.google.com/search-console?resou
 - To set up custom events for analytics follow the following [documentation](https://support.google.com/tagmanager/answer/6106716?hl=en&ref_topic=6333310)
 - To test whether a new tag is working, go to the GTM console and preview the workspace. Then, in your browser, navigate to the site that you are trying to set up your new tag for. A window should pop up from the bottom of your browser allowing you to explore the tags on that page so long as the overall GTM tag has already been added to said page
 - In your event tag, by using the 'GA Default' GTM variable under the 'Google Analytics Settings' option, you will be able to have your event show up in the Google Analytics console
-- Check 'Enable overriding settings in this tag' and add the UA-Tracking ID found in the GA Default settings variable
+- In your event tag, also check 'Enable overriding settings in this tag' and add the UA-Tracking ID found in the GA Default settings variable
 - It may take a while ( seems to be < 60mins ) for your event to come through to Google Analytics from when tag is fired
