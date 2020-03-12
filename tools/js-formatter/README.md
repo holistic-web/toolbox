@@ -1,6 +1,6 @@
 # JS Formatter
-
 This is a tool to format JS code.
+
 ## Factsheet
 | **Category**            | **Value**                                  |
 |-------------------------|--------------------------------------------|
