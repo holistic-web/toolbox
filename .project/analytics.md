@@ -4,6 +4,8 @@ We are using Google Tag Manager to implement Google Analytics. Our analytics scr
 
 To view analytics please go to the Google Analytics [console](https://analytics.google.com/analytics/web/#/report-home/a158697610w223179031p211788342)
 
+In the top left of the analytics console you have the option to choose accounts and sites. Choose admin -> Holistic toolbox -> All Web Site Data to see events across the whole site
+
 ### Roadmap:
 
 - Check it is working on .web.app urls
