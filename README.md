@@ -10,7 +10,7 @@ A collection of useful tools, to service all areas of development. Hosted at htt
 ![json-diff](https://github.com/holistic-web/toolbox/workflows/deploy-tool-json-diff/badge.svg)
 ![json-formatter](https://github.com/holistic-web/toolbox/workflows/deploy-tool-json-formatter/badge.svg)
 ![markdown-renderer](https://github.com/holistic-web/toolbox/workflows/deploy-tool-markdown-renderer/badge.svg)
-![nlp-toolkit](https://github.com/holistic-web/toolbox/workflows/deploy-tool-nlp-toolkit/badge.svg)]
+![nlp-toolkit](https://github.com/holistic-web/toolbox/workflows/deploy-tool-nlp-toolkit/badge.svg)
 ![number-converter](https://github.com/holistic-web/toolbox/workflows/deploy-tool-number-converter/badge.svg)
 
 Check [.project/analytics.md](/.project/analytics.md) for analytics information
