@@ -33,6 +33,7 @@ Enter a number to convert:
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Convert'"
+					id="Action"
 					@click.native="convert"/>
 				<b-form-group label="To:">
 					<b-form-radio-group
@@ -136,7 +137,6 @@ export default {
 		}
 	}
 };
-
 </script>
 
 
