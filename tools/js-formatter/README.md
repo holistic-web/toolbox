@@ -1,6 +1,13 @@
 # JS Formatter
 
-This tool validates and formats JavaScript using [`UglifyJS`](https://www.npmjs.com/package/uglifyjs-browser)
+This is a tool to format JS code.
+## Factsheet
+| **Category**            | **Value**                                  |
+|-------------------------|--------------------------------------------|
+| **Project Type**        | Tool: Web App                              |
+| **Live URL**            | https://js-formatter.holistic-toolbox.com  |
+| **Firebase Site Name**  | js-formatter                               |
+| **Unique Dependencies** | vue-clipboard, uglifyjs-browser            |
 
 Site is hosted at https://js-formatter.holistic-toolbox.com
 
@@ -28,3 +35,4 @@ To deploy this tool you must ensure you have the firebase CLI set up on your mac
 
 ## Road Map
 - Allow the user to set more formatting options, possibly provide a small description against each option
+- Support ES6 JS, such as `const a = 'test';`
