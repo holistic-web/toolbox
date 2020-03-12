@@ -13,7 +13,6 @@ Hosted at: https://number-converter.web.app/
 | **Firebase Site Name**  | number-converter                              |
 | **Unique Dependencies** | _none_                                        |
 
-
 ## Development
 To develop for this project:
 1. Install dependencies
