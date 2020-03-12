@@ -1,5 +1,4 @@
 # Holistic Toolbox
-
 A collection of useful tools, to service all areas of development. Hosted at https://holistic-toolbox.com
 
 ![website](https://github.com/holistic-web/toolbox/workflows/deploy-website/badge.svg)]

@@ -1,8 +1,12 @@
 # Website
+This is the homepage for all Holistic Toolbox tools.
 
-This is the homepage for all Holistic Toolbox tools
-
-Hosted at: https://holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                    |
+|-------------------------|----------------------------- |
+| **Project Type**        | Website: Web App             |
+| **Live URL**            | https://holistic-toolbox.com |
+| **Firebase Site Name**  | holistic-toolbox             |
 
 ## Development
 To develop for this project:

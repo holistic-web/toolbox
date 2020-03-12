@@ -4,10 +4,16 @@ This tool validates and formats JSON entered by a developer. It is written in Vu
 
 The JSON rendering is done with the built in [`JSON.stringify(...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) method.
 
-Hosted at https://json-formatter.holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                                   |
+|-------------------------|---------------------------------------------|
+| **Project Type**        | Tool: Web App                               |
+| **Live URL**            | https://json-formatter.holistic-toolbox.com |
+| **Firebase Site Name**  | json-formatter                              |
+| **Unique Dependencies** | _none_                                      |
 
 ## Functionality
-Along with JSON formatting, this tool supports:
+Along with formatting JSON files, this tool supports:
 - browsing the formatted JSON with a link to json-formatter
 
 ## Development

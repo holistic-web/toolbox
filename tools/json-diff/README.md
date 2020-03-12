@@ -1,8 +1,13 @@
 # JSON Diff
+This is tool to highlight the differences between two JSON objects.
 
-This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
-
-Hosted at https://json-diff.holistic-toolbox.com
+## Factsheet
+| **Category**            | **Value**                              |
+|-------------------------|----------------------------------------|
+| **Project Type**        | Tool: Web App                          |
+| **Live URL**            | https://json-diff.holistic-toolbox.com |
+| **Firebase Site Name**  | json-diff                              |
+| **Unique Dependencies** | jsondiffpatch                          |
 
 ## Development
 To develop for this project:
