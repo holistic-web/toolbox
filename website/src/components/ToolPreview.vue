@@ -29,6 +29,7 @@ export default {
 
 .ToolPreview {
 	border-radius: $tool-border-radius;
+	display: flex;
 
 	&:hover {
 		text-decoration: none;
@@ -37,7 +38,6 @@ export default {
 
 	&__card {
 		border-radius: $tool-border-radius !important;
-		height: 350px;
 	}
 }
 </style>
