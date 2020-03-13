@@ -36,25 +36,29 @@ export default {
 					name: 'Image Comparer',
 					description: 'Finds the differences between images',
 					link: 'https://image-comparer.holistic-toolbox.com',
-					image: require('../assets/tools/image-comparer.png')
+					image: require('../assets/tools/image-comparer.png'),
+					tags: []
 				},
 				{
 					name: 'JSON Browser',
 					description: 'Helps analyse JSON data',
 					link: 'https://json-browser.holistic-toolbox.com',
-					image: require('../assets/tools/json-browser.png')
+					image: require('../assets/tools/json-browser.png'),
+					tags: ['JSON']
 				},
 				{
 					name: 'JSON Diff',
 					description: 'Identifies difference between JSON objects',
 					link: 'https://json-diff.holistic-toolbox.com',
-					image: require('../assets/tools/json-diff.png')
+					image: require('../assets/tools/json-diff.png'),
+					tags: ['JSON']
 				},
 				{
 					name: 'JSON Formatter',
 					description: 'A simple, client side JSON formatter.',
 					link: 'https://json-formatter.holistic-toolbox.com',
-					image: require('../assets/tools/json-formatter.png')
+					image: require('../assets/tools/json-formatter.png'),
+					tags: ['JSON']
 				},
 				{
 					name: 'Markdown Renderer',
