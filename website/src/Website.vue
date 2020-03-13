@@ -6,7 +6,7 @@
 		<section class="Website__content">
 
 			<p>
-				Welcome to Holistic Toolbox. We provide a growing list of tools to make working easier.
+				We're a team of developers striving to create a useful set of tools for developers, computer scientists and curious folk.
 			</p>
 
 			<div class="Website__tools">
