@@ -24,7 +24,6 @@ $info: $colour-cream;
 $highlight: $colour-orange-dark;
 $background: $colour-blue;
 
-
 // These imports MUST go below the above definitions to apply to the bootstrap theme
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
@@ -50,3 +49,12 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1200px;
 
 @import './bootstrap-overrides';
+
+/** Helper Classes **/
+.ToolWrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: $tool-padding-desktop;
+	overflow: auto;
+}

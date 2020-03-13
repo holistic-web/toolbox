@@ -9,10 +9,7 @@
 
 .ToolTaskbar {
 	background-color: $dark;
-	position: fixed;
 	width: 100%;
-	bottom: 0;
-	left: 0;
 	z-index: 10;
 	display: flex;
 	flex-direction: row-reverse;

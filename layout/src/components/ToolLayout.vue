@@ -33,8 +33,16 @@ export default {
 
 	&__tool {
 		background-color: $background;
-		height: 100%;
+		flex-grow: 1;
 		overflow: auto;
+
+		> * {
+			height: 100%;
+		}
+
+		.ToolTaskbar {
+			margin-top: auto;
+		}
 	}
 }
 </style>
