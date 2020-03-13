@@ -75,6 +75,12 @@ export default {
 					description: 'A simple number converter from decimal to binary, octal and hexadecimal.',
 					link: 'https://number-converter.holistic-toolbox.com',
 					image: require('../assets/tools/number-converter.png')
+				},
+				{
+					name: 'JavaScript Formatter',
+					description: 'A simple, client side JavaScript formatter.',
+					link: 'https://js-formatter.holistic-toolbox.com',
+					image: require('../assets/tools/js-formatter.png')
 				}
 			]
 		};
