@@ -25,8 +25,6 @@ export default {
 <style lang="scss">
 @import '../styles/theme';
 
-$headerHeight: 60px;
-
 .ToolLayout {
 	background-color: $background;
 	display: flex;
