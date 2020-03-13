@@ -12,3 +12,16 @@ It renders a `ToolHeader` at the top followed by whatever is given in the compon
 
 ## Events
 _None_
+
+## Notes and Caveats
+- The tool itself should go in an element with class `.ToolWrapper`, with the taskbar being the only element outside:
+	```html
+	<template>
+		<div class="JsonFormatter">
+			<div class="ToolWrapper">
+				<!-- ... -->
+			</div>
+			<tool-taskbar/>
+		</div>
+	</template>
+	```
