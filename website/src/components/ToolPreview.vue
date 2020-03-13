@@ -8,7 +8,13 @@
 			img-top
 			text-variant="dark"
 			bg-variant="info">
-			<b-card-text v-text="tool.description"/>
+			<b-card-text class="ToolPreview__card__text" v-text="tool.description"/>
+			<section class="ToolPreview__card__tags">
+				<b-badge
+					v-for="tag in tool.tags"
+					:key="tag"
+					v-text="tag"/>
+			</section>
 		</b-card>
 	</b-link>
 </template>
@@ -36,8 +42,17 @@ export default {
 		outline: 1px solid $highlight;
 	}
 
+	.card-body {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__card {
 		border-radius: $tool-border-radius !important;
+
+			&__text {
+				margin-bottom: auto;
+			}
 	}
 }
 </style>
