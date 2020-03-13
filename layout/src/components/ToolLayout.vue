@@ -1,7 +1,7 @@
 <template>
 	<div class="ToolLayout">
 
-		<tool-header :name="name"/>
+		<tool-header class="ToolLayout__header" :name="name"/>
 
 		<section class="ToolLayout__tool">
 			<slot/>
@@ -25,23 +25,26 @@ export default {
 <style lang="scss">
 @import '../styles/theme';
 
+$headerHeight: 60px;
+
 .ToolLayout {
+	background-color: $background;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	width: 100%;
 
+	&__header {
+		flex-grow: 0;
+	}
+
 	&__tool {
-		background-color: $background;
 		flex-grow: 1;
 		overflow: auto;
 
 		> * {
 			height: 100%;
-		}
-
-		.ToolTaskbar {
-			margin-top: auto;
+			overflow: auto;
 		}
 	}
 }

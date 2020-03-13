@@ -131,7 +131,6 @@ export default {
 .JsonFormatter {
 	display: flex;
 	flex-direction: column;
-	;
 
 	&__errorMessage {
 		margin-bottom: 1rem;
