@@ -5,6 +5,8 @@
 
 			<p>
 				We're a team of developers striving to create a useful set of tools for developers, computer scientists and curious folk.
+			</p>
+			<p>
 				With a growing array of tools, the Holisitic Toolbox will increase your productivity in many fields.
 			</p>
 
