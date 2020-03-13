@@ -3,17 +3,18 @@
 		<b-navbar class="ToolHeader__navbar">
 
 			<!-- left partition -->
-			<b-navbar-nav>
+			<b-navbar-nav class="ToolHeader__section">
 				<b-link class="ToolHeader__branding" href="https://holistic-toolbox.com">
 					<h2
 						class="ToolHeader__branding__text"
 						v-text="'Holistic Toolbox'"/>
 				</b-link>
+				<lottie-player :src="floatingNinjaAnimation" :options="animationOptions"/>
 			</b-navbar-nav>
 
 			<!-- right partition-->
-			<b-navbar-nav class="ml-auto">
-				<h1 class="ToolHeader__name" v-text="name"/>
+			<b-navbar-nav class="ToolHeader__section ToolHeader__section--right">
+					<h1 class="ToolHeader__name" v-text="name"/>
 			</b-navbar-nav>
 
 		</b-navbar>
@@ -21,9 +22,25 @@
 </template>
 
 <script>
+import { LottiePlayer } from 'lottie-player-vue';
+import floatingNinjaAnimation from '../assets/animations/floating-ninja.json';
+
 export default {
+	components: {
+		LottiePlayer
+	},
 	props: {
 		name: { type: String, required: true }
+	},
+	data() {
+		return {
+			floatingNinjaAnimation,
+			animationOptions: {
+				autoplay: true,
+				loop: true,
+				width: '55px'
+			}
+		};
 	}
 };
 </script>
@@ -46,13 +63,20 @@ export default {
 		padding: 0 !important;
 	}
 
-	&__name {
-		color: $highlight;
-		font-size: $tool-text-larger;
+	&__section {
+		display: flex;
+		align-items: center;
+
+		&--right {
+			margin-left: auto;
+		}
 	}
 
 	&__branding {
 		color: $success;
+		display: flex;
+		height: fit-content;
+		margin-right: 1rem;
 
 		&:hover {
 			color: $success;
@@ -70,6 +94,12 @@ export default {
 			text-transform: uppercase;
 			text-align: right;
 		}
+	}
+
+
+	&__name {
+		color: $highlight;
+		font-size: $tool-text-larger;
 	}
 }
 
