@@ -42,3 +42,6 @@ Manual deployment is not recommended but in case we ever need to do the followin
 ## Road Map
 - load JSON data from http source
 - allow a URL query to provide the JSON string so you can be linked here from another app
+
+## Bugs
+- get shareable link doesn't work for multi line JSONs
