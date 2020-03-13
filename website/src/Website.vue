@@ -1,8 +1,6 @@
 <template>
 	<section class="Website">
 
-		<div class="Website__image"/>
-
 		<section class="Website__content">
 
 			<p>
@@ -92,16 +90,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .Website {
-
-	&__image {
-		width: 100%;
-		height: calc(100vh - 60.67px); // to account for the height of the header
-		height: 380px;
-		background-image: url('../assets/tool-sketch.jpg');
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: 0 -170px;
-	}
 
 	&__content {
 		padding: $tool-padding-desktop;

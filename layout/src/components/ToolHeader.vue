@@ -4,23 +4,16 @@
 
 			<!-- left partition -->
 			<b-navbar-nav>
-				<h1 class="ToolHeader__name" v-text="name"/>
-
-				<!-- Navbar dropdowns #TODO: implement once we have other services! -->
-				<!-- <b-nav-itesm-dropdown text="" right>
-					<b-dropdown-item href="#">Other Service</b-dropdown-item>
-					<b-dropdown-item href="#">Other Service</b-dropdown-item>
-				</b-nav-itesm-dropdown> -->
-
-			</b-navbar-nav>
-
-			<!-- right partition-->
-			<b-navbar-nav class="ml-auto">
 				<b-link class="ToolHeader__branding" href="https://holistic-toolbox.com">
 					<h2
 						class="ToolHeader__branding__text"
 						v-text="'Holistic Toolbox'"/>
 				</b-link>
+			</b-navbar-nav>
+
+			<!-- right partition-->
+			<b-navbar-nav class="ml-auto">
+				<h1 class="ToolHeader__name" v-text="name"/>
 			</b-navbar-nav>
 
 		</b-navbar>
