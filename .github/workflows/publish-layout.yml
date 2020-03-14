@@ -66,8 +66,7 @@ jobs:
         rm .npmrc
 
     - name: Update all uses of toolbox-layout
-        run: |
-          npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
+      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
 
     - name: Commit changes
       run: |
