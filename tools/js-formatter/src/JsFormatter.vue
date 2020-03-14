@@ -4,13 +4,13 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser)
-	use the options to select your prefered spacing or Select none to minify
-	Enter your JavaScript below:
+Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser) use the \
+options to select your prefered spacing or Select none to minify Enter your JavaScript below:
 			`"/>
 
 			<tool-error
 				v-if="errorMessage"
+				ref="error"
 				class="JsFormatter__errorMessage"
 				:message="errorMessage"/>
 
@@ -93,7 +93,7 @@ export default {
 		}
 	},
 	methods: {
-		formatJS() {
+		async formatJS() {
 			const options = {
 				output: {
 					beautify: this.whitespace === 'spaces',
@@ -109,6 +109,8 @@ export default {
 				this.errorMessage = null;
 			} catch (err) {
 				this.errorMessage = err.message;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		},
 		reset() {

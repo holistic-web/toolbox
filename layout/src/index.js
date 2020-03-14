@@ -27,7 +27,10 @@ firebase.initializeApp({
 firebase.analytics();
 
 Vue.use(BootstrapVue);
-Vue.use(scrollTo);
+Vue.use(scrollTo, {
+	container: '.ToolWrapper',
+	duration: 300
+});
 
 const components = {
 	ToolButton,
