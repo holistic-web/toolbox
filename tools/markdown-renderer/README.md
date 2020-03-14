@@ -39,5 +39,3 @@ Manual deployment is not recommended but in case we ever need to do the followin
 - There appears to be a bug where auto copy still happens even if not enabled
 - Auto copy should be enabled / disabled by keyboard shortcut
 - Both left and right half should be scrollable, maybe can scroll together as we can in vscode
-- Code colour is wrong, let's use orange
-- Should be able to tab through the inputs

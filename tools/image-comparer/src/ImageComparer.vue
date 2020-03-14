@@ -1,44 +1,48 @@
 <template>
 	<div ref="ImageComparer" class="ImageComparer">
 
-		<tool-markdown :markdown="`
-This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
-Any differring pixels will be flagged in red.
-			`"/>
+		<div class="ToolWrapper">
 
-		<template v-if="!compared">
+			<tool-markdown :markdown="`
+	This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
+	Any differring pixels will be flagged in red.
+				`"/>
 
-			<p>Select two images with the same dimensions to continue:</p>
+			<template v-if="!compared">
 
-			<!-- invisible images used in "compareImages" method -->
-			<img
-				ref="ImageComparer__image1"
-				class="ImageComparer__hidden"
-				:src="imageSrc1"/>
-			<img
-				ref="ImageComparer__image2"
-				class="ImageComparer__hidden"
-				:src="imageSrc2"/>
+				<p>Select two images with the same dimensions to continue:</p>
 
-			<inputs
-				ref="ImageComparer__inputs"
-				@imageSrc1Update="handleImage1Update"
-				@imageSrc2Update="handleImage2Update"/>
+				<!-- invisible images used in "compareImages" method -->
+				<img
+					ref="ImageComparer__image1"
+					class="ImageComparer__hidden"
+					:src="imageSrc1"/>
+				<img
+					ref="ImageComparer__image2"
+					class="ImageComparer__hidden"
+					:src="imageSrc2"/>
 
-		</template>
+				<inputs
+					ref="ImageComparer__inputs"
+					@imageSrc1Update="handleImage1Update"
+					@imageSrc2Update="handleImage2Update"/>
 
-		<template v-else>
+			</template>
 
-			<section v-if="!error" class="ImageComparer__result">
+			<template v-else>
 
-				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
+				<section v-if="!error" class="ImageComparer__result">
 
-				<canvas ref="ImageComparer__resultCanvas"/>
-			</section>
+					<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
-			<tool-error v-else :message="error"/>
+					<canvas ref="ImageComparer__resultCanvas"/>
+				</section>
 
-		</template>
+				<tool-error v-else :message="error"/>
+
+			</template>
+
+		</div>
 
 		<tool-taskbar v-if="showTaskbar">
 
@@ -174,14 +178,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .ImageComparer {
-	display: flex;
-	flex-direction: column;
-	height: fit-content;
-	padding: $tool-padding-desktop;
-	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
 	&__hidden {
 		display: none;

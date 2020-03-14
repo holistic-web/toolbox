@@ -1,22 +1,26 @@
 <template>
 	<div class="JsonFormatter">
 
-		<tool-markdown :markdown="`
-Formatting is done with
-[JSON.stringify(...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
-Enter your [JSON](https://www.json.org) below to get started:
-		`"/>
+		<div class="ToolWrapper">
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsonFormatter__errorMessage"
-			:message="errorMessage"/>
+			<tool-markdown :markdown="`
+	Formatting is done with
+	[JSON.stringify(...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+	Enter your [JSON](https://www.json.org) below to get started:
+			`"/>
 
-		<tool-code
-			ref="JsonFormatter__input"
-			v-model="jsonString"
-			:options="codeOptions"
-			:autoSize="true"/>
+			<tool-error
+				v-if="errorMessage"
+				class="JsonFormatter__errorMessage"
+				:message="errorMessage"/>
+
+			<tool-code
+				ref="JsonFormatter__input"
+				v-model="jsonString"
+				:options="codeOptions"
+				:autoSize="true"/>
+
+		</div>
 
 		<tool-taskbar v-if="jsonString">
 
@@ -55,7 +59,6 @@ Enter your [JSON](https://www.json.org) below to get started:
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
-
 		</tool-taskbar>
 
 	</div>
@@ -123,13 +126,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .JsonFormatter {
-	display: flex;
-	flex-direction: column;
-	padding: $tool-padding-desktop;
-	margin-bottom: 104px; // to account for the taskbar
 
 	&__errorMessage {
 		margin-bottom: 1rem;
