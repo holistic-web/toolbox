@@ -31,14 +31,14 @@
 
 			<template v-else>
 
-				<section v-if="!error" class="ImageComparer__result">
+				<section v-if="!errorMessage" class="ImageComparer__result">
 
 					<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
 					<canvas ref="ImageComparer__resultCanvas"/>
 				</section>
 
-				<tool-error v-else :message="error"/>
+				<tool-error v-else :message="errorMessage"/>
 
 			</template>
 
@@ -98,11 +98,11 @@ export default {
 	data() {
 		return {
 			compared: false,
+			errorMessage: null,
 			imageSrc1: null,
 			imageSrc2: null,
-			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
-			error: null
+			pixelmatchOptions: { ...pixelmatchDefaults }
 		};
 	},
 	computed: {
@@ -112,10 +112,12 @@ export default {
 	},
 	methods: {
 		reset() {
-			this.compared = false;
 			this.$refs.ImageComparer__inputs.reset();
+			this.compared = false;
+			this.errorMessage = null;
 			this.imageSrc1 = null;
 			this.imageSrc2 = null;
+			this.numberOfDifferentPixels = null;
 			this.pixelmatchOptions = { ...pixelmatchDefaults };
 		},
 		handleImage1Update(imageSrc1) {
@@ -132,30 +134,31 @@ export default {
 			return canvas;
 		},
 		async compareImages() {
-			const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparer__image1);
-			const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparer__image2);
-
-			const context1 = canvas1.getContext('2d');
-			const context2 = canvas2.getContext('2d');
-
-			const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
-			const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-
-			// use the first image's size for the comparison
-			const { width, height } = imageData1;
-
-			const resultImageData = new ImageData(width, height);
-
-			// set compared to true so we have access to the result canvas
-			this.compared = true;
-			await this.$nextTick();
-
-			const resultCanvas = this.$refs.ImageComparer__resultCanvas;
-			resultCanvas.width = width;
-			resultCanvas.height = height;
-
-			// get the difference
+			this.errorMessage = null;
 			try {
+				const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparer__image1);
+				const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparer__image2);
+
+				const context1 = canvas1.getContext('2d');
+				const context2 = canvas2.getContext('2d');
+
+				const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+				const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+
+				// use the first image's size for the comparison
+				const { width, height } = imageData1;
+
+				const resultImageData = new ImageData(width, height);
+
+				// set compared to true so we have access to the result canvas
+				this.compared = true;
+				await this.$nextTick();
+
+				const resultCanvas = this.$refs.ImageComparer__resultCanvas;
+				resultCanvas.width = width;
+				resultCanvas.height = height;
+
+				// get the difference
 				this.numberOfDifferentPixels = pixelmatch(
 					imageData1.data,
 					imageData2.data,
@@ -170,7 +173,7 @@ export default {
 				resultContext.putImageData(resultImageData, 0, 0);
 				resultCanvas.style.width = '100%';
 			} catch (err) {
-				this.error = err.message;
+				this.errorMessage = err;
 			}
 		}
 	}

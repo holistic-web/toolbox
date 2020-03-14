@@ -11,6 +11,7 @@
 
 			<tool-error
 				v-if="errorMessage"
+				ref="error"
 				class="JsonFormatter__errorMessage"
 				:message="errorMessage"/>
 
@@ -98,9 +99,9 @@ export default {
 		}
 	},
 	methods: {
-		formatJSON() {
+		async formatJSON() {
+			this.errorMessage = null;
 			try {
-				this.errorMessage = false;
 				const jsonData = JSON.parse(this.jsonString);
 				this.jsonString = JSON.stringify(
 					jsonData,
@@ -109,7 +110,9 @@ export default {
 				);
 				this.formatted = true;
 			} catch (err) {
-				this.errorMessage = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		},
 		reset() {

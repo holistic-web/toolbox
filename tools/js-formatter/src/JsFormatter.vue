@@ -94,19 +94,19 @@ export default {
 	},
 	methods: {
 		async formatJS() {
-			const options = {
-				output: {
-					beautify: this.whitespace === 'spaces',
-					comments: true,
-					quote_style: 1
-				}
-			};
+			this.errorMessage = null;
 			try {
+				const options = {
+					output: {
+						beautify: this.whitespace === 'spaces',
+						comments: true,
+						quote_style: 1
+					}
+				};
 				const { code, error } = uglify.minify(this.jsString, options);
 				if (error) throw new Error(error);
 				this.jsString = code;
 				this.formatted = true;
-				this.errorMessage = null;
 			} catch (err) {
 				this.errorMessage = err.message;
 				await this.$nextTick();

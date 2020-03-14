@@ -11,8 +11,8 @@
 			`"/>
 
 			<tool-error
-				:disabled="!!converted"
 				v-if="errorMessage"
+				ref="error"
 				class="NumberConverter__errorMessage"
 				:message="errorMessage"/>
 
@@ -128,10 +128,16 @@ export default {
 		}
 	},
 	methods: {
-		convert() {
-			this.result = fromBaseToBase(this.inputNumber, this.fromBase, this.toBase);
-			this.converted = true;
+		async convert() {
 			this.errorMessage = null;
+			try {
+				this.result = fromBaseToBase(this.inputNumber, this.fromBase, this.toBase);
+				this.converted = true;
+			} catch (err) {
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
+			}
 		},
 		reset() {
 			this.converted = false;
@@ -148,10 +154,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .NumberConverter {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

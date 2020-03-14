@@ -9,6 +9,7 @@
 
 			<tool-error
 				v-if="errorMessage"
+				ref="error"
 				class="JsonBrowser__errorMessage"
 				:message="errorMessage"/>
 
@@ -94,13 +95,15 @@ export default {
 			await this.$nextTick();
 			this.$refs.JsonBrowser__input.focus();
 		},
-		enterBrowseMode() {
+		async enterBrowseMode() {
+			this.errorMessage = null;
 			try {
-				this.errorMessage = false;
 				this.jsonObject = JSON.parse(this.jsonString);
 				this.browsing = true;
 			} catch (err) {
-				this.errorMessage = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		}
 	},
