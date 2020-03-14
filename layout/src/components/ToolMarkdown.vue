@@ -19,7 +19,11 @@ export default {
 	},
 	methods: {
 		renderMarkdown() {
-			this.renderedMarkdown = marked(this.markdown, { sanitize: true });
+			this.renderedMarkdown = marked(this.markdown, {
+				// https://marked.js.org/#/USING_ADVANCED.md#options
+				breaks: true,
+				gfm: true
+			});
 		}
 	},
 	mounted() {
