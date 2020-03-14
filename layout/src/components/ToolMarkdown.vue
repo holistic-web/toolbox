@@ -1,5 +1,5 @@
 <template>
-	<section v-html="renderedMarkdown"/>
+	<section class="ToolMarkdown" v-html="renderedMarkdown"/>
 </template>
 
 <script>
@@ -35,3 +35,14 @@ export default {
 
 };
 </script>
+
+<style lang="scss">
+@import '../styles/theme';
+
+.ToolMarkdown {
+	pre code {
+		color: $primary;
+	}
+}
+
+</style>
