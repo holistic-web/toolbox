@@ -1,20 +1,24 @@
 <template>
 	<div class="NlpToolkit">
 
-		<tool-markdown :markdown="`
-This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
-Enter text below:
-		`"/>
-		<section class="NlpToolkit__content">
-			<tool-code
-				ref="NlpToolkit__input"
-				class="NlpToolkit__content__half"
-				v-model="inputText"
-				:autoSize="true"
-				:options="codeOptions"/>
+		<div class="ToolWrapper">
 
-			<p v-text="resultText"/>
-		</section>
+			<tool-markdown :markdown="`
+	This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
+	Enter text below:
+			`"/>
+			<section class="NlpToolkit__content">
+				<tool-code
+					ref="NlpToolkit__input"
+					class="NlpToolkit__content__half"
+					v-model="inputText"
+					:autoSize="true"
+					:options="codeOptions"/>
+
+				<p v-text="resultText"/>
+			</section>
+
+		</div>
 
 		<tool-taskbar v-if="!!inputText">
 
@@ -118,12 +122,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .NlpToolkit {
-	display: flex;
-	flex-direction: column;
-	height: auto;
-	min-height: 100%;
-	padding: $tool-padding-desktop;
-	margin-bottom: 97px; // to account for the taskbar
 
 	&__content {
 		display: flex;

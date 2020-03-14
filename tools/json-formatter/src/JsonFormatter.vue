@@ -126,11 +126,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .JsonFormatter {
-	display: flex;
-	flex-direction: column;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

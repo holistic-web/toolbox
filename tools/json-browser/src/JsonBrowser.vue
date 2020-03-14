@@ -1,33 +1,37 @@
 <template>
 	<div class="JsonBrowser">
 
-		<tool-markdown :markdown="`
-A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
-		`"/>
+		<div class="ToolWrapper">
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsonBrowser__errorMessage"
-			:message="errorMessage"/>
+			<tool-markdown :markdown="`
+	A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
+			`"/>
 
-		<tool-code
-			v-if="!browsing"
-			ref="JsonBrowser__input"
-			v-model="jsonString"
-			:options="codeOptions"
-			:autoSize="true"/>
+			<tool-error
+				v-if="errorMessage"
+				class="JsonBrowser__errorMessage"
+				:message="errorMessage"/>
 
-		<vue-json-pretty
-			v-if="browsing"
-			class="JsonBrowser__browser"
-			:data="jsonObject"
-			v-model="selectedNodes"
-			:showLength="true"
-			:showDoubleQuotes="false"
-			:highlightMouseoverNode="true"
-			selectableType="single"
-			:selectOnClickNode="true"
-			:highlightSelectedNode="true"/>
+			<tool-code
+				v-if="!browsing"
+				ref="JsonBrowser__input"
+				v-model="jsonString"
+				:options="codeOptions"
+				:autoSize="true"/>
+
+			<vue-json-pretty
+				v-if="browsing"
+				class="JsonBrowser__browser"
+				:data="jsonObject"
+				v-model="selectedNodes"
+				:showLength="true"
+				:showDoubleQuotes="false"
+				:highlightMouseoverNode="true"
+				selectableType="single"
+				:selectOnClickNode="true"
+				:highlightSelectedNode="true"/>
+
+		</div>
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
@@ -122,10 +126,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .JsonBrowser {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

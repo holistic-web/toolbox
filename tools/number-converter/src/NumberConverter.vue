@@ -1,30 +1,34 @@
 <template>
 	<div class="NumberConverter">
 
-		<tool-markdown :markdown="`
-Converting is done with
-[Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+		<div class="ToolWrapper">
 
-Enter a number to convert:
-		`"/>
+			<tool-markdown :markdown="`
+	Converting is done with
+	[Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
 
-		<tool-error
-			:disabled="!!converted"
-			v-if="errorMessage"
-			class="NumberConverter__errorMessage"
-			:message="errorMessage"/>
+	Enter a number to convert:
+			`"/>
 
-		<b-form-input
-			v-model="inputNumber"
-			size="lg"
-			placeholder="E.g. 100" />
+			<tool-error
+				:disabled="!!converted"
+				v-if="errorMessage"
+				class="NumberConverter__errorMessage"
+				:message="errorMessage"/>
 
-		<b-form-input
-			disabled
-			v-if="converted"
-			v-model="result"
-			size="lg"
-			class="NumberConverter__result" />
+			<b-form-input
+				v-model="inputNumber"
+				size="lg"
+				placeholder="E.g. 100" />
+
+			<b-form-input
+				disabled
+				v-if="converted"
+				v-model="result"
+				size="lg"
+				class="NumberConverter__result" />
+
+		</div>
 
 		<tool-taskbar v-if="inputNumber">
 
