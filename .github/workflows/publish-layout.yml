@@ -5,6 +5,8 @@
 #	2. push the new version to the master branch
 #	3. build the project (if applicable)
 #	4. publish the project
+#	4. update all usages of layout to the latest
+#	5. commit these changes
 
 # It relies on the `NPM_TOKEN` secret being available in this repo.
 
@@ -45,12 +47,6 @@ jobs:
         cd layout
         npm version patch
 
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "increment package version" -a
-
     - name: Ensure we have latest changes
       run: |
         git rebase origin/master
@@ -68,3 +64,12 @@ jobs:
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
         npm publish --access public
         rm .npmrc
+
+    - name: Update all uses of toolbox-layout
+      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "CI: release new toolbox-layout version." -a
