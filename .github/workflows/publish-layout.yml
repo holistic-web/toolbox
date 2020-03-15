@@ -62,8 +62,9 @@ jobs:
 
     - name: Commit changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "michael.fitzhavey@gmail.com"
+        git config --local user.name "michael.fitzhavey@gmail.com"
+        git config --local user.passwrod "${{ secrets.PAT_MICHAEL }}""
         git commit -m "CI: release new toolbox-layout version." -a
 
     - name: Push changes
