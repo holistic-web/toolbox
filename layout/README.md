@@ -60,5 +60,4 @@ _Remember to increment the version number in package.json_
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
-- see about resolving the scroll issue, if at all possible
 - add breakpoints to the storybook examples
