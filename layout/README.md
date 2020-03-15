@@ -62,3 +62,4 @@ _Remember to increment the version number in package.json_
 
 ## Roadmap
 - add breakpoints to the storybook examples
+- add a story that's an example of the (now fixed) scrolling bug
