@@ -10,6 +10,8 @@
 name: deploy-layout-stories
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master

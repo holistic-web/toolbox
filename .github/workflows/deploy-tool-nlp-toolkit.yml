@@ -11,6 +11,8 @@
 name: deploy-tool-nlp-toolkit
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master
