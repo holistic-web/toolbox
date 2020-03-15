@@ -57,17 +57,17 @@ jobs:
         npm publish --access public
         rm .npmrc
 
-    - name: Update all uses of toolbox-layout
-      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
+    # - name: Update all uses of toolbox-layout
+    #   run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
 
     - name: Commit changes
       run: |
         git config --local user.email "michael.fitzhavey@gmail.com"
         git config --local user.name "michael.fitzhavey@gmail.com"
-        git config --local user.passwrod "${{ secrets.PAT_MICHAEL }}""
+        git config --local user.password "${{ secrets.PAT_MICHAEL }}"
         git commit -m "CI: release new toolbox-layout version." -a
 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PAT_MICHAEL }}
