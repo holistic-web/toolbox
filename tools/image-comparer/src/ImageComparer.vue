@@ -39,7 +39,7 @@ be flagged in red.
 					<canvas ref="ImageComparer__resultCanvas"/>
 				</section>
 
-				<tool-error v-else :message="errorMessage"/>
+				<tool-error ref="error" v-else :message="errorMessage"/>
 
 			</template>
 
@@ -175,6 +175,8 @@ export default {
 				resultCanvas.style.width = '100%';
 			} catch (err) {
 				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		}
 	}
