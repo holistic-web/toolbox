@@ -50,11 +50,6 @@ jobs:
     - name: Ensure we have latest changes
       run: git pull origin master
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Publish project
       run: |
         cd layout
@@ -70,3 +65,8 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m "CI: release new toolbox-layout version." -a
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

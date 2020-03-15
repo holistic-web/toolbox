@@ -9,6 +9,7 @@ This is a shared [Vue.js](https://vuejs.org) component library for use in the To
 | **Project Type** | Component Library                      |
 | **Package Name** | @holistic-web/toolbox-layout           |
 | **Demo URL**     | https://toolbox-layout-stories.web.app |
+| **Dependencies** | Bootstrap Vue, Firebase, Vue-ScrollTo  |
 
 ## Usage
 To use this library in a Vue app, simply include:
