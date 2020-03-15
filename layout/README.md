@@ -1,5 +1,5 @@
 # Toolbox Layout
-This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics configurations](/.project/analytics.md).
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics](/.project/analytics.md).
 
 **N.B.** When updating this project, remember all usages will automatically update to the latest version. We should ensure all consumers of this project are up to date before releasing.
 

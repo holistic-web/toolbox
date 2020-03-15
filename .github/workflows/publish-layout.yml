@@ -48,7 +48,7 @@ jobs:
         npm version patch
 
     - name: Ensure we have latest changes
-      run: git pull origin/master
+      run: git pull origin master
 
     - name: Push changes
       uses: ad-m/github-push-action@master
