@@ -4,7 +4,7 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
+A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
 			`"/>
 
 			<tool-error

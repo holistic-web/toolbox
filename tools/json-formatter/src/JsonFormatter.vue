@@ -4,9 +4,9 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	Formatting is done with
-	[JSON.stringify(...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
-	Enter your [JSON](https://www.json.org) below to get started:
+Formatting is done with [JSON.stringify(...)]\
+(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). \
+Enter your [JSON](https://www.json.org) below to get started:
 			`"/>
 
 			<tool-error

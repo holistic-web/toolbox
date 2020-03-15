@@ -4,10 +4,9 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	Converting is done with
-	[Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
-
-	Enter a number to convert:
+Converting is done with \
+[Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString). \
+Enter a number to convert:
 			`"/>
 
 			<tool-error

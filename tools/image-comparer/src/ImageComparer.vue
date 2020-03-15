@@ -4,8 +4,9 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
-	Any differring pixels will be flagged in red.
+This is a tool to compare two images with the same dimensions using the library \
+[pixelmatch](https://www.npmjs.com/package/pixelmatch). Any differring pixels will \
+be flagged in red.
 				`"/>
 
 			<template v-if="!compared">

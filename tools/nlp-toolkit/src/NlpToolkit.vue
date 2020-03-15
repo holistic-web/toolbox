@@ -4,8 +4,8 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
-	Enter text below:
+This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise). \
+Enter text below:
 			`"/>
 
 			<tool-error

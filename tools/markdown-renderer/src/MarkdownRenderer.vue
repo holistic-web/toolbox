@@ -4,7 +4,7 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
+Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
 			`"/>
 
 			<section class="MarkdownRenderer__content">

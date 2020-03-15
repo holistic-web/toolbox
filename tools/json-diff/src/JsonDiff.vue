@@ -4,8 +4,8 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
-	Enter two JSON files below:
+This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch). \
+Enter two JSON files below:
 			`"/>
 
 			<tool-error
