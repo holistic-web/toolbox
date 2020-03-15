@@ -15,7 +15,12 @@ on:
     branches:
     - master
     paths:
-    - 'website/**'
+    - 'website/assets/**'
+    - 'website/public/**'
+    - 'website/src/**'
+    - 'website/.browserslistrc'
+    - 'website/package.json'
+    - 'website/package-lock.json'
 
 jobs:
   build-and-deploy:

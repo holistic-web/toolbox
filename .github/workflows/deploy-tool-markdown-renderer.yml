@@ -15,8 +15,12 @@ on:
     branches:
     - master
     paths:
-    - 'tools/markdown-renderer/**'
-
+    - 'tools/markdown-renderer/assets/**'
+    - 'tools/markdown-renderer/public/**'
+    - 'tools/markdown-renderer/src/**'
+    - 'tools/markdown-renderer/.browserslistrc'
+    - 'tools/markdown-renderer/package.json'
+    - 'tools/markdown-renderer/package-lock.json'
 jobs:
   build-and-deploy:
 
