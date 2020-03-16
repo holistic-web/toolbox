@@ -1,44 +1,49 @@
 <template>
 	<div ref="ImageComparer" class="ImageComparer">
 
-		<tool-markdown :markdown="`
-This is a tool to compare two images with the same dimensions using the library [pixelmatch](https://www.npmjs.com/package/pixelmatch).
-Any differring pixels will be flagged in red.
-			`"/>
+		<div class="ToolWrapper">
 
-		<template v-if="!compared">
+			<tool-markdown :markdown="`
+This is a tool to compare two images with the same dimensions using the library \
+[pixelmatch](https://www.npmjs.com/package/pixelmatch). Any differring pixels will \
+be flagged in red.
+				`"/>
 
-			<p>Select two images with the same dimensions to continue:</p>
+			<template v-if="!compared">
 
-			<!-- invisible images used in "compareImages" method -->
-			<img
-				ref="ImageComparer__image1"
-				class="ImageComparer__hidden"
-				:src="imageSrc1"/>
-			<img
-				ref="ImageComparer__image2"
-				class="ImageComparer__hidden"
-				:src="imageSrc2"/>
+				<p>Select two images with the same dimensions to continue:</p>
 
-			<inputs
-				ref="ImageComparer__inputs"
-				@imageSrc1Update="handleImage1Update"
-				@imageSrc2Update="handleImage2Update"/>
+				<!-- invisible images used in "compareImages" method -->
+				<img
+					ref="ImageComparer__image1"
+					class="ImageComparer__hidden"
+					:src="imageSrc1"/>
+				<img
+					ref="ImageComparer__image2"
+					class="ImageComparer__hidden"
+					:src="imageSrc2"/>
 
-		</template>
+				<inputs
+					ref="ImageComparer__inputs"
+					@imageSrc1Update="handleImage1Update"
+					@imageSrc2Update="handleImage2Update"/>
 
-		<template v-else>
+			</template>
 
-			<section v-if="!error" class="ImageComparer__result">
+			<template v-else>
 
-				<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
+				<section v-if="!errorMessage" class="ImageComparer__result">
 
-				<canvas ref="ImageComparer__resultCanvas"/>
-			</section>
+					<p>Number of different pixels: {{numberOfDifferentPixels}}</p>
 
-			<tool-error v-else :message="error"/>
+					<canvas ref="ImageComparer__resultCanvas"/>
+				</section>
 
-		</template>
+				<tool-error ref="error" v-else :message="errorMessage"/>
+
+			</template>
+
+		</div>
 
 		<tool-taskbar v-if="showTaskbar">
 
@@ -94,11 +99,11 @@ export default {
 	data() {
 		return {
 			compared: false,
+			errorMessage: null,
 			imageSrc1: null,
 			imageSrc2: null,
-			pixelmatchOptions: { ...pixelmatchDefaults },
 			numberOfDifferentPixels: null,
-			error: null
+			pixelmatchOptions: { ...pixelmatchDefaults }
 		};
 	},
 	computed: {
@@ -108,10 +113,12 @@ export default {
 	},
 	methods: {
 		reset() {
-			this.compared = false;
 			this.$refs.ImageComparer__inputs.reset();
+			this.compared = false;
+			this.errorMessage = null;
 			this.imageSrc1 = null;
 			this.imageSrc2 = null;
+			this.numberOfDifferentPixels = null;
 			this.pixelmatchOptions = { ...pixelmatchDefaults };
 		},
 		handleImage1Update(imageSrc1) {
@@ -128,30 +135,31 @@ export default {
 			return canvas;
 		},
 		async compareImages() {
-			const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparer__image1);
-			const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparer__image2);
-
-			const context1 = canvas1.getContext('2d');
-			const context2 = canvas2.getContext('2d');
-
-			const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
-			const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
-
-			// use the first image's size for the comparison
-			const { width, height } = imageData1;
-
-			const resultImageData = new ImageData(width, height);
-
-			// set compared to true so we have access to the result canvas
-			this.compared = true;
-			await this.$nextTick();
-
-			const resultCanvas = this.$refs.ImageComparer__resultCanvas;
-			resultCanvas.width = width;
-			resultCanvas.height = height;
-
-			// get the difference
+			this.errorMessage = null;
 			try {
+				const canvas1 = this.convertImageToCanvas(this.$refs.ImageComparer__image1);
+				const canvas2 = this.convertImageToCanvas(this.$refs.ImageComparer__image2);
+
+				const context1 = canvas1.getContext('2d');
+				const context2 = canvas2.getContext('2d');
+
+				const imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+				const imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+
+				// use the first image's size for the comparison
+				const { width, height } = imageData1;
+
+				const resultImageData = new ImageData(width, height);
+
+				// set compared to true so we have access to the result canvas
+				this.compared = true;
+				await this.$nextTick();
+
+				const resultCanvas = this.$refs.ImageComparer__resultCanvas;
+				resultCanvas.width = width;
+				resultCanvas.height = height;
+
+				// get the difference
 				this.numberOfDifferentPixels = pixelmatch(
 					imageData1.data,
 					imageData2.data,
@@ -166,7 +174,9 @@ export default {
 				resultContext.putImageData(resultImageData, 0, 0);
 				resultCanvas.style.width = '100%';
 			} catch (err) {
-				this.error = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		}
 	}
@@ -174,14 +184,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .ImageComparer {
-	display: flex;
-	flex-direction: column;
-	height: fit-content;
-	padding: $tool-padding-desktop;
-	margin-bottom: calc(177px + 1rem); // to account for the taskbar
 
 	&__hidden {
 		display: none;

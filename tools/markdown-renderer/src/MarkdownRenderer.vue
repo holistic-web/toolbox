@@ -1,22 +1,26 @@
 <template>
 	<div class="MarkdownRenderer">
 
-		<tool-markdown :markdown="`
+		<div class="ToolWrapper">
+
+			<tool-markdown :markdown="`
 Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
-		`"/>
+			`"/>
 
-		<section class="MarkdownRenderer__content">
-			<tool-code
-				ref="MarkdownRenderer__input"
-				class="MarkdownRenderer__content__item MarkdownRenderer__content__item--left"
-				v-model="markdown"
-				:options="codeOptions"
-				:autoSize="true"/>
+			<section class="MarkdownRenderer__content">
+				<tool-code
+					ref="MarkdownRenderer__input"
+					class="MarkdownRenderer__content__item MarkdownRenderer__content__item--left"
+					v-model="markdown"
+					:options="codeOptions"
+					:autoSize="true"/>
 
-			<tool-markdown
-				class="MarkdownRenderer__content__item MarkdownRenderer__content__item--right"
-				:markdown="markdown"/>
-		</section>
+				<tool-markdown
+					class="MarkdownRenderer__content__item MarkdownRenderer__content__item--right"
+					:markdown="markdown"/>
+			</section>
+
+		</div>
 
 		<tool-taskbar>
 			<b-form-checkbox
@@ -86,12 +90,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .MarkdownRenderer {
-	display: flex;
-	flex-direction: column;
-	padding: $tool-padding-desktop;
 
 	&__button {
 		margin-left: 1rem;
@@ -100,7 +100,6 @@ export default {
 	&__content {
 		display: flex;
 		flex-direction: row;
-		margin-bottom: 97px; // to account for the taskbar
 
 		&__item {
 			width: 50%;

@@ -1,5 +1,7 @@
 # Toolbox Layout
-This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics configurations](/.project/analytics.md).
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and configures our [analytics](/.project/analytics.md).
+
+**N.B.** When updating this project, remember all usages will automatically update to the latest version. We should ensure all consumers of this project are up to date before releasing.
 
 ## Factsheet
 | **Category**     | **Value**                              |
@@ -7,6 +9,7 @@ This is a shared [Vue.js](https://vuejs.org) component library for use in the To
 | **Project Type** | Component Library                      |
 | **Package Name** | @holistic-web/toolbox-layout           |
 | **Demo URL**     | https://toolbox-layout-stories.web.app |
+| **Dependencies** | Bootstrap Vue, Firebase, Vue-ScrollTo  |
 
 ## Usage
 To use this library in a Vue app, simply include:
@@ -52,13 +55,11 @@ Manual publishing is not recommended but if we need to try the following (provid
 ```
 npm publish --access public
 ```
-_Remember to increment the version number in package.json_
+_Remember to increment the version number in package.json and package-lock.json._
 
 ### Notes and Caveats
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
-- allow including a reset / main action button with configuration rather than slots
-- swap the tool name and toolbox branding positions in the header
-- see about resolving the scroll issue, if at all possible
 - add breakpoints to the storybook examples
+- add a story that's an example of the (now fixed) scrolling bug

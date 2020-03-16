@@ -5,8 +5,12 @@
 #	2. push the new version to the master branch
 #	3. build the project (if applicable)
 #	4. publish the project
+#	4. update all usages of layout to the latest
+#	5. commit and push these changes
 
-# It relies on the `NPM_TOKEN` secret being available in this repo.
+# Secrets:
+# - NPM_TOKEN: required to publish the new version to NPM
+# - PAT_MICHAEL: used to publish upgrade layout event
 
 name: publish-layout
 
@@ -45,26 +49,27 @@ jobs:
         cd layout
         npm version patch
 
-    - name: Commit changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "increment package version" -a
-
-    - name: Ensure we have latest changes
-      run: |
-        git rebase origin/master
-        git pull
-        git fetch
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Publish project
       run: |
         cd layout
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
         npm publish --access public
         rm .npmrc
+
+    - name: Update all uses of toolbox-layout
+      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "michael.fitzhavey@gmail.com"
+        git config --local user.name "michael.fitzhavey@gmail.com"
+        git config --local user.password "{{ secrets.PAT_MICHAEL }}"
+        git commit -m "CI: release new toolbox-layout version." -a
+        git pull
+        git push
+
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.PAT_MICHAEL }}
+        event-type: upgrade-layout

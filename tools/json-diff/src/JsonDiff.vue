@@ -1,37 +1,42 @@
 <template>
 	<div class="JsonDiff">
 
-		<tool-markdown :markdown="`
-This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch).
+		<div class="ToolWrapper">
+
+			<tool-markdown :markdown="`
+This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch). \
 Enter two JSON files below:
-		`"/>
+			`"/>
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsonDiff__errorMessage"
-			:message="errorMessage"/>
+			<tool-error
+				v-if="errorMessage"
+				ref="error"
+				class="JsonDiff__errorMessage"
+				:message="errorMessage"/>
 
-		<section
-				class="JsonDiff__result"
-				v-html="diff"/>
+			<section
+					class="JsonDiff__result"
+					v-html="diff"/>
 
-		<section class="JsonDiff__container">
+			<section class="JsonDiff__container">
 
-			<div class="JsonDiff__container__half">
-				<tool-code
-					v-model="json1"
-					:options="inputCodeOptions"
-					:autoSize="true"/>
-			</div>
+				<div class="JsonDiff__container__half">
+					<tool-code
+						v-model="json1"
+						:options="inputCodeOptions"
+						:autoSize="true"/>
+				</div>
 
-			<div class="JsonDiff__container__half">
-				<tool-code
-					v-model="json2"
-					:options="inputCodeOptions"
-					:autoSize="true"/>
-			</div>
+				<div class="JsonDiff__container__half">
+					<tool-code
+						v-model="json2"
+						:options="inputCodeOptions"
+						:autoSize="true"/>
+				</div>
 
-		</section>
+			</section>
+
+		</div>
 
 		<tool-taskbar v-if="showTaskbar">
 
@@ -100,7 +105,7 @@ export default {
 			this.diff = null;
 			this.errorMessage = null;
 		},
-		doComparison() {
+		async doComparison() {
 			this.errorMessage = null;
 			try {
 				const jsonObject1 = JSON.parse(this.json1);
@@ -109,7 +114,9 @@ export default {
 				this.diff = jsondiffpatch.formatters.html.format(delta, jsonObject1);
 				if (!this.diff) throw new Error('the objects match');
 			} catch (err) {
-				this.errorMessage = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		}
 	}
@@ -120,10 +127,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .JsonDiff {
-	display: flex;
-	flex-direction: column;
-	padding: $tool-padding-desktop;
-	margin-bottom: calc(114px + 1rem); // to account for the taskbar
 
 	&__errorMessage {
 		margin-bottom: 1rem;

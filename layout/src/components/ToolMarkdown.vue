@@ -1,5 +1,5 @@
 <template>
-	<section v-html="renderedMarkdown"/>
+	<section class="ToolMarkdown" v-html="renderedMarkdown"/>
 </template>
 
 <script>
@@ -19,7 +19,11 @@ export default {
 	},
 	methods: {
 		renderMarkdown() {
-			this.renderedMarkdown = marked(this.markdown, { sanitize: true });
+			this.renderedMarkdown = marked(this.markdown, {
+				// https://marked.js.org/#/USING_ADVANCED.md#options
+				breaks: true,
+				gfm: true
+			});
 		}
 	},
 	mounted() {
@@ -31,3 +35,14 @@ export default {
 
 };
 </script>
+
+<style lang="scss">
+@import '../styles/theme';
+
+.ToolMarkdown {
+	pre code {
+		color: $primary;
+	}
+}
+
+</style>

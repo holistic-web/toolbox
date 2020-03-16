@@ -1,22 +1,26 @@
 <template>
 	<div class="JsFormatter">
 
-		<tool-markdown :markdown="`
-Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser)
-use the options to select your prefered spacing or Select none to minify
-Enter your JavaScript below:
-		`"/>
+		<div class="ToolWrapper">
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsFormatter__errorMessage"
-			:message="errorMessage"/>
+			<tool-markdown :markdown="`
+Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser) use the \
+options to select your prefered spacing or Select none to minify Enter your JavaScript below:
+			`"/>
 
-		<tool-code
-			ref="JsFormatter__input"
-			v-model="jsString"
-			:options="codeOptions"
-			:autoSize="true"/>
+			<tool-error
+				v-if="errorMessage"
+				ref="error"
+				class="JsFormatter__errorMessage"
+				:message="errorMessage"/>
+
+			<tool-code
+				ref="JsFormatter__input"
+				v-model="jsString"
+				:options="codeOptions"
+				:autoSize="true"/>
+
+		</div>
 
 		<tool-taskbar v-if="jsString">
 
@@ -89,22 +93,24 @@ export default {
 		}
 	},
 	methods: {
-		formatJS() {
-			const options = {
-				output: {
-					beautify: this.whitespace === 'spaces',
-					comments: true,
-					quote_style: 1
-				}
-			};
+		async formatJS() {
+			this.errorMessage = null;
 			try {
+				const options = {
+					output: {
+						beautify: this.whitespace === 'spaces',
+						comments: true,
+						quote_style: 1
+					}
+				};
 				const { code, error } = uglify.minify(this.jsString, options);
 				if (error) throw new Error(error);
 				this.jsString = code;
 				this.formatted = true;
-				this.errorMessage = null;
 			} catch (err) {
 				this.errorMessage = err.message;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		},
 		reset() {
@@ -119,13 +125,7 @@ export default {
 
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .JsFormatter {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

@@ -1,22 +1,27 @@
 <template>
 	<div class="JsonFormatter">
 
-		<tool-markdown :markdown="`
-Formatting is done with
-[JSON.stringify(...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).
+		<div class="ToolWrapper">
+
+			<tool-markdown :markdown="`
+Formatting is done with [JSON.stringify(...)]\
+(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). \
 Enter your [JSON](https://www.json.org) below to get started:
-		`"/>
+			`"/>
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsonFormatter__errorMessage"
-			:message="errorMessage"/>
+			<tool-error
+				v-if="errorMessage"
+				ref="error"
+				class="JsonFormatter__errorMessage"
+				:message="errorMessage"/>
 
-		<tool-code
-			ref="JsonFormatter__input"
-			v-model="jsonString"
-			:options="codeOptions"
-			:autoSize="true"/>
+			<tool-code
+				ref="JsonFormatter__input"
+				v-model="jsonString"
+				:options="codeOptions"
+				:autoSize="true"/>
+
+		</div>
 
 		<tool-taskbar v-if="jsonString">
 
@@ -55,7 +60,6 @@ Enter your [JSON](https://www.json.org) below to get started:
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
-
 		</tool-taskbar>
 
 	</div>
@@ -95,9 +99,9 @@ export default {
 		}
 	},
 	methods: {
-		formatJSON() {
+		async formatJSON() {
+			this.errorMessage = null;
 			try {
-				this.errorMessage = false;
 				const jsonData = JSON.parse(this.jsonString);
 				this.jsonString = JSON.stringify(
 					jsonData,
@@ -106,7 +110,9 @@ export default {
 				);
 				this.formatted = true;
 			} catch (err) {
-				this.errorMessage = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		},
 		reset() {
@@ -123,13 +129,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
-
 .JsonFormatter {
-	display: flex;
-	flex-direction: column;
-	padding: $tool-padding-desktop;
-	margin-bottom: 104px; // to account for the taskbar
 
 	&__errorMessage {
 		margin-bottom: 1rem;

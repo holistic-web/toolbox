@@ -11,11 +11,18 @@
 name: deploy-tool-json-formatter
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master
     paths:
-    - 'tools/json-formatter/**'
+    - 'tools/json-formatter/assets/**'
+    - 'tools/json-formatter/public/**'
+    - 'tools/json-formatter/src/**'
+    - 'tools/json-formatter/.browserslistrc'
+    - 'tools/json-formatter/package.json'
+    - 'tools/json-formatter/package-lock.json'
 
 jobs:
   build-and-deploy:

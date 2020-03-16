@@ -6,6 +6,7 @@ A collection of useful tools, to service all areas of development. Hosted at htt
 ![layout-stories](https://github.com/holistic-web/toolbox/workflows/deploy-layout-stories/badge.svg)
 
 ![image-comparer](https://github.com/holistic-web/toolbox/workflows/deploy-tool-image-comparer/badge.svg)
+![js-formatter](https://github.com/holistic-web/toolbox/workflows/deploy-tool-js-formatter/badge.svg)
 ![json-browser](https://github.com/holistic-web/toolbox/workflows/deploy-tool-json-browser/badge.svg)
 ![json-diff](https://github.com/holistic-web/toolbox/workflows/deploy-tool-json-diff/badge.svg)
 ![json-formatter](https://github.com/holistic-web/toolbox/workflows/deploy-tool-json-formatter/badge.svg)

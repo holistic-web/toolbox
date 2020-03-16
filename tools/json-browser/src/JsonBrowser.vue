@@ -1,33 +1,38 @@
 <template>
 	<div class="JsonBrowser">
 
-		<tool-markdown :markdown="`
+		<div class="ToolWrapper">
+
+			<tool-markdown :markdown="`
 A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
-		`"/>
+			`"/>
 
-		<tool-error
-			v-if="errorMessage"
-			class="JsonBrowser__errorMessage"
-			:message="errorMessage"/>
+			<tool-error
+				v-if="errorMessage"
+				ref="error"
+				class="JsonBrowser__errorMessage"
+				:message="errorMessage"/>
 
-		<tool-code
-			v-if="!browsing"
-			ref="JsonBrowser__input"
-			v-model="jsonString"
-			:options="codeOptions"
-			:autoSize="true"/>
+			<tool-code
+				v-if="!browsing"
+				ref="JsonBrowser__input"
+				v-model="jsonString"
+				:options="codeOptions"
+				:autoSize="true"/>
 
-		<vue-json-pretty
-			v-if="browsing"
-			class="JsonBrowser__browser"
-			:data="jsonObject"
-			v-model="selectedNodes"
-			:showLength="true"
-			:showDoubleQuotes="false"
-			:highlightMouseoverNode="true"
-			selectableType="single"
-			:selectOnClickNode="true"
-			:highlightSelectedNode="true"/>
+			<vue-json-pretty
+				v-if="browsing"
+				class="JsonBrowser__browser"
+				:data="jsonObject"
+				v-model="selectedNodes"
+				:showLength="true"
+				:showDoubleQuotes="false"
+				:highlightMouseoverNode="true"
+				selectableType="single"
+				:selectOnClickNode="true"
+				:highlightSelectedNode="true"/>
+
+		</div>
 
 		<tool-taskbar v-if="jsonString">
 			<tool-button
@@ -90,13 +95,15 @@ export default {
 			await this.$nextTick();
 			this.$refs.JsonBrowser__input.focus();
 		},
-		enterBrowseMode() {
+		async enterBrowseMode() {
+			this.errorMessage = null;
 			try {
-				this.errorMessage = false;
 				this.jsonObject = JSON.parse(this.jsonString);
 				this.browsing = true;
 			} catch (err) {
-				this.errorMessage = err.message;
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
 			}
 		}
 	},
@@ -122,10 +129,6 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .JsonBrowser {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: $tool-padding-desktop;
 
 	&__errorMessage {
 		margin-bottom: 1rem;

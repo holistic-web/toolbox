@@ -32,12 +32,3 @@ Manual deployment is not recommended but in case we ever need to do the followin
 	```
 	firebase deploy
 	```
-
-## Roadmap:
-- a little more text about what the toolbox is
-- choose a better picture (or remove it)
-- add consistency to tool picture and button sizes
-- some kind of link to this github repository (maybe?)
-- a contact us form, or perhaps just an email address
-- the main website should be mobile friendly
-- audit with google lighthouse

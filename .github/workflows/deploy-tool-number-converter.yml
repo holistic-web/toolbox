@@ -11,11 +11,18 @@
 name: deploy-tool-number-converter
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master
     paths:
-    - 'tools/number-converter/**'
+    - 'tools/number-converter/assets/**'
+    - 'tools/number-converter/public/**'
+    - 'tools/number-converter/src/**'
+    - 'tools/number-converter/.browserslistrc'
+    - 'tools/number-converter/package.json'
+    - 'tools/number-converter/package-lock.json'
 
 jobs:
   build-and-deploy:
