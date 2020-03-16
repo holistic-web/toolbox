@@ -4,7 +4,7 @@
 		<section class="Website__content">
 
 			<p>
-				Produced by a passionate team, the Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk. With a growing array of diverse tools, we aim to increase your productivity in many fields.
+				The Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk. With a growing array of diverse tools, your productivity can be increased in many fields. Built by a team of passionate and creative developers around the world who love helping others solve interesting problems.
 			</p>
 
 			<div class="Website__tools">
