@@ -14,7 +14,6 @@ const process = exec(
 	'npx dx-tools execute-recursive . npm i',
 );
 
-
 process.stdout.on('data', data => {
 	console.log(data);
 });
