@@ -10,7 +10,7 @@
 
 # Secrets:
 # - NPM_TOKEN: required to publish the new version to NPM
-# - PAT_MICHAEL: required to push changes, cannot use GITHUB_TOKEN as we need these commits to trigger further builds
+# - PAT_MICHAEL: used to publish upgrade layout event
 
 name: publish-layout
 
@@ -69,3 +69,9 @@ jobs:
         git config --local user.password "{{ secrets.PAT_MICHAEL }}"
         git commit -m "CI: release new toolbox-layout version." -a
         git push
+
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.PAT_MICHAEL }}
+        event-type: upgrade-layout

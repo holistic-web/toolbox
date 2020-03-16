@@ -10,11 +10,17 @@
 name: deploy-layout-stories
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master
     paths:
-    - 'layout/**'
+    - 'layout/.storybook/**'
+    - 'layout/docs/**'
+    - 'layout/src/**'
+    - 'layout/package.json/**'
+    - 'layout/package-lock.json/**'
 
 jobs:
   build-and-deploy:

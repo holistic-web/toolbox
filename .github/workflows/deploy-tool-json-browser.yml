@@ -11,11 +11,18 @@
 name: deploy-tool-json-browser
 
 on:
+  repository_dispatch:
+    types: [layout-upgrade]
   push:
     branches:
     - master
     paths:
-    - 'tools/json-browser/**'
+    - 'tools/json-browser/assets/**'
+    - 'tools/json-browser/public/**'
+    - 'tools/json-browser/src/**'
+    - 'tools/json-browser/.browserslistrc'
+    - 'tools/json-browser/package.json'
+    - 'tools/json-browser/package-lock.json'
 
 jobs:
   build-and-deploy:

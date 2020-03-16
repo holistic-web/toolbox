@@ -1,5 +1,6 @@
 {
 	"name": "@holistic-web/toolbox-layout",
+	"description": "A Vue.js component library for the Holistic Toolbox",
 	"version": "0.1.46",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
