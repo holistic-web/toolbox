@@ -1,6 +1,6 @@
 {
 	"name": "@holistic-web/toolbox-layout",
-	"version": "0.1.39",
+	"version": "0.1.46",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",

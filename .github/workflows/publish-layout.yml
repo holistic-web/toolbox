@@ -6,9 +6,11 @@
 #	3. build the project (if applicable)
 #	4. publish the project
 #	4. update all usages of layout to the latest
-#	5. commit these changes
+#	5. commit and push these changes
 
-# It relies on the `NPM_TOKEN` secret being available in this repo.
+# Secrets:
+# - NPM_TOKEN: required to publish the new version to NPM
+# - PAT_MICHAEL: required to push changes, cannot use GITHUB_TOKEN as we need these commits to trigger further builds
 
 name: publish-layout
 
@@ -48,15 +50,7 @@ jobs:
         npm version patch
 
     - name: Ensure we have latest changes
-      run: |
-        git rebase origin/master
-        git pull
-        git fetch
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+      run: git pull origin master
 
     - name: Publish project
       run: |
@@ -68,8 +62,10 @@ jobs:
     - name: Update all uses of toolbox-layout
       run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web"
 
-    - name: Commit changes
+    - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "michael.fitzhavey@gmail.com"
+        git config --local user.name "michael.fitzhavey@gmail.com"
+        git config --local user.password "{{ secrets.PAT_MICHAEL }}"
         git commit -m "CI: release new toolbox-layout version." -a
+        git push

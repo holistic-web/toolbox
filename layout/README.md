@@ -1,5 +1,5 @@
 # Toolbox Layout
-This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and our [analytics configurations](/.project/analytics.md).
+This is a shared [Vue.js](https://vuejs.org) component library for use in the Toolbox. [Boostrap Vue](https://bootstrap-vue.js.org/) is used to drive the core of the functionality. It also includes firebase and configures our [analytics](/.project/analytics.md).
 
 **N.B.** When updating this project, remember all usages will automatically update to the latest version. We should ensure all consumers of this project are up to date before releasing.
 
@@ -9,6 +9,7 @@ This is a shared [Vue.js](https://vuejs.org) component library for use in the To
 | **Project Type** | Component Library                      |
 | **Package Name** | @holistic-web/toolbox-layout           |
 | **Demo URL**     | https://toolbox-layout-stories.web.app |
+| **Dependencies** | Bootstrap Vue, Firebase, Vue-ScrollTo  |
 
 ## Usage
 To use this library in a Vue app, simply include:
@@ -60,5 +61,4 @@ _Remember to increment the version number in package.json_
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.
 
 ## Roadmap
-- see about resolving the scroll issue, if at all possible
 - add breakpoints to the storybook examples
