@@ -13,7 +13,7 @@
 
 				<tool-preview
 					class="Website__tools__tool"
-					v-for="tool in tools"
+					v-for="tool in filteredTools"
 					:key="tool.name"
 					:tool="tool"/>
 
