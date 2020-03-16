@@ -8,7 +8,7 @@
 		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
-		"@holistic-web/toolbox-layout": "^0.1.46",
+		"@holistic-web/toolbox-layout": "^0.1.49",
 		"core-js": "^3.4.4",
 		"jsondiffpatch": "^0.4.1",
 		"vue": "^2.6.11"

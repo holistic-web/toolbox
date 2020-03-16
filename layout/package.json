@@ -1,7 +1,7 @@
 {
 	"name": "@holistic-web/toolbox-layout",
 	"description": "A Vue.js component library for the Holistic Toolbox",
-	"version": "0.1.48",
+	"version": "0.1.49",
 	"main": "./dist/toolbox-layout.common.js",
 	"scripts": {
 		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
