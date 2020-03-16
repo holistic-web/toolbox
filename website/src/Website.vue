@@ -89,6 +89,11 @@ export default {
 				}
 			]
 		};
+	},
+	computed: {
+		filteredTools() {
+			return this.tools.filter(tool => tool.name.match(this.search));
+		}
 	}
 };
 </script>
