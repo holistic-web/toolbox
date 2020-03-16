@@ -55,7 +55,7 @@ Manual publishing is not recommended but if we need to try the following (provid
 ```
 npm publish --access public
 ```
-_Remember to increment the version number in package.json_
+_Remember to increment the version number in package.json and package-lock.json._
 
 ### Notes and Caveats
 - This project uses [storybook](https://storybook.js.org/) to provide visual documentation. This storybook deployment is released automatically by the `/.github/workflows/deploy-layout-stories` action.

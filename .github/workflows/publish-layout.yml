@@ -49,9 +49,6 @@ jobs:
         cd layout
         npm version patch
 
-    - name: Ensure we have latest changes
-      run: git pull origin master
-
     - name: Publish project
       run: |
         cd layout
