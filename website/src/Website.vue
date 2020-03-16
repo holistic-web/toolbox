@@ -7,6 +7,8 @@
 				Welcome to Holistic Toolbox. We provide a growing list of tools to make working easier.
 			</p>
 
+			<input type="text" v-model="search" placeholder="Search..." />
+
 			<div class="Website__tools">
 
 				<tool-preview
@@ -31,6 +33,7 @@ export default {
 	},
 	data() {
 		return {
+			search: '',
 			tools: [
 				{
 					name: 'Image Comparer',
