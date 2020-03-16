@@ -4,10 +4,18 @@
 		<div class="ToolWrapper">
 
 			<tool-markdown :markdown="`
-	This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise).
-	Enter text below:
+This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise). \
+Enter text below:
 			`"/>
+
+			<tool-error
+				v-if="errorMessage"
+				ref="error"
+				class="NlpToolkit__errorMessage"
+				:message="errorMessage"/>
+
 			<section class="NlpToolkit__content">
+
 				<tool-code
 					ref="NlpToolkit__input"
 					class="NlpToolkit__content__half"
@@ -51,7 +59,7 @@
 	</div>
 </template>
 <script>
-import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
 import nlp from 'compromise';
 
 const nlpMethods = {
@@ -79,11 +87,13 @@ export default {
 	components: {
 		ToolButton,
 		ToolCode,
+		ToolError,
 		ToolMarkdown,
 		ToolTaskbar
 	},
 	data() {
 		return {
+			errorMessage: null,
 			inputText: '',
 			resultText: '',
 			selectedOperation: 'toPastTense',
@@ -106,9 +116,16 @@ export default {
 			this.inputText = '';
 			this.resultText = '';
 		},
-		onComputeClick() {
-			const nlpFunction = nlpMethods[this.selectedOperation];
-			this.resultText = nlpFunction(this.inputText);
+		async onComputeClick() {
+			this.errorMessage = null;
+			try {
+				const nlpFunction = nlpMethods[this.selectedOperation];
+				this.resultText = nlpFunction(this.inputText);
+			} catch (err) {
+				this.errorMessage = err;
+				await this.$nextTick();
+				this.$scrollTo(this.$refs.error);
+			}
 		}
 	},
 	mounted() {
@@ -122,6 +139,10 @@ export default {
 @import '@holistic-web/toolbox-layout/src/styles/theme';
 
 .NlpToolkit {
+
+	&__errorMessage {
+		margin-bottom: 1rem;
+	}
 
 	&__content {
 		display: flex;

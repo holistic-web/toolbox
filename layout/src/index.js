@@ -1,8 +1,11 @@
+import * as firebase from 'firebase/app';
+import 'firebase/analytics';
+
 import Vue from 'vue';
 import './styles/theme.scss';
 import BootstrapVue from 'bootstrap-vue';
-import * as firebase from 'firebase/app';
-import 'firebase/analytics';
+import scrollTo from 'vue-scrollto';
+
 import ToolButton from './components/ToolButton.vue';
 import ToolCode from './components/ToolCode.vue';
 import ToolError from './components/ToolError.vue';
@@ -21,9 +24,13 @@ firebase.initializeApp({
 	appId: '1:94330098957:web:c87c654651186a555e0c44',
 	measurementId: 'G-J32Q7R91JH'
 });
-
 firebase.analytics();
+
 Vue.use(BootstrapVue);
+Vue.use(scrollTo, {
+	container: '.ToolWrapper',
+	duration: 300
+});
 
 const components = {
 	ToolButton,
