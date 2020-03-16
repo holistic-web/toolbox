@@ -65,6 +65,7 @@ jobs:
         git config --local user.name "michael.fitzhavey@gmail.com"
         git config --local user.password "{{ secrets.PAT_MICHAEL }}"
         git commit -m "CI: release new toolbox-layout version." -a
+        git pull
         git push
 
     - name: Repository Dispatch
