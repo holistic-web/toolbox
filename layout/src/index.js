@@ -1,6 +1,14 @@
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
-import ElLayout from '@holistic-web/el-layout';
+import {
+	ElButton,
+	ElCodeInput,
+	ElError,
+	ElHeader,
+	ElLayout,
+	ElMarkdown,
+	ElTaskbar
+} from '@holistic-web/el-layout';
 import '@holistic-web/el-layout/dist/el-layout.css';
 import Vue from 'vue';
 import scrollTo from 'vue-scrollto';
@@ -23,4 +31,13 @@ Vue.use(scrollTo, {
 	duration: 300
 });
 
-export default { ...ElLayout, ToolLayout };
+export {
+	ElButton,
+	ElCodeInput,
+	ElError,
+	ElHeader,
+	ElLayout,
+	ElMarkdown,
+	ElTaskbar,
+	ToolLayout
+};

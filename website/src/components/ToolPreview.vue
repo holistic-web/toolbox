@@ -31,10 +31,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
+@import '@holistic-web/el-layout/src/styles/theme';
 
 .ToolPreview {
-	border-radius: $tool-border-radius;
+	border-radius: $el-border-radius;
 	display: flex;
 
 	&:hover {
@@ -48,7 +48,7 @@ export default {
 	}
 
 	&__card {
-		border-radius: $tool-border-radius !important;
+		border-radius: $el-border-radius !important;
 
 			&__text {
 				margin-bottom: auto;
