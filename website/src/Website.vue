@@ -4,7 +4,7 @@
 		<section class="Website__content">
 
 			<p>
-				Welcome to Holistic Toolbox. We provide a growing list of tools to make working easier.
+				The Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk. With a growing array of diverse tools, your productivity can be increased in many fields. Built by a team of passionate and creative developers around the world who love helping others solve interesting problems.
 			</p>
 
 			<input type="text" v-model="search" placeholder="Search..." />

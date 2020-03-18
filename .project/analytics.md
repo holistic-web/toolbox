@@ -1,5 +1,7 @@
 # Analytics
-We use Google's analytics services to povide insights on our web applications.
+We use Google Analytics to povide insights for our web applications.
+
+In the top left of the Google Analytics console you have the option to choose accounts and sites. Choose admin -> Holistic toolbox -> All Web Site Data to see events across the all the sites.
 
 We have standard analytics set up on our main website and all tools. All tools also have a `tool-action-clicked` event set up to fire each time the "main action" of the tool is fired, i.e. when a JSON is formatted.
 
