@@ -1,14 +1,14 @@
 <template>
 	<div class="JsonDiff">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 This is tool compares two JSON objects using the library [jsondiffpatch](https://www.npmjs.com/package/jsondiffpatch). \
 Enter two JSON files below:
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="JsonDiff__errorMessage"
@@ -21,14 +21,14 @@ Enter two JSON files below:
 			<section class="JsonDiff__container">
 
 				<div class="JsonDiff__container__half">
-					<tool-code
+					<el-code-input
 						v-model="json1"
 						:options="inputCodeOptions"
 						:autoSize="true"/>
 				</div>
 
 				<div class="JsonDiff__container__half">
-					<tool-code
+					<el-code-input
 						v-model="json2"
 						:options="inputCodeOptions"
 						:autoSize="true"/>
@@ -38,9 +38,9 @@ Enter two JSON files below:
 
 		</div>
 
-		<tool-taskbar v-if="showTaskbar">
+		<el-taskbar v-if="showTaskbar">
 
-			<tool-button
+			<el-button
 				v-if="!diff"
 				id="Action"
 				class="JsonDiff__button"
@@ -48,20 +48,20 @@ Enter two JSON files below:
 				size="lg"
 				@click.native="doComparison"/>
 
-			<tool-button
+			<el-button
 				class="JsonDiff__button"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
 				@click.native="reset"/>
 
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 // disable eslint to allow some weird imports required by jsondiffpatch
 /* eslint-disable */
 import 'jsondiffpatch/dist/formatters-styles/html.css';
@@ -76,11 +76,11 @@ const defaultCodeOptions = {
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElCodeInput,
+		ElError,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {
@@ -136,7 +136,7 @@ export default {
 		width: 100%;
 		margin-bottom: 1rem;
 		background-color: $info;
-		border-radius: $tool-border-radius;
+		border-radius: $el-border-radius;
 
 		* {
 			color: $dark;

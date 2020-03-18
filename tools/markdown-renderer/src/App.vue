@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="Markdown Renderer">
+		<tool-layout subtitle="Markdown Renderer">
 			<markdown-renderer/>
 		</tool-layout>
 	</div>

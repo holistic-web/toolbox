@@ -18,7 +18,7 @@
 		"*.js"
 	],
 	"dependencies": {
-		"@holistic-web/el-layout": "0.0.5",
+		"@holistic-web/el-layout": "0.0.6",
 		"core-js": "^3.4.4",
 		"firebase": "^7.6.2",
 		"lottie-player-vue": "0.0.12"

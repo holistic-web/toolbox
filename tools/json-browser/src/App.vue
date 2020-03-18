@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="JSON Browser">
+		<tool-layout subtitle="JSON Browser">
 			<router-view/>
 		</tool-layout>
 	</div>

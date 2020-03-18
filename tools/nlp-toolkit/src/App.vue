@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="NLP Toolkit">
+		<tool-layout subtitle="NLP Toolkit">
 			<nlp-toolkit/>
 		</tool-layout>
 	</div>

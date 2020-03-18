@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="Image Comparer">
+		<tool-layout subtitle="Image Comparer">
 			<image-comparer/>
 		</tool-layout>
 	</div>
