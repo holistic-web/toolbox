@@ -3,6 +3,7 @@
 	"description": "A Vue.js component library for the Holistic Toolbox",
 	"version": "0.1.49",
 	"main": "./dist/toolbox-layout.common.js",
+	"private": false,
 	"scripts": {
 		"build-bundle": "vue-cli-service build --target lib --name toolbox-layout ./src/index.js",
 		"lint": "vue-cli-service lint",
@@ -17,16 +18,10 @@
 		"*.js"
 	],
 	"dependencies": {
-		"bootstrap": "^4.4.1",
-		"bootstrap-vue": "^2.1.0",
-		"codemirror": "^5.50.2",
+		"@holistic-web/el-layout": "0.0.5",
 		"core-js": "^3.4.4",
 		"firebase": "^7.6.2",
-		"lottie-player-vue": "0.0.12",
-		"marked": "^0.8.0",
-		"vue": "^2.6.11",
-		"vue-codemirror": "^4.0.6",
-		"vue-scrollto": "^2.17.1"
+		"lottie-player-vue": "0.0.12"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.4",

@@ -1,51 +1,36 @@
 <template>
-	<div class="ToolLayout">
+	<el-layout class="ElLayout">
 
-		<tool-header class="ToolLayout__header" :name="name"/>
+		<slot name="header">
+			<el-header
+				class="ElLayout__header"
+				:title="title"
+				:subtitle="subtitle">
+				<template v-slot:left>
+					<b-link class="ToolHeader__branding" href="https://holistic-toolbox.com">
+						<h2
+							class="ToolHeader__branding__text"
+							v-text="'Holistic Toolbox'"/>
+					</b-link>
+					<lottie-player :src="floatingNinjaAnimation" :options="animationOptions"/>
+				</template>
+			</el-header>
+		</slot>
 
-		<section class="ToolLayout__tool">
-			<slot/>
-		</section>
-
-	</div>
+	</el-layout>
 </template>
 <script>
-import ToolHeader from './ToolHeader.vue';
+import { ElHeader, ElLayout } from '@holistic-web/el-layout';
 
 export default {
-	props: {
-		name: { type: String, required: true }
-	},
 	components: {
-		ToolHeader
+		ElHeader,
+		ElLayout
+	},
+	props: {
+		title: { type: String },
+		subtitle: { type: String },
+		baseUrl: { type: String, default: '/' }
 	}
 };
 </script>
-
-<style lang="scss">
-@import '../styles/theme';
-
-.ToolLayout {
-	background-color: $background;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	width: 100%;
-
-	&__header {
-		flex-grow: 0;
-	}
-
-	&__tool {
-		flex-grow: 1;
-		overflow: auto;
-
-		> * {
-			height: 100%;
-			overflow: auto;
-			display: flex;
-			flex-direction: column;
-		}
-	}
-}
-</style>
