@@ -1,6 +1,13 @@
 <template>
 	<b-link class="ToolPreview" :href="tool.link">
-		<b-card
+		<div class="ToolPreview_card"  :style="{'background-image': `url(${require(tool.image)})`}">
+			<p class="ToolPreview__card__text" v-text="tool.description" />
+			<b-badge
+					v-for="tag in tool.tags"
+					:key="tag"
+					v-text="tag"/>
+		</div>
+		<!-- <b-card
 			class="ToolPreview__card"
 			:title="tool.name"
 			:img-src="tool.image"
@@ -15,7 +22,7 @@
 					:key="tag"
 					v-text="tag"/>
 			</section>
-		</b-card>
+		</b-card> -->
 	</b-link>
 </template>
 
