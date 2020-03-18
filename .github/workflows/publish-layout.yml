@@ -57,7 +57,7 @@ jobs:
         rm .npmrc
 
     - name: Update all uses of toolbox-layout
-      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web; npm run build; firebase deploy --token ${{ FIREBASE_TOKEN }}"
+      run: npx dx-tools execute-recursive . "npx update-by-scope @holistic-web; npm run build; firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}"
 
     - name: Commit and push changes
       run: |
