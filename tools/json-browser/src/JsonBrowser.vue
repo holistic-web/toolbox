@@ -1,19 +1,19 @@
 <template>
 	<div class="JsonBrowser">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www.npmjs.com/package/vue-json-pretty):
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="JsonBrowser__errorMessage"
 				:message="errorMessage"/>
 
-			<tool-code
+			<el-code-input
 				v-if="!browsing"
 				ref="JsonBrowser__input"
 				v-model="jsonString"
@@ -34,42 +34,42 @@ A tool to assist with JSON analysis, rendered with [vue-json-pretty](https://www
 
 		</div>
 
-		<tool-taskbar v-if="jsonString">
-			<tool-button
+		<el-taskbar v-if="jsonString">
+			<el-button
 				id="Action"
 				class="JsonBrowser__taskbarButton"
 				v-if="!browsing"
 				size="lg"
 				v-text="'Browse'"
 				@click.native="enterBrowseMode"/>
-			<tool-button
+			<el-button
 				class="JsonBrowser__taskbarButton"
 				v-if="browsing"
 				size="lg"
 				v-text="'Get shareable link'"
 				v-clipboard="`https://json-browser.holistic-toolbox.com?JSON=${this.jsonString}`"/>
-			<tool-button
+			<el-button
 				class="JsonBrowser__taskbarButton"
 				size="sm"
 				variant="secondary"
 				v-text="'Reset'"
 				@click.native="reset"/>
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 import VueJsonPretty from 'vue-json-pretty';
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar,
+		ElButton,
+		ElCodeInput,
+		ElError,
+		ElMarkdown,
+		ElTaskbar,
 		VueJsonPretty
 	},
 	data() {

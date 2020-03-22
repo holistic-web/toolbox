@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import '@holistic-web/toolbox-layout';
-import '@holistic-web/toolbox-layout/dist/toolbox-layout.css';
+import '@holistic-web/el-layout/dist/el-layout.css';
 import Clipboard from 'v-clipboard';
 import App from './App.vue';
 

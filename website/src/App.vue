@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="Home">
+		<tool-layout subtitle="Home">
 			<website/>
 		</tool-layout>
 	</div>

@@ -1,51 +1,51 @@
 <template>
-	<div class="ToolLayout">
+	<el-layout>
 
-		<tool-header class="ToolLayout__header" :name="name"/>
+		<template v-slot:header>
+			<el-header
+				class="ElLayout__header"
+				:title="title"
+				:subtitle="subtitle">
+				<template v-slot:left>
+					<b-link class="ElHeader__branding" href="https://holistic-toolbox.com">
+						<h2
+							class="ElHeader__branding__text"
+							v-text="'Holistic Toolbox'"/>
+					</b-link>
+					<lottie-player :src="floatingNinjaAnimation" :options="animationOptions"/>
+				</template>
+			</el-header>
+		</template>
 
-		<section class="ToolLayout__tool">
-			<slot/>
-		</section>
+		<slot/>
 
-	</div>
+	</el-layout>
 </template>
 <script>
-import ToolHeader from './ToolHeader.vue';
+import { ElHeader, ElLayout } from '@holistic-web/el-layout';
+import { LottiePlayer } from 'lottie-player-vue';
+import floatingNinjaAnimation from '../assets/animations/floating-ninja.json';
 
 export default {
-	props: {
-		name: { type: String, required: true }
-	},
 	components: {
-		ToolHeader
+		ElHeader,
+		ElLayout,
+		LottiePlayer
+	},
+	props: {
+		title: { type: String },
+		subtitle: { type: String },
+		baseUrl: { type: String, default: '/' }
+	},
+	data() {
+		return {
+			floatingNinjaAnimation,
+			animationOptions: {
+				autoplay: true,
+				loop: true,
+				width: '55px'
+			}
+		};
 	}
 };
 </script>
-
-<style lang="scss">
-@import '../styles/theme';
-
-.ToolLayout {
-	background-color: $background;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	width: 100%;
-
-	&__header {
-		flex-grow: 0;
-	}
-
-	&__tool {
-		flex-grow: 1;
-		overflow: auto;
-
-		> * {
-			height: 100%;
-			overflow: auto;
-			display: flex;
-			flex-direction: column;
-		}
-	}
-}
-</style>

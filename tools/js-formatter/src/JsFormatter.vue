@@ -1,20 +1,20 @@
 <template>
 	<div class="JsFormatter">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 Formatting is done with [UglifyJS](https://www.npmjs.com/package/uglifyjs-browser) use the \
 options to select your prefered spacing or Select none to minify Enter your JavaScript below:
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="JsFormatter__errorMessage"
 				:message="errorMessage"/>
 
-			<tool-code
+			<el-code-input
 				ref="JsFormatter__input"
 				v-model="jsString"
 				:options="codeOptions"
@@ -22,10 +22,10 @@ options to select your prefered spacing or Select none to minify Enter your Java
 
 		</div>
 
-		<tool-taskbar v-if="jsString">
+		<el-taskbar v-if="jsString">
 
 			<template v-if="!formatted">
-				<tool-button
+				<el-button
 					id="Action"
 					class="JsFormatter__button"
 					v-text="'Format'"
@@ -41,35 +41,35 @@ options to select your prefered spacing or Select none to minify Enter your Java
 			</template>
 
 			<template v-else>
-				<tool-button
+				<el-button
 					size="lg"
 					class="JsFormatter__button"
 					v-text="'Copy Output'"
 					v-clipboard="jsString"/>
-				<tool-button
+				<el-button
 					size="sm"
 					class="JsFormatter__button"
 					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 
 const uglify = require('uglifyjs-browser');
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElCodeInput,
+		ElError,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {
