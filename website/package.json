@@ -9,7 +9,7 @@
 	},
 	"dependencies": {
 		"@holistic-web/el-layout": "0.0.6",
-		"@holistic-web/toolbox-layout": "^0.1.58",
+		"@holistic-web/toolbox-layout": "^0.1.59",
 		"core-js": "^3.4.4",
 		"vue": "^2.6.11",
 		"vue-router": "^3.1.3"
