@@ -150,7 +150,7 @@ export default {
 
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
+@import '@holistic-web/el-layout/src/styles/theme';
 
 .NumberConverter {
 
