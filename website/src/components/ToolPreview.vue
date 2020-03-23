@@ -1,30 +1,15 @@
 <template>
 	<b-link class="ToolPreview" :href="tool.link">
-		<div class="ToolPreview_card">
-			<p class="ToolPreview__card__name" v-text="tool.name"/>
+		<div class="ToolPreview__card">
 			<img v-bind:src="tool.image" class="ToolPreview__card__image"/>
+			<p class="ToolPreview__card__name" v-text="tool.name"/>
 			<p class="ToolPreview__card__text" v-text="tool.description" />
 			<b-badge
 					v-for="tag in tool.tags"
 					:key="tag"
-					v-text="tag"/>
+					v-text="tag"
+					class="ToolPreview__card__badge"/>
 		</div>
-		<!-- <b-card
-			class="ToolPreview__card"
-			:title="tool.name"
-			:img-src="tool.image"
-			:img-alt="tool.name"
-			img-top
-			text-variant="dark"
-			bg-variant="info">
-			<b-card-text class="ToolPreview__card__text" v-text="tool.description"/>
-			<section class="ToolPreview__card__tags">
-				<b-badge
-					v-for="tag in tool.tags"
-					:key="tag"
-					v-text="tag"/>
-			</section>
-		</b-card> -->
 	</b-link>
 </template>
 
@@ -58,22 +43,34 @@ export default {
 
 	&__card {
 		border-radius: $tool-border-radius !important;
-		border: solid #000;
-		border-width: 1rem;
+		border: solid grey;
+		border-width: .1rem;
+		background-color: grey;
 
 			&__name {
+				margin-top: 2rem;
+				margin-left: 2rem;
+				color: black;
 				font-size: large;
 				}
 
 			&__text {
-				padding-top: 1rem;
-				margin-bottom: auto;
+				margin-top: 1rem;
+				margin-left: 2rem;
+				margin-bottom: .5rem;
+				padding-right: .5rem;
+				color: black;
 			}
 
 			&__image {
 				width:  100%;
 				height: 30vmin;
 				background-size: cover;
+			}
+
+			&__badge {
+				margin-left: 2rem;
+				margin-bottom: .5rem;
 			}
 	}
 }
