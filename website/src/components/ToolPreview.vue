@@ -1,6 +1,8 @@
 <template>
 	<b-link class="ToolPreview" :href="tool.link">
-		<div class="ToolPreview_card"  :style="{'background-image': `url(${require(tool.image)})`}">
+		<div class="ToolPreview_card">
+			<p class="ToolPreview__card__name" v-text="tool.name"/>
+			<img v-bind:src="tool.image" class="ToolPreview__card__image"/>
 			<p class="ToolPreview__card__text" v-text="tool.description" />
 			<b-badge
 					v-for="tag in tool.tags"
@@ -56,9 +58,22 @@ export default {
 
 	&__card {
 		border-radius: $tool-border-radius !important;
+		border: solid #000;
+		border-width: 1rem;
+
+			&__name {
+				font-size: large;
+				}
 
 			&__text {
+				padding-top: 1rem;
 				margin-bottom: auto;
+			}
+
+			&__image {
+				width:  100%;
+				height: 30vmin;
+				background-size: cover;
 			}
 	}
 }
