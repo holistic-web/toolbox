@@ -108,8 +108,8 @@ export default {
 			errorMessage: null,
 			inputNumber: null,
 			result: null,
-			fromBase: 0,
-			toBase: 0,
+			fromBase: 10,
+			toBase: 2,
 			baseOptions: [
 				{ text: 'Decimal', value: 10 },
 				{ text: 'Binary', value: 2 },
