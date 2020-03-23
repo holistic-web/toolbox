@@ -7,7 +7,7 @@
 				The Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk. With a growing array of diverse tools, your productivity can be increased in many fields. Built by a team of passionate and creative developers around the world who love helping others solve interesting problems.
 			</p>
 
-			<input type="text" v-model="search" placeholder="Search..." />
+			<b-form-input type="text" v-model="search" placeholder="Search..." />
 
 			<div class="Website__tools">
 
@@ -67,7 +67,8 @@ export default {
 					name: 'Markdown Renderer',
 					description: 'A browser based markdown renderer.',
 					link: 'https://markdown-renderer.holistic-toolbox.com',
-					image: require('../assets/tools/markdown-renderer.png')
+					image: require('../assets/tools/markdown-renderer.png'),
+					tags: ['TEST']
 				},
 				{
 					name: 'NLP Toolkit',
@@ -92,7 +93,7 @@ export default {
 	},
 	computed: {
 		filteredTools() {
-			return this.tools.filter(tool => tool.name.match(this.search));
+			return this.tools.filter(tool => tool.name.toLowerCase().match(this.search.toLowerCase()));
 		}
 	}
 };
