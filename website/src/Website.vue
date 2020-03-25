@@ -19,7 +19,7 @@
 
 			</div>
 
-			<p>Feel free to contact us or report bugs at holisticweb@gmail.com</p>
+			<p>Feel free to contact us or report bugs at holisticweb.contact@gmail.com</p>
 
 		</section>
 
