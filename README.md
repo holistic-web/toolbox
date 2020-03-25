@@ -41,3 +41,4 @@ See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to ge
 - Add a menu to the tools layout linking to other tools (when we have them)
 - Improve mobile usability of each of our tools and our main website
 - Fix up issues with the favicon rendering inconsistently
+- Get person@holisticweb.com email addresses
