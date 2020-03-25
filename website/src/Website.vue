@@ -8,10 +8,6 @@
 			</p>
 
 			<b-form-input type="text" v-model="search" placeholder="Search..." />
-			<b-form-radio-group id="radio-group" v-model="selected" name="radio-sub-component">
-				<b-form-radio v-model="selected" value="tool" >Tool</b-form-radio>
-				<b-form-radio v-model="selected" value="tag" >Tag</b-form-radio>
-			</b-form-radio-group>
 
 			<div class="Website__tools">
 
@@ -38,9 +34,6 @@ export default {
 	data() {
 		return {
 			search: '',
-			selected: '',
-			searchTool: true,
-			searchTag: false,
 			tools: [
 				{
 					name: 'Image Comparer',
@@ -100,8 +93,11 @@ export default {
 	},
 	computed: {
 		filteredTools() {
-			return this.tools.filter(tool => tool.name.toLowerCase().match(this.search.toLowerCase()));
-			// tool.tags.toLowerCase().match(this.search.toLowerCase()));
+			return this.tools.filter(tool => {
+				const matchName = tool.name.toLowerCase().match(this.search.toLowerCase());
+				const matchTags = tool.tags.map(s => s.toLowerCase().match(this.search.toLowerCase()));
+				return matchName || matchTags;
+			});
 		}
 	}
 };
