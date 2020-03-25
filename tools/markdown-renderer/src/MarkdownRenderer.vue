@@ -1,28 +1,28 @@
 <template>
 	<div class="MarkdownRenderer">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter your text below:
 			`"/>
 
 			<section class="MarkdownRenderer__content">
-				<tool-code
+				<el-code-input
 					ref="MarkdownRenderer__input"
 					class="MarkdownRenderer__content__item MarkdownRenderer__content__item--left"
 					v-model="markdown"
 					:options="codeOptions"
 					:autoSize="true"/>
 
-				<tool-markdown
+				<el-markdown
 					class="MarkdownRenderer__content__item MarkdownRenderer__content__item--right"
 					:markdown="markdown"/>
 			</section>
 
 		</div>
 
-		<tool-taskbar>
+		<el-taskbar>
 			<b-form-checkbox
 				id="Action"
 				class="MarkdownRenderer__button"
@@ -31,33 +31,33 @@ Markdown is rendered with [marked](https://www.npmjs.com/package/marked). Enter 
 				switch>
 				Auto Copy
 			</b-form-checkbox>
-			<tool-button
+		<elp-button
 				v-if="!autoCopy"
 				id="Action"
 				class="MarkdownRenderer__button"
 				size="sm"
 				v-text="'Copy to Clipboard'"
 				@click.native="onCopyClick"/>
-			<tool-button
+			<el-button
 					size="sm"
 					class="MarkdownRenderer__button"
 					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElCodeInput,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {

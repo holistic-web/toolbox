@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="JSON Diff">
+		<tool-layout subtitle="JSON Diff">
 			<json-diff/>
 		</tool-layout>
 	</div>

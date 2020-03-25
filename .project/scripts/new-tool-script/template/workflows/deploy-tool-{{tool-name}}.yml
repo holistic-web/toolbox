@@ -11,8 +11,6 @@
 name: deploy-tool-{{tool-name}}
 
 on:
-  repository_dispatch:
-    types: [layout-upgrade]
   push:
     branches:
     - master

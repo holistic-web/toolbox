@@ -1,15 +1,15 @@
 <template>
 	<div class="NumberConverter">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 Converting is done with \
 [Number.prototype.toString(Base)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString). \
 Enter a number to convert:
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="NumberConverter__errorMessage"
@@ -29,10 +29,10 @@ Enter a number to convert:
 
 		</div>
 
-		<tool-taskbar v-if="inputNumber">
+		<el-taskbar v-if="inputNumber">
 
 			<template v-if="!converted">
-				<tool-button
+				<el-button
 					size="lg"
 					class="NumberConverter__button"
 					v-text="'Convert'"
@@ -60,26 +60,26 @@ Enter a number to convert:
 			</template>
 
 			<template v-else>
-				<tool-button
+				<el-button
 					id="Action"
 					class="NumberConverter__button"
 					v-text="'Copy Output'"
 					v-clipboard="result"
 					size="lg"/>
-				<tool-button
+				<el-button
 					size="sm"
 					class="NumberConverter__button"
 					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 
 const fromBaseToBase = (number, fromBase, toBase) => {
 	let result = null;
@@ -97,10 +97,10 @@ const fromBaseToBase = (number, fromBase, toBase) => {
 
 export default {
 	components: {
-		ToolButton,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElError,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {
@@ -150,7 +150,7 @@ export default {
 
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
+@import '@holistic-web/el-layout/src/styles/theme';
 
 .NumberConverter {
 

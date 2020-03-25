@@ -4,7 +4,9 @@
 		<section class="Website__content">
 
 			<p>
-				The Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk. With a growing array of diverse tools, your productivity can be increased in many fields. Built by a team of passionate and creative developers around the world who love helping others solve interesting problems.
+				The Holistic Toolbox strives to provide a useful set of tools for developers, computer scientists and curious folk.
+				With a growing array of diverse tools, your productivity can be increased in many fields. Built by a team of passionate
+				and creative developers around the world who love helping others solve interesting problems.
 			</p>
 
 			<b-form-input type="text" v-model="search" placeholder="Search..." />
@@ -104,12 +106,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
+@import '@holistic-web/el-layout/src/styles/theme';
 
 .Website {
 
 	&__content {
-		padding: $tool-padding-desktop;
+		padding: $el-padding-desktop;
 	}
 
 	&__tools {

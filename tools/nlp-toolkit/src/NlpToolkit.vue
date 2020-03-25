@@ -1,14 +1,14 @@
 <template>
 	<div class="NlpToolkit">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 This is a tool to to perform NLP operations using the library [compromise](https://www.npmjs.com/package/compromise). \
 Enter text below:
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="NlpToolkit__errorMessage"
@@ -16,7 +16,7 @@ Enter text below:
 
 			<section class="NlpToolkit__content">
 
-				<tool-code
+				<el-code-input
 					ref="NlpToolkit__input"
 					class="NlpToolkit__content__half"
 					v-model="inputText"
@@ -28,9 +28,9 @@ Enter text below:
 
 		</div>
 
-		<tool-taskbar v-if="!!inputText">
+		<el-taskbar v-if="!!inputText">
 
-			<tool-button
+			<el-button
 				class="NlpToolkit__button"
 				size="lg"
 				v-text="'Compute'"
@@ -47,19 +47,19 @@ Enter text below:
 					:options="nlpOptions"/>
 			</b-form-group>
 
-			<tool-button
+			<el-button
 				size="sm"
 				class="NlpToolkit__button"
 				variant="secondary"
 				v-text="'Reset'"
 				@click.native="reset"/>
 
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 import nlp from 'compromise';
 
 const nlpMethods = {
@@ -85,11 +85,11 @@ const nlpMethods = {
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElCodeInput,
+		ElError,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {
@@ -136,7 +136,7 @@ export default {
 
 
 <style lang="scss">
-@import '@holistic-web/toolbox-layout/src/styles/theme';
+@import '@holistic-web/el-layout/src/styles/theme';
 
 .NlpToolkit {
 
