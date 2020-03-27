@@ -9,7 +9,11 @@
 				and creative developers around the world who love helping others solve interesting problems.
 			</p>
 
-			<b-form-input type="text" v-model="search" placeholder="Search..." />
+			<b-form-input
+				class="Website__filter"
+				v-model="filterText"
+				size="sm"
+				placeholder="Filter" />
 
 			<div class="Website__tools">
 
@@ -35,7 +39,7 @@ export default {
 	},
 	data() {
 		return {
-			search: '',
+			filterText: '',
 			tools: [
 				{
 					name: 'Image Comparer',
@@ -96,8 +100,9 @@ export default {
 	computed: {
 		filteredTools() {
 			return this.tools.filter(tool => {
-				const matchName = tool.name.toLowerCase().match(this.search.toLowerCase());
-				const matchTags = tool.tags.map(s => s.toLowerCase().match(this.search.toLowerCase()));
+				const matchName = tool.name.toLowerCase().match(this.filterText.toLowerCase());
+				let matchTags = false;
+				if (tool.tags) matchTags = tool.tags.includes(this.filterText.toLowerCase());
 				return matchName || matchTags;
 			});
 		}
@@ -112,6 +117,15 @@ export default {
 
 	&__content {
 		padding: $el-padding-desktop;
+
+		// all direct descendents
+		> * {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__filter {
+		max-width: 300px;
 	}
 
 	&__tools {
