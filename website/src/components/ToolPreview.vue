@@ -1,7 +1,8 @@
 <template>
 	<b-link class="ToolPreview" :href="tool.link">
 		<div class="ToolPreview__card">
-			<img v-bind:src="tool.image" class="ToolPreview__card__image"/>
+			<span :style="{ 'background-image': backgroundImageCSS }" class="ToolPreview__card__image"/>
+
 			<p class="ToolPreview__card__name" v-text="tool.name"/>
 			<p class="ToolPreview__card__text" v-text="tool.description" />
 			<b-badge
@@ -20,6 +21,11 @@ export default {
 			type: Object,
 			requied: true
 		}
+	},
+	computed: {
+		backgroundImageCSS() {
+			return `url("${this.tool.image}")`;
+		}
 	}
 };
 </script>
@@ -30,6 +36,7 @@ export default {
 .ToolPreview {
 	border-radius: $tool-border-radius;
 	display: flex;
+	width: 100%;
 
 	&:hover {
 		text-decoration: none;
@@ -46,6 +53,7 @@ export default {
 		border: solid grey;
 		border-width: .1rem;
 		background-color: grey;
+		width: 100%;
 
 			&__name {
 				margin-top: 2rem;
@@ -63,9 +71,12 @@ export default {
 			}
 
 			&__image {
-				width:  100%;
-				height: 30vmin;
+				display: flex;
+				width: 100%;
+				height: 280px;
 				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: top;
 			}
 
 			&__badge {
