@@ -42,3 +42,5 @@ See [`.project/scripts/new-tool-script`](.project/scripts/new-tool-script) to ge
 - Improve mobile usability of each of our tools and our main website
 - Fix up issues with the favicon rendering inconsistently
 - Get person@holisticweb.com email addresses
+- Add some kind of development hosting solution for our sites
+- Add automated lighthouse reporting onto each PR
