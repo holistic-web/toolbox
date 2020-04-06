@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="{{tool-name-human}}">
+		<tool-layout subtitle="{{tool-name-human}}">
 			<{{tool-name}}/>
 		</tool-layout>
 	</div>

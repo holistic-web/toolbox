@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="JSON Formatter">
+		<tool-layout subtitle="JSON Formatter">
 			<json-formatter/>
 		</tool-layout>
 	</div>

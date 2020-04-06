@@ -1,21 +1,21 @@
 <template>
 	<div class="JsonFormatter">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 Formatting is done with [JSON.stringify(...)]\
 (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). \
 Enter your [JSON](https://www.json.org) below to get started:
 			`"/>
 
-			<tool-error
+			<el-error
 				v-if="errorMessage"
 				ref="error"
 				class="JsonFormatter__errorMessage"
 				:message="errorMessage"/>
 
-			<tool-code
+			<el-code-input
 				ref="JsonFormatter__input"
 				v-model="jsonString"
 				:options="codeOptions"
@@ -23,10 +23,10 @@ Enter your [JSON](https://www.json.org) below to get started:
 
 		</div>
 
-		<tool-taskbar v-if="jsonString">
+		<el-taskbar v-if="jsonString">
 
 			<template v-if="!formatted">
-				<tool-button
+				<el-button
 					class="JsonFormatter__button"
 					v-text="'Format'"
 					size="lg"
@@ -41,40 +41,40 @@ Enter your [JSON](https://www.json.org) below to get started:
 			</template>
 
 			<template v-else>
-				<tool-button
+				<el-button
 					size="lg"
 					class="JsonFormatter__button"
 					v-text="'Copy Output'"
 					v-clipboard="jsonString"/>
-				<tool-button
+				<el-button
 					id="Action"
 					class="JsonFormatter__button"
 					v-text="'Browse JSON'"
 					:href="`https://json-formatter.holistic-toolbox.com?JSON=${jsonString}`"
 					target="_blank"
 					size="lg"/>
-				<tool-button
+				<el-button
 					size="sm"
 					class="JsonFormatter__button"
 					variant="secondary"
 					v-text="'Reset'"
 					@click.native="reset"/>
 			</template>
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolCode, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElCodeInput, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 
 export default {
 	components: {
-		ToolButton,
-		ToolCode,
-		ToolError,
-		ToolMarkdown,
-		ToolTaskbar
+		ElButton,
+		ElCodeInput,
+		ElError,
+		ElMarkdown,
+		ElTaskbar
 	},
 	data() {
 		return {

@@ -1,9 +1,9 @@
 <template>
 	<div ref="ImageComparer" class="ImageComparer">
 
-		<div class="ToolWrapper">
+		<div class="ElWrapper">
 
-			<tool-markdown :markdown="`
+			<el-markdown :markdown="`
 This is a tool to compare two images with the same dimensions using the library \
 [pixelmatch](https://www.npmjs.com/package/pixelmatch). Any differring pixels will \
 be flagged in red.
@@ -39,17 +39,17 @@ be flagged in red.
 					<canvas ref="ImageComparer__resultCanvas"/>
 				</section>
 
-				<tool-error ref="error" v-else :message="errorMessage"/>
+				<el-error ref="error" v-else :message="errorMessage"/>
 
 			</template>
 
 		</div>
 
-		<tool-taskbar v-if="showTaskbar">
+		<el-taskbar v-if="showTaskbar">
 
 			<template v-if="!compared">
 
-				<tool-button
+				<el-button
 					id="Action"
 					class="ImageComparer__taskbarItem"
 					size="lg"
@@ -62,7 +62,7 @@ be flagged in red.
 
 			</template>
 
-			<tool-button
+			<el-button
 				v-else
 				class="ImageComparer__taskbarItem"
 				size="sm"
@@ -70,13 +70,13 @@ be flagged in red.
 				v-text="'Reset'"
 				@click.native="reset"/>
 
-		</tool-taskbar>
+		</el-taskbar>
 
 	</div>
 </template>
 
 <script>
-import { ToolButton, ToolError, ToolMarkdown, ToolTaskbar } from '@holistic-web/toolbox-layout';
+import { ElButton, ElError, ElMarkdown, ElTaskbar } from '@holistic-web/toolbox-layout';
 import pixelmatch from 'pixelmatch';
 import Inputs from './components/Inputs.vue';
 import Settings from './components/Settings.vue';
@@ -89,12 +89,12 @@ const pixelmatchDefaults = {
 
 export default {
 	components: {
-		ToolButton,
-		ToolError,
-		ToolMarkdown,
+		ElButton,
+		ElError,
+		ElMarkdown,
 		Inputs,
 		Settings,
-		ToolTaskbar
+		ElTaskbar
 	},
 	data() {
 		return {

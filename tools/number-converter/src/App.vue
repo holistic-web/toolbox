@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<tool-layout name="Number Converter">
+		<tool-layout subtitle="Number Converter">
 			<number-converter/>
 		</tool-layout>
 	</div>
