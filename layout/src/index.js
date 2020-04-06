@@ -2,7 +2,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import {
 	ElButton,
-	ElCodeInputInput,
+	ElCodeInput,
 	ElError,
 	ElHeader,
 	ElLayout,
@@ -33,7 +33,7 @@ Vue.use(scrollTo, {
 
 export {
 	ElButton,
-	ElCodeInputInput,
+	ElCodeInput,
 	ElError,
 	ElHeader,
 	ElLayout,
