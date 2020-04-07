@@ -49,7 +49,7 @@ export default {
 	}
 
 	&__card {
-		border-radius: $tool-border-radius !important;
+		border-radius: $el-border-radius !important;
 		border: solid grey;
 		border-width: .1rem;
 		background-color: grey;
