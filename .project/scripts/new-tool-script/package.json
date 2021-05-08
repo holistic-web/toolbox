@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "directory-tree": "^2.2.4",
-    "handlebars": "^4.7.3"
+    "handlebars": "^4.7.7"
   }
 }
